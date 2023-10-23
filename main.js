@@ -9,6 +9,44 @@
 // });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Create and append the 'description' meta tag
+  const descriptionMeta = document.createElement('meta');
+  descriptionMeta.name = 'description';
+  descriptionMeta.content = "45i's Personal Shenanigans";
+  document.head.appendChild(descriptionMeta);
+
+  // Create and append the 'og:site_name' meta tag
+  const ogSiteNameMeta = document.createElement('meta');
+  ogSiteNameMeta.name = 'og:site_name';
+  ogSiteNameMeta.content = "45i";
+  document.head.appendChild(ogSiteNameMeta);
+
+  // Create and append the 'og:image' meta tag
+  const ogImageMeta = document.createElement('meta');
+  ogImageMeta.property = 'og:image';
+  ogImageMeta.content = 'megamun.png';
+  document.head.appendChild(ogImageMeta);
+
+  // Create and append the 'theme-color' meta tag
+  const themeColorMeta = document.createElement('meta');
+  themeColorMeta.name = 'theme-color';
+  themeColorMeta.content = '#262624';
+  document.head.appendChild(themeColorMeta);
+
+  // Create and append the Font Awesome CSS link
+  const fontAwesomeLink = document.createElement('link');
+  fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css';
+  fontAwesomeLink.rel = 'stylesheet';
+  document.head.appendChild(fontAwesomeLink);
+const epicFaviconLink = document.createElement('link');
+epicFaviconLink.href = 'megamun.png';
+epicFaviconLink.rel = 'icon';
+epicFaviconLink.type = 'image/x-icon';
+  document.head.appendChild(epicFaviconLink);
+
+
+});
 // const body = document.body;
 
 // let sx = 0, // For scroll positions
@@ -64,39 +102,6 @@ function applyFilter() {
 applyFilter();
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Create and append the 'description' meta tag
-  const descriptionMeta = document.createElement('meta');
-  descriptionMeta.name = 'description';
-  descriptionMeta.content = "45i's Personal Shenanigans";
-  document.head.appendChild(descriptionMeta);
-
-  // Create and append the 'og:site_name' meta tag
-  const ogSiteNameMeta = document.createElement('meta');
-  ogSiteNameMeta.name = 'og:site_name';
-  ogSiteNameMeta.content = "45i";
-  document.head.appendChild(ogSiteNameMeta);
-
-  // Create and append the 'og:image' meta tag
-  const ogImageMeta = document.createElement('meta');
-  ogImageMeta.property = 'og:image';
-  ogImageMeta.content = 'megamun.png';
-  document.head.appendChild(ogImageMeta);
-
-  // Create and append the 'theme-color' meta tag
-  const themeColorMeta = document.createElement('meta');
-  themeColorMeta.name = 'theme-color';
-  themeColorMeta.content = '#262624';
-  document.head.appendChild(themeColorMeta);
-
-  // Create and append the Font Awesome CSS link
-  const fontAwesomeLink = document.createElement('link');
-  fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css';
-  fontAwesomeLink.rel = 'stylesheet';
-  document.head.appendChild(fontAwesomeLink);
-
-
-});
 
 
 document.addEventListener("DOMContentLoaded", function () {
