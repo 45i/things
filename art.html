@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <link href="mystyle.scss" rel="stylesheet"> -->
+    <link href="mystyle.css" rel="stylesheet" />
+    <script src="main.js"></script>
+    <title>Teams</title>
+    <link href="megamun.png" rel="icon" type="image/x-icon" />
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+</head>
+<style>
+    header h1 {
+        font-size: calc(15vw);
+    }
+
+    .text {
+        overflow: visible;
+    }
+    ul li {
+        font: kbd;
+    }
+</style>
+
+<body>
+    <div class="preloader"></div>
+    <div class="navbar-container"></div>
+    <header>
+        <div
+            style="background:  url(megamun.png);  background-position: 50%;background-size: contain; filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5)); background-repeat: no-repeat;">
+            <h1><strong>The Teams</strong></h1>
+        </div>
+
+        <span style="color:#ffffff;font-size: calc(3.15vw);">The brains behind <b>MEGAMUN23</b></span>
+        <div class="scroll-down"><i class="fas fa-angle-double-down" style="font-size: small; "></i></div>
+    </header>
+
+    <!-- The Close Button -->
+
+    <!-- Modal Content (The Image) -->
+
+
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+
+        <!-- Modal Content (The Image) -->
+
+        <div class="close">
+            <!-- <span class="close">&times;</span> -->
+            <center><img class="modal-content" style="max-width:80vh" id="img01"></center>
+
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+        </div>
+    </div>
+
+    <div style="height:100vw;position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   ">
+        <center class="target-element">
+            <h1 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-size-adjust: 100%; font-size: calc(7.5vw); line-height: 7.5vw;"
+                id="cption">
+                <span class="thin">Team</span> <strong>AIPPM</strong>
+            </h1>
+        </center>
+        <div class="slideshow-container" style="margin:10px; border-radius: 10px;">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+
+                <center><img src="chairs/AIPPM.jpg" style="max-width:75vh" id="myImg"></center>
+                <div class="text"><span class="thin">Team</span> <strong>AIPPM</strong></div>
+            </div>
+
+            <div class="mySlides fade">
+
+                <center><img src="chairs/COE-ATIP.jpg" style="max-width:75vh" id="myImg"></center>
+                <div class="text"><span class="thin">Team</span> <strong>COE-ATIP</strong></div>
+            </div>
+
+            <div class="mySlides fade">
+
+                <center><img src="chairs/SSOC-1977.jpg" style="max-width:75vh" id="myImg"></center>
+                <div class="text"><span class="thin">Team</span> <strong>SSOC-1977</strong></div>
+            </div>
+            <div class="mySlides fade">
+
+                <center><img src="chairs/Delegate Affairs.jpg" style="max-width:75vh" id="myImg"></center>
+                <div class="text"><strong>Delegate Affairs</strong> <span class="thin">Team</span> </div>
+            </div>
+
+            <div class="mySlides fade">
+
+                <center><img src="chairs/Design.jpg" style="max-width:75vh" id="myImg"></center>
+                <div class="text"><strong>Design</strong> <span class="thin">Team</span> </div>
+            </div>
+
+            <div class="mySlides fade">
+
+                <center><img src="chairs/Logistics.jpg" style="max-width:75vh" id="myImg"></center>
+                <div class="text"><strong>Logistics</strong> <span class="thin">Team</span> </div>
+            </div>
+            <div class="mySlides fade">
+
+                <center><img src="chairs/IT.jpg" style="max-width:75vh" id="myImg"></center>
+                <a href="credits.html" class="text" ><strong>IT</strong> <span class="thin">Team</span> </a>
+            </div>
+
+
+
+            <!-- Next and previous buttons -->
+            <a class="prev"onclick="plusSlides(-1)" >&#10094;</a>
+            <a class="next"onclick="plusSlides(1)" >&#10095;</a>
+        </div>
+    </div>
+    <br>
+
+    <!-- The dots/circles -->
+
+    <!-- The dots/circles -->
+    <div style="text-align:center" id="dot-container">
+    </div>
+    <!-- <div class="blog-slider"> 
+  <div class="blog-slider__wrp swiper-wrapper">
+   <div class="blog-slider__item swiper-slide">
+     <div class="blog-slider__img">
+ 
+        <img src="chairs/AIPPM.jpg"
+             alt="">
+     </div>
+     <div class="blog-slider__content">
+        <span class="blog-slider__code">26 December 2019</span>
+        <div class="blog-slider__title">Lorem Ipsum Dolor</div>
+        <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
+             voluptate repellendus magni illo ea animi? </div>
+        <a href="#" class="blog-slider__button">READ MORE</a>
+     </div>
+   </div>
+   <div class="blog-slider__item swiper-slide">
+     <div class="blog-slider__img">
+        <img src="chairs/AIPPM.jpg"
+             alt="">
+     </div>
+     <div class="blog-slider__content">
+        <span class="blog-slider__code">26 December 2019</span>
+        <div class="blog-slider__title">Lorem Ipsum Dolor2</div>
+        <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
+             voluptate repellendus magni illo ea animi?</div>
+        <a href="#" class="blog-slider__button">READ MORE</a>
+     </div>
+   </div>
+ 
+   <div class="blog-slider__item swiper-slide">
+     <div class="blog-slider__img">
+        <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759871/alessandro-capuzzi-799180-unsplash.webp"
+             alt="">
+     </div>
+     <div class="blog-slider__content">
+        <span class="blog-slider__code">26 December 2019</span>
+        <div class="blog-slider__title">Lorem Ipsum Dolor</div>
+        <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
+             voluptate repellendus magni illo ea animi?</div>
+        <a href="#" class="blog-slider__button">READ MORE</a>
+     </div>
+   </div>
+ 
+  </div>
+  <div class="blog-slider__pagination"></div>
+ </div>-->
+    <div class="footer-container"></div>
+
+</body>
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // function showSlides() {
+    //     let i;
+    //     let slides = document.getElementsByClassName("mySlides");
+    //     let dots = document.getElementsByClassName("dot");
+    //     for (i = 0; i < slides.length; i++) {
+    //         slides[i].style.display = "none";
+    //     }
+    //     for (i = 0; i < dots.length; i++) {
+    //         dots[i].className = dots[i].className.replace(" active", "");
+    //     }
+    //     slideIndex++;
+    //     if (slideIndex > slides.length) { slideIndex = 1 }
+    //     slides[slideIndex - 1].style.display = "block";
+    //     dots[slideIndex - 1].className += " active";
+    //     setTimeout(showSlides, 300); // Change image every 2 seconds
+    // }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+
+        // Get the associated text for the current slide
+        var textElements = document.querySelectorAll(".text");
+        var captionText = document.getElementById("cption");
+        captionText.innerHTML = textElements[slideIndex - 1].innerHTML;
+    }
+
+</script>
+<script>
+    // Get the number of slides
+    var numSlides = document.querySelectorAll('.mySlides').length;
+
+    // Get a reference to the dot container
+    var dotContainer = document.getElementById('dot-container');
+
+    // Create and add the dots
+    for (var i = 0; i < numSlides; i++) {
+        var dot = document.createElement('span');
+        dot.className = 'dot';
+        dot.onclick = function () {
+            currentSlide(i + 1);
+        };
+        dotContainer.appendChild(dot);
+    }
+
+    // Set the initial active dot
+    var dots = document.querySelectorAll('.dot');
+    dots[0].classList.add('active');
+
+
+</script>
+
+<script>
+    // Get all elements with the id "myImg" and the class "text"
+    var images = document.querySelectorAll("#myImg");
+    var textElements = document.querySelectorAll(".text");
+
+    // Loop through each image and attach the modal functionality
+    images.forEach(function (img, index) {
+        img.onclick = function () {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+
+            // Set the modal content based on the clicked image and its corresponding text
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = textElements[index].innerHTML;
+        }
+    });
+
+    // Get the <span> element that closes the modal
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function () {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
+
+
+</script>
+<!-- <script>
+    var slideIndex = 1;
+  showSlides(slideIndex);
+
+  // function showSlides() {
+  //     let i;
+  //     let slides = document.getElementsByClassName("mySlides");
+  //     let dots = document.getElementsByClassName("dot");
+  //     for (i = 0; i < slides.length; i++) {
+  //         slides[i].style.display = "none";
+  //     }
+  //     for (i = 0; i < dots.length; i++) {
+  //         dots[i].className = dots[i].className.replace(" active", "");
+  //     }
+  //     slideIndex++;
+  //     if (slideIndex > slides.length) { slideIndex = 1 }
+  //     slides[slideIndex - 1].style.display = "block";
+  //     dots[slideIndex - 1].className += " active";
+  //     setTimeout(showSlides, 300); // Change image every 2 seconds
+  // }
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+
+    // Get the associated text for the current slide
+    var textElements = document.querySelectorAll(".text");
+    var captionText = document.getElementById("cption");
+    captionText.innerHTML = textElements[slideIndex - 1].innerHTML;
+  }
+
+
+  // Get the number of slides
+  var numSlides = document.querySelectorAll('.mySlides').length;
+
+  // Get a reference to the dot container
+  var dotContainer = document.getElementById('dot-container');
+
+  // Create and add the dots
+  for (var i = 0; i < numSlides; i++) {
+    var dot = document.createElement('span');
+    dot.className = 'dot';
+    dot.onclick = function () {
+      currentSlide(i + 1);
+    };
+    dotContainer.appendChild(dot);
+  }
+
+  // Set the initial active dot
+  var dots = document.querySelectorAll('.dot');
+  dots[0].classList.add('active');
+
+
+
+  // Get all elements with the id "myImg" and the class "text"
+  var images = document.querySelectorAll("#myImg");
+  var textElements = document.querySelectorAll(".text");
+
+  // Loop through each image and attach the modal functionality
+  images.forEach(function (img, index) {
+    img.onclick = function () {
+      var modal = document.getElementById("myModal");
+      var modalImg = document.getElementById("img01");
+      var captionText = document.getElementById("caption");
+
+      // Set the modal content based on the clicked image and its corresponding text
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = textElements[index].innerHTML;
+    }
+  });
+
+  // Get the <span> element that closes the modal
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  span.onclick = function () {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+  }
+
+
+  // window.addEventListener('scroll', handleScroll);
+  // Get the elements by their class names
+  const prevButton = document.querySelector('.prev');
+  const nextButton = document.querySelector('.next');
+  console.log(prevButton);
+  console.log(nextButton);
+  // Add event listeners for the previous and next buttons
+  prevButton.addEventListener('click', function () {
+    plusSlides(-1);
+  });
+
+  nextButton.addEventListener('click', function () {
+    plusSlides(1);
+  });
+
+</script> -->
+
+</html>
