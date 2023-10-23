@@ -3,11 +3,11 @@ from bs4 import BeautifulSoup
 
 # Define the meta tags you want to add
 meta_tags = """
-<meta name="description" content="Official MEGAMUN'23 website">
-<meta name="og:site_name" content="MEGAMUN'23">
+<meta name="description" content="45i's Personal Shenanigans">
+<meta name="og:site_name" content="45i">
 <meta property="og:image" content="megamun.png">
 <link rel="icon" href="megamun.png" type="image/x-icon">
-<meta name="theme-color" content="#2A1472">
+<meta name="theme-color" content="#262624">
 """
 
 # List of HTML files to update

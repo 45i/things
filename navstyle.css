@@ -12,7 +12,7 @@
 .committee i {
     margin-left: 5px;
     transition: transform 0.2s ease;
-    color: #220379;
+    color: #262624;
 }
 
 /* Rotate the icon on hover */
@@ -25,7 +25,7 @@
     position: absolute;
     top: 57.1%;
     /* left: 0px; */
-    background-color: #0F0331;
+    background-color: #1f1f1e;
     border-radius: 6px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;

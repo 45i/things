@@ -68,13 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create and append the 'description' meta tag
   const descriptionMeta = document.createElement('meta');
   descriptionMeta.name = 'description';
-  descriptionMeta.content = "Official MEGAMUN'23 website";
+  descriptionMeta.content = "45i's Personal Shenanigans";
   document.head.appendChild(descriptionMeta);
 
   // Create and append the 'og:site_name' meta tag
   const ogSiteNameMeta = document.createElement('meta');
   ogSiteNameMeta.name = 'og:site_name';
-  ogSiteNameMeta.content = "MEGAMUN'23";
+  ogSiteNameMeta.content = "45i";
   document.head.appendChild(ogSiteNameMeta);
 
   // Create and append the 'og:image' meta tag
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create and append the 'theme-color' meta tag
   const themeColorMeta = document.createElement('meta');
   themeColorMeta.name = 'theme-color';
-  themeColorMeta.content = '#2A1472';
+  themeColorMeta.content = '#262624';
   document.head.appendChild(themeColorMeta);
 
   // Create and append the Font Awesome CSS link
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
   fontAwesomeLink.rel = 'stylesheet';
   document.head.appendChild(fontAwesomeLink);
 
-  
+
 });
 
 
