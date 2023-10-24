@@ -1727,7 +1727,7 @@ article {
 }
 
 /* The Close Button */
-/* .close {
+.close {
   position: absolute;
   top: 15px;
   right: 35px;
@@ -1735,7 +1735,7 @@ article {
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
-} */
+}
 
 .close:hover,
 .close:focus {

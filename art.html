@@ -48,8 +48,8 @@
 
         <!-- Modal Content (The Image) -->
 
-        <div class="close">
-            <!-- <span class="close">&times;</span> -->
+        <div class="">
+            <span class="close">&times;</span>
             <center><img class="modal-content" style="max-width:80vh" id="img01"></center>
 
             <!-- Modal Caption (Image Text) -->
@@ -63,68 +63,193 @@
     justify-content: center;
    ">
         <center id="target-element">
-            <h1 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-size-adjust: 100%; font-size: calc(7.5vw); line-height: 7.5vw;"
+            <h1 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-size-adjust: 100%; font-size: calc(5.5vw); line-height: 7.5vw;"
                 id="cption">
-                <span class="thin">Team</span> <strong>AIPPM</strong>
+                <strong>Artwork and Test Renders</strong>
             </h1>
         </center>
+            <!-- <a class="prev"onclick="plusSlides(-1)" >&#10094;</a>
+            <a class="next"onclick="plusSlides(1)" >&#10095;</a> -->
         <div class="slideshow-container" style="margin:10px; border-radius: 10px;">
 
             <!-- Full-width images with number and caption text -->
-            <div class="mySlides fade">
-
-                <center><img src="chairs/AIPPM.jpg" style="max-width:75vh" id="myImg"></center>
-                <div class="text"><span class="thin">Team</span> <strong>AIPPM</strong></div>
-            </div>
-
-            <div class="mySlides fade">
-
-                <center><img src="chairs/COE-ATIP.jpg" style="max-width:75vh" id="myImg"></center>
-                <div class="text"><span class="thin">Team</span> <strong>COE-ATIP</strong></div>
-            </div>
-
-            <div class="mySlides fade">
-
-                <center><img src="chairs/SSOC-1977.jpg" style="max-width:75vh" id="myImg"></center>
-                <div class="text"><span class="thin">Team</span> <strong>SSOC-1977</strong></div>
-            </div>
-            <div class="mySlides fade">
-
-                <center><img src="chairs/Delegate Affairs.jpg" style="max-width:75vh" id="myImg"></center>
-                <div class="text"><strong>Delegate Affairs</strong> <span class="thin">Team</span> </div>
-            </div>
-
-            <div class="mySlides fade">
-
-                <center><img src="chairs/Design.jpg" style="max-width:75vh" id="myImg"></center>
-                <div class="text"><strong>Design</strong> <span class="thin">Team</span> </div>
-            </div>
-
-            <div class="mySlides fade">
-
-                <center><img src="chairs/Logistics.jpg" style="max-width:75vh" id="myImg"></center>
-                <div class="text"><strong>Logistics</strong> <span class="thin">Team</span> </div>
-            </div>
-            <div class="mySlides fade">
-
-                <center><img src="chairs/IT.jpg" style="max-width:75vh" id="myImg"></center>
-                <a href="credits.html" class="text" ><strong>IT</strong> <span class="thin">Team</span> </a>
-            </div>
-
+           
 
 
             <!-- Next and previous buttons -->
-            <a class="prev"onclick="plusSlides(-1)" >&#10094;</a>
-            <a class="next"onclick="plusSlides(1)" >&#10095;</a>
         </div>
     </div>
     <br>
+<script>
+   // Define an array of custom image URLs
+const customImages = [
+  "renders/dave_do_not_touch.jpg",
 
+"renders/thinker_pp.png",
+
+"renders/whathaveidone.png",
+
+"renders/nigga3.png",
+
+"renders/final2.png",
+
+"renders/disgraf2.png",
+
+"renders/dave_hazardous_waste.jpg",
+
+"renders/finale fh5 style.png",
+
+"renders/d1.png",
+
+"renders/G2.png",
+
+"renders/whathaveidone3.png",
+
+"renders/CarInTheDrowningSun4.png",
+
+"renders/CarInTheDrowningSun3.png",
+
+"renders/dis.png",
+
+"renders/whathaveidone3_2.png",
+
+"renders/thinker_pp2.jpg",
+
+"renders/finale.png",
+
+"renders/final.png",
+
+"renders/nigga2.png",
+
+"renders/CarInTheDrowningSun5.png",
+
+"renders/dave_full.png",
+
+"renders/whathaveidone2_2.png",
+
+"renders/dave_out_of_order.jpg",
+
+"renders/dis2.png",
+
+"renders/untitled.png",
+
+"renders/d2.png",
+
+"renders/ggdv.png",
+
+"renders/dave2.png",
+
+"renders/demon final.jpg",
+
+"renders/dis3.png",
+
+"renders/nigga1.png",
+
+"renders/thinker.png",
+
+"renders/disgraf.png",
+
+"renders/final2.jpg",
+
+"renders/w2.jpg",
+
+"renders/wall2.jpg",
+
+"renders/G.png",
+
+"renders/ellie1.png",
+
+"renders/d3.png",
+
+"renders/CarInTheDrowningSun2.png",
+
+"renders/dave.png",
+
+"renders/demon_test_1.jpg",
+
+"renders/davivtherapist.png",
+
+"renders/dave_hazardous_waste.png",
+
+"renders/demon_test_2.jpg",
+
+"renders/whathaveidone2.png",
+
+"renders/ggdv_pp.jpg",
+
+"renders/CarInTheDrowningSun1.png"
+];
+
+// Get the target element
+const targetElement = document.getElementById('target-element');
+
+// Remove the existing mySlides elements
+const existingSlides = document.querySelectorAll('.mySlides');
+existingSlides.forEach((slide) => {
+  slide.remove();
+});
+
+// Create a slideshow container
+const slideshowContainer = document.createElement('div');
+slideshowContainer.className = 'slideshow-container';
+slideshowContainer.style.margin = '10px';
+slideshowContainer.style.borderRadius = '10px';
+
+// Loop through the custom image URLs and create new slides
+customImages.forEach((imageUrl) => {
+  const slide = document.createElement('div');
+  slide.className = 'mySlides fade';
+
+  const image = document.createElement('img');
+  image.src = imageUrl;
+  image.style.maxWidth = '75vh';
+  image.id = 'myImg';
+
+  slide.appendChild(document.createElement('center').appendChild(image));
+  slideshowContainer.appendChild(slide);
+});
+
+// Create prev and next buttons
+// Create prev and next buttons
+const prevButton = document.createElement('a');
+prevButton.className = 'prev';
+prevButton.setAttribute('onclick', 'plusSlides(-1)');
+prevButton.innerHTML = '&#10094;';
+
+const nextButton = document.createElement('a');
+nextButton.className = 'next';
+nextButton.setAttribute('onclick', 'plusSlides(1)');
+nextButton.innerHTML = '&#10095;';
+
+// Apply CSS styles to position the buttons
+prevButton.style.position = 'absolute';
+prevButton.style.left = '0';
+prevButton.style.top = '50%';
+prevButton.style.transform = 'translateY(-50%)';
+
+nextButton.style.position = 'absolute';
+nextButton.style.right = '0';
+nextButton.style.top = '50%';
+nextButton.style.transform = 'translateY(-50%)';
+
+// Add everything to the target element
+slideshowContainer.appendChild(prevButton);
+slideshowContainer.appendChild(nextButton);
+targetElement.appendChild(slideshowContainer);
+
+
+// Add everything to the target element
+slideshowContainer.appendChild(prevButton);
+slideshowContainer.appendChild(nextButton);
+targetElement.appendChild(slideshowContainer);
+
+</script>
     <!-- The dots/circles -->
 
     <!-- The dots/circles -->
     <div style="text-align:center" id="dot-container">
     </div>
+
     <!-- <div class="blog-slider"> 
   <div class="blog-slider__wrp swiper-wrapper">
    <div class="blog-slider__item swiper-slide">
