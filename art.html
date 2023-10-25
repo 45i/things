@@ -10,83 +10,7 @@
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script> -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 </head>
-<style>
-  header h1 {
-    font-size: calc(15vw);
-  }
-
-  .text {
-    overflow: visible;
-  }
-
-  ul li {
-    font: kbd;
-  }
-</style>
-
-<body>
-  <div id="preloader" style="display:none"></div>
-  <div class="navbar-container"></div>
-  <header>
-    <div
-      style=" background-position: 50%;background-size: contain; filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5)); background-repeat: no-repeat;">
-      <h1><strong class="graffiti-bold">Artwork</strong></h1>
-    </div>
-
-    <span style="color:#ffffff;font-size: calc(3.15vw);"><strong style="font-family: st;">/ˈɑːtwəːk/</strong><i>&nbsp;
-        <i>noun</i></i>
-      <p class="thin">paintings, drawings, or other artistic works</p>
-    </span>
-    <div class="scroll-down"><i class="fas fa-angle-double-down" style="font-size: small; color: #ffffff;"></i></div>
-  </header>
-
-  <!-- The Close Button -->
-
-  <!-- Modal Content (The Image) -->
-
-
-  <div id="myModal" class="modal">
-
-    <!-- The Close Button -->
-
-    <!-- Modal Content (The Image) -->
-
-    <div class="">
-      <span class="close">&times;</span>
-      <center><img class="modal-content" style="max-width:80vh" id="img01"></center>
-
-      <!-- Modal Caption (Image Text) -->
-      <div id="caption"></div>
-    </div>
-  </div>
-
-  <div style="height:100vw;position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-   ">
-    <center id="target-element">
-      <h1
-        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-size-adjust: 100%; font-size: calc(5.5vw); line-height: 7.5vw;"
-        id="cption">
-        <strong>Artwork and Test Renders</strong>
-      </h1>
-    </center>
-    <!-- <a class="prev"onclick="plusSlides(-1)" >&#10094;</a>
-            <a class="next"onclick="plusSlides(1)" >&#10095;</a> -->
-    <div class="slideshow-container" style="margin:10px; border-radius: 10px;">
-
-      <!-- Full-width images with number and caption text -->
-
-
-
-      <!-- Next and previous buttons -->
-      <div style="text-align:center" id="dot-container">
-  </div>
-    </div>
-  </div>
-  <br>
-  <script>
+<!-- <script>
     // Define an array of custom image URLs
     const customImages = [
       "renders/dave_do_not_touch.jpg",
@@ -249,11 +173,403 @@
     slideshowContainer.appendChild(nextButton);
     targetElement.appendChild(slideshowContainer);
 
-  </script>
+  </script> -->
+<style>
+  header h1 {
+    font-size: calc(15vw);
+  }
+
+  .text {
+    overflow: visible;
+  }
+
+  ul li {
+    font: kbd;
+  }
+
+  .mySlides img {
+    position: relative;
+  }
+
+  .mySlides img:hover::before {
+    content: "\f002";
+    /* The magnifying glass icon */
+    font-family: "Font Awesome 6 Free";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+  }
+
+  .mySlides img:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Darken background */
+  }
+</style>
+
+<body>
+  <div id="preloader" style="color:#fff">We're having to load a ton of images... Please wait
+  <p>This site is still in development. Some things may not work as intended...</p></div>
+  <div class="navbar-container"></div>
+  <header>
+    <div
+      style=" background-position: 50%;background-size: contain; filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5)); background-repeat: no-repeat;">
+      <h1><strong class="graffiti-bold">Artwork</strong></h1>
+    </div>
+
+    <span style="color:#ffffff;font-size: calc(3.15vw);"><strong style="font-family: st;">/ˈɑːtwəːk/</strong><i>&nbsp;
+        <i>noun</i></i>
+      <p class="thin">paintings, drawings, or other artistic works</p>
+    </span>
+    <div class="scroll-down"><i class="fas fa-angle-double-down" style="font-size: small; color: #ffffff;"></i></div>
+  </header>
+
+  <!-- The Close Button -->
+
+  <!-- Modal Content (The Image) -->
+
+
+  <div id="myModal" class="modal">
+
+    <!-- The Close Button -->
+
+    <!-- Modal Content (The Image) -->
+
+    <div class="">
+      <center><img class="modal-content" style="max-width:80vh" id="img01"></center>
+      <span class="close"><i class="fas fa-magnifying-glass-minus">&times;</i></span>
+
+      <!-- Modal Caption (Image Text) -->
+      <div id="caption"></div>
+    </div>
+  </div>
+
+  <div style="height:100vw;position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   ">
+    <center id="target-element">
+      <h1
+        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-size-adjust: 100%; font-size: calc(5.5vw); line-height: 7.5vw;"
+        id="cption">
+        <strong>Artwork and Test Renders</strong>
+      </h1>
+    </center>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <div class="slideshow-container" style="margin:10px; border-radius: 10px;">
+
+      <!-- Full-width images with number and caption text -->
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/dave_do_not_touch.jpg" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/thinker_pp.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/whathaveidone.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/nigga3.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/final2.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/disgraf2.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/dave_hazardous_waste.jpg" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/finale fh5 style.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/d1.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/G2.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/whathaveidone3.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/CarInTheDrowningSun4.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/CarInTheDrowningSun3.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/dis.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/whathaveidone3_2.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/thinker_pp2.jpg" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/finale.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/final.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/nigga2.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/CarInTheDrowningSun5.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/dave_full.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/whathaveidone2_2.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/dave_out_of_order.jpg" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/dis2.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/untitled.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/d2.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/ggdv.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/dave2.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/demon final.jpg" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/dis3.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/nigga1.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/thinker.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/disgraf.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/final2.jpg" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/w2.jpg" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/wall2.jpg" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/G.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/ellie1.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/d3.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/CarInTheDrowningSun2.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/dave.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/demon_test_1.jpg" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/davivtherapist.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/dave_hazardous_waste.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/demon_test_2.jpg" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/whathaveidone2.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/ggdv_pp.jpg" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+      <div class="mySlides fade">
+        <center>
+          <img src="renders/CarInTheDrowningSun1.png" style="max-width:75vh" id="myImg">
+        </center>
+        <div class="text"></div>
+      </div>
+
+
+      <!-- Next and previous buttons -->
+      <div style="text-align:center" id="dot-container">
+      </div>
+    </div>
+  </div>
+  <br>
+
   <!-- The dots/circles -->
 
   <!-- The dots/circles -->
-  
+
 
   <!-- <div class="blog-slider"> 
   <div class="blog-slider__wrp swiper-wrapper">
@@ -305,6 +621,30 @@
   <div class="footer-container"></div>
 
 </body>
+
+<script>
+  // Get the number of slides
+  var numSlides = document.querySelectorAll('.mySlides').length;
+
+  // Get a reference to the dot container
+  var dotContainer = document.getElementById('dot-container');
+
+  // Create and add the dots
+  for (var i = 0; i < numSlides; i++) {
+    var dot = document.createElement('span');
+    dot.className = 'dot';
+    dot.onclick = function () {
+      currentSlide(i + 1);
+    };
+    dotContainer.appendChild(dot);
+  }
+
+  // Set the initial active dot
+  var dots = document.querySelectorAll('.dot');
+  dots[0].classList.add('active');
+
+
+</script>
 <script>
   let slideIndex = 1;
   showSlides(slideIndex);
@@ -358,30 +698,6 @@
 
 </script>
 <script>
-  // Get the number of slides
-  var numSlides = document.querySelectorAll('.mySlides').length;
-
-  // Get a reference to the dot container
-  var dotContainer = document.getElementById('dot-container');
-
-  // Create and add the dots
-  for (var i = 0; i < numSlides; i++) {
-    var dot = document.createElement('span');
-    dot.className = 'dot';
-    dot.onclick = function () {
-      currentSlide(i + 1);
-    };
-    dotContainer.appendChild(dot);
-  }
-
-  // Set the initial active dot
-  var dots = document.querySelectorAll('.dot');
-  dots[0].classList.add('active');
-
-
-</script>
-
-<script>
   // Get all elements with the id "myImg" and the class "text"
   var images = document.querySelectorAll("#myImg");
   var textElements = document.querySelectorAll(".text");
@@ -411,7 +727,9 @@
 
 
 </script>
-  <script src="main.js" defer=""></script>
+<script src="main.js"></script>
+
+
 
 <!-- <script>
     var slideIndex = 1;

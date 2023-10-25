@@ -14,4 +14,4 @@ for root, dirs, files in os.walk(folder_path):
 # Now, the 'file_urls' list contains the URLs (file paths) of all the files in the folder
 # You can print or use this list as needed
 for url in file_urls:
-    print("\""+url+"\",\n")
+    print(f"<div class=\"mySlides fade\">\n<center>\n<img src=\"{url}\" style=\"max-width:75vh\" id=\"myImg\">\n</center>\n<div class=\"text\"></div>\n</div>")
