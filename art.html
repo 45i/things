@@ -217,7 +217,8 @@
 
 <body>
   <div id="preloader" style="color:#fff">We're having to load a ton of images... Please wait
-  <p>This site is still in development. Some things may not work as intended...</p></div>
+    <p>This site is still in development. Some things may not work as intended...</p>
+  </div>
   <div class="navbar-container"></div>
   <header>
     <div
@@ -251,19 +252,17 @@
       <div id="caption"></div>
     </div>
   </div>
+  <center id="target-element">
+    <h1 style="white-space: nowrap;  text-size-adjust: 100%; font-size: calc(5.5vw); line-height: 7.5vw;" id="cption">
+      <strong>Artwork and Test Renders</strong>
+    </h1>
+  </center>
 
   <div style="height:100vw;position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
    ">
-    <center id="target-element">
-      <h1
-        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-size-adjust: 100%; font-size: calc(5.5vw); line-height: 7.5vw;"
-        id="cption">
-        <strong>Artwork and Test Renders</strong>
-      </h1>
-    </center>
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
     <div class="slideshow-container" style="margin:10px; border-radius: 10px;">
@@ -648,23 +647,23 @@
 <script>
   let slideIndex = 1;
   showSlides(slideIndex);
-
-  // function showSlides() {
-  //     let i;
-  //     let slides = document.getElementsByClassName("mySlides");
-  //     let dots = document.getElementsByClassName("dot");
-  //     for (i = 0; i < slides.length; i++) {
-  //         slides[i].style.display = "none";
-  //     }
-  //     for (i = 0; i < dots.length; i++) {
-  //         dots[i].className = dots[i].className.replace(" active", "");
-  //     }
-  //     slideIndex++;
-  //     if (slideIndex > slides.length) { slideIndex = 1 }
-  //     slides[slideIndex - 1].style.display = "block";
-  //     dots[slideIndex - 1].className += " active";
-  //     setTimeout(showSlides, 300); // Change image every 2 seconds
-  // }
+  showSlides();
+  function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    setTimeout(showSlides, 300); // Change image every 2 seconds
+  }
 
   function plusSlides(n) {
     showSlides(slideIndex += n);
