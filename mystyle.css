@@ -1689,7 +1689,7 @@ article {
   width: 80%;
   max-width: 700px;
   /* left: 20vw; */
-
+  zoom: -80%;
 }
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
