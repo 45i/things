@@ -913,7 +913,7 @@ h2 {
 
 }
 
-.navig a {
+.navig  a {
   font-family: graffiti-bold;
 }
 
@@ -1750,4 +1750,11 @@ article {
   .modal-content {
     width: 100%;
   }
+}
+img {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none; /* This prevents interactions, such as right-clicking */
 }
