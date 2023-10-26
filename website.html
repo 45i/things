@@ -5,6 +5,7 @@
 
 <head>
     <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="card.css">
     <title>45i's World</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" meta="" name="viewport" />
@@ -153,7 +154,76 @@
                 <br>
                 <br>
 
+<div class="contact-area">
+  <div class="contact">
+    <main>
+      <section>
+        <div class="content">
+          <img src="megamun.png" alt="Profile Image">
 
+          <aside>
+            <h1 style="font-family: graffiti-bold; font-size:  calc(15vw);">45i</h1>
+            <!-- <p>Hi, I'm 45i and I'm a Programmer and art enthusiast.</p> -->
+          </aside>
+          
+          <button class="bton">
+            <span>Contact Me</span>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path> </g> </svg>
+          </button>
+        </div>
+
+        <!-- <div class="title"><p>Contact Me</p></div> -->
+      </section>
+
+      
+    </main>
+
+    <nav class="links">
+      <a href="mailto:sayakpalit61@gmail.com" class="gmail">
+        <div class="icon">
+          <!-- <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M16 3v10c0 .567-.433 1-1 1h-1V4.925L8 9.233 2 4.925V14H1c-.567 0-1-.433-1-1V3c0-.283.108-.533.287-.712C.467 2.107.718 2 1 2h.333L8 6.833 14.667 2H15c.283 0 .533.108.713.288.179.179.287.429.287.712z" fill-rule="evenodd"/></svg> -->
+          <i class="fas fa-envelope icons"></i>
+        </div>
+
+        <div class="content wider-text">
+          <h1>Email</h1>
+          <span>sayakpalit61@gmail.com</span>
+        </div>
+        
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path> </g> </svg>
+          
+      </a>
+
+      <a href="https://github.com/45i" class="github">
+        <div class="icon">
+          <!-- <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0" fill-rule="nonzero"/></svg> -->
+          <i class="fab fa-github icons"></i>
+        </div>
+
+        <div class="content wider-text">
+          <h1>Github</h1>
+          <span>45i</span>
+        </div>
+        
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path> </g> </svg>
+      </a>
+
+      <a href="https://discord.com/users/1123896290024108093" class="Discord">
+        <div class="icon">
+          <i class="fab fa-discord icons"></i>
+        </div>
+
+        <div class="content wider-text">
+          <h1>Discord</h1>
+          <span>@_1c3d</span>
+        </div>
+        
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path> </g> </svg>
+      </a>
+    </nav>
+  </div>
+</div>
 
             </div>
         </div>
@@ -274,6 +344,24 @@
             }
         });
     </script>
+<script>
+document.querySelector('.bton').addEventListener('click', function() {
+  var buttons = document.querySelectorAll('.bton');
+  var titles = document.querySelectorAll('.title');
+  var links = document.querySelectorAll('.links');
+
+  buttons.forEach(function(button) {
+    button.classList.toggle('active');
+  });
+  titles.forEach(function(title) {
+    title.classList.toggle('active');
+  });
+  links.forEach(function(link) {
+    link.classList.toggle('active');
+  });
+});
+</script>
+
 
 </body>
 
