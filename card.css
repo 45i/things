@@ -169,6 +169,7 @@ body {
   color: #949494;
 
 }
+
 .contact main .bton {
   position: absolute;
   bottom: 0;
@@ -244,7 +245,7 @@ body {
 
 .contact main .bton.active span {
   opacity: 0;
-   -webkit-transition: opacity 0.4s;
+  -webkit-transition: opacity 0.4s;
   -moz-transition: opacity 0.4s;
   -o-transition: opacity 0.4s;
   transition: opacity 0.4s;
@@ -341,6 +342,8 @@ body {
 
 .contact .links a .arrow path {
   fill: #e6e6e6;
+  transition: transform 0.3s ease-in-out;
+
 }
 
 .contact .links a.gmail .icon svg {
@@ -404,7 +407,14 @@ body {
   font-size: xx-large;
   color: wheat;
 }
-.contact .links a:hover{
+
+.contact .links a:hover {
   transform: translateY(-3%);
- transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact .links a:hover .arrow path{
+  transform: translateX(10px);
+  /* tr translateY(3%); */
+  transition: transform 0.3s ease-in-out;
 }
