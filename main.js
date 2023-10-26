@@ -8,7 +8,6 @@
 //   });
 // });
 
-
 document.addEventListener("DOMContentLoaded", function () {
   // Create and append the 'description' meta tag
   const descriptionMeta = document.createElement('meta');
@@ -39,14 +38,27 @@ document.addEventListener("DOMContentLoaded", function () {
   fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css';
   fontAwesomeLink.rel = 'stylesheet';
   document.head.appendChild(fontAwesomeLink);
-const epicFaviconLink = document.createElement('link');
-epicFaviconLink.href = 'megamun.png';
-epicFaviconLink.rel = 'icon';
-epicFaviconLink.type = 'image/x-icon';
+
+  // Create and append the SweetAlert2 CSS link
+  const sweetAlert2CssLink = document.createElement('link');
+  sweetAlert2CssLink.href = 'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css';
+  sweetAlert2CssLink.id = 'theme-styles';
+  sweetAlert2CssLink.rel = 'stylesheet';
+  document.head.appendChild(sweetAlert2CssLink);
+
+  // Create and append the SweetAlert2 JavaScript script
+  const sweetAlert2Script = document.createElement('script');
+  sweetAlert2Script.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js';
+  document.head.appendChild(sweetAlert2Script);
+
+  // Create and append the Favicon link
+  const epicFaviconLink = document.createElement('link');
+  epicFaviconLink.href = 'megamun.png';
+  epicFaviconLink.rel = 'icon';
+  epicFaviconLink.type = 'image/x-icon';
   document.head.appendChild(epicFaviconLink);
-
-
 });
+
 // const body = document.body;
 
 // let sx = 0, // For scroll positions
@@ -514,3 +526,33 @@ function handleScroll() {
 window.addEventListener('scroll', handleScroll);
 
 // main.js
+document.addEventListener("DOMContentLoaded", function () {
+  var externalLinks = document.querySelectorAll('a[href^="http"]');
+  for (var i = externalLinks.length - 1; i >= 0; i--) {
+    externalLinks[i].addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent the default link behavior
+
+      Swal.fire({
+        title: 'Leaving So Soon?',
+        text: "You're about to visit an external website. Are you sure?",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#4CAF50', // Green color for confirm
+        cancelButtonColor: '#F44336',  // Red color for cancel
+        confirmButtonText: 'Yes, Take Me There!',
+        cancelButtonText: 'No, I\'ll Stay Here'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // If confirmed, proceed to the external link
+
+          // Assuming you have a string like this:
+          var linkString = event.target.getAttribute('href'); // Get the href attribute and store it as a string
+
+
+          window.location = linkString;
+
+        }
+      });
+    });
+  }
+});
