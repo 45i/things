@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div id="myText">
+        Select some text here.
+    </div>
+    <div id="contextMenu">
+        <ul>
+            <li id="copyTextButton">Copy Text</li>
+
+            <li><button><a href="#" id="searchGoogleLink">Search Google</a></button></li>
+            <li><button><a href="https://twitter.com/share" id="tweetLink" data-url="#" data-text="AntiScam! A super fast and easy moderation bot to stop scams!" data-count="horizontal">Tweet</a>
+</button></li>
+        </ul>
+    </div>
+    <script>
+        const text = document.getElementById('myText');
+        const contextMenu = document.getElementById('contextMenu');
+
+        text.addEventListener('mouseup', function (e) {
+            const selectedText = window.getSelection().toString();
+            if (selectedText) {
+                contextMenu.style.display = 'block';
+                contextMenu.style.top = e.clientY + 'px';
+                contextMenu.style.left = e.clientX + 'px';
+            } else {
+                contextMenu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

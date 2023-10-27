@@ -10,6 +10,49 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   // Create and append the 'description' meta tag
+  // Create the context menu
+  //   const contextMenu = document.createElement('div');
+  // contextMenu.id = 'contextMenu';
+
+  // const ul = document.createElement('ul');
+
+  // const copyTextButton = document.createElement('li');
+  // copyTextButton.id = 'copyTextButton';
+  // copyTextButton.textContent = 'Copy Text';
+
+  // const searchGoogleLink = document.createElement('li');
+  // const searchGoogleButton = document.createElement('button');
+  // const searchGoogleAnchor = document.createElement('a');
+  // searchGoogleAnchor.href = '#';
+  // searchGoogleAnchor.id='searchGoogleLink';
+  // searchGoogleAnchor.textContent = 'Search Google';
+  // searchGoogleButton.appendChild(searchGoogleAnchor);
+  // searchGoogleLink.appendChild(searchGoogleButton);
+
+  // const tweetLink = document.createElement('li');
+  // const tweetButton = document.createElement('button');
+  // const tweetAnchor = document.createElement('a');
+  // tweetAnchor.href = 'https://twitter.com/share';
+  // tweetAnchor.id = 'tweetLink';
+  // tweetAnchor.dataset.url = '#';
+  // tweetAnchor.dataset.text = 'AntiScam! A super fast and easy moderation bot to stop scams!';
+  // tweetAnchor.dataset.count = 'horizontal';
+  // tweetAnchor.textContent = 'Tweet';
+  // tweetButton.appendChild(tweetAnchor);
+  // tweetLink.appendChild(tweetButton);
+
+  // ul.appendChild(copyTextButton);
+  // ul.appendChild(searchGoogleLink);
+  // ul.appendChild(tweetLink);
+
+  // contextMenu.appendChild(ul);
+
+
+  // document.body.appendChild(contextMenu);
+
+
+  // Create and append the event listener for the context menu
+
   const descriptionMeta = document.createElement('meta');
   descriptionMeta.name = 'description';
   descriptionMeta.content = "45i's Personal Shenanigans";
@@ -57,6 +100,8 @@ document.addEventListener("DOMContentLoaded", function () {
   epicFaviconLink.rel = 'icon';
   epicFaviconLink.type = 'image/x-icon';
   document.head.appendChild(epicFaviconLink);
+
+
 });
 
 // const body = document.body;
@@ -243,7 +288,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
         translateElementVisible = !translateElementVisible;
       }
+      let selectedText; // Variable to store the selected text
+
+document.body.addEventListener('mouseup', function (e) {
+  if (e.target !== contextMenu) {
+    selectedText = window.getSelection().toString(); // Store the selected text
+    if (selectedText) {
+      // Deselect the text
+
+      // Set the data-text attribute to the selected text
+      const tweetLink = document.getElementById('tweetLink');
+      tweetLink.setAttribute('data-text', selectedText);
+
+      // Show the context menu
+      contextMenu.style.display = 'block';
+      contextMenu.style.top = e.clientY + 'px';
+      contextMenu.style.left = e.clientX + 'px';
+    } else {
+      contextMenu.style.display = 'none';
+    window.getSelection().removeAllRanges();
+    }
+  }
+});
+
+document.getElementById('searchGoogleLink').addEventListener('click', function (e) {
+  if (selectedText) {
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(selectedText)}`;
+    window.open(searchUrl, '_blank');
+  }
+  e.preventDefault();
+});
+
+document.getElementById('copyTextButton').addEventListener('click', function () {
+  if (selectedText) {
+    const textArea = document.createElement('textarea');
+    textArea.value = selectedText;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    alert('Text copied to clipboard: ' + selectedText);
+  } else {
+    alert('No text selected to copy.');
+  }
+});
+
     });
+  
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -557,5 +648,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
+  e.preventDefault();
 });

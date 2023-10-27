@@ -52,7 +52,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: st;
-  user-select: none;
+  /* user-select: none; */
   user-zoom: none;
   zoom: 1;
   /* background-color: #262624; */
@@ -1802,3 +1802,33 @@ img {
   pointer-events: none;
   /* This prevents interactions, such as right-clicking */
 }
+
+ /* Your scrollbar styles here */
+        #contextMenu {
+            display: none;
+            position: fixed;
+
+            background-color: #161615;
+            border-radius: 6px;
+            box-shadow: 0 0 10px #000;
+            
+            white-space: nowrap;
+        }
+        #contextMenu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        #contextMenu ul li {
+            margin-right: 10px; /* Adjust the spacing between menu items */
+        }
+        #contextMenu ul li button{
+          width: 100%;;
+          letter-spacing:auto;
+        }
+        #contextMenu ul li button:hover{
+          border: none;
+          width: 100%;
+          letter-spacing:auto;
+        }
