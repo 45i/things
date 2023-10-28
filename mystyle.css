@@ -100,6 +100,8 @@ body {
 
 .graffiti-bold {
   font-family: graffiti-bold;
+  -webkit-text-stroke-width: 0.1vw;
+  -webkit-text-stroke-color: black;
 }
 
 .kbd {
@@ -627,11 +629,11 @@ footer:after {
 }
 
 button {
-  padding: 10px 20px;
+  padding: 10px 0px;
   min-width: 100px;
   background: #a02f54;
   position: relative;
-  background: #f3f0f100;
+  background: #ffffff2d;
   margin-bottom: 0px;
   border-radius: 3px;
   /* backdrop-filter: blur(10px); */
@@ -667,7 +669,7 @@ button:hover {
   /* width: 200px; */
   padding: 10px;
   /* background-color: #007bff00; */
-  /* color: #fff; */
+  color: #fff;
   border-radius: 5px;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
   /* font-family: thin; */
@@ -716,7 +718,7 @@ button:hover {
 button:hover {
   /* box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), */
   /* 6px 6px 10px rgba(0, 0, 0, 0.2); */
-  color: #9f8ae6;
+  /* color: #9f8ae6; */
   /* font-size: small;
   letter-spacing: 2px; */
   /* background: #a8a8a84d; */
@@ -1811,8 +1813,9 @@ img {
             background-color: #161615;
             border-radius: 6px;
             box-shadow: 0 0 10px #000;
-            
+            z-index:9999999999;
             white-space: nowrap;
+            height: max-content;
         }
         #contextMenu ul {
             list-style: none;
@@ -1821,14 +1824,18 @@ img {
             display: flex;
         }
         #contextMenu ul li {
-            margin-right: 10px; /* Adjust the spacing between menu items */
+            margin-right: 1px; /* Adjust the spacing between menu items */
         }
         #contextMenu ul li button{
-          width: 100%;;
+            background-color: #161615;
+          width: 1;;
+          /* border:3px dashed  #fff; */
           letter-spacing:auto;
         }
         #contextMenu ul li button:hover{
-          border: none;
-          width: 100%;
+          border:none;
+          width: 1%;
           letter-spacing:auto;
+          color:#fff;
+          content: attr('btnhover');
         }

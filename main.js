@@ -289,7 +289,6 @@ document.addEventListener("DOMContentLoaded", function () {
         translateElementVisible = !translateElementVisible;
       }
       let selectedText; // Variable to store the selected text
-
 document.body.addEventListener('mouseup', function (e) {
   if (e.target !== contextMenu) {
     selectedText = window.getSelection().toString(); // Store the selected text
@@ -297,19 +296,48 @@ document.body.addEventListener('mouseup', function (e) {
       // Deselect the text
 
       // Set the data-text attribute to the selected text
-      const tweetLink = document.getElementById('tweetLink');
-      tweetLink.setAttribute('data-text', selectedText);
+      // const tweetLink = document.getElementById('tweetLink');
+      // tweetLink.setAttribute('data-text', selectedText);
 
       // Show the context menu
+      const contextMenu = document.getElementById('contextMenu');
       contextMenu.style.display = 'block';
-      contextMenu.style.top = e.clientY + 'px';
-      contextMenu.style.left = e.clientX + 'px';
+      
+      // Calculate the position to ensure it stays within the window
+      const contextMenuWidth = contextMenu.offsetWidth;
+      const contextMenuHeight = contextMenu.offsetHeight;
+      const maxX = window.innerWidth - contextMenuWidth;
+      const maxY = window.innerHeight - contextMenuHeight;
+
+      const x = Math.min(e.clientX, maxX);
+      const y = Math.min(e.clientY, maxY);
+
+      contextMenu.style.top = y + 'px';
+      contextMenu.style.left = x + 'px';
     } else {
       contextMenu.style.display = 'none';
-    window.getSelection().removeAllRanges();
+      window.getSelection().removeAllRanges();
     }
   }
 });
+
+document.body.addEventListener('scroll', function () {
+  const contextMenu = document.getElementById('contextMenu');
+  if (contextMenu.style.display === 'block') {
+    // Calculate the new position to keep the context menu with the selected text
+    const contextMenuWidth = contextMenu.offsetWidth;
+    const contextMenuHeight = contextMenu.offsetHeight;
+    const maxX = window.innerWidth - contextMenuWidth;
+    const maxY = window.innerHeight - contextMenuHeight;
+
+    const x = Math.min(e.clientX, maxX);
+    const y = Math.min(e.clientY, maxY);
+
+    contextMenu.style.top = y + 'px';
+    contextMenu.style.left = x + 'px';
+  }
+});
+
 
 document.getElementById('searchGoogleLink').addEventListener('click', function (e) {
   if (selectedText) {
@@ -327,7 +355,14 @@ document.getElementById('copyTextButton').addEventListener('click', function () 
     textArea.select();
     document.execCommand('copy');
     document.body.removeChild(textArea);
-    alert('Text copied to clipboard: ' + selectedText);
+      contextMenu.style.display = 'none';
+
+    // alert('Text copied to clipboard: ' + selectedText);
+    Swal.fire(
+                  'Success!',
+                  'Text copied to clipboard: ' + selectedText,
+                  'success'
+                )
   } else {
     alert('No text selected to copy.');
   }
