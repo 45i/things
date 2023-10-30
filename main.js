@@ -289,87 +289,101 @@ document.addEventListener("DOMContentLoaded", function () {
         translateElementVisible = !translateElementVisible;
       }
       let selectedText; // Variable to store the selected text
-document.body.addEventListener('mouseup', function (e) {
-  if (e.target !== contextMenu) {
-    selectedText = window.getSelection().toString(); // Store the selected text
-    if (selectedText) {
-      // Deselect the text
 
-      // Set the data-text attribute to the selected text
-      // const tweetLink = document.getElementById('tweetLink');
-      // tweetLink.setAttribute('data-text', selectedText);
+      document.body.addEventListener('mouseup', function (e) {
+        if (e.target !== contextMenu) {
+          selectedText = window.getSelection().toString(); // Store the selected text
+          if (selectedText && selectedText.trim() !== '') {
 
-      // Show the context menu
-      const contextMenu = document.getElementById('contextMenu');
-      contextMenu.style.display = 'block';
-      
-      // Calculate the position to ensure it stays within the window
-      const contextMenuWidth = contextMenu.offsetWidth;
-      const contextMenuHeight = contextMenu.offsetHeight;
-      const maxX = window.innerWidth - contextMenuWidth;
-      const maxY = window.innerHeight - contextMenuHeight;
+            const contextMenu = document.getElementById('contextMenu');
+            contextMenu.style.display = 'block';
+            const contextMenuWidth = contextMenu.offsetWidth;
+            const contextMenuHeight = contextMenu.offsetHeight;
+            const maxX = window.innerWidth - contextMenuWidth;
+            const maxY = window.innerHeight - contextMenuHeight;
 
-      const x = Math.min(e.clientX, maxX);
-      const y = Math.min(e.clientY, maxY);
+            const x = Math.min(e.clientX, maxX);
+            const y = Math.min(e.clientY, maxY);
 
-      contextMenu.style.top = y + 'px';
-      contextMenu.style.left = x + 'px';
-    } else {
-      contextMenu.style.display = 'none';
-      window.getSelection().removeAllRanges();
-    }
-  }
-});
+            contextMenu.style.top = y + 'px';
+            contextMenu.style.left = x + 'px';
 
-document.body.addEventListener('scroll', function () {
-  const contextMenu = document.getElementById('contextMenu');
-  if (contextMenu.style.display === 'block') {
-    // Calculate the new position to keep the context menu with the selected text
-    const contextMenuWidth = contextMenu.offsetWidth;
-    const contextMenuHeight = contextMenu.offsetHeight;
-    const maxX = window.innerWidth - contextMenuWidth;
-    const maxY = window.innerHeight - contextMenuHeight;
+            // Check if selected text contains a phone number (you can customize the regex)
+            const phoneRegex = /\+?\d{1,3}?(\d{10})\b/;
 
-    const x = Math.min(e.clientX, maxX);
-    const y = Math.min(e.clientY, maxY);
+            if (phoneRegex.test(selectedText)) {
+              const callPhone = document.getElementById('callPhone');
+              callPhone.style.display = 'block';
 
-    contextMenu.style.top = y + 'px';
-    contextMenu.style.left = x + 'px';
-  }
-});
+              // Add a click event to the 'callPhone' list item
+              callPhone.addEventListener('click', function () {
+                const match = selectedText.match(phoneRegex);
+                if (match && match[1]) {
+                  const phoneNumber = match[1];
+                  window.location.href = 'tel:' + phoneNumber;
+                }
+              });
+            } else {
+              const callPhone = document.getElementById('callPhone');
+              callPhone.style.display = 'none';
+            }
+
+          } else {
+            window.getSelection().removeAllRanges();
+            contextMenu.style.display = 'none';
+          }
+        }
+      });
+
+      document.body.addEventListener('scroll', function () {
+        const contextMenu = document.getElementById('contextMenu');
+        if (contextMenu.style.display === 'block') {
+          // Calculate the new position to keep the context menu with the selected text
+          const contextMenuWidth = contextMenu.offsetWidth;
+          const contextMenuHeight = contextMenu.offsetHeight;
+          const maxX = window.innerWidth - contextMenuWidth;
+          const maxY = window.innerHeight - contextMenuHeight;
+
+          const x = Math.min(e.clientX, maxX);
+          const y = Math.min(e.clientY, maxY);
+
+          contextMenu.style.top = y + 'px';
+          contextMenu.style.left = x + 'px';
+        }
+      });
 
 
-document.getElementById('searchGoogleLink').addEventListener('click', function (e) {
-  if (selectedText) {
-    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(selectedText)}`;
-    window.open(searchUrl, '_blank');
-  }
-  e.preventDefault();
-});
+      document.getElementById('searchGoogleLink').addEventListener('click', function (e) {
+        if (selectedText) {
+          const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(selectedText)}`;
+          window.open(searchUrl, '_blank');
+        }
+        e.preventDefault();
+      });
 
-document.getElementById('copyTextButton').addEventListener('click', function () {
-  if (selectedText) {
-    const textArea = document.createElement('textarea');
-    textArea.value = selectedText;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textArea);
-      contextMenu.style.display = 'none';
+      document.getElementById('copyTextButton').addEventListener('click', function () {
+        if (selectedText) {
+          const textArea = document.createElement('textarea');
+          textArea.value = selectedText;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          contextMenu.style.display = 'none';
 
-    // alert('Text copied to clipboard: ' + selectedText);
-    Swal.fire(
-                  'Success!',
-                  'Text copied to clipboard: ' + selectedText,
-                  'success'
-                )
-  } else {
-    alert('No text selected to copy.');
-  }
-});
+          // alert('Text copied to clipboard: ' + selectedText);
+          Swal.fire(
+            'Success!',
+            'Text copied to clipboard: ' + selectedText,
+            'success'
+          )
+        } else {
+          alert('No text selected to copy.');
+        }
+      });
 
     });
-  
+
 });
 
 document.addEventListener("DOMContentLoaded", function () {
