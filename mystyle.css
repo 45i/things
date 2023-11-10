@@ -1216,6 +1216,7 @@ abbr {
 .fa-angle-double-down {
   background: #f7f7f7;
   -webkit-background-clip: text;
+  font-size: large; 
   -webkit-text-fill-color: transparent;
 
   /* text-shadow: 0 0 10px #9583d1, 0 0 20px #4926bd, 0 0 30px #9583d1; */
