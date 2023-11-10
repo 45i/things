@@ -174,16 +174,21 @@ document.addEventListener("DOMContentLoaded", function () {
       var icon = document.querySelector('.main');
       var menuIcon = document.querySelector('.icon');
       var navbar = document.querySelector('.navbar');
-      var navig = document.querySelector('.navig'); // Add this line
+      var navig = document.querySelector('.navig');
+      
+      
+      // Add this line
       menuIcon.addEventListener('click', function () {
         console.log("clicked");
         icon.classList.toggle('open');
         if (icon.classList.contains('open')) {
           menuIcon.innerHTML = '<i class="fas fa-times"></i>';
           navig.style.borderRadius = '36px 36px 0 36px'; // Set border radius to 0 0 0 36px
+          toggleDropdown();
         } else {
           menuIcon.innerHTML = '<i class="fas fa-bars"></i>';
           navig.style.borderRadius = ' 36px'; // Set border radius to 0 0 36px 36px
+          toggleDropdown();
         }
         menuIcon.classList.toggle('bx-x');
         navbar.classList.toggle('open');
@@ -226,6 +231,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
     });
+    var navbar = document.querySelector(".navbar");
+    
+    function toggleDropdown() {
+     navbar.classList.toggle("open");
+    }
+    
 });
 // footer.js
 
