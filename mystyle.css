@@ -720,8 +720,8 @@ button:hover {
   transform: translate(-50%, 60%);
   /* transform: ; */
   padding: 5px;
-  background-color: #262624;
-  backdrop-filter: blur(10px);
+  /* background-color: #262624; */
+  /* backdrop-filter: blur(10px);? */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.767);
   color: #fff;
   border-radius: 5px;
@@ -867,6 +867,7 @@ h2 {
 .navig {
   height: fit-content;
   width: 90%;
+  /* max-width: 3200px; */
   top: 100px;
   position: fixed;
   background: #161615;
