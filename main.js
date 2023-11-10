@@ -184,11 +184,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (icon.classList.contains('open')) {
           menuIcon.innerHTML = '<i class="fas fa-times"></i>';
           navig.style.borderRadius = '36px 36px 0 36px'; // Set border radius to 0 0 0 36px
-          toggleDropdown();
+          // toggleDropdown();
         } else {
           menuIcon.innerHTML = '<i class="fas fa-bars"></i>';
           navig.style.borderRadius = ' 36px'; // Set border radius to 0 0 36px 36px
-          toggleDropdown();
+          // toggleDropdown();
         }
         menuIcon.classList.toggle('bx-x');
         navbar.classList.toggle('open');
