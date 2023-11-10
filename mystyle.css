@@ -167,7 +167,7 @@ blockquote {
 }
 
 img {
-  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+    -webkit-filter: drop-shadow(5px 5px 5px #1f1f1f);
   image-rendering: optimizeQuality;
   /* This can help with antialiasing for images and SVG graphics */
 
@@ -1566,7 +1566,7 @@ body {
 *::-webkit-scrollbar {
   width: 17px;
   height: 17px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   background: rgba(0, 0, 0, 0.025);
   scrollbar-arrow-color: #fff;
 
@@ -1578,7 +1578,7 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-  border-radius: 2px;
+  /* border-radius: 2px; */
   background-color: #1f1f1e;
 }
 
