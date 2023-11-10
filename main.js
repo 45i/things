@@ -175,8 +175,8 @@ document.addEventListener("DOMContentLoaded", function () {
       var menuIcon = document.querySelector('.icon');
       var navbar = document.querySelector('.navbar');
       var navig = document.querySelector('.navig');
-      
-      
+
+
       // Add this line
       menuIcon.addEventListener('click', function () {
         console.log("clicked");
@@ -231,12 +231,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
     });
-    var navbar = document.querySelector(".navbar");
-    
-    function toggleDropdown() {
-     navbar.classList.toggle("open");
-    }
-    
+  var navbar = document.querySelector(".navbar");
+
+  function toggleDropdown() {
+    navbar.classList.toggle("open");
+  }
+
 });
 // footer.js
 
@@ -680,36 +680,36 @@ function handleScroll() {
 window.addEventListener('scroll', handleScroll);
 
 // main.js
-document.addEventListener("DOMContentLoaded", function () {
-  var externalLinks = document.querySelectorAll('a[href^="http"]');
-  for (var i = externalLinks.length - 1; i >= 0; i--) {
-    externalLinks[i].addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent the default link behavior
+// document.addEventListener("DOMContentLoaded", function () {
+//   var externalLinks = document.querySelectorAll('a[href^="http"]');
+//   for (var i = externalLinks.length - 1; i >= 0; i--) {
+//     externalLinks[i].addEventListener("click", function (event) {
+//       event.preventDefault(); // Prevent the default link behavior
 
-      Swal.fire({
-        title: 'Leaving So Soon?',
-        text: "You're about to visit an external website. Are you sure?",
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#4CAF50', // Green color for confirm
-        cancelButtonColor: '#F44336',  // Red color for cancel
-        confirmButtonText: 'Yes, Take Me There!',
-        cancelButtonText: 'No, I\'ll Stay Here'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          // If confirmed, proceed to the external link
+//       Swal.fire({
+//         title: 'Leaving So Soon?',
+//         text: "You're about to visit an external website. Are you sure?",
+//         icon: 'question',
+//         showCancelButton: true,
+//         confirmButtonColor: '#4CAF50', // Green color for confirm
+//         cancelButtonColor: '#F44336',  // Red color for cancel
+//         confirmButtonText: 'Yes, Take Me There!',
+//         cancelButtonText: 'No, I\'ll Stay Here'
+//       }).then((result) => {
+//         if (result.isConfirmed) {
+//           // If confirmed, proceed to the external link
 
-          // Assuming you have a string like this:
-          var linkString = event.target.getAttribute('href'); // Get the href attribute and store it as a string
+//           // Assuming you have a string like this:
+//           var linkString = event.target.getAttribute('href'); // Get the href attribute and store it as a string
 
 
-          window.location = linkString;
+//           window.location = linkString;
 
-        }
-      });
-    });
-  }
-});
+//         }
+//       });
+//     });
+//   }
+// });
 document.addEventListener('contextmenu', function (e) {
   e.preventDefault();
 });
