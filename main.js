@@ -94,6 +94,10 @@ document.addEventListener("DOMContentLoaded", function () {
   sweetAlert2Script.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js';
   document.head.appendChild(sweetAlert2Script);
 
+  const typedScript = document.createElement('script');
+  typedScript.src = 'https://cdn.jsdelivr.net/npm/typed.js@2.0.12';
+  document.head.appendChild(typedScript);
+
   // Create and append the Favicon link
   const epicFaviconLink = document.createElement('link');
   epicFaviconLink.href = 'megamun.png';
@@ -183,15 +187,16 @@ document.addEventListener("DOMContentLoaded", function () {
         icon.classList.toggle('open');
         if (icon.classList.contains('open')) {
           menuIcon.innerHTML = '<i class="fas fa-times"></i>';
-          navig.style.borderRadius = '36px 36px 0 36px'; // Set border radius to 0 0 0 36px
+
           // toggleDropdown();
         } else {
           menuIcon.innerHTML = '<i class="fas fa-bars"></i>';
-          navig.style.borderRadius = ' 36px'; // Set border radius to 0 0 36px 36px
+
           // toggleDropdown();
         }
         menuIcon.classList.toggle('bx-x');
         navbar.classList.toggle('open');
+        navig.classList.toggle('open');
       });
 
       // Select all dropdown menus with the class "committee-menu"
@@ -230,6 +235,23 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
       });
+      try {
+        var typed = new Typed('.info_thing', {
+          strings: ["The Website Is Still In Development 🚧^1000", "The Website Is Still Brewing ☕^1000", "The Website Is Still In The Woodworks 🔨^1000", "The Developer Is Busy Brainstorming Easter Eggs 🥚^1000", "The Developer Is Busy Vibing 🎶^1000"],
+          typeSpeed: 30,
+          backSpeed: 30,
+          backDelay: 700,
+          smartBackspace: true,
+          startDelay: 100,
+          delay: 10000,
+          loop: true,
+          loopCount: Infinity,
+        });
+      }
+      catch{
+
+      }
+
     });
   var navbar = document.querySelector(".navbar");
 

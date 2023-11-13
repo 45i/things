@@ -56,7 +56,7 @@
   user-zoom: none;
   zoom: 1;
   /* background-color: #262624; */
-  /* overflow-x: hidden; */
+  /* overflow-x: scroll; */
   -webkit-font-smoothing: antialiased;
   /* For Chrome, Safari, and newer versions of Edge */
   -moz-osx-font-smoothing: grayscale;
@@ -104,18 +104,20 @@ body {
   -webkit-text-stroke-color: black;
 }
 
-.gradient-text{
-  background: linear-gradient(90.18deg,#4f5bd5 ,#962fbf ,#d62976 , #fa7e1e , #feda75);
-  text-shadow: 0 0 10px linear-gradient(90.18deg,#4f5bd5 ,#962fbf ,#d62976 , #fa7e1e , #feda75);
+.gradient-text {
+  background: linear-gradient(90.18deg, #4f5bd5, #962fbf, #d62976, #fa7e1e, #feda75);
+  text-shadow: 0 0 10px linear-gradient(90.18deg, #4f5bd5, #962fbf, #d62976, #fa7e1e, #feda75);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+  font-family: st;;
 }
 
 .gradient-accent-gbv {
   background-color: linear-gradient(90.18deg, #60d5c4, #6a9fcb 50.85%, #bb84cc);
 }
+
 .gradient-text {
   position: relative;
 }
@@ -167,7 +169,7 @@ blockquote {
 }
 
 img {
-    -webkit-filter: drop-shadow(5px 5px 5px #1f1f1f);
+  -webkit-filter: drop-shadow(5px 5px 5px #1f1f1f);
   image-rendering: optimizeQuality;
   /* This can help with antialiasing for images and SVG graphics */
 
@@ -286,10 +288,12 @@ strong {
   font-family: graffiti-bold;
   letter-spacing: -1px;
 }
-.hover-thing:hover{
+
+.hover-thing:hover {
   -webkit-text-stroke-width: 0.1vw;
   -webkit-text-stroke-color: black;
 }
+
 header {
   position: relative;
   display: flex;
@@ -302,13 +306,13 @@ header {
   line-height: 2.5;
   text-shadow: 0 0 10px #000;
   transition: background 0.3s ease-out;
-  background-image: linear-gradient(0deg,#1f1f1ec0,#1f1f1ec0), url(skul.png);
+  background-image: linear-gradient(0deg, #1f1f1ec0, #1f1f1ec0), url(skul.png);
   box-shadow: 0 2px 10px #000;
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: 50%;
-border-radius: 0 0 36px 36px;
-z-index: 10;
+  border-radius: 0 0 36px 36px;
+  z-index: 10;
   /*   
   border-color: #000;
   border-image: linear-gradient(45deg, #0F0331, #262624) 1; */
@@ -886,7 +890,7 @@ h2 {
 /* Global CSS rules for nav */
 .navig {
   height: fit-content;
-  width: 90%;
+  width: 90vw;
   /* max-width: 3200px; */
   top: 100px;
   position: fixed;
@@ -902,15 +906,17 @@ h2 {
   /* Adjust horizontally */
   padding: 10px 20px;
   display: flex;
-  border-radius:  36px;
+  border-radius: 36px;
   /* backdrop-filter: blur(10px); */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
   transition: transform 0.7s ease-in-out, width 0.5s ease-in-out;
   /* overflow:hidden; */
-  
+
   /* transform-origin: center center; */
 }
-
+.navig.open{
+  border-radius: 36px 36px 0px 0px;
+}
 .navig.clicked {
   width: 80px;
   height: 80px;
@@ -925,9 +931,13 @@ h2 {
 .navig .icon {
   /* Styles for the icon */
   /* transform: translateX(50vw) translateY(10px); */
+  color: #fff;
+    -webkit-filter: drop-shadow(0px 0px 5px #949494);
+
 }
-.navig:hover{
-  transform:translateX(5%) translateY(20px);
+
+.navig:hover {
+  transform: translateX(5%) translateY(20px);
   transition: transform 0.7s ease-in-out;
 
 }
@@ -994,10 +1004,10 @@ h2 {
 }
 
 .navbar {
-   display: flex;
- list-style: none;
- /* transform: translateY(-100%); */
- transition: transform 0.3s ease-in-out;
+  display: flex;
+  list-style: none;
+  /* transform: translateY(-100%); */
+  transition: transform 0.3s ease-in-out;
 }
 
 
@@ -1041,7 +1051,7 @@ h2 {
 .navbar a {
   color: #fff;
   text-decoration: none;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .menu-toggle {
@@ -1216,7 +1226,7 @@ abbr {
 .fa-angle-double-down {
   background: #f7f7f7;
   -webkit-background-clip: text;
-  font-size: large; 
+  font-size: large;
   -webkit-text-fill-color: transparent;
 
   /* text-shadow: 0 0 10px #9583d1, 0 0 20px #4926bd, 0 0 30px #9583d1; */
@@ -1271,9 +1281,11 @@ button {
 * img {
   max-width: 90vh
 }
-img{
-  border-radius:36px
+
+img {
+  border-radius: 36px
 }
+
 canvas {
   background: #232323;
 }
@@ -1492,7 +1504,17 @@ abbr:hover {
     margin: 0px 20px;
   }
 }
-
+@keyframes twerk {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25%, 75% {
+      transform: rotate(2deg);
+    }
+    50% {
+      transform: rotate(-2deg);
+    }
+  }
 @media (max-width: 1090px) {
   .main {
     display: block;
@@ -1500,10 +1522,11 @@ abbr:hover {
 
   .navbar {
     position: absolute;
-    z-index: 999999;
-    top: 100%;
-    right: -300px;
-    width: fit-content;
+    /* z-index: 0; */
+    top: 40%;
+    width: 90vw;
+    /* right: -800vw; */
+    left: 0vw;
     height: fit-content;
     max-height: 200px;
     ;
@@ -1518,25 +1541,26 @@ abbr:hover {
     /* visibility: hidden; */
     text-align: center;
 
-    flex-direction: column;
-    justify-content: flex-end;
+
+    flex-direction: row;
+    justify-content: center;
     /* border-radius: 0px 0px 0px 10px; */
     border-radius: 0px 0 36px 36px;
-    transition: all 0.5s ease;
-    overflow-y: auto;
+    /* transition: all 0.5s ease; */
+    /* overflow-x: auto; */
 
   }
 
   .navbar a {
-    transform: translateX(25%);
-    border-radius:6px;
+    /* transform: translateX(25%); */
+    border-radius: 6px;
     display: block;
     /* margin: 0 0px 20px 0;  */
     text-align: center;
     line-height: 25px;
     width: 100%;
-    padding:5px;
-    margin:8px 0;
+    padding: 5px;
+    margin: 8px 0;
     transition: transform 0.8s, background-color 0.8s;
     /* Added both transitions */
   }
@@ -1552,7 +1576,19 @@ abbr:hover {
 
   .navbar.open {
     right: 0;
-    display: block;
+    display: flex;
+    top: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+  }
+
+  .navbar.open::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
   }
 }
 
