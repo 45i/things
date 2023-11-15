@@ -183,21 +183,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Add this line
       menuIcon.addEventListener('click', function () {
-        console.log("clicked");
-        icon.classList.toggle('open');
-        if (icon.classList.contains('open')) {
-          menuIcon.innerHTML = '<i class="fas fa-times"></i>';
+  console.log("clicked");
+  icon.classList.toggle('open');
+  if (icon.classList.contains('open')) {
+    menuIcon.innerHTML = '<i class="fas fa-times"></i>';
 
-          // toggleDropdown();
-        } else {
-          menuIcon.innerHTML = '<i class="fas fa-bars"></i>';
+    // toggleDropdown();
+  } else {
+    menuIcon.innerHTML = '<i class="fas fa-bars"></i>';
 
-          // toggleDropdown();
-        }
-        menuIcon.classList.toggle('bx-x');
-        navbar.classList.toggle('open');
-        navig.classList.toggle('open');
-      });
+    // toggleDropdown();
+  }
+  menuIcon.classList.toggle('bx-x');
+  navbar.classList.toggle('open');
+  
+  setTimeout(function () {
+    navig.classList.toggle('open');
+  }, 200); // 300 milliseconds delay (0.3 seconds)
+});
+
 
       // Select all dropdown menus with the class "committee-menu"
       // Select all elements with class "committee"

@@ -1089,7 +1089,7 @@ abbr {
   margin-bottom: 5px;
 }
 
-@media screen and (max-width: 768px) {
+
   .navbar {
     display: flex;
     visibility: hidden;
@@ -1139,7 +1139,7 @@ abbr {
     padding: 10px;
     font-size: 20px;
   }
-}
+
 
 .img-box h3 {
   color: #ffffff;
@@ -1529,7 +1529,7 @@ abbr:hover {
   }
 }
 
-@media (max-width: 1090px) {
+
   .main {
     display: block;
   }
@@ -1618,7 +1618,7 @@ visibility: hidden;
     /* Chrome, Safari, Opera */
   }
 
-}
+
 
 /* Hide horizontal scrollbar */
 body {
@@ -1708,11 +1708,11 @@ body {
   display: none;
 }
 
-@media (max-width: 1090px) {
+
   .main {
     display: block;
   }
-}
+
 
 #\3A 1\.container {
   background: #00000000;

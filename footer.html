@@ -36,17 +36,39 @@
             margin: 0 0 2rem 0;
         }
     }
+
+    @keyframes bounce {
+        0% {
+            transform: translateY(0);
+
+        }
+
+        50% {
+            transform: translateY(-20px);
+
+        }
+
+        100% {
+            transform: translateY(0);
+
+        }
+    }
+
+    .bc {
+        animation: bounce 2s infinite;
+    }
 </style>
 <div id="contextMenu">
-        <ul>
-            <li><button  id="copyTextButton" data-tooltip="Copy Text"><i class="fas fa-copy"></i></button></li>
-            <li><button  id="callPhone" data-tooltip="Call Phone"><i class="fas fas fas fa-phone-alt"></i></button></li>
+    <ul>
+        <li><button id="copyTextButton" data-tooltip="Copy Text"><i class="fas fa-copy"></i></button></li>
+        <li><button id="callPhone" data-tooltip="Call Phone"><i class="fas fas fas fa-phone-alt"></i></button></li>
 
-            <li><a href="#" id="searchGoogleLink"><button data-tooltip="Search Google"><i class="fab fa-google"></i></button></a></li>
-            
-</li>
-        </ul>
-    </div>
+        <li><a href="#" id="searchGoogleLink"><button data-tooltip="Search Google"><i
+                        class="fab fa-google"></i></button></a></li>
+
+        </li>
+    </ul>
+</div>
 <footer style="margin: 0;">
     <div style="position: absolute;top: 0; right: 0; border-radius: 0px;">
         <div id="google_translate_element" class="google_translate_element"></div>
@@ -86,9 +108,9 @@
     </div>
     <div
         style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); text-align: center; font-size: clamp(10px,7vw,20px);white-space: nowrap;">
-        <span>
-            <i class="far fa-copyright" style="color: #fffefe31;"></i> <span class=" graffiti-bold gradient-text gradient-accent-gvb">45i</span>
-            <i class="fas fa-grip-lines-vertical" style="color: #fffefe31;"></i> <b>2023</b>
+        <span style="color: #fffefe6c;">
+            Made With <span class="gradient-text bc" style="font-size: xx-large;  
+  ">❤</span> By 45i
         </span>
     </div>
 </footer>
