@@ -111,6 +111,8 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+  transition: all 0.3s ease;
+
   font-family: st;
   ;
 }
@@ -119,6 +121,10 @@ body {
   background-color: linear-gradient(90.18deg, #60d5c4, #6a9fcb 50.85%, #bb84cc);
 }
 
+.gradient-text:hover {
+  text-shadow: 0 0 10px #858585a1;
+  transition: all 0.3s ease
+}
 .gradient-text {
   position: relative;
 }
@@ -752,6 +758,7 @@ button:hover {
   border-radius: 5px;
   font-size: 0.8rem;
   z-index: 999999999;
+  background-color: #161615;
 }
 
 button:hover {
@@ -1955,9 +1962,8 @@ img {
   display: none;
   position: fixed;
 
+  border-radius: 26px;
   background-color: #161615;
-  border-radius: 6px;
-  box-shadow: 0 0 10px #000;
   z-index: 9999999999;
   white-space: nowrap;
   height: max-content;
@@ -1966,17 +1972,21 @@ img {
 #contextMenu ul {
   list-style: none;
   padding: 0;
+  /* background: #161615; */
+  
   margin: 0;
   display: flex;
 }
 
 #contextMenu ul li {
   margin-right: 1px;
+  
   /* Adjust the spacing between menu items */
 }
 
 #contextMenu ul li button {
-  background-color: #161615;
+  background: #161615;
+  border-radius: 26px;
   width: 1;
   ;
   /* border:3px dashed  #fff; */
@@ -1988,5 +1998,6 @@ img {
   width: 1%;
   letter-spacing: auto;
   color: #fff;
-  content: attr('btnhover');
+  transform: translateX(0);
+  /* content: attr('btnhover'); */
 }
