@@ -933,17 +933,39 @@ h2 {
   height: 80px;
   transform: translateX(50vw) translateY(10px) scale(0.5);
   transform-origin: center center;
+  &.icon{
+    transform: rotateX(90deg);
+  }
 }
 
 .navig.clicked:hover {
   transform: translateX(50vw) translateY(20px) scale(0.7);
 }
 
+.navig .icon:hover {
+  background: linear-gradient(90.18deg, #4f5bd5, #962fbf, #d62976, #fa7e1e, #feda75);
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-size:larger ;
+  transform-origin:center;
+  transition:all 0.3s ease, background 10s ;
+}
 .navig .icon {
   /* Styles for the icon */
   /* transform: translateX(50vw) translateY(10px); */
-  color: #fff;
+  background: white;
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  color: transparent;
   -webkit-filter: drop-shadow(0px 0px 5px #949494);
+  transition:all 0.3s ease;
+  animation:  infinite 1s;
 
 }
 
@@ -1990,6 +2012,7 @@ img {
   width: 1;
   ;
   /* border:3px dashed  #fff; */
+  transition: all 0.3s ease;
   letter-spacing: auto;
 }
 
@@ -1997,7 +2020,7 @@ img {
   border: none;
   width: 1%;
   letter-spacing: auto;
-  color: #fff;
+  color: yellow;
   transform: translateX(0);
   /* content: attr('btnhover'); */
 }

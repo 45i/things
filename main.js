@@ -186,11 +186,11 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("clicked");
   icon.classList.toggle('open');
   if (icon.classList.contains('open')) {
-    menuIcon.innerHTML = '<i class="fas fa-times"></i>';
+    menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
 
     // toggleDropdown();
   } else {
-    menuIcon.innerHTML = '<i class="fas fa-bars"></i>';
+    menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
 
     // toggleDropdown();
   }
