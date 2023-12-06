@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="card.css">
+    <title>Direct Chat</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" meta="" name="viewport" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <!-- <title>45i Does Stuff</title> -->
+</head>
+<script src="main.js"></script>
+<script src="main2.js"></script>
+
+<body>
+    <div class="preloader"></div>
+    <div class="navbar-container"></div>
+    <header>
+        <h1><strong>Direct Chat!</strong></h1>
+        <span class="kbd">Powered by <a href="https://utteranc.es" class="kbd"
+                style="background-color: goldenrod">utteranc.es</a></span>
+                <br>
+                <span><span class="kbd" style="font-weight: lighter;">Hey there, <i>person</i>, let's get talkin'!<br>
+Ask me <b>anything</b>, just nothing *too* personal (I shall respectfully choose to ignore any such questions that I feel may jeopardize my feeling of privacy).</span>
+    </header>
+    <br>
+
+    <div class="info_text">
+        <div style="flex-direction: column; align-self: center;">
+            <h1
+                style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-size-adjust: 100%; font-size: calc(3.5vw); line-height: 3.5vw;">
+                <span class="thin" style="color:crimson">Got A Question</span></h1>
+            <h1
+                style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-size-adjust: 100%; font-size: calc(3.5vw); line-height: 3.5vw;">
+                <strong>Ask Me Anything<span style="color:cadetblue">!</span></strong></h1>
+        </div>
+    </div>
+        <br>
+        <br>
+        <div class="utterances">
+            <iframe class="utterances-frame"></iframe>
+        </div>
+    <script src="https://utteranc.es/client.js" repo="45i/things" issue-term="pathname" theme="preferred-color-scheme"
+        crossorigin="anonymous" async>
+        </script>
+</body>
+
+</html>

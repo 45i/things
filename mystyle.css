@@ -68,8 +68,12 @@
 
   & a {
     text-decoration: none;
-
+    text-decoration-color: orangered;
+    text-decoration-thickness: 5px;
+    background-color: none;
+transition: background 0.3s ease;
   }
+  
 
   /* white-space: nowrap; */
   /* font-family:st,-apple-system,BlinkMacSystemFont,"Apple Color Emoji","Segoe UI Emoji"; */
@@ -718,7 +722,7 @@ button:hover {
   border-radius: 5px;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
   /* font-family: thin; */
-  transition: transform 0.3s ease-in-out;
+  transition: all 1s ease-in-out;
   /* letter-spacing: 01px; */
 }
 
