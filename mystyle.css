@@ -257,7 +257,7 @@ q:after {
 
 html,
 body,
-header {
+.header {
   height: 100%;
 }
 
@@ -299,13 +299,19 @@ strong {
   font-family: graffiti-bold;
   letter-spacing: -1px;
 }
-
+.hover-widget{
+  transition: all 1s ease;
+}
+.hover-widget:hover{
+ box-shadow:0 0 10px #fff ;
+  transition: all 1s ease;
+}
 .hover-thing:hover {
   -webkit-text-stroke-width: 0.1vw;
   -webkit-text-stroke-color: black;
 }
 
-header {
+.header {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -501,7 +507,7 @@ tr.inactive {
   opacity: 0;
 }
 
-header:after {
+.header:after {
   content: ' ';
   position: absolute;
   top: 0;

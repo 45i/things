@@ -14,15 +14,16 @@
     <!-- <title>45i Does Stuff</title> -->
 </head>
 <style>
-    .ext-btn:hover{
+    .ext-btn:hover {
         background-color: goldenrod;
         border: goldenrod;
     }
-    </style>
+</style>
+
 <body>
     <div id="preloader"></div>
     <div class="navbar-container"></div>
-    <header style=" ">
+    <header class="header" style=" ">
         <div style=" ">
             <div class="content">
                 <h1 style="font-size: clamp(20px,10vw, 90px); line-height: 10vh;" class="graffiti-light">WELCOME TO</h1>
@@ -47,9 +48,9 @@
             <br>
 
         </div>
-        <div><a href="#enquiry" class="gradient-text" style=" background-color: rgba(124, 124, 124, 0.562)"><strong
-                    style="font-size:large;;">Wanna
-                    chat?</strong></a></div>
+        <div><a href="#enquiry"><button class="ext-btn"
+                    style="background-color: transparent; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; "
+                    :hover="border-color: goldenrod"> Wanna Chat? &rightarrow;</button></a></div>
         <div class="scroll-down"><strong><i class="fas fa-angle-double-down" style="font-size: large; "></i></strong>
         </div>
     </header>
@@ -62,7 +63,7 @@
         <div>
             <p>
             <blockquote contenteditable="false" class="graffiti-bold jj"><q translate="no" class="graffiti-bold"><span
-                        class="gradient-text">The.
+                        class="">The.
                         Greatest. Programmer. Alive.</span></q>
                 <cite>Self</cite>
             </blockquote>
@@ -78,11 +79,13 @@
                 </h1>
             </div>
             <br>
-        <a href="me"><button class="ext-btn" style="background-color: transparent; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; ":hover="border-color: goldenrod"> About Me &rightarrow;</button></a>
-            
+        <a href=" me"><button class="ext-btn"
+                            style="background-color: transparent; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; "
+                            :hover="border-color: goldenrod"> About Me &rightarrow;</button></a>
+
+            </div>
         </div>
-    </div>
-    <!-- <div class="cols">
+        <!-- <div class="cols">
         <div class="col" ontouchstart="this.classList.toggle('hover');">
             <div class="container">
                 <div class="front"
@@ -121,284 +124,283 @@
         </div>
 
     </div> -->
-    <div class="info_text"
-        style=" background:#262624;text-overflow: ellipsis; text-overflow: ellipsis; height: 300vh;justify-content: flex-start;">
-        <div class="contact-area" id="enquiry" style="top:0">
-            <div class="contact">
-                <main>
-                    <section
-                        style="background:linear-gradient(90deg, #00000000,#161615, #161615), url(megamun.png); background-position: -35%; background-size: contain; background-repeat: no-repeat;">
-                        <div class="content">
-                            <img src="megamun.png" alt="Profile Image" style="opacity: 0;;">
+        <div class="info_text"
+            style=" background:#262624;text-overflow: ellipsis; text-overflow: ellipsis; height: 300vh;justify-content: flex-start;">
+            <div class="contact-area" id="enquiry" style="top:0">
+                <div class="contact">
+                    <main>
+                        <section
+                            style="background:linear-gradient(90deg, #00000000,#161615, #161615), url(megamun.png); background-position: -35%; background-size: contain; background-repeat: no-repeat;">
+                            <div class="content">
+                                <img src="megamun.png" alt="Profile Image" style="opacity: 0;;">
 
-                            <aside>
-                                <h1 style="font-family: graffiti-bold; font-size:  calc(10vw);">45i</h1>
-                                <!-- <p>Hi, I'm 45i and I'm a Programmer and art enthusiast.</p> -->
-                            </aside>
+                                <aside>
+                                    <h1 style="font-family: graffiti-bold; font-size:  calc(10vw);">45i</h1>
+                                    <!-- <p>Hi, I'm 45i and I'm a Programmer and art enthusiast.</p> -->
+                                </aside>
 
-                            <button class="bton">
-                                <span><strong style="">Contact Me</strong></span>
+                                <button class="bton">
+                                    <span><strong style="">Contact Me</strong></span>
 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-                                    <g class="nc-icon-wrapper" fill="#ffffff"
-                                        style="box-shadow: 0 0 10px #ffffff; color: #ffffff;">
-                                        <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path>
-                                    </g>
-                                </svg>
-                            </button>
-                        </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                                        <g class="nc-icon-wrapper" fill="#ffffff"
+                                            style="box-shadow: 0 0 10px #ffffff; color: #ffffff;">
+                                            <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path>
+                                        </g>
+                                    </svg>
+                                </button>
+                            </div>
 
-                        <!-- <div class="title"><p>Contact Me</p></div> -->
-                    </section>
-
-
-                </main>
-
-                <nav class="links">
+                            <!-- <div class="title"><p>Contact Me</p></div> -->
+                        </section>
 
 
+                    </main>
+
+                    <nav class="links">
 
 
-                    <a href="https://github.com/45i" class="github">
-                        <div class="icon wider-text ">
-                            <!-- <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0" fill-rule="nonzero"/></svg> -->
-                            <i class="fab fa-github icons "></i>
-                        </div>
 
-                        <div class=" content ">
-                            <h1>Github</h1>
-                            <strong class="gradient-text">45i</strong>
-                        </div>
 
-                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
-                            viewBox="0 0 48 48">
-                            <g class="nc-icon-wrapper" fill="#444444">
-                                <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path>
-                            </g>
-                        </svg>
-                    </a>
+                        <a href="https://github.com/45i" class="github">
+                            <div class="icon wider-text ">
+                                <!-- <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0" fill-rule="nonzero"/></svg> -->
+                                <i class="fab fa-github icons "></i>
+                            </div>
 
-                    <a href="https://discord.com/users/1123896290024108093" class="Discord">
-                        <div class="icon wider-text ">
-                            <i class="fab fa-discord icons "></i>
-                        </div>
+                            <div class=" content ">
+                                <h1>Github</h1>
+                                <strong class="gradient-text">45i</strong>
+                            </div>
 
-                        <div class=" content ">
-                            <h1>Discord</h1>
-                            <strong class="gradient-text">@_1c3d</strong>
-                        </div>
+                            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                viewBox="0 0 48 48">
+                                <g class="nc-icon-wrapper" fill="#444444">
+                                    <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path>
+                                </g>
+                            </svg>
+                        </a>
 
-                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
-                            viewBox="0 0 48 48">
-                            <g class="nc-icon-wrapper" fill="#444444">
-                                <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path>
-                            </g>
-                        </svg>
-                    </a>
-                    <a href="https://g.dev/iceddev" class="Discord">
-                        <div class="icon wider-text ">
-                            <i class="fas fa-code icons "></i>
-                        </div>
+                        <a href="https://discord.com/users/1123896290024108093" class="Discord">
+                            <div class="icon wider-text ">
+                                <i class="fab fa-discord icons "></i>
+                            </div>
 
-                        <div class=" content ">
-                            <h1 style="font-size: calc(62%);">Google Developer Student Clubs</h1>
-                            <strong class="gradient-text">@Iced Dev</strong>
-                        </div>
+                            <div class=" content ">
+                                <h1>Discord</h1>
+                                <strong class="gradient-text">@_1c3d</strong>
+                            </div>
 
-                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
-                            viewBox="0 0 48 48">
-                            <g class="nc-icon-wrapper" fill="#444444">
-                                <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path>
-                            </g>
-                        </svg>
-                    </a>
-                    <a href="https://stackoverflow.com/users/16304370/sir-f-bombs" class="Discord">
-                        <div class="icon wider-text ">
-                            <i class="fab fa-stack-overflow icons "></i>
-                        </div>
+                            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                viewBox="0 0 48 48">
+                                <g class="nc-icon-wrapper" fill="#444444">
+                                    <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path>
+                                </g>
+                            </svg>
+                        </a>
+                        <a href="https://g.dev/iceddev" class="Discord">
+                            <div class="icon wider-text ">
+                                <i class="fas fa-code icons "></i>
+                            </div>
 
-                        <div class=" content ">
-                            <h1 style="font-size: calc(62%);">Stack Overflow</h1>
-                            <strong class="gradient-text">@Iced Dev</strong>
-                        </div>
+                            <div class=" content ">
+                                <h1 style="font-size: calc(62%);">Google Developer Student Clubs</h1>
+                                <strong class="gradient-text">@Iced Dev</strong>
+                            </div>
 
-                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
-                            viewBox="0 0 48 48">
-                            <g class="nc-icon-wrapper" fill="#444444">
-                                <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path>
-                            </g>
-                        </svg>
-                    </a>
-                    <a href="le_direct.html" class="Discord">
-                        <div class="icon wider-text ">
-                            <i class="fab fa-stack-overflow icons "></i>
-                        </div>
+                            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                viewBox="0 0 48 48">
+                                <g class="nc-icon-wrapper" fill="#444444">
+                                    <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path>
+                                </g>
+                            </svg>
+                        </a>
+                        <a href="https://stackoverflow.com/users/16304370/sir-f-bombs" class="Discord">
+                            <div class="icon wider-text ">
+                                <i class="fab fa-stack-overflow icons "></i>
+                            </div>
 
-                        <div class=" content ">
-                            <h1 style="font-size: calc(62%);">Direct</h1>
-                            <span class="kbd gradient-text">powered by utteranc.es</span>
-                        </div>
+                            <div class=" content ">
+                                <h1 style="font-size: calc(62%);">Stack Overflow</h1>
+                                <strong class="gradient-text">@Iced Dev</strong>
+                            </div>
 
-                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
-                            viewBox="0 0 48 48">
-                            <g class="nc-icon-wrapper" fill="#444444">
-                                <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path>
-                            </g>
-                        </svg>
-                    </a>
-                </nav>
+                            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                viewBox="0 0 48 48">
+                                <g class="nc-icon-wrapper" fill="#444444">
+                                    <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path>
+                                </g>
+                            </svg>
+                        </a>
+                        <a href="le_direct" class="Discord">
+                            <div class="icon wider-text ">
+                                <i class="fas fa-comment icons"></i>
+                            </div>
+
+                            <div class=" content ">
+                                <h1 style="font-size: calc(62%);">Direct</h1>
+                                <span class="kbd gradient-text">powered by utteranc.es</span>
+                            </div>
+
+                            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                viewBox="0 0 48 48">
+                                <g class="nc-icon-wrapper" fill="#444444">
+                                    <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path>
+                                </g>
+                            </svg>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="info_text">
+            <div style="flex-direction: column; align-self: center;">
+                <h1
+                    style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-size-adjust: 100%; font-size: calc(7.5vw); line-height: 7.5vw;">
+                    <strong>Works & <span class="kbd">Other Stuff</span></strong>
+                </h1>
+                <br>
+                <br>
+                <br>
+                <a href="art" style="padding: 8px;"><button class="" style="font-size: xx-large;"><i class="fas fa-palette"></i></button></a>
+
+
+                <a href="software"><button class="" style="font-size: xx-large;"><i class="fas fa-code"></i></button></a>
+
             </div>
         </div>
+        <br>
+        <br>
+        <div class="footer-container"></div>
 
+        <script>
+            // Fetch the contents of the navbar HTML file
+            fetch("navbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    // Insert the navbar HTML into the navbar-container element
+                    const navbarContainer = document.querySelector('.navbar-container');
+                    navbarContainer.innerHTML = data;
 
-    </div>
-    <div class="info_text">
-        <div style="flex-direction: column; align-self: center;">
-            <h1
-                style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-size-adjust: 100%; font-size: calc(7.5vw); line-height: 7.5vw;">
-                <strong>Works & <span class="gradient-text ">Other Stuff</span></strong>
-            </h1>
-            <br>
-            <br>
-            <br>
-            <a href="art" style="padding: 8px;"><button class="gradient-text"
-                    style="font-size: xx-large;">🎨</button></a>
+                    // Access the menuIcon element and add a click event listener
+                    var icon = document.querySelector('.main');
+                    var menuIcon = document.querySelector('.icon');
+                    var navbar = document.querySelector('.navbar');
+                    console.log(menuIcon);
+                    console.log(icon);
 
-
-            <a href="software"><button class="gradient-text" style="font-size: xx-large;">💻</button></a>
-
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="footer-container"></div>
-
-    <script>
-        // Fetch the contents of the navbar HTML file
-        fetch("navbar.html")
-            .then(response => response.text())
-            .then(data => {
-                // Insert the navbar HTML into the navbar-container element
-                const navbarContainer = document.querySelector('.navbar-container');
-                navbarContainer.innerHTML = data;
-
-                // Access the menuIcon element and add a click event listener
-                var icon = document.querySelector('.main');
-                var menuIcon = document.querySelector('.icon');
-                var navbar = document.querySelector('.navbar');
-                console.log(menuIcon);
-                console.log(icon);
-
-                menuIcon.addEventListener('click', function () {
-                    console.log("clicked");
-                    icon.classList.toggle('open');
-                    if (icon.classList.contains('open')) {
-                        menuIcon.innerHTML = '<i class="fas fa-times"></i>';
-                    } else {
-                        menuIcon.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
-                    menuIcon.classList.toggle('bx-x');
-                    navbar.classList.toggle('open');
-
-                });
-                const dropdownMenu = document.querySelector(".committee-menu");
-                const gg = document.querySelector(".committee");
-
-                console.log(dropdownMenu);
-                console.log("hover");
-                gg.addEventListener("mouseenter", function () {
-                    dropdownMenu.style.display = "block";
-                    console.log("hover");
-                });
-
-
-                dropdownMenu.addEventListener("mouseenter", function () {
-                    dropdownMenu.style.display = "block";
-                    console.log("hover");
-                });
-
-                dropdownMenu.addEventListener("mouseleave", function () {
-                    dropdownMenu.style.display = "none";
-                });
-            });
-
-    </script>
-    <script src="main.js"></script>
-    <script defer="">
-        document.addEventListener("DOMContentLoaded", function () {
-            var readMoreElements = document.querySelectorAll('.readmoretext');
-
-            readMoreElements.forEach(function (element) {
-                var content = element.innerHTML;
-                var height = window.innerHeight;
-                var width = window.innerWidth;
-                var limit;
-
-                if (width < 768) {
-                    limit = 50;
-                } else if (width < 992) {
-                    limit = 75;
-                } else {
-                    limit = 100;
-                }
-
-                if (height < 600) {
-                    limit -= 25;
-                }
-
-                // Use the limit variable to truncate the content as before
-                if (content.length > limit) {
-                    var visibleText = content.substring(0, limit);
-                    var hiddenText = content.substring(limit);
-
-                    element.innerHTML = '<div class="visible-text">' +
-                        visibleText +
-                        '<span class="more-dots">...</span>' +
-                        '<div class="hidden-text">' + '&nbsp;' + hiddenText + '</div>' +
-                        '<span class="read-more-button"> <button style="max-width: 200px; font-size: calc(1vw + 10px);bottom:-50px;right:0; ">Read more</button></span>' +
-                        '</div>';
-
-                    var readMoreButton = element.querySelector('.read-more-button');
-                    var readMoreDiv = element.querySelector('.readmoretext');
-                    var moreDots = element.querySelector('.more-dots');
-                    var hiddenTextDiv = element.querySelector('.visible-text');
-
-                    readMoreButton.addEventListener('click', function () {
-                        hiddenTextDiv.innerHTML = visibleText + hiddenText;
-                        // hiddenTextDiv.style.display = 'block';
-                        // hiddenTextDiv.style.color = '#fff';
-                        // hiddenTextDiv.style.zIndex = '9999999';
-                        // readMoreDiv.style.maxheight = '100%vh';
-                        if (moreDots && readMoreButton) {
-                            moreDots.remove();
-                            readMoreButton.remove();
+                    menuIcon.addEventListener('click', function () {
+                        console.log("clicked");
+                        icon.classList.toggle('open');
+                        if (icon.classList.contains('open')) {
+                            menuIcon.innerHTML = '<i class="fas fa-times"></i>';
+                        } else {
+                            menuIcon.innerHTML = '<i class="fas fa-bars"></i>';
                         }
+                        menuIcon.classList.toggle('bx-x');
+                        navbar.classList.toggle('open');
+
                     });
-                }
-            });
-        });
-    </script>
-    <script defer="">
+                    const dropdownMenu = document.querySelector(".committee-menu");
+                    const gg = document.querySelector(".committee");
 
-    </script>
-    <script>
-        document.querySelector('.bton').addEventListener('click', function () {
-            var buttons = document.querySelectorAll('.bton');
-            var titles = document.querySelectorAll('.title');
-            var links = document.querySelectorAll('.links');
+                    console.log(dropdownMenu);
+                    console.log("hover");
+                    gg.addEventListener("mouseenter", function () {
+                        dropdownMenu.style.display = "block";
+                        console.log("hover");
+                    });
 
-            buttons.forEach(function (button) {
-                button.classList.toggle('active');
+
+                    dropdownMenu.addEventListener("mouseenter", function () {
+                        dropdownMenu.style.display = "block";
+                        console.log("hover");
+                    });
+
+                    dropdownMenu.addEventListener("mouseleave", function () {
+                        dropdownMenu.style.display = "none";
+                    });
+                });
+
+        </script>
+        <script src="main.js"></script>
+        <script defer="">
+            document.addEventListener("DOMContentLoaded", function () {
+                var readMoreElements = document.querySelectorAll('.readmoretext');
+
+                readMoreElements.forEach(function (element) {
+                    var content = element.innerHTML;
+                    var height = window.innerHeight;
+                    var width = window.innerWidth;
+                    var limit;
+
+                    if (width < 768) {
+                        limit = 50;
+                    } else if (width < 992) {
+                        limit = 75;
+                    } else {
+                        limit = 100;
+                    }
+
+                    if (height < 600) {
+                        limit -= 25;
+                    }
+
+                    // Use the limit variable to truncate the content as before
+                    if (content.length > limit) {
+                        var visibleText = content.substring(0, limit);
+                        var hiddenText = content.substring(limit);
+
+                        element.innerHTML = '<div class="visible-text">' +
+                            visibleText +
+                            '<span class="more-dots">...</span>' +
+                            '<div class="hidden-text">' + '&nbsp;' + hiddenText + '</div>' +
+                            '<span class="read-more-button"> <button style="max-width: 200px; font-size: calc(1vw + 10px);bottom:-50px;right:0; ">Read more</button></span>' +
+                            '</div>';
+
+                        var readMoreButton = element.querySelector('.read-more-button');
+                        var readMoreDiv = element.querySelector('.readmoretext');
+                        var moreDots = element.querySelector('.more-dots');
+                        var hiddenTextDiv = element.querySelector('.visible-text');
+
+                        readMoreButton.addEventListener('click', function () {
+                            hiddenTextDiv.innerHTML = visibleText + hiddenText;
+                            // hiddenTextDiv.style.display = 'block';
+                            // hiddenTextDiv.style.color = '#fff';
+                            // hiddenTextDiv.style.zIndex = '9999999';
+                            // readMoreDiv.style.maxheight = '100%vh';
+                            if (moreDots && readMoreButton) {
+                                moreDots.remove();
+                                readMoreButton.remove();
+                            }
+                        });
+                    }
+                });
             });
-            titles.forEach(function (title) {
-                title.classList.toggle('active');
+        </script>
+        <script defer="">
+
+        </script>
+        <script>
+            document.querySelector('.bton').addEventListener('click', function () {
+                var buttons = document.querySelectorAll('.bton');
+                var titles = document.querySelectorAll('.title');
+                var links = document.querySelectorAll('.links');
+
+                buttons.forEach(function (button) {
+                    button.classList.toggle('active');
+                });
+                titles.forEach(function (title) {
+                    title.classList.toggle('active');
+                });
+                links.forEach(function (link) {
+                    link.classList.toggle('active');
+                });
             });
-            links.forEach(function (link) {
-                link.classList.toggle('active');
-            });
-        });
-    </script>
-    <!-- <script>
+        </script>
+        <!-- <script>
         const container = document.querySelector('.jj');
         const text = container.innerText;
         container.innerHTML = text.split(' ')
