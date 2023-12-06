@@ -28,7 +28,7 @@
 
 @font-face {
   font-family: graffiti-bold;
-  src: url(SFPRODISPLAYBOLD.OTF);
+  src: url(Gotham-Black.otf);
   letter-spacing: 10px;
 }
 
@@ -67,11 +67,11 @@
 
 
   & a {
-    text-decoration: none;
-    text-decoration-color: orangered;
-    text-decoration-thickness: 5px;
-    background-color: none;
-    transition: background 0.3s ease;
+    text-decoration: underline;
+    -webkit-text-decoration-color: goldenrod;
+    text-decoration-color: goldenrod;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
   }
 
 
@@ -109,16 +109,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(90.18deg, #4f5bd5, #962fbf, #d62976, #fa7e1e, #feda75);
-  text-shadow: 0 0 10px linear-gradient(90.18deg, #4f5bd5, #962fbf, #d62976, #fa7e1e, #feda75);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-  transition: all 0.3s ease;
-
-  font-family: st;
-  ;
+  color: goldenrod;
 }
 
 .gradient-accent-gbv {
@@ -126,7 +117,7 @@ body {
 }
 
 .gradient-text:hover {
-  text-shadow: 0 0 10px #858585a1;
+  
   transition: all 0.3s ease
 }
 
@@ -965,7 +956,7 @@ h2 {
 }
 
 .navig .icon:hover {
-  background: linear-gradient(90.18deg, #4f5bd5, #962fbf, #d62976, #fa7e1e, #feda75);
+  background: goldenrod;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
