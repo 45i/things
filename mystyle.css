@@ -1039,9 +1039,25 @@ h2 {
   line-height: 100%;
   /* content:none; */
   /* border-radius: 36px; */
-
+padding: 10px;
+ & img{
+  border-radius: 36px;
+  transition: all 1s ease-in-out;
+ }
+ &.change{
+  color: #ffffff;
+  transition: all 1s ease-in-out;  
+ }
 }
 
+.logo:hover a{
+  text-decoration-color: rgb(59, 130, 246);
+  transition: all 1s ease-in-out;
+}
+.logo:hover a img{
+  border-radius: 1px;
+  transition: all 1s ease-in-out;
+}
 .navig a {
   font-family: graffiti-bold;
 }
