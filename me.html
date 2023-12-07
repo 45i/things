@@ -13,73 +13,77 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <!-- <title>45i Does Stuff</title> -->
 </head>
-
+<style>
+    footer{
+    border-radius: 0;
+    }
+</style>
 <body>
     <div id="preloader"></div>
     <div class="navbar-container"></div>
-    <header class="header">
-        <h1><strong>About Me</strong></h1>
+    <header class="header" style="border-radius: 0;">
 
         <br>
 
-    </header>
-    <br>
+    
+        <ul class="listing"style="list-style-type:none;display:flex;   padding:10px; flex-direction: row; width: 90vw; height: fit-content; flex-wrap: wrap;
+  overflow-x: auto; justify-content: center;">
+            <li>
+                <div class="post">
 
-    <div class="info_text">
-        <div class="post">
-
-            <div class="post-left wider-text">
-                <img class="" src="guy1.png" style="border-radius:6px" />
-            </div>
-            <div class="post-right">
-                <div class="post-right_body" style="overflow:wrap; width: fit-content; max-width: 50vw; justify-content: center;justify-content: center;
+                    <div class="post-left wider-text">
+                        <img class="" src="guy1.png" width="100%" style="border-radius:6px" />
+                    </div>
+                    <div class="post-right">
+                        <div class="post-right_body" style="overflow:wrap; width: fit-content; max-width: 50vw; justify-content: center;justify-content: center;
                 display: block;
   align-items: center;
   align-content: center;
   text-align: center;">
-                    <div class="wider-text"><br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br></div>
-                    Hey! I'm 45i, a 15 year old programmer and music lover.
-                    I love solving problems, especially the ones I create 😅. I also dabble in 3D art, though I can't
-                    really say I excel at it (<a href="art"><button class="ext-btn"
-                            style="background-color: gold; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; color: #262624;"
-                            :hover="border-color: goldenrod"> check those out &rightarrow;</button></a> [shameless
-                    plug])! I try to make people's lives easier, <strong>one spaghetti code at a time</strong>!
-                    <div class="cols">
-                        <div class="col">
-                            <a href="software"><button class="ext-btn"
-                                    style="background-color: goldenrod; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large;color: #262624; "
-                                    :hover="border-color: goldenrod"> My Works &rightarrow;</button></a>
-                        </div>
-                        <div class="col">
-                            <a href="art"><button class="ext-btn"
-                                    style="background-color: transparent; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large;color: #262624; "
-                                    :hover="border-color: goldenrod"> My "Art" &rightarrow;</button></a>
-                        </div>
+                            <div class="wider-text"><br>
+                                        <h1><strong style="color: #262624;font-size: clamp(20px,10vw, 90px); line-height: 10vh">About Me</strong></h1>
 
-                        <div class="col">
-                            <a href="https://github.com/45i"><button class="ext-btn"
-                                    style="background-color: transparent; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large;color: #262624; "
-                                    :hover="border-color: goldenrod"> My Github &rightarrow;</button></a>
-                        </div>
+                            </div>
+                            Hey! I'm 45i, a 15 year old programmer and music lover.
+                            I love solving problems, especially the ones I create 😅. I also dabble in 3D art, though I
+                            can't
+                            really say I excel at it (<a href="art"><button class="ext-btn"
+                                    style="background-color: gold; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; color: #262624;"
+                                    :hover="border-color: goldenrod"> check those out &rightarrow;</button></a>
+                            [shameless
+                            plug])! I try to make people's lives easier, <strong>one spaghetti code at a time</strong>!
+                            <div class="cols">
+                                <div class="col">
+                                    <a href="software"><button class="ext-btn"
+                                            style="background-color: goldenrod; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large;color: #262624; "
+                                            :hover="border-color: goldenrod"> My Works &rightarrow;</button></a>
+                                </div>
+                                <div class="col">
+                                    <a href="art"><button class="ext-btn"
+                                            style="background-color: transparent; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large;color: #262624; "
+                                            :hover="border-color: goldenrod"> My "Art" &rightarrow;</button></a>
+                                </div>
 
+                                <div class="col">
+                                    <a href="https://github.com/45i"><button class="ext-btn"
+                                            style="background-color: transparent; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large;color: #262624; "
+                                            :hover="border-color: goldenrod"> My Github &rightarrow;</button></a>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
-            </div>
-
-
+            </li>
+        </ul>
+<div class="scroll-down"><strong><i class="fas fa-angle-double-down" style="font-size: large; "></i></strong>
         </div>
+    </header>
+    
 
-    </div>
-    <br>
-    <br>
-
-    <div class="footer-container"></div>
+    <div class="footer-container target-element" ></div>
 </body>
 <script src="main.js"></script>
 

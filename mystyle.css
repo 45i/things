@@ -110,6 +110,9 @@ body {
 
 .gradient-text {
   color: goldenrod;
+  background: linear-gradient(90.18deg, #4f5bd5, #962fbf, #d62976, #fa7e1e, #feda75);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .gradient-accent-gbv {
