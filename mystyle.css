@@ -173,9 +173,28 @@ blockquote {
 
 img {
   -webkit-filter: drop-shadow(5px 5px 5px #1f1f1f);
-  image-rendering: optimizeQuality;
+
   /* This can help with antialiasing for images and SVG graphics */
 
+}
+
+.wrapped {
+  position: relative;
+}
+
+.wrapped:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url('http://placehold.it/100x100/09f/fff.png');
+  background-size: 100px 100px;
+  background-position: 30px 30px;
+  background-repeat: no-repeat;
+  opacity: 0.7;
 }
 
 cite {

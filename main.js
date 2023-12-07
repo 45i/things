@@ -9,6 +9,20 @@
 // });
 
 document.addEventListener("DOMContentLoaded", function () {
+ function setPageTitle(title) {
+    document.title = `45i - ${title}`;
+    // Set the 'og:title' meta tag as well
+    const ogTitleMeta = document.querySelector('meta[property="og:title"]');
+    if (ogTitleMeta) {
+      ogTitleMeta.content = `45i - ${title}`;
+    }
+  }
+
+  // Extract the title from the page content or set a default title
+  const pageTitle = document.querySelector('title') ? document.querySelector('title').textContent : 'Default Title';
+
+  // Set the page title dynamically
+  setPageTitle(pageTitle);
   // Create and append the 'theme-color' meta tag
   const themeColorMeta = document.createElement('meta');
   themeColorMeta.name = 'theme-color';
@@ -767,8 +781,39 @@ window.addEventListener('scroll', handleScroll);
 document.addEventListener('contextmenu', function (e) {
   e.preventDefault();
 });
+function addWatermarkToImage(imgElement) {
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('wrapped');
 
+            const watermark = document.createElement('div');
+            watermark.classList.add('wrapped');
+
+            const watermarkStyle = `
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-image: url('http://placehold.it/100x100/09f/fff.png');
+                background-size: 100px 100px;
+                background-position: 30px 30px;
+                background-repeat: no-repeat;
+                opacity: 0.7;
+            `;
+
+            watermark.style = watermarkStyle;
+
+            wrapper.appendChild(imgElement.cloneNode(true));
+            wrapper.appendChild(watermark);
+
+            imgElement.parentNode.replaceChild(wrapper, imgElement);
+        }
+
+        // Wrap each image with the watermark
 document.addEventListener("DOMContentLoaded", function () {
+
     const lazyLoadImages = document.querySelectorAll('.lazy-load-img');
 
     const lazyLoad = target => {
@@ -788,5 +833,6 @@ document.addEventListener("DOMContentLoaded", function () {
         io.observe(target);
     };
 
+       
     lazyLoadImages.forEach(lazyLoad);
 });
