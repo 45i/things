@@ -9,60 +9,41 @@
 // });
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Create and append the 'description' meta tag
-  // Create the context menu
-  //   const contextMenu = document.createElement('div');
-  // contextMenu.id = 'contextMenu';
+  // Create and append the 'theme-color' meta tag
+  const themeColorMeta = document.createElement('meta');
+  themeColorMeta.name = 'theme-color';
+  themeColorMeta.content = '#3B82F6';
+  document.head.appendChild(themeColorMeta);
 
-  // const ul = document.createElement('ul');
+  // Create and append the 'twitter:image:alt' meta tag
+  const twitterImageAltMeta = document.createElement('meta');
+  twitterImageAltMeta.name = 'twitter:image:alt';
+  twitterImageAltMeta.content = '45i';
+  document.head.appendChild(twitterImageAltMeta);
 
-  // const copyTextButton = document.createElement('li');
-  // copyTextButton.id = 'copyTextButton';
-  // copyTextButton.textContent = 'Copy Text';
+  // Create and append the 'twitter:image' meta tag
+  const twitterImageMeta = document.createElement('meta');
+  twitterImageMeta.name = 'twitter:image';
+  twitterImageMeta.content = 'guy.png';
+  document.head.appendChild(twitterImageMeta);
 
-  // const searchGoogleLink = document.createElement('li');
-  // const searchGoogleButton = document.createElement('button');
-  // const searchGoogleAnchor = document.createElement('a');
-  // searchGoogleAnchor.href = '#';
-  // searchGoogleAnchor.id='searchGoogleLink';
-  // searchGoogleAnchor.textContent = 'Search Google';
-  // searchGoogleButton.appendChild(searchGoogleAnchor);
-  // searchGoogleLink.appendChild(searchGoogleButton);
+  // Create and append the 'twitter:description' meta tag
+  const twitterDescriptionMeta = document.createElement('meta');
+  twitterDescriptionMeta.name = 'twitter:description';
+  twitterDescriptionMeta.content = "Hey! I'm 45i, a 15-year-old programmer and music lover. I love solving problems, especially the ones I create 😅. I try to make people's lives easier, one spaghetti code at a time!";
+  document.head.appendChild(twitterDescriptionMeta);
 
-  // const tweetLink = document.createElement('li');
-  // const tweetButton = document.createElement('button');
-  // const tweetAnchor = document.createElement('a');
-  // tweetAnchor.href = 'https://twitter.com/share';
-  // tweetAnchor.id = 'tweetLink';
-  // tweetAnchor.dataset.url = '#';
-  // tweetAnchor.dataset.text = 'AntiScam! A super fast and easy moderation bot to stop scams!';
-  // tweetAnchor.dataset.count = 'horizontal';
-  // tweetAnchor.textContent = 'Tweet';
-  // tweetButton.appendChild(tweetAnchor);
-  // tweetLink.appendChild(tweetButton);
+  // Create and append the 'twitter:title' meta tag
+  const twitterTitleMeta = document.createElement('meta');
+  twitterTitleMeta.name = 'twitter:title';
+  twitterTitleMeta.content = '45i - Programmer and Music Lover';
+  document.head.appendChild(twitterTitleMeta);
 
-  // ul.appendChild(copyTextButton);
-  // ul.appendChild(searchGoogleLink);
-  // ul.appendChild(tweetLink);
-
-  // contextMenu.appendChild(ul);
-
-
-  // document.body.appendChild(contextMenu);
-
-
-  // Create and append the event listener for the context menu
-
-  const descriptionMeta = document.createElement('meta');
-  descriptionMeta.name = 'description';
-  descriptionMeta.content = "45i's Personal Shenanigans";
-  document.head.appendChild(descriptionMeta);
-
-  // Create and append the 'og:site_name' meta tag
-  const ogSiteNameMeta = document.createElement('meta');
-  ogSiteNameMeta.name = 'og:site_name';
-  ogSiteNameMeta.content = "45i";
-  document.head.appendChild(ogSiteNameMeta);
+  // Create and append the 'twitter:card' meta tag
+  const twitterCardMeta = document.createElement('meta');
+  twitterCardMeta.name = 'twitter:card';
+  twitterCardMeta.content = 'summary';
+  document.head.appendChild(twitterCardMeta);
 
   // Create and append the 'og:image' meta tag
   const ogImageMeta = document.createElement('meta');
@@ -70,11 +51,56 @@ document.addEventListener("DOMContentLoaded", function () {
   ogImageMeta.content = 'guy.png';
   document.head.appendChild(ogImageMeta);
 
-  // Create and append the 'theme-color' meta tag
-  const themeColorMeta = document.createElement('meta');
-  themeColorMeta.name = 'theme-color';
-  themeColorMeta.content = '#262624';
-  document.head.appendChild(themeColorMeta);
+  // Create and append the 'og:description' meta tag
+  const ogDescriptionMeta = document.createElement('meta');
+  ogDescriptionMeta.property = 'og:description';
+  ogDescriptionMeta.content = "Hey! I'm 45i, a 15-year-old programmer and music lover. I love solving problems, especially the ones I create 😅. I try to make people's lives easier, one spaghetti code at a time!";
+  document.head.appendChild(ogDescriptionMeta);
+
+  // Create and append the 'og:title' meta tag
+  const ogTitleMeta = document.createElement('meta');
+  ogTitleMeta.property = 'og:title';
+  ogTitleMeta.content = '45i - Programmer and Music Lover';
+  document.head.appendChild(ogTitleMeta);
+
+  // Create and append the 'og:url' meta tag
+  const ogUrlMeta = document.createElement('meta');
+  ogUrlMeta.property = 'og:url';
+  // Add your URL here
+  document.head.appendChild(ogUrlMeta);
+
+  // Create and append the 'og:site_name' meta tag
+  const ogSiteNameMeta = document.createElement('meta');
+  ogSiteNameMeta.property = 'og:site_name';
+  ogSiteNameMeta.content = '45i';
+  document.head.appendChild(ogSiteNameMeta);
+
+  // Create and append the 'og:type' meta tag
+  const ogTypeMeta = document.createElement('meta');
+  ogTypeMeta.property = 'og:type';
+  ogTypeMeta.content = 'website';
+  document.head.appendChild(ogTypeMeta);
+
+  // Create and append the 'author' meta tag
+  const authorMeta = document.createElement('meta');
+  authorMeta.name = 'author';
+  authorMeta.content = '45i';
+  document.head.appendChild(authorMeta);
+
+  // Create and append the 'robots' meta tag
+  const robotsMeta = document.createElement('meta');
+  robotsMeta.name = 'robots';
+  robotsMeta.content = 'follow, index';
+  document.head.appendChild(robotsMeta);
+
+  // Create and append the 'description' meta tag
+  const descriptionMeta = document.createElement('meta');
+  descriptionMeta.name = 'description';
+  descriptionMeta.content = "Hey! I'm 45i, a 15-year-old programmer and music lover. I love solving problems, especially the ones I create 😅. I try to make people's lives easier, one spaghetti code at a time!";
+  document.head.appendChild(descriptionMeta);
+
+  // Rest of your existing code...
+  // Rest of your existing code...
 
   // Create and append the Font Awesome CSS link
   const fontAwesomeLink = document.createElement('link');
@@ -105,8 +131,10 @@ document.addEventListener("DOMContentLoaded", function () {
   epicFaviconLink.type = 'image/x-icon';
   document.head.appendChild(epicFaviconLink);
 
-
+  // Rest of your existing code...
 });
+
+
 
 // const body = document.body;
 
@@ -183,24 +211,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Add this line
       menuIcon.addEventListener('click', function () {
-  console.log("clicked");
-  icon.classList.toggle('open');
-  if (icon.classList.contains('open')) {
-    menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        console.log("clicked");
+        icon.classList.toggle('open');
+        if (icon.classList.contains('open')) {
+          menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
 
-    // toggleDropdown();
-  } else {
-    menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
+          // toggleDropdown();
+        } else {
+          menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
 
-    // toggleDropdown();
-  }
-  menuIcon.classList.toggle('bx-x');
-  navbar.classList.toggle('open');
-  
-  setTimeout(function () {
-    navig.classList.toggle('open');
-  }, 200); // 300 milliseconds delay (0.3 seconds)
-});
+          // toggleDropdown();
+        }
+        menuIcon.classList.toggle('bx-x');
+        navbar.classList.toggle('open');
+
+        setTimeout(function () {
+          navig.classList.toggle('open');
+        }, 200); // 300 milliseconds delay (0.3 seconds)
+      });
 
 
       // Select all dropdown menus with the class "committee-menu"
@@ -252,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
           loopCount: Infinity,
         });
       }
-      catch{
+      catch {
 
       }
 
@@ -738,4 +766,27 @@ window.addEventListener('scroll', handleScroll);
 // });
 document.addEventListener('contextmenu', function (e) {
   e.preventDefault();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const lazyLoadImages = document.querySelectorAll('.lazy-load-img');
+
+    const lazyLoad = target => {
+        const io = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const src = img.getAttribute('data-src');
+
+                    img.src = src;
+                    img.classList.add('loaded');
+                    observer.disconnect();
+                }
+            });
+        });
+
+        io.observe(target);
+    };
+
+    lazyLoadImages.forEach(lazyLoad);
 });
