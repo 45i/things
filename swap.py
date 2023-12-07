@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup
 meta_tags = """
 <meta name="description" content="45i's Personal Shenanigans">
 <meta name="og:site_name" content="45i">
-<meta property="og:image" content="megamun.png">
-<link rel="icon" href="megamun.png" type="image/x-icon">
+<meta property="og:image" content="guy1.png">
+<link rel="icon" href="guy1.png" type="image/x-icon">
 <meta name="theme-color" content="#262624">
 """
 

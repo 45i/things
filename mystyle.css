@@ -117,7 +117,7 @@ body {
 }
 
 .gradient-text:hover {
-  
+
   transition: all 0.3s ease
 }
 
@@ -318,7 +318,7 @@ strong {
   line-height: 2.5;
   text-shadow: 0 0 10px #000;
   transition: background 0.3s ease-out;
-  background:#111111;
+  background: #111111;
   box-shadow: 0 2px 10px #000;
   background-size: cover;
   background-repeat: no-repeat;
@@ -535,7 +535,7 @@ footer {
   /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.144) 100%); */
   /* backdrop-filter: blur(10px); */
   color: #fff;
-  background:#111111;
+  background: #111111;
   background-repeat: no-repeat;
   background-size: cover;
   line-height: 2.5;
@@ -683,7 +683,7 @@ button {
   min-width: 100px;
   background: #a02f54;
   position: relative;
-  
+
   margin-bottom: 0px;
   border-radius: 3px;
   /* backdrop-filter: blur(10px); */
@@ -1034,30 +1034,34 @@ h2 {
   transition: transform 0.5s ease-in-out;
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-image: url(megamun.png); */
+  /* background-image: url(guy1.png); */
   font-size: auto;
   line-height: 100%;
   /* content:none; */
   /* border-radius: 36px; */
-padding: 10px;
- & img{
-  border-radius: 36px;
-  transition: all 1s ease-in-out;
- }
- &.change{
-  color: #ffffff;
-  transition: all 1s ease-in-out;  
- }
+  padding: 10px;
+
+  & img {
+    border-radius: 36px;
+    transition: all 1s ease-in-out;
+  }
+
+  &.change {
+    color: #ffffff;
+    transition: all 1s ease-in-out;
+  }
 }
 
-.logo:hover a{
+.logo:hover a {
   text-decoration-color: rgb(59, 130, 246);
   transition: all 1s ease-in-out;
 }
-.logo:hover a img{
+
+.logo:hover a img {
   border-radius: 1px;
   transition: all 1s ease-in-out;
 }
+
 .navig a {
   font-family: graffiti-bold;
 }

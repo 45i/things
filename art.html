@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +5,7 @@
   <!-- <link href="mystyle.scss" rel="stylesheet"> -->
   <link href="mystyle.css" rel="stylesheet" />
   <title>/ˈɑːtwəːk/</title>
-  <link href="megamun.png" rel="icon" type="image/x-icon" />
+  <link href="guy1.png" rel="icon" type="image/x-icon" />
 
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script> -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
@@ -64,14 +63,15 @@
       <h1><strong class="graffiti-bold">Artwork</strong></h1>
     </div>
 
-   
+
     <div class="scroll-down"><i class="fas fa-angle-double-down" style="font-size: small; color: #ffffff;"></i></div>
   </header>
 
   <!-- The Close Button -->
 
   <!-- Modal Content (The Image) -->
-<center> <span style="color:#ffffff;font-size: calc(3.15vw);"><strong style="font-family: st;">/ˈɑːtwəːk/</strong><i>&nbsp;
+  <center> <span style="color:#ffffff;font-size: calc(3.15vw);"><strong
+        style="font-family: st;">/ˈɑːtwəːk/</strong><i>&nbsp;
         <i>noun</i></i>
       <p class="thin">paintings, drawings, or other artistic works</p>
     </span></center>
@@ -85,41 +85,41 @@
     <div class="">
       <center><img class="modal-content" style="max-width:90vh" id="img01"></center>
       <span class="close"><i class="fas fa-magnifying-glass-minus">&times;</i></span>
- <div class="magnifyingGlass" style="z-index: 999999999999"></div>
+      <div class="magnifyingGlass" style="z-index: 999999999999"></div>
       <!-- Modal Caption (Image Text) -->
       <div id="caption"></div>
     </div>
   </div>
-<script>
-  var glass = document.querySelector(".magnifyingGlass");
-var img = document.getElementById("img01");
+  <script>
+    var glass = document.querySelector(".magnifyingGlass");
+    var img = document.getElementById("img01");
 
-img.addEventListener("mousemove", function(e) {
-  showMagnifiedImage(e);
-});
+    img.addEventListener("mousemove", function (e) {
+      showMagnifiedImage(e);
+    });
 
-img.addEventListener("mouseout", function() {
-  glass.style.display = "none";
-});
+    img.addEventListener("mouseout", function () {
+      glass.style.display = "none";
+    });
 
-function showMagnifiedImage(e) {
-  var posX = e.offsetX;
-  var posY = e.offsetY;
+    function showMagnifiedImage(e) {
+      var posX = e.offsetX;
+      var posY = e.offsetY;
 
-  var bgPosX = -posX * 2 + "px";
-  var bgPosY = -posY * 2 + "px";
+      var bgPosX = -posX * 2 + "px";
+      var bgPosY = -posY * 2 + "px";
 
-  glass.style.backgroundImage = "url('" + img.src + "')";
-  glass.style.backgroundSize = img.width * 2 + "px " + img.height * 2 + "px";
-  glass.style.backgroundPosition = bgPosX + " " + bgPosY;
-  glass.style.display = "block";
-console.log("Show Magnified Image");
-  var rect = glass.getBoundingClientRect();
-  var glassHalfWidth = rect.width / 2;
-  var glassHalfHeight = rect.height / 2;
-  glass.style.left = e.pageX - glassHalfWidth + "px";
-  glass.style.top = e.pageY - glassHalfHeight + "px";
-}</script>
+      glass.style.backgroundImage = "url('" + img.src + "')";
+      glass.style.backgroundSize = img.width * 2 + "px " + img.height * 2 + "px";
+      glass.style.backgroundPosition = bgPosX + " " + bgPosY;
+      glass.style.display = "block";
+      console.log("Show Magnified Image");
+      var rect = glass.getBoundingClientRect();
+      var glassHalfWidth = rect.width / 2;
+      var glassHalfHeight = rect.height / 2;
+      glass.style.left = e.pageX - glassHalfWidth + "px";
+      glass.style.top = e.pageY - glassHalfHeight + "px";
+    }</script>
 
   <div id="target-element" style="height:100vw;position: relative;
     display: flex;
@@ -127,8 +127,10 @@ console.log("Show Magnified Image");
     justify-content: center;
    ">
     <div class="slideshow-container" style="margin:10px; border-radius: 10px;">
-    <a class="prev" onclick="plusSlides(-1)"><button  style="background-color: goldenrod; padding:10px; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; color: #262625; ">&leftarrow;</button></a>
-    <a class="next" onclick="plusSlides(1)"><button  style="background-color: goldenrod; padding:10px; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; color: #262625; ">&rightarrow;</button></a>
+      <a class="prev" onclick="plusSlides(-1)"><button
+          style="background-color: goldenrod; padding:10px; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; color: #262625; ">&leftarrow;</button></a>
+      <a class="next" onclick="plusSlides(1)"><button
+          style="background-color: goldenrod; padding:10px; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; color: #262625; ">&rightarrow;</button></a>
 
       <!-- Full-width images with number and caption text -->
       <div class="mySlides fade">

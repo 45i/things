@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create and append the 'og:image' meta tag
   const ogImageMeta = document.createElement('meta');
   ogImageMeta.property = 'og:image';
-  ogImageMeta.content = 'megamun.png';
+  ogImageMeta.content = 'guy.png';
   document.head.appendChild(ogImageMeta);
 
   // Create and append the 'theme-color' meta tag
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Create and append the Favicon link
   const epicFaviconLink = document.createElement('link');
-  epicFaviconLink.href = 'megamun.png';
+  epicFaviconLink.href = 'guy.png';
   epicFaviconLink.rel = 'icon';
   epicFaviconLink.type = 'image/x-icon';
   document.head.appendChild(epicFaviconLink);
