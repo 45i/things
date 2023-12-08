@@ -9,7 +9,7 @@
 // });
 
 document.addEventListener("DOMContentLoaded", function () {
- function setPageTitle(title) {
+  function setPageTitle(title) {
     document.title = `45i - ${title}`;
     // Set the 'og:title' meta tag as well
     const ogTitleMeta = document.querySelector('meta[property="og:title"]');
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create and append the 'twitter:image' meta tag
   const twitterImageMeta = document.createElement('meta');
   twitterImageMeta.name = 'twitter:image';
-  twitterImageMeta.content = 'guy.png';
+  twitterImageMeta.content = '404 img\\to show\\guy_think.webp';
   document.head.appendChild(twitterImageMeta);
 
   // Create and append the 'twitter:description' meta tag
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create and append the 'og:image' meta tag
   const ogImageMeta = document.createElement('meta');
   ogImageMeta.property = 'og:image';
-  ogImageMeta.content = 'guy.png';
+  ogImageMeta.content = '404 img\\to show\\guy_think.webp';
   document.head.appendChild(ogImageMeta);
 
   // Create and append the 'og:description' meta tag
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Create and append the Favicon link
   const epicFaviconLink = document.createElement('link');
-  epicFaviconLink.href = 'guy.png';
+  epicFaviconLink.href = '404 img\\to show\\guy_think.webp';
   epicFaviconLink.rel = 'icon';
   epicFaviconLink.type = 'image/x-icon';
   document.head.appendChild(epicFaviconLink);
@@ -782,13 +782,13 @@ document.addEventListener('contextmenu', function (e) {
   e.preventDefault();
 });
 function addWatermarkToImage(imgElement) {
-            const wrapper = document.createElement('div');
-            wrapper.classList.add('wrapped');
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('wrapped');
 
-            const watermark = document.createElement('div');
-            watermark.classList.add('wrapped');
+  const watermark = document.createElement('div');
+  watermark.classList.add('wrapped');
 
-            const watermarkStyle = `
+  const watermarkStyle = `
                 content: "";
                 display: block;
                 width: 100%;
@@ -803,36 +803,36 @@ function addWatermarkToImage(imgElement) {
                 opacity: 0.7;
             `;
 
-            watermark.style = watermarkStyle;
+  watermark.style = watermarkStyle;
 
-            wrapper.appendChild(imgElement.cloneNode(true));
-            wrapper.appendChild(watermark);
+  wrapper.appendChild(imgElement.cloneNode(true));
+  wrapper.appendChild(watermark);
 
-            imgElement.parentNode.replaceChild(wrapper, imgElement);
-        }
+  imgElement.parentNode.replaceChild(wrapper, imgElement);
+}
 
-        // Wrap each image with the watermark
+// Wrap each image with the watermark
 document.addEventListener("DOMContentLoaded", function () {
 
-    const lazyLoadImages = document.querySelectorAll('.lazy-load-img');
+  const lazyLoadImages = document.querySelectorAll('.lazy-load-img');
 
-    const lazyLoad = target => {
-        const io = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    const src = img.getAttribute('data-src');
+  const lazyLoad = target => {
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.getAttribute('data-src');
 
-                    img.src = src;
-                    img.classList.add('loaded');
-                    observer.disconnect();
-                }
-            });
-        });
+          img.src = src;
+          img.classList.add('loaded');
+          observer.disconnect();
+        }
+      });
+    });
 
-        io.observe(target);
-    };
+    io.observe(target);
+  };
 
-       
-    lazyLoadImages.forEach(lazyLoad);
+
+  lazyLoadImages.forEach(lazyLoad);
 });
