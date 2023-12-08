@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create and append the 'theme-color' meta tag
   const themeColorMeta = document.createElement('meta');
   themeColorMeta.name = 'theme-color';
-  themeColorMeta.content = '#3B82F6';
+  themeColorMeta.content = '#262624';
   document.head.appendChild(themeColorMeta);
 
   // Create and append the 'twitter:image:alt' meta tag
