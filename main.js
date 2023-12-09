@@ -144,7 +144,23 @@ document.addEventListener("DOMContentLoaded", function () {
   epicFaviconLink.rel = 'icon';
   epicFaviconLink.type = 'image/x-icon';
   document.head.appendChild(epicFaviconLink);
+  const highlightCssLink = document.createElement('link');
+  highlightCssLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.css';
+  highlightCssLink.rel = 'stylesheet';
+  document.head.appendChild(highlightCssLink);
 
+  // Create and append the Highlight.js JavaScript script
+  const highlightScript = document.createElement('script');
+  highlightScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
+  document.head.appendChild(highlightScript);
+
+  // Create and append the Highlight.js Go language JavaScript script
+  const highlightGoScript = document.createElement('script');
+  highlightGoScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js';
+  document.head.appendChild(highlightGoScript);
+
+  // Create and append the script to initialize Highlight.js
+  hljs.highlightAll();
   // Rest of your existing code...
 });
 
