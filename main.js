@@ -209,7 +209,7 @@ applyFilter();
 
 document.addEventListener("DOMContentLoaded", function () {
   // Fetch the contents of the navbar HTML file
-  fetch("\\navbar.html")
+  fetch("navbar.html")
     .then(response => response.text())
     .then(data => {
       // Insert the navbar HTML into the navbar-container element
