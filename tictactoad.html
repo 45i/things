@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="\mystyle.css" rel="stylesheet" />
+    <link href="\work.css" rel="stylesheet" />
+    <title>TicTacToad</title>
+
+</head>
+<style>
+    .kbd {
+        font-size: medium;
+    }
+
+    img {
+        border-radius: 12px;
+    }
+</style>
+
+<body>
+    <div class="preloader"></div>
+    <div class="navbar-container"></div>
+    <header class="header">
+        <h1><strong>TicTacToad</strong></h1>
+        Making your computer play tic-tac-toe without using AI, and possibly even defeating you in it!
+        <ul class="listing">
+
+            <li>
+                <span class="kbd">C#</span>
+            </li>
+            <li>
+                <span class="kbd">.NET</span>
+            </li>
+            <li>
+                <span class="kbd">WindowsForms App</span>
+            </li>
+        </ul>
+        <ul class="listing">
+
+            <li>
+                <span class=""><a class="kbd" href="https://github.com/45i/TicTacToad"
+                        style="color:white; text-decoration: none;" target="_blank"><i class="fab fa-github"></i>
+                        Github</a></span>
+            </li>
+        </ul>
+        <div class="scroll-down"><strong><i class="fas fa-angle-double-down" style="font-size: large; "></i></strong>
+        </div>
+    </header>
+
+    <center id="target-element" style="padding:10vw">
+        <div class="info_text"
+            style="align-items: flex-start; /* Updated property for left alignment */  text-align: left; /* Updated property or left alignment */  padding: 10px;  width: 85vw;height: fit-content;padding: 10px;;width: 85vw;">
+            <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>The Concept</strong></h1>
+
+            <div>The idea is to develop a program that can recieve user input(<span class="kbd"
+                    style="font-size: medium;">clicks</span>), translate that into some useful
+                information that the program can utilize and plan a move based on it.
+            </div>
+            <i class="gradient-text">Simple as that!</i>
+            <br>
+            <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>The Layout</strong></h1>
+            <div>To kick off a healthy game of tic-tac-toe, a board is of course a <b>must</b>. <br>
+                For the purposes of this experiment, I'm going to use a <span class="kbd"
+                    style="">tableLayoutPanel</span> named <span class="kbd">playingBoard</span>, and some <span
+                    class="kbd">MaterialButton</span>s to simulate the possible locations where one can place an
+                "<b>X</b>"
+                <br>The final UI Design would look something like:
+                <br>
+                <br>
+                <img src="blogs/TicTacToad/ui.jpeg" style="width:50vw">
+            </div>
+            <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>Getting Started</strong></h1>
+
+            <div>When the app loads up, we need to set up some important things, to get the program ready. This code is
+                used to do such:
+                <div class="yellow-bar">C#</div>
+                <pre><code class="c#">
+        private void TicTacToad_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                string s = Application.StartupPath + "\\fonts\\SFPRODISPLAYBOLD.OTF";
+                privateFont.AddFontFile(s);
+                foreach (Control c in Controls)
+                {
+                    c.Font = new Font(privateFont.Families[0], c.Font.Size);
+
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            board = new MaterialButton[,]
+            {
+                { btnTopLeft, btnTopCenter, btnTopRight },
+                { btnMiddleLeft, btnMiddleCenter, btnMiddleRight },
+                { btnDownLeft, btnDownCenter, btnDownRight }
+            };
+            foreach (MaterialButton c in playingBoard.Controls)
+            {
+                c.Enabled = false;
+            }
+            btnNewGame.Enabled = false;
+            defaultColor = btnTopCenter.BackColor;
+
+        }</code></pre>
+            </div>
+            <i class="gradient-text">Simple as that!</i>
+            <br>
+            <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>Getting Started</strong></h1>
+            <div>To kick off a healthy game of tic-tac-toe, a board is of course a <b>must</b>. <br>
+                For the purposes of this experiment, I'm going to use a <span class="kbd"
+                    style="">tableLayoutPanel</span> named <span class="kbd">playingBoard</span>, and some <span
+                    class="kbd">MaterialButton</span>s to simulate the possible locations where one can place an
+                "<b>X</b>"
+                <br>The final UI Design would look something like:
+                <br>
+                <br>
+                <img src="blogs/TicTacToad/ui.jpeg" style="width:50vw">
+            </div>
+        </div>
+    </center>
+    <div class="footer-container"></div>
+</body>
+<script src="\main.js"></script>
+
+</html>
