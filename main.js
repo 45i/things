@@ -245,9 +245,12 @@ document.addEventListener("DOMContentLoaded", function () {
         icon.classList.toggle('open');
         if (icon.classList.contains('open')) {
           menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
-
+          if (navig.classList.contains('collapse')) {
+          navig.classList.toggle('collapse');
+        }
           // toggleDropdown();
         } else {
+          
           menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
 
           // toggleDropdown();
@@ -264,6 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Select all dropdown menus with the class "committee-menu"
       // Select all elements with class "committee"
       var committees = document.querySelectorAll(".committee");
+      var closeButton = document.querySelector(".close-btn");
 
       // Define the function to toggle the chevron icon and menu
       function toggleChevronIcon(event) {
@@ -281,7 +285,11 @@ document.addEventListener("DOMContentLoaded", function () {
           committeeIcon.style.transform = "rotate(0deg)";
         }
       }
-
+      closeButton.addEventListener('click', function () {
+        if (!navbar.classList.contains('open')) {
+          navig.classList.toggle('collapse');
+        }
+      });
       // Attach the click event listener to each .committee element
       committees.forEach(function (committee) {
         committee.addEventListener("click", toggleChevronIcon);
@@ -482,6 +490,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+});
+document.addEventListener("DOMContentLoaded", function () {
+  hljs.highlightAll();
+  addEventListener('load', function () {
+    var blocks = document.querySelectorAll('pre code.hljs');
+    var i = 0;
+    Array.prototype.forEach.call(blocks, function (block) {
+      var language = block.result.language;
+      
+      document.querySelectorAll('.yellow-bar')[i].innerHTML = language;
+      i++;
+    });
+  })
 });
 
 document.addEventListener("DOMContentLoaded", function () {

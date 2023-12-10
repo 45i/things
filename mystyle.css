@@ -711,6 +711,7 @@ footer:after {
 ::selection {
   background-color: goldenrod;
   font-family: thin;
+  border-radius: 6px;
   /* back: #ffffff; */
   position: absolute;
   top: 50%;
@@ -721,8 +722,7 @@ footer:after {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   font-family: "Righteous", cursive;
-  -webkit-text-stroke-width: 0.1vw;
-  -webkit-text-stroke-color: black;
+
 
 }
 
@@ -976,19 +976,22 @@ h2 {
   display: flex;
   border-radius: 36px;
   /* backdrop-filter: blur(10px); */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0 0 10px rgb(0, 0, 0); */
   transition: transform 0.7s ease-in-out, width 0.5s ease-in-out, border-radius 0.5s ease;
   /* overflow:hidden; */
 
-  /* transform-origin: center center; */
+  transform-origin: center center;
+  opacity: 100%;
 }
 
 .navig.open {
   border-radius: 36px 36px 0px 0px;
   transition: all 0.5s ease;
+
 }
 
 .navig.clicked {
+  width: 90vw;
   width: 80px;
   height: 80px;
   transform: translateX(50vw) translateY(10px) scale(0.5);
@@ -1032,9 +1035,25 @@ h2 {
 }
 
 .navig:hover {
-  transform: translateX(5%) translateY(20px);
-  transition: transform 0.7s ease-in-out;
 
+  transform: translateX(5%) translateY(20px);
+
+  transition: all 0.7s ease-in-out;
+
+
+}
+
+.navig.collapse {
+
+  .notice,
+  .logo-text {
+    display: none;
+  }
+
+  width: fit-content;
+  transform:translateX(43vw);
+  flex-direction: row;
+  display: flex;
 }
 
 .menu-toggle .hamburger-menu {
@@ -1123,7 +1142,7 @@ h2 {
   visibility: hidden;
   list-style: none;
   /* transform: translateY(-100%); */
-  transition: transform 0.3s ease-in-out;
+  /* transition: transform 0.3s ease-in-out; */
 }
 
 
@@ -2115,25 +2134,67 @@ img {
   border-radius: 6px 6px 0 0;
   color: #1f1f1e;
   font-family: kbd;
+  text-transform: uppercase;
+  width: 83vw;
+  /* Set your desired maximum height */
+}
 
-  width: 83vw;/* Set your desired maximum height */
+.yellow-bar {
+  display: flex;
+  align-items: center;
+  /* position: sticky; */
+  transition: opacity 1.5s ease-in-out;
+  /* opacity: 0; */
+}
+
+.yellow-bar.absolute {
+  position: absolute;
+  left: 50%;
+  /* transform: translateX(-50%); */
+  /* opacity: 0; */
+}
+
+.yellow-bar::after {
+  content: '| Scrollable Content';
+  background-color: goldenrod;
+  border-radius: 6px 6px 0 0;
+  color: #1f1f1e7a;
+  font-family: kbd;
+  text-transform: uppercase;
+  font-size: smaller;
+  margin-left: 10px;
+  /* Adjust this value based on your preference */
+}
+
+.yellow-bar.show {
+  opacity: 1;
 }
 
 pre {
   background-color: #1f1f1e;
   border-radius: 0 0 6px 6px;
   border: 2px solid goldenrod;
-  
-  white-space-collapse: break-spaces;
-  overflow: auto; /* Use 'auto' to enable scrollbar when needed */
-  width: 83vw;/* Set your desired maximum height */
+  /* white-space: nowrap; Use pre-wrap to preserve white spaces and allow wrapping */
+  overflow-y: auto;
+
+  max-width: 83vw;
+  max-height: 75vh;
 }
 
+/* Hide the scrollbar in WebKit browsers */
+pre::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+pre code::-webkit-scrollbar {
+  width: 0.5em;
+}
 
 pre code {
   font-family: kbd;
   font-size: small;
   padding: 2px;
+  overflow-x: scroll;
 }
 
 .ext-btn {
@@ -2165,6 +2226,14 @@ pre code {
   padding: 2px;
 }
 
-.hljs{
-  border-radius: 0 0 6px 6px;;
+.hljs {
+  border-radius: 0 0 6px 6px;
+
+  /* overflow-x: auto; */
+  /* Use 'auto' to enable scrollbars when needed */
+}
+
+h1 {
+  font-size: clamp(20px, 5vw, 90px);
+  line-height: 10vh;
 }

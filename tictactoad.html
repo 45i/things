@@ -11,7 +11,7 @@
     <!-- and it's easy to individually load additional languages -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-    <script>hljs.highlightAll();</script>
+
 </head>
 <style>
     .kbd {
@@ -21,6 +21,8 @@
     img {
         border-radius: 12px;
     }
+
+    
 </style>
 
 <body>
@@ -48,7 +50,7 @@
             <li>
                 <span class=""><a class="kbd" href="https://github.com/45i/TicTacToad"
                         style="color:white; text-decoration: none;" target="_blank"><i class="fab fa-github"></i>
-                        Github</a></span>
+                        Github &#x2197;</a></span>
             </li>
         </ul>
         <div class="scroll-down"><strong><i class="fas fa-angle-double-down" style="font-size: large; "></i></strong>
@@ -64,7 +66,7 @@
                 href="https://www.youtube.com/watch?v=Yj0G5UdBJZw&list=PLEbaEyM-xt9l-ZJIeoKsaXqZ_FvRN17LN&pp=iAQB"><button
                     class="ext-btn kbd"
                     style="background-color: transparent; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center;  "
-                    :hover="border-color: goldenrod">This playlist &rightarrow;</button></a> on YouTube can help
+                    :hover="border-color: goldenrod">This playlist &#x2197;</button></a> on YouTube can help
             newcomers get up to speed on the <a class="yellow-a" href="#topics" style="">frameworks</a>
             used in this article.
 
@@ -98,8 +100,8 @@
                 Let's start off by importing the important libraries for use later on:
                 <br>
                 <br>
-                <div class="yellow-bar">C#</div>
-                <pre><code class="c#">
+                <div class="yellow-bar"></div>
+                <pre class="language-csharp"><code>
                 using FontAwesome.Sharp;
                 using FontAwesome.Sharp.Material;
                 using System;
@@ -169,76 +171,101 @@
                 board.
                 Next, we'll disable all buttons of the playing board, as we don't want the player making any moves
                 before the game begins. <br>Next Up, <span class="kbd">Click Events</span><br><br>
-                <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>User Interactions</strong></h1>
+                <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>Handling User
+                        Interactions</strong></h1>
                 <br>
                 <div>I assigned the <span class="kbd">Click</span> Events of each of the nine buttons to <span
                         class="kbd">clickEvent()</span>.
                     <br><br>
-                    <div class="yellow-bar">C#</div>
+                    <div class="yellow-bar" id="clickeventcode">C#</div>
                     <pre class=""><code  class="c#">
-        
-        
+        private void btnClick_Board(object sender, EventArgs e)
+        {
+            clickEvent((MaterialButton)sender);
 
+        }
+        
         private void clickEvent(MaterialButton clickedButton)
         {
-
+            if (clickedButton != null && clickedButton.IconChar == MaterialIcons.None && gameStarted)
             {
-                if (clickedButton != null && clickedButton.IconChar == MaterialIcons.None && gameStarted)
+                if (playerTurn)
                 {
-                    if (playerTurn)
+                    playerTurn = !playerTurn;
+                    clickedButton.IconChar = playerIcon.Icon;
+                    clickedButton.Rotation = (playerIcon.Icon == MaterialIcons.Plus) ? 45 : 0;
+                    int i = 0, j = 0;
+                    for (; i < 3; i++)
                     {
-                        playerTurn = !playerTurn;
-                        clickedButton.IconChar = playerIcon.Icon;
-                        clickedButton.Rotation = (playerIcon.Icon == MaterialIcons.Plus) ? 45 : 0;
-                        int i = 0, j = 0;
-                        for (; i < 3; i++)
+                        for (; j < 3; j++)
                         {
-                            for (; j < 3; j++)
+                            if (board[i, j] != null && board[i, j] == clickedButton && board[i, j].IconChar != playerIcon.Icon)
                             {
-                                if (board[i, j] != null && board[i, j] == clickedButton && board[i, j].IconChar != playerIcon.Icon)
-                                {
-                                    board[i, j].IconChar = playerIcon.Icon;
-                                    break;
-                                }
-
+                                board[i, j].IconChar = playerIcon.Icon;
+                                break;
                             }
+
                         }
-                        MaterialButton[] horizontalResult = checkVisionHorizontal(clickedButton);
-                        MaterialButton[] verticalResult = checkVisionVertical(clickedButton);
-                        MaterialButton[] leftDiagonalResult = checkVisionDiagonal_Left(clickedButton);
-                        MaterialButton[] rightDiagonalResult = checkVisionDiagonal_Right(clickedButton);
-                        bool l_diag = checkFilledEntriesByIcon(leftDiagonalResult, playerIcon.Icon) == 3;
-                        bool r_diag = checkFilledEntriesByIcon(rightDiagonalResult, playerIcon.Icon) == 3;
-                        bool h = checkFilledEntriesByIcon(horizontalResult, playerIcon.Icon) == 3;
-                        bool v = checkFilledEntriesByIcon(verticalResult, playerIcon.Icon) == 3;
-                        if (l_diag || r_diag || h || v)
+                    }
+                    MaterialButton[] horizontalResult = checkVisionHorizontal(clickedButton);
+                    MaterialButton[] verticalResult = checkVisionVertical(clickedButton);
+                    MaterialButton[] leftDiagonalResult = checkVisionDiagonal_Left(clickedButton);
+                    MaterialButton[] rightDiagonalResult = checkVisionDiagonal_Right(clickedButton);
+                    bool l_diag = checkFilledEntriesByIcon(leftDiagonalResult, playerIcon.Icon) == 3;
+                    bool r_diag = checkFilledEntriesByIcon(rightDiagonalResult, playerIcon.Icon) == 3;
+                    bool h = checkFilledEntriesByIcon(horizontalResult, playerIcon.Icon) == 3;
+                    bool v = checkFilledEntriesByIcon(verticalResult, playerIcon.Icon) == 3;
+                    if (l_diag || r_diag || h || v)
+                    {
+                        playingBoard.Enabled = false;
+                        btnNewGame.Enabled = true;
+                        statusIcon.IconChar = MaterialIcons.Crown;
+                        btnNewGame.Visible = true;
+                        flowLayoutPanel1.Visible = true;
+                        statusText.Text = "Player Wins!";
+                        btnNewGame.Text = "Start A New Game";
+                        btnNewGame.IconChar = MaterialIcons.Plus;
+                        gameStarted = false;
+                        btnNewGame.Enabled = false;
+                        radioButton1.Checked = false;
+                        radioButton2.Checked = false;
+                        MaterialButton[] ar = h ? horizontalResult : v ? verticalResult : l_diag ? leftDiagonalResult : rightDiagonalResult;
+                        foreach (MaterialButton mb in playingBoard.Controls)
+                        {
+                            mb.IconColor = Color.DarkSlateGray;
+                        }
+
+                        foreach (MaterialButton materialButton in ar)
+                        {
+                            materialButton.IconColor = Color.White;
+                        }
+                    }
+                    else
+                    {
+                        playedButton = callAIPlay(clickedButton, playedButton);
+                        MaterialButton[] horizontalResult_AI = checkVisionHorizontal(playedButton);
+                        MaterialButton[] verticalResult_AI = checkVisionVertical(playedButton);
+                        MaterialButton[] leftDiagonalResult_AI = checkVisionDiagonal_Left(playedButton);
+                        MaterialButton[] rightDiagonalResult_AI = checkVisionDiagonal_Right(playedButton);
+                        bool l_diag_AI = checkFilledEntriesByIcon(leftDiagonalResult_AI, MaterialIcons.CircleOutline) == 3;
+                        bool r_diag_AI = checkFilledEntriesByIcon(rightDiagonalResult_AI, MaterialIcons.CircleOutline) == 3;
+                        bool h_AI = checkFilledEntriesByIcon(horizontalResult_AI, MaterialIcons.CircleOutline) == 3;
+                        bool v_AI = checkFilledEntriesByIcon(verticalResult_AI, MaterialIcons.CircleOutline) == 3;
+                        if (l_diag_AI || r_diag_AI || h_AI || v_AI)
                         {
                             playingBoard.Enabled = false;
                             btnNewGame.Enabled = true;
                             statusIcon.IconChar = MaterialIcons.Crown;
                             btnNewGame.Visible = true;
                             flowLayoutPanel1.Visible = true;
-                            statusText.Text = "Player Wins!";
+                            statusText.Text = "AI Wins!";
                             btnNewGame.Text = "Start A New Game";
                             btnNewGame.IconChar = MaterialIcons.Plus;
                             gameStarted = false;
                             btnNewGame.Enabled = false;
                             radioButton1.Checked = false;
                             radioButton2.Checked = false;
-                            MaterialButton[] ar;
-                            if (h)
-                            {
-                                ar = horizontalResult;
-                            }
-                            else if (v)
-                            {
-                                ar = verticalResult;
-                            }
-                            else
-                            {
-                                ar = l_diag ? leftDiagonalResult : rightDiagonalResult;
-                            }
-
+                            MaterialButton[] ar = h_AI ? horizontalResult_AI : v_AI ? verticalResult_AI : l_diag_AI ? leftDiagonalResult_AI : rightDiagonalResult_AI;
                             foreach (MaterialButton mb in playingBoard.Controls)
                             {
                                 mb.IconColor = Color.DarkSlateGray;
@@ -251,92 +278,51 @@
                         }
                         else
                         {
-                            playedButton = callAIPlay(clickedButton, playedButton);
-                            MaterialButton[] horizontalResult_AI = checkVisionHorizontal(playedButton);
-                            MaterialButton[] verticalResult_AI = checkVisionVertical(playedButton);
-                            MaterialButton[] leftDiagonalResult_AI = checkVisionDiagonal_Left(playedButton);
-                            MaterialButton[] rightDiagonalResult_AI = checkVisionDiagonal_Right(playedButton);
-                            bool l_diag_AI = checkFilledEntriesByIcon(leftDiagonalResult_AI, MaterialIcons.CircleOutline) == 3;
-                            bool r_diag_AI = checkFilledEntriesByIcon(rightDiagonalResult_AI, MaterialIcons.CircleOutline) == 3;
-                            bool h_AI = checkFilledEntriesByIcon(horizontalResult_AI, MaterialIcons.CircleOutline) == 3;
-                            bool v_AI = checkFilledEntriesByIcon(verticalResult_AI, MaterialIcons.CircleOutline) == 3;
-                            if (l_diag_AI || r_diag_AI || h_AI || v_AI)
+                            bool isEmpty = false;
+                            foreach (MaterialButton button in playingBoard.Controls)
+                            {
+                                if (button != null && button.IconChar == MaterialIcons.None)
+                                {
+                                    isEmpty = true;
+                                    break;
+                                }
+                            }
+                            if (!isEmpty)
                             {
                                 playingBoard.Enabled = false;
                                 btnNewGame.Enabled = true;
-                                statusIcon.IconChar = MaterialIcons.Crown;
+                                statusIcon.IconChar = MaterialIcons.ShieldCross;
                                 btnNewGame.Visible = true;
                                 flowLayoutPanel1.Visible = true;
-                                statusText.Text = "AI Wins!";
+                                statusText.Text = "It's A Draw!";
                                 btnNewGame.Text = "Start A New Game";
                                 btnNewGame.IconChar = MaterialIcons.Plus;
                                 gameStarted = false;
                                 btnNewGame.Enabled = false;
                                 radioButton1.Checked = false;
                                 radioButton2.Checked = false;
-                                MaterialButton[] ar;
-                                if (h_AI)
-                                {
-                                    ar = horizontalResult_AI;
-                                }
-                                else if (v_AI)
-                                {
-                                    ar = verticalResult_AI;
-                                }
-                                else
-                                {
-                                    ar = l_diag_AI ? leftDiagonalResult_AI : rightDiagonalResult_AI;
-                                }
 
-                                foreach (MaterialButton mb in playingBoard.Controls)
-                                {
-                                    mb.IconColor = Color.DarkSlateGray;
-                                }
-
-                                foreach (MaterialButton materialButton in ar)
-                                {
-                                    materialButton.IconColor = Color.White;
-                                }
-                            }
-                            else
-                            {
-                                bool isEmpty = false;
-                                foreach (MaterialButton button in playingBoard.Controls)
-                                {
-                                    if (button != null && button.IconChar == MaterialIcons.None)
-                                    {
-                                        isEmpty = true;
-                                        break;
-                                    }
-                                }
-                                if (!isEmpty)
-                                {
-                                    playingBoard.Enabled = false;
-                                    btnNewGame.Enabled = true;
-                                    statusIcon.IconChar = MaterialIcons.ShieldCross;
-                                    btnNewGame.Visible = true;
-                                    flowLayoutPanel1.Visible = true;
-                                    statusText.Text = "It's A Draw!";
-                                    btnNewGame.Text = "Start A New Game";
-                                    btnNewGame.IconChar = MaterialIcons.Plus;
-                                    gameStarted = false;
-                                    btnNewGame.Enabled = false;
-                                    radioButton1.Checked = false;
-                                    radioButton2.Checked = false;
-
-                                }
                             }
                         }
-
                     }
+
                 }
             }
 
+
         }
         </code></pre>
-        <br>
-        <br>
-        This is where the Magic Happens!
+                    <br>
+                    <br>
+                    Phew! That's a lot of code... Let's break this down:
+                    <br>
+                    <h1 style="font-size: clamp(20px,2.5vw, 90px); line-height: 10vh;"><strong>The <a href="#clickeventcode" class="yellow-a"
+                                style="padding: 0px;line-height:normal;;">clickEvent()</a> Deconstructed</strong></h1>
+                    <div>
+                        A user click is registered only when an empty square is clicked upon and it is actually the
+                        player's turn. Then we'll quickly toggle <span class="kbd">playerTurn</span> and change the icon
+                        of the clicked button to that of the player, currently "<strong>X</strong>"
+                    </div>
                 </div>
             </div>
 
@@ -347,5 +333,8 @@
     <div class="footer-container"></div>
 </body>
 <script src="main.js"></script>
+<script>
+
+</script>
 
 </html>

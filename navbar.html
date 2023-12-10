@@ -18,9 +18,7 @@
     /* font-family: ; */
   }
 
-  .notice:hover {
-    animation: twerk 0.5s ease-in-out;
-  }
+  .notice:hover {}
 
   .logo:hover {
     background-color: rgba(240, 248, 255, 0.212);
@@ -31,19 +29,27 @@
     border-radius: 6px;
     transition: all 0.5s ease-in-out;
   }
+  .close-btn{
+    padding:7px;
+    margin:3px;
+  }
+  .close-btn:hover{
+    padding:7px;
+  }
 </style>
 <nav class="sticky navig">
   <div class="logo">
     <!-- <a href="website"><img src="404 img\\to show\\guy_think.webp" width="10%vh" height="10%vh" style="float: left;"></a> -->
     <a href="website" style="display: flex; align-items: center; margin: 0;">
       <img src="404 img\\to show\\guy_think.webp" style="height: 100%; width: 60px;"></img>
-      <span class="graffiti-bold wider-text">45<span class="graffiti-bold change">i</span></span>
+      <span class="graffiti-bold wider-text logo-text">45<span class="graffiti-bold change">i</span></span>
     </a>
   </div>
-  <span class="wider-text"><strong class="gradient-text"
+  <span class="notice wider-text"><strong class="gradient-text"
       style="flex-direction: column; align-self: center; font-size: clamp(15px,1.5vw, 25px); text-shadow: 0 0 10px goldenrod; color:gold">We're
       working on this
       actively</strong></span>
+      <button class="kbd close-btn"  ><i class="fas fa-compress"></i></button>
   <ul class="navbar" style="list-style-type:none;display:flex; z-index: -1;   padding:0;">
     <li class=""><a href="website">
         <span class="" style="letter-spacing: 3px;">
