@@ -44,7 +44,8 @@
 
 @font-face {
   font-family: thin;
-  src: url(Geoma\ Thin\ Demo.otf);
+  font-weight: 900;
+  src: url(Gotham-Light.otf);
 }
 
 * {
