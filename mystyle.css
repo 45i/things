@@ -1045,15 +1045,30 @@ h2 {
 
 .navig.collapse {
 
+  backdrop-filter: blur(25%);
+  
+  .logo,
   .notice,
-  .logo-text {
+  .icon {
+    opacity: 0.25;
+  }
+  .logo-text{
+    display:none;
+  }
+  .notice {
     display: none;
   }
 
-  width: fit-content;
-  transform:translateX(43vw);
-  flex-direction: row;
-  display: flex;
+  background: #1616154d;
+
+  width:fit-content;
+  
+  transform: translateX(0);
+  .close-btn {
+    opacity: 1;
+    background-color: goldenrod;
+    color: #1f1f1e;
+  }
 }
 
 .menu-toggle .hamburger-menu {
@@ -1167,7 +1182,7 @@ h2 {
   margin-right: 48px;
   text-align: center;
   /* width: 70px; */
-  transition: 3s;
+  /* transition: 3s; */
   font-family: graffiti-bold;
 }
 
