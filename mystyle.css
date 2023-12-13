@@ -12,6 +12,11 @@
 }
 
 @font-face {
+  font-family: Cera;
+  src: url("Fontspring-DEMO-cerapro-regular.otf");
+}
+
+@font-face {
   font-family: kbd;
   src: url(kbd.ttf);
 }
@@ -79,7 +84,9 @@
   /* white-space: nowrap; */
   /* font-family:st,-apple-system,BlinkMacSystemFont,"Apple Color Emoji","Segoe UI Emoji"; */
 }
-
+.yellow-a::after{
+  content: ' \2197';
+}
 html {
   scroll-behavior: smooth;
 }
@@ -1047,15 +1054,17 @@ h2 {
 .navig.collapse {
 
   backdrop-filter: blur(25%);
-  
+
   .logo,
   .notice,
   .icon {
     opacity: 0.25;
   }
-  .logo-text{
-    display:none;
+
+  .logo-text {
+    display: none;
   }
+
   .notice {
     display: none;
   }
@@ -1063,8 +1072,9 @@ h2 {
   background: #1616154d;
 
   width:fit-content;
-  
+
   transform: translateX(0);
+
   .close-btn {
     opacity: 1;
     background-color: goldenrod;
@@ -2152,6 +2162,7 @@ img {
   font-family: kbd;
   text-transform: uppercase;
   width: 83vw;
+  padding-left: 20px;
   /* Set your desired maximum height */
 }
 
@@ -2160,6 +2171,7 @@ img {
   align-items: center;
   /* position: sticky; */
   transition: opacity 1.5s ease-in-out;
+  /* font-size: 4vw; */
   /* opacity: 0; */
 }
 
@@ -2171,13 +2183,14 @@ img {
 }
 
 .yellow-bar::after {
-  content: '| Scrollable Content';
+  content: '\007c Scrollable Content';
   background-color: goldenrod;
   border-radius: 6px 6px 0 0;
   color: #1f1f1e7a;
   font-family: kbd;
+  white-space: nowrap;
   text-transform: uppercase;
-  font-size: smaller;
+  font-size: 2vw;
   margin-left: 10px;
   /* Adjust this value based on your preference */
 }
@@ -2239,7 +2252,7 @@ pre code {
   color: #1f1f1e;
   background-color: goldenrod;
   border-radius: 6px;
-  padding: 2px;
+  padding: 3px;
 }
 
 .hljs {
