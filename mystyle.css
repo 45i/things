@@ -1045,12 +1045,14 @@ h2 {
 .navig:hover {
 
   transform: translateX(5%) translateY(20px);
-
   transition: all 0.7s ease-in-out;
 
 
 }
-
+.navig.collapse:hover {
+  opacity: 0.75;
+  transition: all 0.7s ease-in-out;
+}
 .navig.collapse {
 
   backdrop-filter: blur(25%);
@@ -1072,8 +1074,9 @@ h2 {
   background: #1616154d;
 
   width:fit-content;
-
+  border-radius:0 0 36px 0;
   transform: translateX(0);
+  transition: all 0.7s ease-in-out;
 
   .close-btn {
     opacity: 1;
