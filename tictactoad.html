@@ -31,7 +31,7 @@
         <span style="max-width: 75vw;"><span style="font-family: Cera;">Making your computer play tic tac toe without
                 using AI, and possibly even
                 defeat you in it</span>!</span>
-        <section class="topics">
+        <section class="topics" style="width: 75vw;">
             <ul class="listing">
 
                 <li>
@@ -76,11 +76,7 @@
             style="align-items: flex-start; /* Updated property for left alignment */  text-align: left; /* Updated property or left alignment */  padding: 10px;  width: 85vw;height: fit-content;padding: 10px;;width: 85vw;">
             <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>The Concept</strong></h1>
 
-            <div>The idea is to develop a program that can recieve user input(<span class="kbd"
-                    style="font-size: medium;">clicks</span>), translate that into some useful
-                information that the program can utilize and plan a move based on it.
-            </div>
-            <i class="gradient-text">Simple as that!</i>
+            <div>We've all played tic-tac-toe, the <span class="gradient-text">greatest turn-based strategy game ever</span>! Now, imagine playing it against your own computer! This program might be of interest to programmers, hobbyists, or <span class="gradient-text">"OoOo AI iS BaD FoR YoU"</span> people.
             <br>
             <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>The Layout</strong></h1>
             <div>To kick off a healthy game of tic-tac-toe, a board is of course a <b>must</b>. <br>
@@ -162,11 +158,13 @@
 
         }
         </code></pre>
-                We'll first try to load up a font file <span class="kbd">SFPRODISPLAYBOLD.OTF</span>. Next, we'll set up the <span
-                    class="kbd">board</span> variable, which I've declared <a href="#declarations" class="yellow-a"
-                    style="font-size:medium">here</a>. This is a 2D Array that represents the 3X3 playing
+                We'll first try to load up a font file <span class="kbd">SFPRODISPLAYBOLD.OTF</span>. Next, we'll set up
+                the <span class="kbd">board</span> variable, which I've declared <a href="#declarations"
+                    class="yellow-a" style="font-size:medium">here</a>. This is a 2D Array that represents the 3X3
+                playing
                 board.
-                Next, we'll disable all buttons of the playing board. <br>Next Up, <span class="kbd">User Interactions</span><br><br>
+                Next, we'll disable all buttons of the playing board. <br>Next Up, <span class="kbd">User
+                    Interactions</span><br><br>
                 <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>Handling User
                         Interactions</strong></h1>
                 <br>
@@ -317,8 +315,10 @@
                                 style="padding: 0px;line-height:normal;;">clickEvent()</a> Deconstructed</strong></h1>
                     <div>
                         A user click is registered only when an empty square is clicked upon and it is actually the
-                        player's turn. In that case, we'll toggle <span class="kbd">playerTurn</span> and change the icon
-                        of the clicked button to that of the player, currently being represented by "<strong class="kbd">X</strong>"
+                        player's turn. In that case, we'll toggle <span class="kbd">playerTurn</span> and change the
+                        icon
+                        of the clicked button to that of the player, currently being represented by "<strong
+                            class="kbd">X</strong>"
                     </div>
                 </div>
             </div>
@@ -327,6 +327,34 @@
 
         </div>
     </center>
+    <div class="info_text">
+        <h1 style="line-height: 10vh;"><strong>Topics To Look Into</strong></h1>
+        <br>
+        <ul class="listing">
+            <li><span class="kbd">Impact of System Resources on Computational Speed</span>
+            </li>
+            <li><span class="kbd">Possible Optimisations On The Algorithm Side |<a href="" class="yellow-a">Read About This</a></span>
+            </li>
+            <li><span class="kbd">A Refreshed UI</span>
+            </li>
+            <li><span class="kbd">AI v AI</span>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <br>
+    <div class="info_text">
+        <h1 style="line-height: 10vh;"><strong>Comments</strong></h1>
+        <br>
+        <div class="utterances">
+        <iframe class="utterances-frame"></iframe>
+    </div>
+    <script src="https://utteranc.es/client.js" repo="45i/TicTacToad" issue-term="pathname" theme="preferred-color-scheme"
+        crossorigin="anonymous" async>
+        </script>
+    </div>
+    <br>
+    <br>
     <div class="footer-container"></div>
 </body>
 <script src="main.js"></script>
