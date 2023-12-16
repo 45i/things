@@ -35,13 +35,13 @@
             <ul class="listing">
 
                 <li>
-                    <span class="kbd" >C#</span>
+                    <span class="kbd">C#</span>
                 </li>
                 <li>
-                    <span class="kbd" >.NET</span>
+                    <span class="kbd">.NET</span>
                 </li>
                 <li>
-                    <span class="kbd" >WindowsForms App</span>
+                    <span class="kbd">WindowsForms App</span>
                 </li>
             </ul>
         </section>
@@ -98,41 +98,39 @@
             <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>Getting Started</strong></h1>
 
             <div>
-                Let's start off by importing the important libraries for use later on:
+                Imports:
                 <br>
                 <br>
                 <div class="yellow-bar"></div>
                 <pre class="language-csharp"><code>
-                using FontAwesome.Sharp;
-                using FontAwesome.Sharp.Material;
-                using System;
-                using System.Collections.Generic;
-                using System.Drawing;
-                using System.Drawing.Text;
-                using System.Windows.Forms;
+        using FontAwesome.Sharp;
+        using FontAwesome.Sharp.Material;
+        using System;
+        using System.Collections.Generic;
+        using System.Drawing;
+        using System.Drawing.Text;
+        using System.Windows.Forms;
                 </code></pre>
                 <br>
                 <br>
-                Now let's declare some variables outside our classes. These'll come in handy later on:
-                <div class="yellow-bar">C#</div>
-                <pre><code class="c#" id="declarations">
-                public PrivateFontCollection privateFont = new PrivateFontCollection();
-                public GameIcon playerIcon = new GameIcon(MaterialIcons.Plus);
-                public bool playerTurn = true;
-                public MaterialButton[,] board;
-                private bool gameStarted;
-                MaterialButton playedButton = null;
-                Color defaultColor = Color.AliceBlue;
+                Some <span class="kbd">Global Variables</span> :
+                <br>
+                <br>
+                <div class="yellow-bar" id="declarations">C#</div>
+                <pre><code class="c#" >
+        public PrivateFontCollection privateFont = new PrivateFontCollection();
+        public GameIcon playerIcon = new GameIcon(MaterialIcons.Plus);
+        public bool playerTurn = true;
+        public MaterialButton[,] board;
+        private bool gameStarted;
+        MaterialButton playedButton = null;
+        Color defaultColor = Color.AliceBlue;
                 </code></pre>
                 <br>
                 <br>
-                When the app loads up, we need to set up some important things, to get the program ready. This code is
-                used to do such:<br><br>
+                When the app loads up, we need to set up some important things, to get the program ready.<br><br>
                 <div class="yellow-bar">C#</div>
                 <pre class=""><code  class="c#">
-        
-        
-
         private void TicTacToad_Load(object sender, EventArgs e)
         {
             try
@@ -164,18 +162,15 @@
 
         }
         </code></pre>
-                Here, we'll first try to load up a font file <span class="kbd">SFPRODISPLAYBOLD.OTF</span>, which is the
-                official font used by Apple. Of course, this makes very little difference in the actual functioning of
-                the software, and is just largely a visual thing. Next, we'll quickly set up the <span
-                    class="kbd">board</span> variable, which we declared <a href="#declarations" class="yellow-a"
-                    style="font-size:medium">here</a>. This is nothing but a 2D Array that represents the 3X3 playing
+                We'll first try to load up a font file <span class="kbd">SFPRODISPLAYBOLD.OTF</span>. Next, we'll set up the <span
+                    class="kbd">board</span> variable, which I've declared <a href="#declarations" class="yellow-a"
+                    style="font-size:medium">here</a>. This is a 2D Array that represents the 3X3 playing
                 board.
-                Next, we'll disable all buttons of the playing board, as we don't want the player making any moves
-                before the game begins. <br>Next Up, <span class="kbd">Click Events</span><br><br>
+                Next, we'll disable all buttons of the playing board. <br>Next Up, <span class="kbd">User Interactions</span><br><br>
                 <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>Handling User
                         Interactions</strong></h1>
                 <br>
-                <div>I assigned the <span class="kbd">Click</span> Events of each of the nine buttons to <span
+                <div><span class="kbd">Click</span> Events of each of the nine buttons have been binded to <span
                         class="kbd">clickEvent()</span>.
                     <br><br>
                     <div class="yellow-bar" id="clickeventcode">C#</div>
