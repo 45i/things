@@ -557,7 +557,7 @@ tr.inactive {
   display: flex;
   padding: 10px;
   flex-direction: row;
-  width: 99vw;
+  width: 99%;
   height: fit-content;
   flex-wrap: wrap;
   overflow-x: auto;
@@ -2244,6 +2244,7 @@ pre code {
   background-color: rgba(218, 165, 32, 0.384);
   border: 2px solid goldenrod;
   padding: 2px;
+  border-radius: 0 0 6px 6px;
 }
 
 .yellow-a {
@@ -2265,4 +2266,10 @@ pre code {
 h1 {
   font-size: clamp(20px, 5vw, 90px);
   line-height: 10vh;
+}
+.title{
+  border-radius: 6px 6px 0 0 ;
+  background-color: goldenrod;
+  line-height: normal;
+  color: #161615;
 }
