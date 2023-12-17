@@ -1050,7 +1050,7 @@ h2 {
 
 }
 .navig.collapse:hover {
-  opacity: 0.75;
+  opacity: 0.95;
   transition: all 0.7s ease-in-out;
 }
 .navig.collapse {
