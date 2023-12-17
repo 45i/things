@@ -20,6 +20,7 @@
 
     img {
         border-radius: 12px;
+        width: 50vw;
     }
 </style>
 
@@ -57,7 +58,20 @@
         <div class="scroll-down"><strong><i class="fas fa-angle-double-down" style="font-size: large; "></i></strong>
         </div>
     </header>
+<div id="myModal" class="modal">
 
+    <!-- The Close Button -->
+
+    <!-- Modal Content (The Image) -->
+
+    <div class="">
+      <center><img class="modal-content" style="max-width:90vh" id="img01"></center>
+      <span class="close"><i class="fas fa-magnifying-glass-minus">&times;</i></span>
+      <div class="magnifyingGlass" style="z-index: 999999999999"></div>
+      <!-- Modal Caption (Image Text) -->
+      <div id="caption"></div>
+    </div>
+  </div>
     <center id="target-element" style="padding:10vw;">
         <div style="max-width:55vw;">
             <h1 class="title"><strong style="font-family: kbd; ;">DISCLAIMER</strong></h1>
@@ -76,29 +90,57 @@
             style="align-items: flex-start; /* Updated property for left alignment */  text-align: left; /* Updated property or left alignment */  padding: 10px;  width: 85vw;height: fit-content;padding: 10px;;width: 85vw;">
             <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>The Concept</strong></h1>
 
-            <div>We've all played tic-tac-toe, the <span class="gradient-text">greatest turn-based strategy game ever</span>! Now, imagine playing it against your own computer! This program might be of interest to programmers, hobbyists, or <span class="gradient-text">"OoOo AI iS BaD FoR YoU"</span> people. Why? Cuz we're not going to use any AI, or atleast trying not to. The program will try to take decisions, but it won't be able to learn from past experiences, formulate strategies, or predict possible moves.
-            <br>
-            <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>The UI</strong></h1>
-            <div>We need a board to play this game on. So let's make one!<br>
-                For the purposes of this experiment, I'm going to use a <span class="kbd"
-                    style="">tableLayoutPanel</span> named <span class="kbd">playingBoard</span>, and some <span
-                    class="kbd">MaterialButton</span>s to simulate the possible locations where one can place an
-                "<b>X</b>"
-                <br>The final UI Design would look something like:
+            <div>We've all played tic-tac-toe, the <span class="gradient-text">greatest turn-based strategy game
+                    ever</span>! Now, imagine playing it against your own computer! This program might be of interest to
+                programmers, hobbyists, or <span class="gradient-text">"OoOo AI iS BaD FoR YoU"</span> people. Why? Cuz
+                we're not going to use any AI, or atleast trying not to. The program will try to take decisions, but it
+                won't be able to learn from past experiences, formulate strategies, or predict possible moves.
                 <br>
-                <br>
-                <img src="blogs/TicTacToad/ui.jpeg" style="width:50vw">
-            </div>
-            <br>
-            <br>
-            <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>Getting Started</strong></h1>
+                <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>Things to tackle</strong></h1>
+                <ul class="listing">
+                    <li>
+                        <span class="kbd">Making the Algorithm know what to do</span>
+                    </li>
+                    <li>
+                        <span class="kbd">Allowing the Algorithm to prioritize whether to focus on winning, or blocking
+                            <a href="#priorities" class="yellow-a">See Here</a></span>
+                    </li>
+                </ul>
 
-            <div>
-                Imports:
+                <br>
+                <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;" id="priorities"><strong>Priorities
+                        Matter</strong></h1>
+                It is important to enable the algorithm to "make" decisions as to the next move. Otherwise, it will just
+                be a series of random moves that goes nowhere.
+                The algorithm can either choose to try and win, or block.
+                <ul class="listing">
+                    <li><img src="blogs/TicTacToad/prio_ai.jpg" style="width: 35vw;">
+                    </li>
+                    <li><img src="blogs/TicTacToad/prio_draw.jpg" style="width: 35vw;">
+                    </li>
+                </ul>
+                <br>
+                <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>The UI</strong></h1>
+                <div>We need a board to play this game on. So let's make one!<br>
+                    For the purposes of this experiment, I'm going to use a <span class="kbd"
+                        style="">tableLayoutPanel</span> named <span class="kbd">playingBoard</span>, and some <span
+                        class="kbd">MaterialButton</span>s to simulate the possible locations where one can place an
+                    "<b>X</b>"
+                    <br>The final UI Design would look something like:
+                    <br>
+                    <br>
+                    <img src="blogs/TicTacToad/ui.jpeg" style="width:50vw">
+                </div>
                 <br>
                 <br>
-                <div class="yellow-bar"></div>
-                <pre class="language-csharp"><code>
+                <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>Getting Started</strong></h1>
+
+                <div>
+                    Imports:
+                    <br>
+                    <br>
+                    <div class="yellow-bar"></div>
+                    <pre class="language-csharp"><code>
         using FontAwesome.Sharp;
         using FontAwesome.Sharp.Material;
         using System;
@@ -107,13 +149,13 @@
         using System.Drawing.Text;
         using System.Windows.Forms;
                 </code></pre>
-                <br>
-                <br>
-                Some <span class="kbd">Global Variables</span> :
-                <br>
-                <br>
-                <div class="yellow-bar" id="declarations">C#</div>
-                <pre><code class="c#" >
+                    <br>
+                    <br>
+                    Some <span class="kbd">Global Variables</span> :
+                    <br>
+                    <br>
+                    <div class="yellow-bar" id="declarations">C#</div>
+                    <pre><code class="c#" >
         public PrivateFontCollection privateFont = new PrivateFontCollection();
         public GameIcon playerIcon = new GameIcon(MaterialIcons.Plus);
         public bool playerTurn = true;
@@ -122,11 +164,11 @@
         MaterialButton playedButton = null;
         Color defaultColor = Color.AliceBlue;
                 </code></pre>
-                <br>
-                <br>
-                When the app loads up, we need to set up some important things, to get the program ready.<br><br>
-                <div class="yellow-bar">C#</div>
-                <pre class=""><code  class="c#">
+                    <br>
+                    <br>
+                    When the app loads up, we need to set up some important things, to get the program ready.<br><br>
+                    <div class="yellow-bar">C#</div>
+                    <pre class=""><code  class="c#">
         private void TicTacToad_Load(object sender, EventArgs e)
         {
             try
@@ -158,21 +200,22 @@
 
         }
         </code></pre>
-                We'll first try to load up a font file <span class="kbd">SFPRODISPLAYBOLD.OTF</span>. Next, we'll set up
-                the <span class="kbd">board</span> variable, which I've declared <a href="#declarations"
-                    class="yellow-a" style="font-size:medium">here</a>. This is a 2D Array that represents the 3X3
-                playing
-                board.
-                Next, we'll disable all buttons of the playing board. <br>Next Up, <span class="kbd">User
-                    Interactions</span><br><br>
-                <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>Handling User
-                        Interactions</strong></h1>
-                <br>
-                <div><span class="kbd">Click</span> Events of each of the nine buttons have been binded to <span
-                        class="kbd">clickEvent()</span>.
-                    <br><br>
-                    <div class="yellow-bar" id="clickeventcode">C#</div>
-                    <pre class=""><code  class="c#">
+                    We'll first try to load up a font file <span class="kbd">SFPRODISPLAYBOLD.OTF</span>. Next, we'll
+                    set up
+                    the <span class="kbd">board</span> variable, which I've declared <a href="#declarations"
+                        class="yellow-a" style="font-size:medium">here</a>. This is a 2D Array that represents the 3X3
+                    playing
+                    board.
+                    Next, we'll disable all buttons of the playing board. <br>Next Up, <span class="kbd">User
+                        Interactions</span><br><br>
+                    <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>Handling User
+                            Interactions</strong></h1>
+                    <br>
+                    <div><span class="kbd">Click</span> Events of each of the nine buttons have been binded to <span
+                            class="kbd">clickEvent()</span>.
+                        <br><br>
+                        <div class="yellow-bar" id="clickeventcode">C#</div>
+                        <pre class=""><code  class="c#">
         private void btnClick_Board(object sender, EventArgs e)
         {
             clickEvent((MaterialButton)sender);
@@ -306,33 +349,50 @@
 
         }
         </code></pre>
-                    <br>
-                    <br>
-                    Phew! That's a lot of code... Let's break this down:
-                    <br>
-                    <h1 style="font-size: clamp(20px,2.5vw, 90px); line-height: 10vh;"><strong>The <a
-                                href="#clickeventcode" class="yellow-a"
-                                style="padding: 0px;line-height:normal;;">clickEvent()</a> Deconstructed</strong></h1>
-                    <div>
-                        A user click is registered only when an empty square is clicked upon and it is actually the
-                        player's turn. In that case, we'll toggle <span class="kbd">playerTurn</span> and change the
-                        icon
-                        of the clicked button to that of the player, currently being represented by "<strong
-                            class="kbd">X</strong>"
-                            This <span class="kbd">poorly drawn</span> image should be enough to get a brief idea on what we'll attempt to do next.
-                            <br>
-                            <br>
-                        <img src="blogs/TicTacToad/algo_idea.png">
                         <br>
-                        The yellow circle is where we are assuming the player to have put an "<strong>X</strong>", for the purposes of this example.
-                        The red lines indicate where the player is most likely to play next
+                        <br>
+                        Phew! That's a lot of code... Let's break this down:
+                        <br>
+                        <h1 style="font-size: clamp(20px,2.5vw, 90px); line-height: 10vh;"><strong>The <a
+                                    href="#clickeventcode" class="yellow-a"
+                                    style="padding: 0px;line-height:normal;;">clickEvent()</a> Deconstructed</strong>
+                        </h1>
+                        <div>
+                            A user click is registered only when an empty square is clicked upon and it is actually the
+                            player's turn. In that case, we'll toggle <span class="kbd">playerTurn</span> and change the
+                            icon
+                            of the clicked button to that of the player, currently being represented by "<strong
+                                class="kbd">X</strong>"
+                            This <span class="kbd">poorly drawn</span> image should be enough to get a brief idea on
+                            what we'll attempt to do next.
+                            <br>
+                            <br>
+                            <img src="blogs/TicTacToad/algo_idea.png" style="width: 35vw;">
+                            <br>
+                            The yellow circle is where we are assuming the player to have put an "<strong>X</strong>",
+                            for the purposes of this example.
+                            The red lines indicate where the player is most likely to play next.
+                            <br>
+                            Based on this somewhat rough prediction of all the possible outcomes, we'll now check each
+                            of the lines. For dramatic effect, I'll call these <span
+                                class="kbd">VisionLines</span>&TRADE;. Thus we get four results as Arrays: <span
+                                class="kbd">leftDiagonalResult</span>, <span class="kbd">rightDiagonalResult</span>,
+                            <span class="kbd">horizontalResult</span>, <span class="kbd">verticalResult</span>.
+                            <br>
+                            The names are very self-explanatory. Each of these arrays contains all the possible boxes where a play could be made. Along with generating a list of possible plays, we'll also generate priorities, or scores if you will, for each list. We do this by simply seeing how many of the boxes are filled with the player's icon and multiplying it with a constant. The constant I used was found by simply doing a lot of trials. We'll set the constant as (<span class="kbd">2/3</span>) for the diagonals and (<span class="kbd">1</span>) for the others.
+                            Sharp eyed readers may notice that the priorities are checked as <span class="kbd">Integer</span>s, and you'd be absolutely right. When we multiplied with the constant, we also rounded off the results, since the result is always an integer.
+                            <br>
+                            We'll do 
+                            <br><br>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <br>
+
             </div>
-
-            <br>
-
-        </div>
     </center>
     <div class="info_text">
         <h1 style="line-height: 10vh;"><strong>Topics To Look Into</strong></h1>
@@ -340,12 +400,14 @@
         <ul class="listing">
             <li><span class="kbd">Impact of System Resources on Computational Speed</span>
             </li>
-            <li><span class="kbd">Possible Optimisations On The Algorithm Side |<a href="" class="yellow-a">Read About This</a></span>
+            <li><span class="kbd">Possible Optimisations On The Algorithm Side |<a href="" class="yellow-a">Read About
+                        This</a></span>
             </li>
             <li><span class="kbd">A Refreshed UI</span>
             </li>
             <li><span class="kbd">AI v AI</span>
-            <li><span class="kbd">A more modular icon assignment system |<a href="#declarations" class="yellow-a">Check Out The Current One</a></span>
+            <li><span class="kbd">A more modular icon assignment system |<a href="#declarations" class="yellow-a">Check
+                        Out The Current One</a></span>
             </li>
         </ul>
     </div>
@@ -355,11 +417,11 @@
         <h1 style="line-height: 10vh;"><strong>Comments</strong></h1>
         <br>
         <div class="utterances">
-        <iframe class="utterances-frame"></iframe>
-    </div>
-    <script src="https://utteranc.es/client.js" repo="45i/TicTacToad" issue-term="pathname" theme="preferred-color-scheme"
-        crossorigin="anonymous" async>
-        </script>
+            <iframe class="utterances-frame"></iframe>
+        </div>
+        <script src="https://utteranc.es/client.js" repo="45i/TicTacToad" issue-term="pathname"
+            theme="preferred-color-scheme" crossorigin="anonymous" async>
+            </script>
     </div>
     <br>
     <br>
@@ -369,5 +431,8 @@
 <script>
 
 </script>
-
+<script>
+  // Get all elements with the id "myImg" and the class "text"
+ 
+</script>
 </html>

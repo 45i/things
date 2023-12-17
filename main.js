@@ -340,27 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
       footerContainer.innerHTML = data;
       const footer = document.querySelector(".footer-container");
       const button = footer.querySelector("footer").querySelector(".retract");
-      // var btn2 = document.createElement('button');
-      // btn2.innerHTML = '<i class="fas fa-chevron-up"></i>';
-      // btn2.style.position = 'relative';
-      // btn2.style.bottom = '0';
-      // btn2.style.right = '0';
-      // btn2.style.zIndex = '9999';
-      // let isCollapsed = false;
-      // footer.insertAdjacentElement('beforebegin', btn2);
-      // footer.style.display = "block";
-      // btn2.style.display = "none";
-      // button.addEventListener('click', () => {
-      //   isCollapsed = !isCollapsed;
-      //   footer.style.display = "none";
-      //   btn2.innerHTML = '<i class="fas fa-chevron-up"></i>';
-      //   btn2.style.display = "block";
-      // });
-      // btn2.addEventListener('click', () => {
-      //   footer.style.display = "block";
-      //   button.innerHTML = '<i class="fas fa-chevron-down"></i>';
-      //   btn2.style.display = "none";
-      // });
+  
       var translate = document.querySelector(".translate-button");
       translate.addEventListener('click', function () {
         googleTranslateElementInit();
@@ -493,6 +473,32 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+ var images = document.querySelectorAll("img");
+  var textElements = document.querySelectorAll(".text");
+
+  // Loop through each image and attach the modal functionality
+  images.forEach(function (img, index) {
+    img.onclick = function () {
+      var modal = document.getElementById("myModal");
+      var modalImg = document.getElementById("img01");
+      var captionText = document.getElementById("caption");
+
+      // Set the modal content based on the clicked image and its corresponding text
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = textElements[index].innerHTML;
+    }
+  });
+
+  // Get the <span> element that closes the modal
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  span.onclick = function () {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+  }
+
 
 
 });

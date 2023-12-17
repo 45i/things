@@ -2037,8 +2037,8 @@ article {
 
   margin: 10px;
   display: block;
-  width: 80%;
-  max-width: 700px;
+  width: 100%;
+  /* max-width: 700px; */
   /* left: 20vw; */
   zoom: -80%;
 }
