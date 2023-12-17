@@ -983,7 +983,6 @@ h2 {
   padding: 10px 20px;
   display: flex;
   border-radius: 36px;
-  /* backdrop-filter: blur(10px); */
   /* box-shadow: 0 0 10px rgb(0, 0, 0); */
   transition: transform 0.7s ease-in-out, width 0.5s ease-in-out, border-radius 0.5s ease;
   /* overflow:hidden; */
@@ -1045,17 +1044,25 @@ h2 {
 .navig:hover {
 
   transform: translateX(5%) translateY(20px);
+  
   transition: all 0.7s ease-in-out;
 
 
 }
 .navig.collapse:hover {
-  opacity: 0.95;
-  transition: all 0.7s ease-in-out;
+  /* opacity: -0.95; */
+  background: #161615;
+  transition: all 0.7s ease;
 }
 .navig.collapse {
+  background: #1616154d;
 
-  backdrop-filter: blur(25%);
+  width:fit-content;
+  border-radius:0 0 36px 0;
+  transform: none;
+  transition: all 0.7s ease;
+
+  backdrop-filter: blur(25px);
 
   .logo,
   .notice,
@@ -1071,12 +1078,6 @@ h2 {
     display: none;
   }
 
-  background: #1616154d;
-
-  width:fit-content;
-  border-radius:0 0 36px 0;
-  transform: translateX(0);
-  transition: all 0.7s ease-in-out;
 
   .close-btn {
     opacity: 1;
@@ -2016,6 +2017,7 @@ article {
   overflow: auto;
   /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.548);
+  backdrop-filter: blur(5px);
   /* Black w/ opacity */
   /* transform: translateY(50%); Center vertically */
   /* transform: translateX(0%); */
