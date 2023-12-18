@@ -52,6 +52,7 @@
   background-color: #FEFEFE;
   color: #484855;
   box-shadow: 0 0 10px #000;
+  height: fit-content;
 }
 .post-right_body {
   

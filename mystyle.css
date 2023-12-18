@@ -2353,3 +2353,7 @@ h1 {
   text-decoration: none;
   display: inline-block;
 }
+
+.github-card, .repo-card{
+  overflow: auto;
+}
