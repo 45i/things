@@ -2351,7 +2351,6 @@ body::-webkit-scrollbar {
 .sub {
   font-family: kbd;
   font-size: small;
-  /* opacity: 0.75; */
   text-decoration: none;
   display: inline-block;
 }
