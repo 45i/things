@@ -90,9 +90,11 @@
   /* white-space: nowrap; */
   /* font-family:st,-apple-system,BlinkMacSystemFont,"Apple Color Emoji","Segoe UI Emoji"; */
 }
-.yellow-a::after{
+
+.yellow-a::after {
   content: ' \2197';
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -118,8 +120,7 @@ body {
 
 .graffiti-bold {
   font-family: graffiti-bold;
-  -webkit-text-stroke-width: 0.1vw;
-  -webkit-text-stroke-color: black;
+
 }
 
 .gradient-text {
@@ -337,10 +338,7 @@ strong {
   transition: all 1s ease;
 }
 
-.hover-thing:hover {
-  -webkit-text-stroke-width: 0.1vw;
-  -webkit-text-stroke-color: black;
-}
+
 
 .header {
   position: relative;
@@ -1050,21 +1048,23 @@ h2 {
 .navig:hover {
 
   transform: translateX(5%) translateY(20px);
-  
+
   transition: all 0.7s ease-in-out;
 
 
 }
+
 .navig.collapse:hover {
   /* opacity: -0.95; */
   background: #161615;
   transition: all 0.7s ease;
 }
+
 .navig.collapse {
   background: #1616154d;
 
-  width:fit-content;
-  border-radius:0 0 36px 0;
+  width: fit-content;
+  border-radius: 0 0 36px 0;
   transform: none;
   transition: all 0.7s ease;
 
@@ -1142,6 +1142,7 @@ h2 {
   line-height: 100%;
   /* content:none; */
   /* border-radius: 36px; */
+  display: block;
   padding: 10px;
 
   & img {
@@ -2030,7 +2031,7 @@ article {
   /* transform: translateY(50%); Center vertically */
   /* transform: translateX(0%); */
   pointer-events: all;
-    /* display: flex */
+  /* display: flex */
   align-items: center;
   justify-content: center;
   /* scroll-behavior: auto; */
@@ -2056,14 +2057,17 @@ article {
   /* left: 20vw; */
   zoom: -80%;
 }
-#img01{
-   width: auto;
+
+#img01 {
+  width: auto;
   height: auto;
-object-fit: contain; /* You can use "cover" or "contain" based on your preference */
+  object-fit: contain;
+  /* You can use "cover" or "contain" based on your preference */
   max-width: 90%;
   max-height: 90%;
   border-radius: 6px;
 }
+
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
 #caption {
   margin: auto;
@@ -2084,29 +2088,34 @@ object-fit: contain; /* You can use "cover" or "contain" based on your preferenc
 /* Add Animation - Zoom in the Modal */
 .modal-content,
 #caption {
-  
-  animation: zoom 0.5s ease; /* Adjust the duration and timing function as needed */
+
+  animation: zoom 0.5s ease;
+  /* Adjust the duration and timing function as needed */
 }
 
 @keyframes zoom {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 @keyframes fadeOut {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
 }
 
 .fadeOutAnimation {
-  animation: fadeOut 0.5s ease; /* Adjust the duration and timing function as needed */
+  animation: fadeOut 0.5s ease;
+  /* Adjust the duration and timing function as needed */
 }
 
 /* The Close Button */
@@ -2302,12 +2311,14 @@ h1 {
   font-size: clamp(20px, 5vw, 90px);
   line-height: 10vh;
 }
-.title{
-  border-radius: 6px 6px 0 0 ;
+
+.title {
+  border-radius: 6px 6px 0 0;
   background-color: goldenrod;
   line-height: normal;
   color: #161615;
 }
+
 /* Add your styles here */
 
 /* Define the keyframes for hiding and showing the scrollbar */
@@ -2321,6 +2332,7 @@ h1 {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -2336,5 +2348,10 @@ body::-webkit-scrollbar {
   width: 12px;
 }
 
-
-
+.sub {
+  font-family: kbd;
+  font-size: small;
+  /* opacity: 0.75; */
+  text-decoration: none;
+  display: inline-block;
+}

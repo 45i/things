@@ -225,12 +225,31 @@ applyFilter();
 
 document.addEventListener("DOMContentLoaded", function () {
   // Fetch the contents of the navbar HTML file
+  var logoText = null;
   fetch("navbar.html")
     .then(response => response.text())
     .then(data => {
       // Insert the navbar HTML into the navbar-container element
       const navbarContainer = document.querySelector('.navbar-container');
       navbarContainer.innerHTML = data;
+      var logoText = navbarContainer.querySelector(".logo-text");
+      var documentTitle = document.title;
+
+      // Remove the prefix "45i - " from the document title
+      var cleanedTitle = documentTitle.replace("45i - ", "");
+
+      // Create a new span element
+      var addedSpan = document.createElement("span");
+
+      // Set the innerHTML of the new span to the cleaned document title
+      addedSpan.innerHTML = "/" + cleanedTitle;
+
+      // Add classes "sub" and "wider-text" to the new span
+      addedSpan.classList.add("sub", "wider-text");
+
+      // Append the new span to the logoText element
+      logoText.appendChild(addedSpan);
+
 
       // Access the menuIcon element and add a click event listener
       var icon = document.querySelector('.main');
