@@ -903,7 +903,7 @@ function addModalToBody() {
       // Set the modal content based on the clicked image and its corresponding text
       modal.style.display = "flex";
       modalImg.src = this.src;
-      captionText.innerHTML = textElements[index - 1].innerHTML;
+      captionText.innerHTML = textElements[index].innerHTML;
     }
   });
 
