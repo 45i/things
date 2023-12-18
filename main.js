@@ -246,11 +246,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (icon.classList.contains('open')) {
           menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
           if (navig.classList.contains('collapse')) {
-          navig.classList.toggle('collapse');
-        }
+            navig.classList.toggle('collapse');
+          }
           // toggleDropdown();
         } else {
-          
+
           menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
 
           // toggleDropdown();
@@ -340,7 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
       footerContainer.innerHTML = data;
       const footer = document.querySelector(".footer-container");
       const button = footer.querySelector("footer").querySelector(".retract");
-  
+
       var translate = document.querySelector(".translate-button");
       translate.addEventListener('click', function () {
         googleTranslateElementInit();
@@ -471,9 +471,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+// Function to check and update scroll behavior
+function checkModalScroll() {
+  var modal = document.getElementById("myModal");
+
+  if (modal.style.display === "flex") {
+    document.body.style.overflow = "hidden"; // Disable scrolling
+  } else {
+    document.body.style.overflow = ""; // Enable scrolling
+  }
+}
+
+// Check every 100 milliseconds (adjust the interval as needed)
+setInterval(checkModalScroll, 100);
 
 document.addEventListener("DOMContentLoaded", function () {
- var images = document.querySelectorAll("img");
+  var images = document.querySelectorAll("img");
   var textElements = document.querySelectorAll(".text");
 
   // Loop through each image and attach the modal functionality
@@ -482,11 +495,15 @@ document.addEventListener("DOMContentLoaded", function () {
       var modal = document.getElementById("myModal");
       var modalImg = document.getElementById("img01");
       var captionText = document.getElementById("caption");
+      console.log(this.src);
+      console.log(images);
+      console.log(textElements);
+      console.log(index);
 
       // Set the modal content based on the clicked image and its corresponding text
-      modal.style.display = "block";
+      modal.style.display = "flex";
       modalImg.src = this.src;
-      captionText.innerHTML = textElements[index].innerHTML;
+      captionText.innerHTML = textElements[index - 1].innerHTML;
     }
   });
 
@@ -496,8 +513,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   span.onclick = function () {
     var modal = document.getElementById("myModal");
-    modal.style.display = "none";
+    var img = document.getElementById("img01");
+
+    // Add a class to trigger the fade-out animation
+    modal.classList.add("fadeOutAnimation");
+
+    // Set a timeout to hide the modal after the animation is complete
+    setTimeout(function () {
+      modal.style.display = "none";
+      img.src = "";
+
+      // Remove the fade-out class for future use
+      modal.classList.remove("fadeOutAnimation");
+    }, 500); // Adjust the timeout value based on the duration of your animation (in milliseconds)
   }
+
 
 
 
@@ -509,7 +539,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var i = 0;
     Array.prototype.forEach.call(blocks, function (block) {
       var language = block.result.language;
-      
+
       document.querySelectorAll('.yellow-bar')[i].innerHTML = language;
       i++;
     });
