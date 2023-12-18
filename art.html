@@ -76,20 +76,7 @@
       <p class="thin">paintings, drawings, or other artistic works</p>
     </span></center>
 
-  <div id="myModal" class="modal">
-
-    <!-- The Close Button -->
-
-    <!-- Modal Content (The Image) -->
-
-    <div class="">
-      <center><img class="modal-content" style="max-width:90vh" id="img01"></center>
-      <span class="close"><i class="fas fa-magnifying-glass-minus">&times;</i></span>
-      <div class="magnifyingGlass" style="z-index: 999999999999"></div>
-      <!-- Modal Caption (Image Text) -->
-      <div id="caption"></div>
-    </div>
-  </div>
+  
   <script>
     var glass = document.querySelector(".magnifyingGlass");
     var img = document.getElementById("img01");
@@ -128,9 +115,9 @@
    ">
     <div class="slideshow-container" style="margin:10px; border-radius: 10px;">
       <a class="prev" onclick="plusSlides(-1)"><button
-          style="background-color: goldenrod; padding:10px; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; color: #262625; ">&leftarrow;</button></a>
+          style="background-color: goldenrod; padding:10px; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; color: #262625;z-index: 99999; ">&leftarrow;</button></a>
       <a class="next" onclick="plusSlides(1)"><button
-          style="background-color: goldenrod; padding:10px; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; color: #262625; ">&rightarrow;</button></a>
+          style="background-color: goldenrod; padding:10px; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; color: #262625; z-index: 99999;">&rightarrow;</button></a>
 
       <!-- Full-width images with number and caption text -->
       <div class="mySlides fade">
@@ -557,36 +544,7 @@
   }
 
 </script>
-<script>
-  // Get all elements with the id "myImg" and the class "text"
-  var images = document.querySelectorAll("#myImg");
-  var textElements = document.querySelectorAll(".text");
 
-  // Loop through each image and attach the modal functionality
-  images.forEach(function (img, index) {
-    img.onclick = function () {
-      var modal = document.getElementById("myModal");
-      var modalImg = document.getElementById("img01");
-      var captionText = document.getElementById("caption");
-
-      // Set the modal content based on the clicked image and its corresponding text
-      modal.style.display = "block";
-      modalImg.src = this.src;
-      captionText.innerHTML = textElements[index].innerHTML;
-    }
-  });
-
-  // Get the <span> element that closes the modal
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
-
-  span.onclick = function () {
-    var modal = document.getElementById("myModal");
-    modal.style.display = "none";
-  }
-
-
-</script>
 <script src="main.js"></script>
 
 

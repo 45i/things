@@ -483,53 +483,8 @@ function checkModalScroll() {
 }
 
 // Check every 100 milliseconds (adjust the interval as needed)
-setInterval(checkModalScroll, 100);
 
 document.addEventListener("DOMContentLoaded", function () {
-  var images = document.querySelectorAll("img");
-  var textElements = document.querySelectorAll(".text");
-
-  // Loop through each image and attach the modal functionality
-  images.forEach(function (img, index) {
-    img.onclick = function () {
-      var modal = document.getElementById("myModal");
-      var modalImg = document.getElementById("img01");
-      var captionText = document.getElementById("caption");
-      console.log(this.src);
-      console.log(images);
-      console.log(textElements);
-      console.log(index);
-
-      // Set the modal content based on the clicked image and its corresponding text
-      modal.style.display = "flex";
-      modalImg.src = this.src;
-      captionText.innerHTML = textElements[index - 1].innerHTML;
-    }
-  });
-
-  // Get the <span> element that closes the modal
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
-
-  span.onclick = function () {
-    var modal = document.getElementById("myModal");
-    var img = document.getElementById("img01");
-
-    // Add a class to trigger the fade-out animation
-    modal.classList.add("fadeOutAnimation");
-
-    // Set a timeout to hide the modal after the animation is complete
-    setTimeout(function () {
-      modal.style.display = "none";
-      img.src = "";
-
-      // Remove the fade-out class for future use
-      modal.classList.remove("fadeOutAnimation");
-    }, 500); // Adjust the timeout value based on the duration of your animation (in milliseconds)
-  }
-
-
-
 
 });
 document.addEventListener("DOMContentLoaded", function () {
@@ -673,7 +628,7 @@ scrollDown.addEventListener('click', () => {
 });
 let launchDate = new Date("October 11, 2023 8:00:00").getTime();
 
-let timer = setInterval(tick, 1000);
+// let timer = setInterval(tick, 1000);
 
 function tick() {
   let now = new Date().getTime();
@@ -914,3 +869,70 @@ document.addEventListener("DOMContentLoaded", function () {
 
   lazyLoadImages.forEach(lazyLoad);
 });
+// Function to add the modal to the body
+function addModalToBody() {
+  // Create the modal HTML structure
+  var modalHTML = `
+    <div id="myModal" class="modal">
+      <div class="">
+        <center><img class="modal-content" style="max-width:90vh" id="img01"></center>
+        <span class="close"><i class="fas fa-magnifying-glass-minus">&times;</i></span>
+        <div class="magnifyingGlass" style="z-index: 999999999999"></div>
+        <div id="caption"></div>
+      </div>
+    </div>
+  `;
+
+  // Create a new div element
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+  var images = document.querySelectorAll("img");
+  var textElements = document.querySelectorAll(".text");
+
+  // Loop through each image and attach the modal functionality
+  images.forEach(function (img, index) {
+    img.onclick = function () {
+      var modal = document.getElementById("myModal");
+      var modalImg = document.getElementById("img01");
+      var captionText = document.getElementById("caption");
+      console.log(this.src);
+      console.log(images);
+      console.log(textElements);
+      console.log(index);
+
+      // Set the modal content based on the clicked image and its corresponding text
+      modal.style.display = "flex";
+      modalImg.src = this.src;
+      captionText.innerHTML = textElements[index - 1].innerHTML;
+    }
+  });
+
+  // Get the <span> element that closes the modal
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  span.onclick = function () {
+    var modal = document.getElementById("myModal");
+    var img = document.getElementById("img01");
+
+    // Add a class to trigger the fade-out animation
+    modal.classList.add("fadeOutAnimation");
+
+    // Set a timeout to hide the modal after the animation is complete
+    setTimeout(function () {
+      modal.style.display = "none";
+      img.src = "";
+
+      // Remove the fade-out class for future use
+      modal.classList.remove("fadeOutAnimation");
+    }, 500); // Adjust the timeout value based on the duration of your animation (in milliseconds)
+  }
+
+
+
+  setInterval(checkModalScroll, 100);
+
+}
+
+// Call the function to add the modal to the body
+addModalToBody();
