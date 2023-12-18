@@ -1797,10 +1797,12 @@ body {
 
 
 /* Hide vertical scrollbar */
-*::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 17px;
   height: 17px;
   /* border-radius: 6px; */
+  position: absolute;
+  left: 0;
   background: rgba(0, 0, 0, 0.025);
   scrollbar-arrow-color: #fff;
 
@@ -2248,26 +2250,21 @@ pre {
   border-radius: 0 0 6px 6px;
   border: 2px solid goldenrod;
   /* white-space: nowrap; Use pre-wrap to preserve white spaces and allow wrapping */
-  overflow-y: auto;
+  overflow: auto;
 
   max-width: 83vw;
   max-height: 75vh;
 }
 
 /* Hide the scrollbar in WebKit browsers */
-pre::-webkit-scrollbar {
-  width: 0.5em;
-}
 
-pre code::-webkit-scrollbar {
-  width: 0.5em;
-}
 
 pre code {
   font-family: kbd;
+  max-width: 83vw;
   font-size: small;
   padding: 2px;
-  overflow-x: scroll;
+  overflow: hidden;
 }
 
 .ext-btn {
@@ -2303,10 +2300,12 @@ pre code {
 .hljs {
   border-radius: 0 0 6px 6px;
 
-  /* overflow-x: auto; */
+  overflow: hidden;
   /* Use 'auto' to enable scrollbars when needed */
 }
-
+.hljs::-webkit-scrollbar,pre::-webkit-scrollbar,pre code::-webkit-scrollbar {
+  width: 12px;
+}
 h1 {
   font-size: clamp(20px, 5vw, 90px);
   line-height: 10vh;
@@ -2344,7 +2343,7 @@ h1 {
 
 
 /* Apply the animation to the webkit scrollbar */
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 12px;
 }
 
