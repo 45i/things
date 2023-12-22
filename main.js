@@ -906,25 +906,21 @@ function addModalToBody() {
   document.body.insertAdjacentHTML('beforeend', modalHTML);
 
   var images = document.querySelectorAll("img");
-  var textElements = document.querySelectorAll(".text");
 
-  // Loop through each image and attach the modal functionality
-  images.forEach(function (img, index) {
-    img.onclick = function () {
-      var modal = document.getElementById("myModal");
-      var modalImg = document.getElementById("img01");
-      var captionText = document.getElementById("caption");
-      console.log(this.src);
-      console.log(images);
-      console.log(textElements);
-      console.log(index);
+// Loop through each image and attach the modal functionality
+images.forEach(function (img, index) {
+  img.onclick = function () {
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    
+    // Set the modal content based on the clicked image and its alt text
+    modal.style.display = "flex";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  };
+});
 
-      // Set the modal content based on the clicked image and its corresponding text
-      modal.style.display = "flex";
-      modalImg.src = this.src;
-      captionText.innerHTML = textElements[index].innerHTML;
-    }
-  });
 
   // Get the <span> element that closes the modal
   // Get the <span> element that closes the modal
@@ -946,8 +942,41 @@ function addModalToBody() {
       modal.classList.remove("fadeOutAnimation");
     }, 500); // Adjust the timeout value based on the duration of your animation (in milliseconds)
   }
+var glass = document.querySelector(".magnifyingGlass");
+var img = document.getElementById("img01");
 
+img.addEventListener("mousemove", function (e) {
+  showMagnifiedImage(e);
+});
 
+img.addEventListener("mouseout", function () {
+  glass.style.display = "none";
+});
+
+function showMagnifiedImage(e) {
+  var posX = e.offsetX;
+  var posY = e.offsetY;
+
+  // Increase the zoom level by multiplying posX and posY by a higher factor (e.g., 4)
+  var zoomFactor = 4;
+  var bgPosX = -posX * zoomFactor + "px";
+  var bgPosY = -posY * zoomFactor + "px";
+
+  glass.style.backgroundImage = "url('" + img.src + "')";
+  glass.style.backgroundSize = img.width * zoomFactor + "px " + img.height * zoomFactor + "px";
+  glass.style.backgroundPosition = bgPosX + " " + bgPosY;
+  glass.style.display = "block";
+  glass.style.position = "absolute";
+  
+  // Set the shape of the magnifying glass to circular
+  glass.style.borderRadius = "50%";
+  
+  var rect = glass.getBoundingClientRect();
+  var glassHalfWidth = rect.width / 2;
+  var glassHalfHeight = rect.height / 2;
+  glass.style.left = e.pageX - glassHalfWidth + "px";
+  glass.style.top = e.pageY - glassHalfHeight + "px";
+}
 
   setInterval(checkModalScroll, 100);
 

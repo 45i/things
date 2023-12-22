@@ -78,35 +78,7 @@
 
   
   <script>
-    var glass = document.querySelector(".magnifyingGlass");
-    var img = document.getElementById("img01");
-
-    img.addEventListener("mousemove", function (e) {
-      showMagnifiedImage(e);
-    });
-
-    img.addEventListener("mouseout", function () {
-      glass.style.display = "none";
-    });
-
-    function showMagnifiedImage(e) {
-      var posX = e.offsetX;
-      var posY = e.offsetY;
-
-      var bgPosX = -posX * 2 + "px";
-      var bgPosY = -posY * 2 + "px";
-
-      glass.style.backgroundImage = "url('" + img.src + "')";
-      glass.style.backgroundSize = img.width * 2 + "px " + img.height * 2 + "px";
-      glass.style.backgroundPosition = bgPosX + " " + bgPosY;
-      glass.style.display = "block";
-      console.log("Show Magnified Image");
-      var rect = glass.getBoundingClientRect();
-      var glassHalfWidth = rect.width / 2;
-      var glassHalfHeight = rect.height / 2;
-      glass.style.left = e.pageX - glassHalfWidth + "px";
-      glass.style.top = e.pageY - glassHalfHeight + "px";
-    }</script>
+    </script>
 
   <div id="target-element" style="height:100vw;position: relative;
     display: flex;

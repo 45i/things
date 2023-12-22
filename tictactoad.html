@@ -59,10 +59,10 @@
         </div>
     </header>
 
-    <center id="target-element" style="padding:10vw;">
-        <div style="max-width:55vw;">
-            <h1 class="title"><strong style="font-family: kbd; ;">DISCLAIMER</strong></h1>
-            <div class="kbd disclaimer" style=" line-height: 30px;">
+        <center style="padding: 10vb;">
+            <div style="max-width:55vw; box-shadow: 0 0 10vb goldenrod;border-radius: 0;">
+            <h1 class="title" style="border-radius: 0;"><strong style="font-family: kbd; border-radius: 0;">DISCLAIMER</strong></h1>
+            <div class="kbd disclaimer" style=" line-height: 30px;border-radius: 0;">
                 This is not a tutorial and does not aim at being one either. Readers are assumed to have used <span
                     class="kbd">WindowsForms App</span> before and have garnered a basic idea of its functionings in the
                 process. <a
@@ -73,6 +73,8 @@
 
             </div>
         </div>
+        </center>
+    <div id="target-element" style="padding: 10vw;">
         <div class="info_text"
             style="align-items: flex-start; /* Updated property for left alignment */  text-align: left; /* Updated property or left alignment */  padding: 10px;  width: 85vw;height: fit-content;padding: 10px;;width: 85vw;">
             <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>The Concept</strong></h1>
@@ -101,11 +103,11 @@
                 be a series of random moves that goes nowhere.
                 The algorithm can either choose to try and win, or block.
                 <ul class="listing">
-                    <li><img src="blogs/TicTacToad/prio_ai.jpg" style="width: 35vw;" data-tooltip="Algorithm chose to win">
-                    <span class="text">Algorithm chose to win</span>
+                    <li><img src="blogs/TicTacToad/prio_ai.jpg" style="width: 35vw;" alt="Algorithm chose to win">
+                    <!-- <span class="text">Algorithm chose to win</span> -->
                     </li>
-                    <li><img src="blogs/TicTacToad/prio_draw.jpg" style="width: 35vw;" data-tooltip="Algorithm chose to win">
-                    <span class="text">Algorithm chose to block</span>
+                    <li><img src="blogs/TicTacToad/prio_draw.jpg" style="width: 35vw;" alt="Algorithm chose to block">
+                    <!-- <span class="text">Algorithm chose to block</span> -->
                     </li>
                 </ul>
                 <br>
@@ -118,8 +120,8 @@
                     <br>The final UI Design would look something like:
                     <br>
                     <br>
-                    <img src="blogs/TicTacToad/ui.jpeg" style="width:50vw">
-                    <span class="text">The UI</span>
+                    <img src="blogs/TicTacToad/ui.jpeg" style="width:50vw" alt="The UI">
+                    <!-- <span class="text">The UI</span> -->
                 </div>
                 <br>
                 <br>
@@ -357,8 +359,8 @@
                             what we'll attempt to do next.
                             <br>
                             <br>
-                            <img src="blogs/TicTacToad/algo_idea.png" style="width: 35vw;">
-                            <span class="text">A rough diagram depicting the basis of the algorithm.</span>
+                            <img src="blogs/TicTacToad/algo_idea.png" style="width: 35vw;" alt="A rough diagram depicting the basis of the algorithm.">
+                            <!-- <span class="text">A rough diagram depicting the basis of the algorithm.</span> -->
                             <br>
                             The yellow circle is where we are assuming the player to have put an "<strong>X</strong>",
                             for the purposes of this example.
@@ -373,7 +375,7 @@
                             The names are very self-explanatory. Each of these arrays contains all the possible boxes where a play could be made. Along with generating a list of possible plays, we'll also generate priorities, or scores if you will, for each list. We do this by simply seeing how many of the boxes are filled with the player's icon and multiplying it with a constant. The constant I used was found by simply doing a lot of trials. We'll set the constant as (<span class="kbd">2/3</span>) for the diagonals and (<span class="kbd">1</span>) for the others.
                             Sharp eyed readers may notice that the priorities are checked as <span class="kbd">Integer</span>s, and you'd be absolutely right. When we multiplied with the constant, we also rounded off the results, since the result is always an integer.
                             <br>
-                            We'll do 
+                            We'll do the very same for the Algorithm's pieces. However, the constant will be changed to a higher value. This is because we want the algorithm to prioritize winning over a draw. 
                             <br><br>
 
                             </div>
@@ -384,7 +386,7 @@
                 <br>
 
             </div>
-    </center>
+    
     <div class="info_text">
         <h1 style="line-height: 10vh;"><strong>Topics To Look Into</strong></h1>
         <br>
@@ -413,6 +415,7 @@
         <script src="https://utteranc.es/client.js" repo="45i/TicTacToad" issue-term="pathname"
             theme="preferred-color-scheme" crossorigin="anonymous" async>
             </script>
+    </div>
     </div>
     <br>
     <br>
