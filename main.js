@@ -917,6 +917,7 @@ images.forEach(function (img, index) {
     // Set the modal content based on the clicked image and its alt text
     modal.style.display = "flex";
     modalImg.src = this.src;
+    modalImg.alt = this.alt;
     captionText.innerHTML = this.alt;
   };
 });
