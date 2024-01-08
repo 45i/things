@@ -32,6 +32,8 @@
         <span style="max-width: 75vw;"><span style="font-family: Cera;">Making your computer play tic tac toe without
                 using AI, and possibly even
                 defeat you in it</span>!</span>
+        <div style="color: #ffffffb9; font-family: Cera;"><i class="far fa-calendar-alt"></i> 12<sup>th</sup> September,
+            2023</div>
         <section class="topics" style="width: 75vw;">
             <ul class="listing">
 
@@ -59,9 +61,10 @@
         </div>
     </header>
 
-        <center id="target-element" style="padding: 10vb;">
-            <div style="max-width:55vw; box-shadow: 0 0 10vb goldenrod;border-radius: 0;">
-            <h1 class="title" style="border-radius: 0;"><strong style="font-family: kbd; border-radius: 0;">DISCLAIMER</strong></h1>
+    <center id="target-element" style="padding: 10vb;">
+        <div style="max-width:50vw; box-shadow: 0 0 10vb goldenrod;border-radius: 0;">
+            <h1 class="title" style="border-radius: 0;"><strong
+                    style="font-family: kbd; border-radius: 0;">DISCLAIMER</strong></h1>
             <div class="kbd disclaimer" style=" line-height: 30px;border-radius: 0;">
                 This is not a tutorial and does not aim at being one either. Readers are assumed to have used <span
                     class="kbd">WindowsForms App</span> before and have garnered a basic idea of its functionings in the
@@ -69,21 +72,22 @@
                     href="https://www.youtube.com/watch?v=Yj0G5UdBJZw&list=PLEbaEyM-xt9l-ZJIeoKsaXqZ_FvRN17LN&pp=iAQB"
                     class="yellow-a">This playlist</a> on YouTube can help
                 newcomers get up to speed on the <a class="yellow-a" href="#topics" style="">frameworks</a>
-                used in this article.
+                used in this article.<br>Furthermore, this is a half-assed attempt at making a tic-tac-toe playing program based on a bodged algorithm
+                designed during a boring history lesson in school. So be aware, this will be a journey filled with
+                roadblocks, code that makes you want to shoot yourself in the face, and decisions that make the blobfish
+                look like a thing of exquisite beauty. 
 
             </div>
         </div>
-        </center>
-    <div  style="padding: 10vw;">
+    
+        
+    </center>
+    <div style="padding: 10vw;">
         <div class="info_text"
             style="align-items: flex-start; /* Updated property for left alignment */  text-align: left; /* Updated property or left alignment */  padding: 10px;  width: 85vw;height: fit-content;padding: 10px;;width: 85vw;">
-            <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>The Concept</strong></h1>
+            <div>
 
-            <div>We've all played tic-tac-toe, the <span class="gradient-text">greatest turn-based strategy game
-                    ever</span>! Now, imagine playing it against your own computer! This program might be of interest to
-                programmers, hobbyists, or <span class="gradient-text">"OoOo AI iS BaD FoR YoU"</span> people. Why? Cuz
-                we're not going to use any AI, or atleast trying not to. The program will try to take decisions, but it
-                won't be able to learn from past experiences, formulate strategies, or predict possible moves.
+                <br>
                 <br>
                 <h1 style="font-size: clamp(20px,5vw, 90px); line-height: 10vh;"><strong>Things to tackle</strong></h1>
                 <ul class="listing">
@@ -104,10 +108,10 @@
                 The algorithm can either choose to try and win, or block.
                 <ul class="listing">
                     <li><img src="blogs/TicTacToad/prio_ai.jpg" style="width: 35vw;" alt="Algorithm chose to win">
-                    <!-- <span class="text">Algorithm chose to win</span> -->
+                        <!-- <span class="text">Algorithm chose to win</span> -->
                     </li>
                     <li><img src="blogs/TicTacToad/prio_draw.jpg" style="width: 35vw;" alt="Algorithm chose to block">
-                    <!-- <span class="text">Algorithm chose to block</span> -->
+                        <!-- <span class="text">Algorithm chose to block</span> -->
                     </li>
                 </ul>
                 <br>
@@ -359,7 +363,8 @@
                             what we'll attempt to do next.
                             <br>
                             <br>
-                            <img src="blogs/TicTacToad/algo_idea.png" style="width: 35vw;" alt="A rough diagram depicting the basis of the algorithm.">
+                            <img src="blogs/TicTacToad/algo_idea.png" style="width: 35vw;"
+                                alt="A rough diagram depicting the basis of the algorithm.">
                             <!-- <span class="text">A rough diagram depicting the basis of the algorithm.</span> -->
                             <br>
                             The yellow circle is where we are assuming the player to have put an "<strong>X</strong>",
@@ -372,59 +377,80 @@
                                 class="kbd">leftDiagonalResult</span>, <span class="kbd">rightDiagonalResult</span>,
                             <span class="kbd">horizontalResult</span>, <span class="kbd">verticalResult</span>.
                             <br>
-                            The names are very self-explanatory. Each of these arrays contains all the possible boxes where a play could be made. Along with generating a list of possible plays, we'll also generate priorities, or scores if you will, for each list. We do this by simply seeing how many of the boxes are filled with the player's icon and multiplying it with a constant. The constant I used was found by simply doing a lot of trials. We'll set the constant as (<span class="kbd">2/3</span>) for the diagonals and (<span class="kbd">1</span>) for the others.
-                            Sharp eyed readers may notice that the priorities are checked as <span class="kbd">Integer</span>s, and you'd be absolutely right. When we multiplied with the constant, we also rounded off the results, since the result is always an integer.
+                            The names are very self-explanatory. Each of these arrays contains all the possible boxes
+                            where a play could be made. Along with generating a list of possible plays, we'll also
+                            generate priorities, or scores if you will, for each list. We do this by simply seeing how
+                            many of the boxes are filled with the player's icon and multiplying it with a constant. The
+                            constant I used was found by simply doing a lot of trials. We'll set the constant as (<span
+                                class="kbd">2/3</span>) for the diagonals and (<span class="kbd">1</span>) for the
+                            others.
+                            Sharp eyed readers may notice that the priorities are checked as <span
+                                class="kbd">Integer</span>s, and you'd be absolutely right. When we multiplied with the
+                            constant, we also rounded off the results, since the result is always an integer.
                             <br>
-                            We'll do the very same for the Algorithm's pieces. However, the constant will be changed to a higher value. This is because we want the algorithm to prioritize winning over a draw. 
+                            We'll do the very same for the Algorithm's pieces. However, the constant will be changed to
+                            a higher value. This is because we want the algorithm to prioritize winning over a draw.
                             <br><br>
-                            Now that we've generated the <span class="kbd">VisionLines</span>, we'll sort them in ascending order based on the priorities list we generated. The <span class="kbd">PrioritySort</span> function will do this.
-                            </div>
+                            Now that we've generated the <span class="kbd">VisionLines</span>, we'll sort them in
+                            ascending order based on the priorities list we generated. The <span
+                                class="kbd">PrioritySort</span> function will do this.
                         </div>
                     </div>
                 </div>
-
-                <br>
-
             </div>
-    
-    <div class="info_text">
-        <h1 style="line-height: 10vh;"><strong>Topics To Look Into</strong></h1>
-        <br>
-        <ul class="listing">
-            <li><span class="kbd">Impact of System Resources on Computational Speed</span>
-            </li>
-            <li><span class="kbd">Possible Optimisations On The Algorithm Side |<a href="" class="yellow-a">Read About
-                        This</a></span>
-            </li>
-            <li><span class="kbd">A Refreshed UI</span>
-            </li>
-            <li><span class="kbd">AI v AI</span>
-            <li><span class="kbd">Move Prediction</span>
-            <li><span class="kbd">A more modular icon assignment system |<a href="#declarations" class="yellow-a">Check
-                        Out The Current One</a></span>
-            </li>
-        </ul>
-    </div>
-    <br>
-    <br>
-    <div class="info_text">
-        <h1 style="line-height: 10vh;">Changelog</h1>
-        <h1><strong>Version 1</strong></h1>
-        <br>
-        Mirrors this article.
+
+            <br>
+
         </div>
-    <br>
-    <br>
-    <div class="info_text">
-        <h1 style="line-height: 10vh;"><strong>Comments</strong></h1>
-        <br>
-        <div class="utterances">
-            <iframe class="utterances-frame"></iframe>
+
+        <div class="info_text">
+            <h1 style="line-height: 10vh;"><strong>Topics To Look Into</strong></h1>
+            <br>
+            <ul class="listing">
+                <li><span class="kbd">Impact of System Resources on Computational Speed</span>
+                </li>
+                <li><span class="kbd">Possible Optimisations On The Algorithm Side |<a href="" class="yellow-a">Read
+                            About
+                            This</a></span>
+                </li>
+                <li><span class="kbd">A Refreshed UI</span>
+                </li>
+                <li><span class="kbd">AI v AI</span>
+                <li><span class="kbd">Move Prediction</span>
+                <li><span class="kbd">A more modular icon assignment system |<a href="#declarations"
+                            class="yellow-a">Check
+                            Out The Current One</a></span>
+                </li>
+            </ul>
         </div>
-        <script src="https://utteranc.es/client.js" repo="45i/TicTacToad" issue-term="pathname"
-            theme="preferred-color-scheme" crossorigin="anonymous" async>
-            </script>
-    </div>
+        <br>
+        <br>
+        <div class="info_text">
+            <h1 style="line-height: 10vh;"><strong>Changelog</strong></h1>
+            <div
+                style="align-items: flex-start; /* Updated property for left alignment */  text-align: left; /* Updated property or left alignment */  padding: 10px;  width: 85vw;height: fit-content;padding: 10px;;width: 85vw;">
+                <h1><strong>Version 1</strong></h1>
+                <br>
+                Mirrors this article.
+                <br>
+                <br>
+                <h1><strong>Version 1.1a</strong> <span class="kbd">Work In Progress</span></h1>
+                <br>
+                Move Lookup
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="info_text">
+            <h1 style="line-height: 10vh;"><strong>Comments</strong></h1>
+            <br>
+            <div class="utterances">
+                <iframe class="utterances-frame"></iframe>
+            </div>
+            <script src="https://utteranc.es/client.js" repo="45i/TicTacToad" issue-term="pathname"
+                theme="preferred-color-scheme" crossorigin="anonymous" async>
+                </script>
+        </div>
     </div>
     <br>
     <br>
@@ -435,7 +461,8 @@
 
 </script>
 <script>
-  // Get all elements with the id "myImg" and the class "text"
- 
+    // Get all elements with the id "myImg" and the class "text"
+
 </script>
+
 </html>

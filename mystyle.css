@@ -41,7 +41,7 @@
 @font-face {
   font-family: bold;
     font-weight: 900;
-  src: url(Press\ Feeling\ Eroded.ttf);
+  src: url(Gotham-Black.otf);
 }
 
 @font-face {
@@ -2067,8 +2067,8 @@ article {
   height: auto;
   object-fit: contain;
   /* You can use "cover" or "contain" based on your preference */
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 90vw;
+  max-height: 90vh;
   border-radius: 6px;
 }
 
