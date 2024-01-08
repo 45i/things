@@ -33,13 +33,15 @@
 
 @font-face {
   font-family: graffiti-bold;
-  src: url(Gotham-Black.otf);
-  letter-spacing: 10px;
+    font-weight: 900;
+  src: url(Press\ Feeling\ Eroded.ttf);
+  
 }
 
 @font-face {
   font-family: bold;
-  src: url(Gotham-Black.otf);
+    font-weight: 900;
+  src: url(Press\ Feeling\ Eroded.ttf);
 }
 
 @font-face {
