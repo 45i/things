@@ -12,6 +12,12 @@
 }
 
 @font-face {
+  font-family: araboto;
+
+  src: url(StretchPro.otf);
+}
+
+@font-face {
   font-family: Cera;
   src: url("Fontspring-DEMO-cerapro-regular.otf");
 }
@@ -33,15 +39,15 @@
 
 @font-face {
   font-family: graffiti-bold;
-    font-weight: 900;
+  font-weight: 900;
   src: url(Press\ Feeling\ Eroded.ttf);
-  
+
 }
 
 @font-face {
   font-family: bold;
-    font-weight: 900;
-  src: url(Gotham-Black.otf);
+  font-weight: 900;
+  src: url(StretchPro.otf);
 }
 
 @font-face {
@@ -2306,9 +2312,13 @@ pre code {
   overflow: hidden;
   /* Use 'auto' to enable scrollbars when needed */
 }
-.hljs::-webkit-scrollbar,pre::-webkit-scrollbar,pre code::-webkit-scrollbar {
+
+.hljs::-webkit-scrollbar,
+pre::-webkit-scrollbar,
+pre code::-webkit-scrollbar {
   width: 12px;
 }
+
 h1 {
   font-size: clamp(20px, 5vw, 90px);
   line-height: 10vh;
@@ -2357,19 +2367,41 @@ h1 {
   display: inline-block;
 }
 
-.github-card, .repo-card{
+.github-card,
+.repo-card {
   overflow: auto;
 }
+
 * img::after {
   content: "f";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 5px; /* Adjust the height of the bar as needed */
-  background-color: #3498db; /* Adjust the background color of the bar */
+  height: 5px;
+  /* Adjust the height of the bar as needed */
+  background-color: #3498db;
+  /* Adjust the background color of the bar */
   display: block;
 }
 
 
 
+.green-text {
+  color: goldenrod;
+  /* Green color */
+
+  font-family: araboto;
+
+}
+
+.sticky-text {}
+
+.word {
+
+
+  opacity: 0;
+  /* Initially hidden */
+  transition: opacity 0.5s ease;
+  /* Smooth transition */
+}
