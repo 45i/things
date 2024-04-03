@@ -2408,9 +2408,8 @@ h1 {
 
 .word {
 
-
   opacity: 0;
   /* Initially hidden */
-  transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease-in-out;
   /* Smooth transition */
 }
