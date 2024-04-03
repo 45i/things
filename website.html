@@ -153,36 +153,40 @@
 
 
         </div>
-        <div class="info_text" style="height: 100vh;" id="enquiry">
-        <h1
-                    style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-size-adjust: 100%; font-size: calc(7.5vw); line-height: 7.5vw;">
-                    <div class="sticky-text">
-                        <span class="word bold" id="eat"><b>Eat</b></span>
-<br>
-                        <span class="word bold" id="sleep"><b style="text-transform: lowercase;">SleEp</b></span>
-<br>
-                        <span class="word bold" id="code"><b>Code</b></span>
-                        <br>
-                        <span class="word green-text" id="repeat" style="">REEPEAT</span>
-                    </div>
+        <div class="info_text" id="enquiry">
+            <h1
+                style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-size-adjust: 100%; font-size: calc(7.5vw); line-height: 7.5vw;">
+                <div class="sticky-text" style="height: 150vh;">
+                    <span class="word bold" id="eat"><b>Eat</b></span>
+                    <br>
+                    <br>
+                    <span class="word bold" id="sleep"><b style="text-transform: lowercase;">SleEp</b></span>
+                    <br>
+                    <br>
+                    <span class="word bold" id="code"><b>Code</b></span>
+                    <br>
+                    <br>
+                    <span class="word green-text" id="repeat" style="">REEPEAT</span>
+                </div>
 
-                </h1>
+            </h1>
         </div>
+
         <div class="info_text">
             <div style="flex-direction: column; align-self: center;">
-                
-                <br>
-                <br>
-                <br>
+
+
                 <a href="art"><button class="ext-btn"
-                        style="background-color: transparent; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; "
+                        style="background-color: transparent; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: xxx-large; width:10%vw"
                         :hover="border-color: goldenrod"> My "Art" </button></a>
+
                 <a href="blogs.html"><button class="ext-btn"
-                        style="background-color: transparent; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; "
+                        style="background-color: transparent; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: xxx-large; width:10%vw"
                         :hover="border-color: goldenrod"> Blogs </button></a>
 
+
                 <a href="software"><button class="ext-btn"
-                        style="background-color: goldenrod; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: large; color: #262624;"
+                        style="background-color: goldenrod; border-width: 2px;border-color: goldenrod;border-style: solid;text-align: center; font-size: xxx-large; width:10%vw ;color:#262626;"
                         :hover="border-color: goldenrod"> My Code </button></a>
 
             </div>
@@ -337,7 +341,7 @@
  </script> -->
         <script>
             const words = document.querySelectorAll('.word');
-            const delay = 1000; // Delay between showing words (in milliseconds)
+            const delay = 1500; // Increase the delay for less sensitivity
             let currentIndex = 0;
 
             function showNextWord() {
@@ -345,11 +349,34 @@
                 setTimeout(() => {
                     words[currentIndex].style.opacity = 0;
                     currentIndex = (currentIndex + 1) % words.length;
-                    showNextWord();
+
                 }, delay);
             }
 
-            showNextWord(); // Start the animation
+            // Start the animation when the page loads
+            showNextWord();
+
+            // Detect scroll direction and update word visibility
+            window.addEventListener('scroll', () => {
+                const viewportCenter = window.innerHeight / 2;
+                const wordCenters = Array.from(words).map((word) => {
+                    const rect = word.getBoundingClientRect();
+                    return rect.top + rect.height / 2;
+                });
+
+                const closestWordIndex = wordCenters.reduce((acc, center, index) => {
+                    const distance = Math.abs(center - viewportCenter);
+                    if (distance < Math.abs(wordCenters[acc] - viewportCenter)) {
+                        return index;
+                    }
+                    return acc;
+                }, 0);
+
+                words.forEach((word, index) => {
+                    word.style.opacity = index === closestWordIndex ? 1 : 0;
+                });
+            });
+
 
         </script>
 </body>

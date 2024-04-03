@@ -40,7 +40,7 @@
 @font-face {
   font-family: graffiti-bold;
   font-weight: 900;
-  src: url(Press\ Feeling\ Eroded.ttf);
+  src: url(StretchPro.otf);
 
 }
 
@@ -64,7 +64,7 @@
 @font-face {
   font-family: erode;
   font-weight: 900;
-  src: url(Press\ Feeling\ Eroded.ttf);
+  src: url(StretchPro.otf);
 }
 
 * {
@@ -2069,7 +2069,7 @@ article {
 }
 
 #img01 {
-  
+
   object-fit: contain;
   /* You can use "cover" or "contain" based on your preference */
   max-width: 90vw;
@@ -2389,6 +2389,7 @@ h1 {
 .green-text {
   color: goldenrod;
   /* Green color */
+
 
   font-family: araboto;
 
