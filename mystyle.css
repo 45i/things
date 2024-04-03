@@ -2395,7 +2395,16 @@ h1 {
 
 }
 
-.sticky-text {}
+.sticky-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center horizontally */
+  justify-content: space-between;
+  /* Equal vertical spacing */
+  height: 200vh;
+  /* Set container height to window height */
+}
 
 .word {
 

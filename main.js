@@ -841,19 +841,19 @@ function addWatermarkToImage(imgElement) {
   watermark.classList.add('wrapped');
 
   const watermarkStyle = `
-                content: "";
-                display: block;
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                background-image: url('http://placehold.it/100x100/09f/fff.png');
-                background-size: 100px 100px;
-                background-position: 30px 30px;
-                background-repeat: no-repeat;
-                opacity: 0.7;
-            `;
+                                  content: "";
+                                  display: block;
+                                  width: 100%;
+                                  height: 100%;
+                                  position: absolute;
+                                  top: 0;
+                                  left: 0;
+                                  background-image: url('http://placehold.it/100x100/09f/fff.png');
+                                  background-size: 100px 100px;
+                                  background-position: 30px 30px;
+                                  background-repeat: no-repeat;
+                                  opacity: 0.7;
+             `;
 
   watermark.style = watermarkStyle;
 
@@ -892,35 +892,35 @@ document.addEventListener("DOMContentLoaded", function () {
 function addModalToBody() {
   // Create the modal HTML structure
   var modalHTML = `
-    <div id="myModal" class="modal">
-      <div class="">
-        <center><img class="modal-content" style="max-width:90vh" id="img01"></center>
-        <span class="close"><i class="fas fa-magnifying-glass-minus">&times;</i></span>
-        <div class="magnifyingGlass" style="z-index: 999999999999"></div>
-        <div id="caption"></div>
-      </div>
-    </div>
-  `;
+  <div id="myModal" class="modal">
+   <div class="">
+     <center><img class="modal-content" style="max-width:90vh" id="img01"></center>
+     <span class="close"><i class="fas fa-magnifying-glass-minus">&times;</i></span>
+     <div class="magnifyingGlass" style="z-index: 999999999999"></div>
+     <div id="caption"></div>
+   </div>
+  </div>
+ `;
 
   // Create a new div element
   document.body.insertAdjacentHTML('beforeend', modalHTML);
 
   var images = document.querySelectorAll("img");
 
-// Loop through each image and attach the modal functionality
-images.forEach(function (img, index) {
-  img.onclick = function () {
-    var modal = document.getElementById("myModal");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    
-    // Set the modal content based on the clicked image and its alt text
-    modal.style.display = "flex";
-    modalImg.src = this.src;
-    modalImg.alt = this.alt;
-    captionText.innerHTML = this.alt;
-  };
-});
+  // Loop through each image and attach the modal functionality
+  images.forEach(function (img, index) {
+    img.onclick = function () {
+      var modal = document.getElementById("myModal");
+      var modalImg = document.getElementById("img01");
+      var captionText = document.getElementById("caption");
+
+      // Set the modal content based on the clicked image and its alt text
+      modal.style.display = "flex";
+      modalImg.src = this.src;
+      modalImg.alt = this.alt;
+      captionText.innerHTML = this.alt;
+    };
+  });
 
 
   // Get the <span> element that closes the modal
@@ -943,41 +943,41 @@ images.forEach(function (img, index) {
       modal.classList.remove("fadeOutAnimation");
     }, 500); // Adjust the timeout value based on the duration of your animation (in milliseconds)
   }
-var glass = document.querySelector(".magnifyingGlass");
-var img = document.getElementById("img01");
+  var glass = document.querySelector(".magnifyingGlass");
+  var img = document.getElementById("img01");
 
-img.addEventListener("mousemove", function (e) {
-  showMagnifiedImage(e);
-});
+  img.addEventListener("mousemove", function (e) {
+    showMagnifiedImage(e);
+  });
 
-img.addEventListener("mouseout", function () {
-  glass.style.display = "none";
-});
+  img.addEventListener("mouseout", function () {
+    glass.style.display = "none";
+  });
 
-function showMagnifiedImage(e) {
-  var posX = e.offsetX;
-  var posY = e.offsetY;
+  function showMagnifiedImage(e) {
+    var posX = e.offsetX;
+    var posY = e.offsetY;
 
-  // Increase the zoom level by multiplying posX and posY by a higher factor (e.g., 4)
-  var zoomFactor = 4;
-  var bgPosX = -posX * zoomFactor + "px";
-  var bgPosY = -posY * zoomFactor + "px";
+    // Increase the zoom level by multiplying posX and posY by a higher factor (e.g., 4)
+    var zoomFactor = 4;
+    var bgPosX = -posX * zoomFactor + "px";
+    var bgPosY = -posY * zoomFactor + "px";
 
-  glass.style.backgroundImage = "url('" + img.src + "')";
-  glass.style.backgroundSize = img.width * zoomFactor + "px " + img.height * zoomFactor + "px";
-  glass.style.backgroundPosition = bgPosX + " " + bgPosY;
-  glass.style.display = "block";
-  glass.style.position = "absolute";
-  
-  // Set the shape of the magnifying glass to circular
-  glass.style.borderRadius = "50%";
-  
-  var rect = glass.getBoundingClientRect();
-  var glassHalfWidth = rect.width / 2;
-  var glassHalfHeight = rect.height / 2;
-  glass.style.left = e.pageX - glassHalfWidth + "px";
-  glass.style.top = e.pageY - glassHalfHeight + "px";
-}
+    glass.style.backgroundImage = "url('" + img.src + "')";
+    glass.style.backgroundSize = img.width * zoomFactor + "px " + img.height * zoomFactor + "px";
+    glass.style.backgroundPosition = bgPosX + " " + bgPosY;
+    glass.style.display = "block";
+    glass.style.position = "absolute";
+
+    // Set the shape of the magnifying glass to circular
+    glass.style.borderRadius = "50%";
+
+    var rect = glass.getBoundingClientRect();
+    var glassHalfWidth = rect.width / 2;
+    var glassHalfHeight = rect.height / 2;
+    glass.style.left = e.pageX - glassHalfWidth + "px";
+    glass.style.top = e.pageY - glassHalfHeight + "px";
+  }
 
   setInterval(checkModalScroll, 100);
 
@@ -985,3 +985,51 @@ function showMagnifiedImage(e) {
 
 // Call the function to add the modal to the body
 addModalToBody();
+const words = document.querySelectorAll('.word');
+const delay = 1500; // Increase the delay for less sensitivity
+let currentIndex = 0;
+
+function showNextWord() {
+  // Show the current word
+  words[currentIndex].style.opacity = 1;
+    
+
+  // Wait for a delay (e.g., 2000 milliseconds) before hiding the current word
+  setTimeout(() => {
+    words[currentIndex].style.opacity = 0;
+
+    // Move to the next word
+    currentIndex = (currentIndex + 1) % words.length;
+
+    // Show the next word immediately
+    words[currentIndex].style.opacity = 1;
+
+    // Center the word horizontally
+
+  }, delay);
+}
+
+
+// Start the animation when the page loads
+showNextWord();
+
+// Detect scroll direction and update word visibility
+window.addEventListener('scroll', () => {
+  const viewportCenter = window.innerHeight / 2;
+  const wordCenters = Array.from(words).map((word) => {
+    const rect = word.getBoundingClientRect();
+    return rect.top + rect.height / 2;
+  });
+
+  const closestWordIndex = wordCenters.reduce((acc, center, index) => {
+    const distance = Math.abs(center - viewportCenter);
+    if (distance < Math.abs(wordCenters[acc] - viewportCenter)) {
+      return index;
+    }
+    return acc;
+  }, 0);
+
+  words.forEach((word, index) => {
+    word.style.opacity = index === closestWordIndex ? 1 : 0;
+  });
+});
