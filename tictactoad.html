@@ -62,25 +62,33 @@
     </header>
 
     <center id="target-element" style="padding: 10vb;">
-        <div style="max-width:50vw; box-shadow: 0 0 10vb goldenrod;border-radius: 0;">
+        <div style="max-width:75vw; box-shadow: 0 0 10vb goldenrod;border-radius: 0;">
             <h1 class="title" style="border-radius: 0;"><strong
                     style="font-family: kbd; border-radius: 0;">DISCLAIMER</strong></h1>
-            <div class="kbd disclaimer" style=" line-height: 30px;border-radius: 0;">
+            <div class="kbd disclaimer wider-text" style=" line-height: 30px;border-radius: 0;">
                 This is not a tutorial and does not aim at being one either. Readers are assumed to have used <span
                     class="kbd">WindowsForms App</span> before and have garnered a basic idea of its functionings in the
                 process. <a
                     href="https://www.youtube.com/watch?v=Yj0G5UdBJZw&list=PLEbaEyM-xt9l-ZJIeoKsaXqZ_FvRN17LN&pp=iAQB"
                     class="yellow-a">This playlist</a> on YouTube can help
                 newcomers get up to speed on the <a class="yellow-a" href="#topics" style="">frameworks</a>
-                used in this article.<br>Furthermore, this is a half-assed attempt at making a tic-tac-toe playing program based on a bodged algorithm
+                used in this article.<br>Furthermore, this is a half-assed attempt at making a tic-tac-toe playing
+                program based on a bodged algorithm
                 designed during a boring history lesson in school. So be aware, this will be a journey filled with
                 roadblocks, code that makes you want to shoot yourself in the face, and decisions that make the blobfish
-                look like a thing of exquisite beauty. 
+                look like a thing of exquisite beauty.
+
+            </div>
+            <div class="kbd disclaimer narrow-text" style=" line-height: 30px;border-radius: 0;">
+                This is not a particularly good algorithm. And its not a tutorial. Please be aware that it is assumed
+                that you have used <span class="kbd">WindowsForms App</span> before and have gained a basic idea of its
+                functionings in the process.
+
 
             </div>
         </div>
-    
-        
+
+
     </center>
     <div style="padding: 10vw;">
         <div class="info_text"
@@ -393,7 +401,34 @@
                             <br><br>
                             Now that we've generated the <span class="kbd">VisionLines</span>, we'll sort them in
                             ascending order based on the priorities list we generated. The <span
-                                class="kbd">PrioritySort</span> function will do this.
+                                class="kbd">arrangeLinesBasedOnPriorities</span> function will do this.
+                            <br>
+                            <br>
+                            <div class="yellow-bar" id="clickeventcode">C#</div>
+                            <pre class=""><code  class="c#">
+private List<MaterialButton[]> arrangeLinesBasedOnPriorities(List<int> priorities, List<MaterialButton[]> list)
+        {
+            for (int i = 0; i < priorities.Count - 1; i++)
+            {
+                for (int j = 0; j < priorities.Count - 1 - i; j++)
+                {
+                    if (priorities[j] < priorities[j + 1])
+                    {
+                        // Swap priorities if they are in the wrong order
+                        
+                        MaterialButton[] temp = list[j];
+                        list[j] = list[j + 1];
+                        list[j + 1] = temp;
+                        
+                        int tempPrio = priorities[j];
+                        priorities[j] = priorities[j + 1];
+                        priorities[j + 1] = tempPrio;
+                    }
+                }
+            }
+            return list;
+        }
+        </code></pre>
                         </div>
                     </div>
                 </div>
@@ -434,7 +469,7 @@
                 Mirrors this article.
                 <br>
                 <br>
-                <h1><strong>Version 1.1a</strong> <span class="kbd">Work In Progress</span></h1>
+                <h1><strong>Version 1.1a</strong> <span class="kbd">IMPLEMENTED</span></h1>
                 <br>
                 Move Lookup
             </div>

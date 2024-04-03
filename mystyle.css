@@ -4,11 +4,11 @@
   }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
 
 @font-face {
   font-family: st;
-  src: url(regular.OTF);
+  src: url(coolvetica\ rg.otf);
 }
 
 @font-face {
@@ -2069,8 +2069,7 @@ article {
 }
 
 #img01 {
-  width: auto;
-  height: auto;
+  
   object-fit: contain;
   /* You can use "cover" or "contain" based on your preference */
   max-width: 90vw;
