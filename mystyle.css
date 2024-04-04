@@ -2286,6 +2286,10 @@ pre code {
 .ext-btn:hover {
   background-color: goldenrod;
   border: goldenrod;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: calc(33.333333%+10px);
+
 }
 
 .disclaimer {
@@ -2412,4 +2416,14 @@ h1 {
   /* Initially hidden */
   transition: opacity 0.5s ease-in-out;
   /* Smooth transition */
+}
+
+.heart {
+  transition: all 0.5s ease-in-out;
+}
+
+.heart:hover {
+  color: rgb(255, 124, 124);
+  size: 100px;
+  transition: all 0.5s ease-in-out;
 }
