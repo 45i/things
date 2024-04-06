@@ -2406,7 +2406,8 @@ h1 {
   /* Center horizontally */
   justify-content: space-between;
   /* Equal vertical spacing */
-  height: 200vh;
+  height: fit-content;
+  min-height: 200vh;
   /* Set container height to window height */
 }
 
