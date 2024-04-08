@@ -99,9 +99,6 @@
   /* font-family:st,-apple-system,BlinkMacSystemFont,"Apple Color Emoji","Segoe UI Emoji"; */
 }
 
-.yellow-a::after {
-  content: ' \2197';
-}
 
 html {
   scroll-behavior: smooth;
@@ -2307,8 +2304,19 @@ pre code {
   background-color: goldenrod;
   border-radius: 6px;
   padding: 3px;
+  transition:all 0.5s ease-in-out;
+}
+.yellow-a:hover::after{
+  content: ' \2192';
+  padding: 6px;
+  transition:all 0.5s ease;
 }
 
+.yellow-a::after {
+  content: ' \2197';
+  transition:all 0.5s ease-in-out;
+
+}
 .hljs {
   border-radius: 0 0 6px 6px;
 
