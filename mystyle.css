@@ -594,6 +594,7 @@ footer {
   align-items: center;
   text-align: center; */
   /* background: linear-gradient(45deg, #1f1f1e, #2b2b2a, #262624); */
+
   /* margin: 2px 0px; */
   text-shadow: 0 0 5px #00000052;
   background-color: #ffffff;
@@ -607,8 +608,12 @@ footer {
   /* max-height: 50vh; */
   /* background-position: 50%; */
   transition: background 0.3s ease-out;
-  /* box-shadow: 0px -10px 10px #262624; */
+  background-image: url(vecteezy_abstract-topographic-map-background-abstract-topographic_14993223.png);
+  
+  background-size: cover;
+   box-shadow: 0 0 10px #000000; 
 
+text-shadow: 0 0 20px #000;
   /* border-color: #ffffff; */
   /* border-style: dashed; */
   /* border-image: linear-gradient(45deg, #0F0331, #262624) 1; */
@@ -992,7 +997,7 @@ h2 {
   padding: 10px 20px;
   display: flex;
   border-radius: 36px;
-  /* box-shadow: 0 0 10px rgb(0, 0, 0); */
+  
   transition: transform 0.7s ease-in-out, width 0.5s ease-in-out, border-radius 0.5s ease;
   /* overflow:hidden; */
 
