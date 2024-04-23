@@ -992,7 +992,7 @@ let currentIndex = 0;
 function showNextWord() {
   // Show the current word
   words[currentIndex].style.opacity = 1;
-    
+
 
   // Wait for a delay (e.g., 2000 milliseconds) before hiding the current word
   setTimeout(() => {
@@ -1011,47 +1011,66 @@ function showNextWord() {
 function hideWord() {
   // Show the current word
   words[currentIndex].style.opacity = 0;
-    setTimeout(() => {
+  setTimeout(() => {
     words[currentIndex].style.opacity = 0;
 
     // Move to the next word
     currentIndex = (currentIndex + 1) % words.length;
 
     // Show the next word immediately
-    words[currentIndex].style.opacity = 1;
+    words[currentIndex].style.opacity = 0;
 
     // Center the word horizontally
 
   }, delay);
 
   // Wait for a delay (e.g., 2000 milliseconds) before hiding the current word
-  
+
 }
 function showWord() {
   // Show the current word
   words[currentIndex].style.opacity = 1;
-    setTimeout(() => {
-    words[currentIndex].style.opacity = 0;
+  setTimeout(() => {
+    words[currentIndex].style.opacity = 1;
 
     // Move to the next word
     currentIndex = (currentIndex + 1) % words.length;
 
     // Show the next word immediately
-    words[currentIndex].style.opacity = 1;
+    words[currentIndex].style.opacity = 0;
 
     // Center the word horizontally
 
   }, delay);
 
   // Wait for a delay (e.g., 2000 milliseconds) before hiding the current word
-  
+
 }
 
+// Add a scroll event listener
+window.addEventListener('scroll', () => {
+  // Get the current scroll position
+  const scrollPosition = window.scrollY;
+
+  // Calculate the desired letter spacing (adjust the formula as needed)
+  const baseSpacing = 1; // Initial letter spacing
+  const scrollFactor = 0.02; // Adjust this value to control the effect
+  const letterSpacing = baseSpacing + scrollPosition * scrollFactor;
+
+  // Select all .expand elements (adjust the selector as needed)
+  const expandElements = document.querySelectorAll('.expand');
+
+  // Apply the calculated letter spacing to each element
+  expandElements.forEach((element) => {
+    element.style.letterSpacing = `${letterSpacing}px`;
+  });
+});
 
 // Start the animation when the page loads
-showWord();
+
 // Detect scroll direction and update word visibility
 window.addEventListener('scroll', () => {
+
   const viewportCenter = window.innerHeight / 2;
   const wordCenters = Array.from(words).map((word) => {
     const rect = word.getBoundingClientRect();
@@ -1068,12 +1087,18 @@ window.addEventListener('scroll', () => {
 
   words.forEach((word, index) => {
     word.style.opacity = index === closestWordIndex ? 1 : 0;
-    if (index === closestWordIndex){
+    if (index === closestWordIndex) {
       word.classList.add('sticky');
+      word.classList.add('shown');
       showWord();
     } else {
       word.classList.remove('sticky');
-      hideWord();
+      if (word.classList.contains('perma') && word.classList.contains('shown')) {
+        console.log(word.innerHTML + word.classList.contains('perma'));
+        showWord();
+        word.style.opacity = 1;
+        
+      }
     }
   });
 });
@@ -1099,7 +1124,7 @@ function updateStickyElement() {
   // Apply sticky class to the centered element
   stickyElements.forEach((element, index) => {
     if (index === currentStickyIndex) {
-        element.classList.add('fixed');
+      element.classList.add('fixed');
     } else {
       element.classList.remove('fixed');
     }

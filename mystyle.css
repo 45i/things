@@ -2429,11 +2429,20 @@ h1 {
   position: sticky;
   top: 50%;
   opacity: 1;
+  transition: all  0.5s ease-in-out;
+}
+.top{
+  position: fixed;
+  top:0;
+}
+.opaque{
+  opacity: 1;
 }
 .word {
 
   opacity: 0;
-  
+  transition: position  0.5s ease-in-out;
+  padding: 20px;
 }
 
 .heart {
