@@ -608,7 +608,8 @@ footer {
   /* max-height: 50vh; */
   /* background-position: 50%; */
   transition: background 0.3s ease-out;
-  background-image: url(vecteezy_abstract-topographic-map-background-abstract-topographic_14993223.png);
+  background-image: url(hidden\ content/images/14339.jpg);
+  backdrop-filter: blur(10px);
   
   background-size: cover;
    box-shadow: 0 0 10px #000000; 
@@ -2415,6 +2416,7 @@ h1 {
 .sticky-text {
   display: flex;
   flex-direction: column;
+  
   align-items: center;
   /* Center horizontally */
   justify-content: space-between;
@@ -2423,13 +2425,15 @@ h1 {
   min-height: 200vh;
   /* Set container height to window height */
 }
-
+.sticky{
+  position: sticky;
+  top: 50%;
+  opacity: 1;
+}
 .word {
 
   opacity: 0;
-  /* Initially hidden */
-  transition: opacity 0.5s ease-in-out;
-  /* Smooth transition */
+  
 }
 
 .heart {
