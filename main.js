@@ -986,7 +986,7 @@ function addModalToBody() {
 // Call the function to add the modal to the body
 addModalToBody();
 const words = document.querySelectorAll('.word');
-const delay = 1500; // Increase the delay for less sensitivity
+const delay = 999999999; // Increase the delay for less sensitivity
 let currentIndex = 0;
 
 function showNextWord() {
@@ -1008,11 +1008,48 @@ function showNextWord() {
 
   }, delay);
 }
+function hideWord() {
+  // Show the current word
+  words[currentIndex].style.opacity = 0;
+    setTimeout(() => {
+    words[currentIndex].style.opacity = 0;
+
+    // Move to the next word
+    currentIndex = (currentIndex + 1) % words.length;
+
+    // Show the next word immediately
+    words[currentIndex].style.opacity = 1;
+
+    // Center the word horizontally
+
+  }, delay);
+
+  // Wait for a delay (e.g., 2000 milliseconds) before hiding the current word
+  
+}
+function showWord() {
+  // Show the current word
+  words[currentIndex].style.opacity = 1;
+    setTimeout(() => {
+    words[currentIndex].style.opacity = 0;
+
+    // Move to the next word
+    currentIndex = (currentIndex + 1) % words.length;
+
+    // Show the next word immediately
+    words[currentIndex].style.opacity = 1;
+
+    // Center the word horizontally
+
+  }, delay);
+
+  // Wait for a delay (e.g., 2000 milliseconds) before hiding the current word
+  
+}
 
 
 // Start the animation when the page loads
-showNextWord();
-
+showWord();
 // Detect scroll direction and update word visibility
 window.addEventListener('scroll', () => {
   const viewportCenter = window.innerHeight / 2;
@@ -1023,7 +1060,7 @@ window.addEventListener('scroll', () => {
 
   const closestWordIndex = wordCenters.reduce((acc, center, index) => {
     const distance = Math.abs(center - viewportCenter);
-    if (distance < Math.abs(wordCenters[acc] - viewportCenter)) {
+    if (distance <= Math.abs(wordCenters[acc] - viewportCenter)) {
       return index;
     }
     return acc;
@@ -1031,5 +1068,43 @@ window.addEventListener('scroll', () => {
 
   words.forEach((word, index) => {
     word.style.opacity = index === closestWordIndex ? 1 : 0;
+    if (index === closestWordIndex){
+      word.classList.add('sticky');
+      showWord();
+    } else {
+      word.classList.remove('sticky');
+      hideWord();
+    }
   });
 });
+const stickyElements = document.querySelectorAll('.sticky-text');
+let currentStickyIndex = -1;
+
+function updateStickyElement() {
+  const viewportHeight = window.innerHeight;
+  const scrollPosition = window.scrollY;
+
+  // Find the centered element
+  for (let i = 0; i < stickyElements.length; i++) {
+    const element = stickyElements[i];
+    const rect = element.getBoundingClientRect();
+    const elementCenter = rect.top + rect.height / 2;
+
+    if (elementCenter >= 0 && elementCenter <= viewportHeight) {
+      currentStickyIndex = i;
+      break;
+    }
+  }
+
+  // Apply sticky class to the centered element
+  stickyElements.forEach((element, index) => {
+    if (index === currentStickyIndex) {
+        element.classList.add('fixed');
+    } else {
+      element.classList.remove('fixed');
+    }
+  });
+}
+
+// Listen for scroll events
+
