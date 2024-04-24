@@ -2283,7 +2283,10 @@ pre code {
   border-color: goldenrod;
   border-style: solid;
   text-align: center;
+  border-style: solid;text-align: center; font-size: large;
 border-radius: 6px;
+border-width: 2px;border-color: goldenrod;
+backdrop-filter: blur(10px);
 }
 
 .ext-btn:hover {
@@ -2310,6 +2313,7 @@ border-radius: 6px;
   border-radius: 6px;
   padding: 3px;
   transition:all 0.5s ease-in-out;
+  white-space: nowrap;
 }
 .yellow-a:hover::after{
   content: ' \2192';
@@ -2452,4 +2456,11 @@ h1 {
   color: rgb(255, 124, 124);
   size: 100px;
   transition: all 0.5s ease-in-out;
+}
+.card{
+  
+  backdrop-filter: blur(10px);
+}
+.perma{
+  z-index: 100;
 }
