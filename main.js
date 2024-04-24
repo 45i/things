@@ -1092,11 +1092,14 @@ window.addEventListener('scroll', () => {
   // Select all .expand elements (adjust the selector as needed)
   const expandElements = document.querySelectorAll('.expand');
 
-  // Apply the calculated letter spacing to each element
+  // Apply the calculated letter spacing only when opacity is 1
   expandElements.forEach((element) => {
-    element.style.letterSpacing = `${letterSpacing}px`;
+    if (window.getComputedStyle(element).opacity === '1') {
+      element.style.letterSpacing = `${letterSpacing}px`;
+    }
   });
 });
+
 
 // Start the animation when the page loads
 
