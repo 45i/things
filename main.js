@@ -716,11 +716,11 @@ imgBoxes.forEach(imgBox => {
     const centerY = imgBox.clientHeight / 2;
     const deltaX = (centerX - x) / centerX;
     const deltaY = (centerY - y) / centerY;
-    imgBox.querySelector('img').style.transform = `perspective(1000px) rotateY(${deltaX * 5.1}deg) rotateX(${deltaY * 5.1}deg) scale(1.1)`;
+    imgBox.querySelector('IMG').style.transform = `perspective(1000px) rotateY(${deltaX * 5.1}deg) rotateX(${deltaY * 5.1}deg) scale(1.1)`;
   });
 
   imgBox.addEventListener('mouseleave', () => {
-    imgBox.querySelector('img').style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.1)';
+    imgBox.querySelector('IMG').style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.1)';
   });
 
 
@@ -865,7 +865,39 @@ function addWatermarkToImage(imgElement) {
 
 // Wrap each image with the watermark
 document.addEventListener("DOMContentLoaded", function () {
+const a = document.querySelectorAll('IMG');
+a.forEach((al)=>{
+  al.classList.add('tooltip');
+  
+});
 
+
+const links = document.querySelectorAll('img.tooltip');
+
+        // Attach event listeners to each <a> tag
+        links.forEach((link) => {
+            link.addEventListener('mouseover', showTooltip);
+            link.addEventListener('mouseout', hideTooltip);
+        });
+
+        // Show tooltip
+        function showTooltip(event) {
+            const link = event.target;
+            const tooltipText = link.getAttribute('title');
+            const tooltip = document.createElement('span');
+            tooltip.className = 'tooltip-text';
+            tooltip.textContent = "Click to go to "+link;
+            link.appendChild(tooltip);
+        }
+
+        // Hide tooltip
+        function hideTooltip(event) {
+            const link = event.target;
+            const tooltip = link.querySelector('.tooltip-text');
+            if (tooltip) {
+                link.removeChild(tooltip);
+            }
+        }
   const lazyLoadImages = document.querySelectorAll('.lazy-load-img');
 
   const lazyLoad = target => {
@@ -1133,3 +1165,44 @@ function updateStickyElement() {
 
 // Listen for scroll events
 
+
+
+const tooltipContainerB = document.querySelectorAll('img.tooltip');
+
+tooltipContainerB.forEach((tooltipContainer) => {
+  
+tooltipContainer.addEventListener('mouseover', (e) => {
+  const hoveredElement = e.target;
+
+  if (hoveredElement.tagName === 'A') {
+    // Get the URL from the href attribute
+    const url = hoveredElement.getAttribute('href');
+    tooltipText.textContent = `Click to visit ${url}`;
+  } else if (hoveredElement.tagName === 'IMG') {
+    tooltipText.textContent = 'Click to magnify';
+  }
+});
+tooltipContainer.addEventListener('mousemove', (e) => {
+  const offsetX = 0; // Adjust the horizontal offset
+  const offsetY = 1; // Adjust the vertical offset
+
+  const tooltipText = tooltipContainer.querySelector('.tooltip-text');
+  tooltipText.style.left = (e.pageX/1.04) + offsetX + 'px';
+  tooltipText.style.top = (e.pageY/1.299) + offsetY + 'px';
+});
+})
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+ const imgElements = document.querySelectorAll('img');
+        imgElements.forEach((img) => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'image-wrapper';
+            img.parentNode.insertBefore(wrapper, img);
+            wrapper.appendChild(img);
+        });
+});
