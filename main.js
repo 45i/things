@@ -1199,8 +1199,9 @@ tooltipContainer.addEventListener('mousemove', (e) => {
 
 
 
-
+var docTitle="";
 document.addEventListener("DOMContentLoaded", function () {
+  docTitle=document.title;
  const imgElements = document.querySelectorAll('img');
         imgElements.forEach((img) => {
             const wrapper = document.createElement('div');
@@ -1209,3 +1210,13 @@ document.addEventListener("DOMContentLoaded", function () {
             wrapper.appendChild(img);
         });
 });
+
+
+window.addEventListener( "blur" , ()=> {
+  document.title="Come Back 🥺";
+})
+
+window.addEventListener("focus" , ()=>{
+document.title = docTitle;
+
+})

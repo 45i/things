@@ -2534,3 +2534,9 @@ bigassh1 {
 .left-align{
   align-items: flex-start; /* Updated property for left alignment */  text-align: left; /* Updated property or left alignment */  padding: 10px;  width: 85vw;height: fit-content;padding: 10px;;width: 85vw;
 }
+.box{
+  transition: opacity 0.2s ease;
+}
+.cont:hover > :not(:hover){
+  opacity: 0.5;
+}
