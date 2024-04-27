@@ -276,10 +276,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         menuIcon.classList.toggle('bx-x');
         navbar.classList.toggle('open');
-
-        setTimeout(function () {
-          navig.classList.toggle('open');
-        }, 200); // 300 milliseconds delay (0.3 seconds)
+        navig.classList.toggle('open');
+        // setTimeout(function () {
+        //   navig.classList.toggle('open');
+        // }, 200); // 300 milliseconds delay (0.3 seconds)
       });
 
 
