@@ -1203,7 +1203,9 @@ var docTitle="";
 document.addEventListener("DOMContentLoaded", function () {
   docTitle=document.title;
  const imgElements = document.querySelectorAll('img');
+    
         imgElements.forEach((img) => {
+          img.setAttribute('data-src', img.src);
             const wrapper = document.createElement('div');
             wrapper.className = 'image-wrapper';
             img.parentNode.insertBefore(wrapper, img);
@@ -1220,3 +1222,22 @@ window.addEventListener("focus" , ()=>{
 document.title = docTitle;
 
 })
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-107957156-1', { 'anonymize_ip': true });
+    
+    // Attach a scroll event listener to the window
+window.addEventListener('scroll', function() {
+    // Iterate through all <img> elements
+    document.querySelectorAll('img').forEach(function(img) {
+        if (img.getAttribute('data-src') && img.getBoundingClientRect().top < (window.scrollY + window.innerHeight + 100)) {
+            // Replace the placeholder with the actual image source
+            img.src = img.getAttribute('data-src');
+            console.log("replaced")
+            img.removeAttribute('data-src');
+        }
+    });
+});
+// Set the scroll speed factor (adjust as needed)

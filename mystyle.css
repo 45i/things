@@ -45,6 +45,11 @@
 }
 
 @font-face {
+  font-family: outline;
+  src: url();
+}
+
+@font-face {
   font-family: bold;
   font-weight: 900;
   src: url(StretchPro.otf);
@@ -988,6 +993,7 @@ h2 {
   background: #d4d4cc00;
   backdrop-filter: blur(10px);
   box-shadow: inset 0 4px 8px #000000;
+  box-shadow: 0 4px 8px #000000;
   transition: 0.75s;
   z-index: 10001;
   justify-content: space-between;
@@ -1011,7 +1017,8 @@ h2 {
 .navig.open {
   border-radius: 36px 36px 0px 0px;
   transition: all 0.5s ease;
-
+  box-shadow: inset 0 4px 8px #000000;
+ 
 }
 
 .navig.clicked {
