@@ -1085,18 +1085,26 @@ h2 {
   background: #1616154d;
 
   width: fit-content;
-  border-radius: 0 0 36px 0;
-  transform: none;
+  height: fit-content;
+  border:none;
+  box-shadow: none;
+  border-radius: 16px;
+  transform: translateX(12%)translateY(12%);
   transition: all 0.7s ease;
 
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(5px);
 
   .logo,
-  .notice,
-  .icon {
+  .notice{
     opacity: 0.25;
   }
 
+  .logo,.icon{
+   
+    display: none;
+
+    
+  }
   .logo-text {
     display: none;
   }
@@ -2569,4 +2577,39 @@ bigassh1 {
 
 .cont:hover> :not(:hover) {
   opacity: 0.5;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.container-extend {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 200vh;
+}
+
+.extend {
+  display: flex;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.extend a {
+  display: inline-block;
+  margin: 0 1rem; /* Spacing between elements */
+  white-space: nowrap;
+}
+.many-items a {
+  
 }

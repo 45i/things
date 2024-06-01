@@ -1241,3 +1241,12 @@ window.addEventListener('scroll', function() {
     });
 });
 // Set the scroll speed factor (adjust as needed)
+window.addEventListener('scroll', () => {
+  const extend = document.querySelector('.extend');
+  const scrollPosition = window.scrollY;
+  const windowHeight = window.innerHeight;
+  const scaleFactor = Math.min(1, scrollPosition / windowHeight); // Scale factor between 0 and 1
+
+  extend.style.opacity = scaleFactor;
+  extend.style.transform = `scale(${0.5 + scaleFactor * 0.5})`; // Scale from 0.5 to 1
+});
