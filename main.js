@@ -1219,35 +1219,55 @@ window.addEventListener('scroll', () => {
   extend.style.opacity = scaleFactor;
   extend.style.transform = `scale(${0.5 + scaleFactor * 0.5})`; // Scale from 0.5 to 1
 });
-const manyItems = document.querySelector('.many-items');
-const manyItemsChildren = manyItems.querySelectorAll('*');
+document.addEventListener("DOMContentLoaded", function () {
+    // Create the new div element
+    const newDiv = document.createElement('div');
 
+    // Set the innerHTML of the new div with the provided HTML code
+    newDiv.innerHTML = `
+      <center>
+        <div class="many-items" style=" background-color: #2828285a; border-radius: 16px; padding: 10px; backdrop-filter: blur(10px);">
+          <a href="#"><button class="shape-shift" hover-text="Scroll Up" tooltip="Scroll Up" style="height: 50px; border-radius: 50px; width: 50px; border: gray 2px solid;"><i class="fas fa-angle-up"></i></button></a>
+          
+          <button class="shape-shift share" hover-text="Scroll Up" tooltip="Scroll Up" style="height: 50px; border-radius: 50px; width: 50px; border: gray 2px solid;"><i class="fas fa-share"></i></button>
+        </div>
+      </center>
+      <br>
+      <br>
+    `;
+        const footerContainer = document.querySelector('.footer-container');
+
+    // Insert the new div before the footer container
+    footerContainer.parentNode.insertBefore(newDiv, footerContainer);
+    
+
+const manyItems = document.querySelector('.many-items');
+const height= manyItems.style.height;
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     const intersectionRatio = entry.intersectionRatio;
     const targetWidth = `${65 * intersectionRatio}vw`;
     const targetBackgroundColor = `rgba(${Math.floor(17 * intersectionRatio)}, ${Math.floor(17 * intersectionRatio)}, ${Math.floor(17 * intersectionRatio)}, ${0.35 + 0.65 * intersectionRatio})`;
     const targetOpacity = Math.max(0,intersectionRatio,1);
+    const size = `${manyItems.style.size * intersectionRatio}px`;
+
 
     manyItems.style.transition = 'width 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out, background-color 0.7s ease-in-out';
     manyItems.style.width = targetWidth;
+    manyItems.style.height = Math.max(0, targetWidth, height);
     // manyItems.style.backdropFilter = targetBlur;
     manyItems.style.backgroundColor = targetBackgroundColor;
+    manyItems.style.size = size;
 
-    manyItemsChildren.forEach(child => {
-      // child.style.transition = 'opacity 0.5s ease-in-out';
-      child.style.opacity = targetOpacity;
-    });
+    
   });
 }, { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] });
 
 observer.observe(manyItems);
-
-// Get the button element
-const showMoreButton = document.querySelector('.show_more');
+const showMoreButton = document.querySelector('.share');
 
 // Get the div element to be shown
-const linksDiv = document.getElementById(showMoreButton.getAttribute('div_id'));
+
 
 // Function to handle the button click event
 function showLinks() {
@@ -1255,45 +1275,27 @@ function showLinks() {
   const parentElement = showMoreButton.parentNode;
 
   // Check if the links div is already shown
-  if (parentElement.contains(linksDiv)) {
-    // If shown, hide the links div and show the button
-    parentElement.removeChild(linksDiv);
-    showMoreButton.style.display = 'inline-block';
-  } else {
-    // If not shown, insert the links div and hide the button
-    parentElement.insertBefore(linksDiv, showMoreButton);
-    linksDiv.style.display = 'block';
-    showMoreButton.style.display = 'none';
-  }
+  const shareData = {
+    title: docTitle,
+    text: "",
+    url: window.location.href
+};
+
+navigator.share(shareData)
+    .then(() => console.log('Shared successfully'))
+    .catch((error) => console.error('Error sharing:', error));
+
 }
 
 // Attach the click event listener to the button
 showMoreButton.addEventListener('click', showLinks);
+});
+// Get the button element
+
 
 
 
 // Wait for the page to load
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Hello, world!");
-  // Get all the footer-container divs on the page
-  const footerContainers = document.querySelectorAll('.footer-container');
 
-  // Loop through each footer-container div
-  footerContainers.forEach(function(footerContainer) {
-    // Create a new div element
-    const newDiv = document.createElement('div');
 
-    // Set the innerHTML of the new div with the provided HTML code
-    newDiv.innerHTML = `
-      <center>
-        <div class="many-items" style="z-index: 10; background-color: #2828285a; border-radius: 16px; padding-bottom: 5%; backdrop-filter: blur(10px);">
-          <a href="#"><button class="ext-btn hover-gold" hover-text="Scroll Up" tooltip="Scroll Up" style="height: 50px; border-radius: 50px; width: 50px; border: gray 2px solid;"><i class="fas fa-angle-up"></i></button></a>
-        </div>
-      </center>
-    `;
-
-    // Insert the new div before the footer-container div
-    footerContainer.parentNode.insertBefore(newDiv, footerContainer);
-  });
-});
 

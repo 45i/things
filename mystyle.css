@@ -2582,12 +2582,19 @@ bigassh1 {
   white-space: nowrap;
 }
 .many-items{
-  overflow: hidden;
+  /* overflow: hidden; */
+  min-height: fit-content;
+  min-width: fit-content;
   
 }
-.many-items a{
-  /* padding: 0 0 100px 0; */
+.shape-shift{
+  background-color: transparent;
+  height: 50px; border-radius: 50px; width: 50px; border: gray 2px solid;
 
+}
+.shape-shift:hover{
+  background-color: rgba(128, 128, 128, 0.259);
+  border-radius: 12px;
 }
 .hidden{
   display: none;
