@@ -1272,3 +1272,28 @@ showMoreButton.addEventListener('click', showLinks);
 
 
 
+// Wait for the page to load
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Hello, world!");
+  // Get all the footer-container divs on the page
+  const footerContainers = document.querySelectorAll('.footer-container');
+
+  // Loop through each footer-container div
+  footerContainers.forEach(function(footerContainer) {
+    // Create a new div element
+    const newDiv = document.createElement('div');
+
+    // Set the innerHTML of the new div with the provided HTML code
+    newDiv.innerHTML = `
+      <center>
+        <div class="many-items" style="z-index: 10; background-color: #2828285a; border-radius: 16px; padding-bottom: 5%; backdrop-filter: blur(10px);">
+          <a href="#"><button class="ext-btn hover-gold" hover-text="Scroll Up" tooltip="Scroll Up" style="height: 50px; border-radius: 50px; width: 50px; border: gray 2px solid;"><i class="fas fa-angle-up"></i></button></a>
+        </div>
+      </center>
+    `;
+
+    // Insert the new div before the footer-container div
+    footerContainer.parentNode.insertBefore(newDiv, footerContainer);
+  });
+});
+
