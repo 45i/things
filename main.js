@@ -532,18 +532,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-let prevScrollpos = window.scrollY;
-window.onscroll = function () {
-  let currentScrollPos = window.scrollY;
-  if (prevScrollpos > currentScrollPos) {
-    document.querySelector("nav").classList.remove("hidden");
+// let prevScrollpos = window.scrollY;
+// window.onscroll = function () {
+//   let currentScrollPos = window.scrollY;
+//   if (prevScrollpos > currentScrollPos) {
+//     document.querySelector("nav").classList.remove("hidden");
 
-  } else {
-    document.querySelector("nav").classList.add("hidden");
+//   } else {
+//     document.querySelector("nav").classList.add("hidden");
 
-  }
-  prevScrollpos = currentScrollPos;
-}
+//   }
+//   prevScrollpos = currentScrollPos;
+// }
 // const days = document.querySelector('.days');
 // const text = 'days ';
 // let index = 0;
