@@ -225,7 +225,6 @@ applyFilter();
 
 document.addEventListener("DOMContentLoaded", function () {
   // Fetch the contents of the navbar HTML file
-  var logoText = null;
   fetch("navbar.html")
     .then(response => response.text())
     .then(data => {
@@ -325,17 +324,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
       try {
-        var typed = new Typed('.info_thing', {
-          strings: ["The Website Is Still In Development 🚧^1000", "The Website Is Still Brewing ☕^1000", "The Website Is Still In The Woodworks 🔨^1000", "The Developer Is Busy Brainstorming Easter Eggs 🥚^1000", "The Developer Is Busy Vibing 🎶^1000"],
-          typeSpeed: 30,
-          backSpeed: 30,
-          backDelay: 700,
-          smartBackspace: true,
-          startDelay: 100,
-          delay: 10000,
-          loop: true,
-          loopCount: Infinity,
-        });
       }
       catch {
 
@@ -344,9 +332,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   var navbar = document.querySelector(".navbar");
 
-  function toggleDropdown() {
-    navbar.classList.toggle("open");
-  }
 
 });
 // footer.js
@@ -358,7 +343,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const footerContainer = document.querySelector('.footer-container');
       footerContainer.innerHTML = data;
       const footer = document.querySelector(".footer-container");
-      const button = footer.querySelector("footer").querySelector(".retract");
 
       var translate = document.querySelector(".translate-button");
       translate.addEventListener('click', function () {
@@ -749,19 +733,6 @@ function getRandom(min, max) {
 
 function fadeWords(quotewords) {
   Array.prototype.forEach.call(quotewords, function (word) {
-    let animate = word.animate([{
-      opacity: 0,
-      filter: "blur(" + getRandom(2, 5) + "px)"
-    }, {
-      opacity: 1,
-      filter: "blur(0px)"
-    }],
-      {
-        duration: 1000,
-        delay: getRandom(500, 3300),
-        fill: 'forwards'
-      }
-    )
   })
 }
 
@@ -883,7 +854,6 @@ const links = document.querySelectorAll('img.tooltip');
         // Show tooltip
         function showTooltip(event) {
             const link = event.target;
-            const tooltipText = link.getAttribute('title');
             const tooltip = document.createElement('span');
             tooltip.className = 'tooltip-text';
             tooltip.textContent = "Click to go to "+link;
@@ -940,7 +910,7 @@ function addModalToBody() {
   var images = document.querySelectorAll("img");
 
   // Loop through each image and attach the modal functionality
-  images.forEach(function (img, index) {
+  images.forEach(function (img) {
     img.onclick = function () {
       var modal = document.getElementById("myModal");
       var modalImg = document.getElementById("img01");
@@ -1142,7 +1112,6 @@ let currentStickyIndex = -1;
 
 function updateStickyElement() {
   const viewportHeight = window.innerHeight;
-  const scrollPosition = window.scrollY;
 
   // Find the centered element
   for (let i = 0; i < stickyElements.length; i++) {
@@ -1250,3 +1219,56 @@ window.addEventListener('scroll', () => {
   extend.style.opacity = scaleFactor;
   extend.style.transform = `scale(${0.5 + scaleFactor * 0.5})`; // Scale from 0.5 to 1
 });
+const manyItems = document.querySelector('.many-items');
+const manyItemsChildren = manyItems.querySelectorAll('*');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const intersectionRatio = entry.intersectionRatio;
+    const targetWidth = `${65 * intersectionRatio}vw`;
+    const targetBackgroundColor = `rgba(${Math.floor(17 * intersectionRatio)}, ${Math.floor(17 * intersectionRatio)}, ${Math.floor(17 * intersectionRatio)}, ${0.35 + 0.65 * intersectionRatio})`;
+    const targetOpacity = Math.max(0,intersectionRatio,1);
+
+    manyItems.style.transition = 'width 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out, background-color 0.7s ease-in-out';
+    manyItems.style.width = targetWidth;
+    // manyItems.style.backdropFilter = targetBlur;
+    manyItems.style.backgroundColor = targetBackgroundColor;
+
+    manyItemsChildren.forEach(child => {
+      // child.style.transition = 'opacity 0.5s ease-in-out';
+      child.style.opacity = targetOpacity;
+    });
+  });
+}, { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] });
+
+observer.observe(manyItems);
+
+// Get the button element
+const showMoreButton = document.querySelector('.show_more');
+
+// Get the div element to be shown
+const linksDiv = document.getElementById(showMoreButton.getAttribute('div_id'));
+
+// Function to handle the button click event
+function showLinks() {
+  // Get the parent element of the button
+  const parentElement = showMoreButton.parentNode;
+
+  // Check if the links div is already shown
+  if (parentElement.contains(linksDiv)) {
+    // If shown, hide the links div and show the button
+    parentElement.removeChild(linksDiv);
+    showMoreButton.style.display = 'inline-block';
+  } else {
+    // If not shown, insert the links div and hide the button
+    parentElement.insertBefore(linksDiv, showMoreButton);
+    linksDiv.style.display = 'block';
+    showMoreButton.style.display = 'none';
+  }
+}
+
+// Attach the click event listener to the button
+showMoreButton.addEventListener('click', showLinks);
+
+
+

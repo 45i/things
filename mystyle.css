@@ -749,12 +749,12 @@ footer:after {
 }
 
 button {
-  padding: 10px 0px;
-  min-width: 100px;
+  padding: 10px ;
+  /* min-width: 100px; */
   background: #a02f54;
   position: relative;
 
-  margin-bottom: 0px;
+  /* margin-bottom: 0px; */
   border-radius: 3px;
   /* backdrop-filter: blur(10px); */
   text-align: center;
@@ -791,7 +791,7 @@ button {
 button:hover {
   content: attr(hovertext);
 
-  transform: translateY(-3%);
+  /* transform: translateY(-3%); */
   text-align: center;
   /* width: 200px; */
   padding: 10px;
@@ -806,7 +806,7 @@ button:hover {
 
 .button-text {
   position: absolute;
-  top: -100%;
+  /* top: -100%; */
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -2596,6 +2596,14 @@ bigassh1 {
   margin: 0 1rem; /* Spacing between elements */
   white-space: nowrap;
 }
-.many-items a {
+.many-items{
+  overflow: hidden;
+  
+}
+.many-items a{
+  padding: 0 0 100px 0;
 
+}
+.hidden{
+  display: none;
 }
