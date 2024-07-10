@@ -255,27 +255,32 @@ document.addEventListener("DOMContentLoaded", function () {
       var menuIcon = document.querySelector('.icon');
       var navbar = document.querySelector('.navbar');
       var navig = document.querySelector('.navig');
-
-
+      const height = window.getComputedStyle(navig).height;
+      
       // Add this line
       menuIcon.addEventListener('click', function () {
-        console.log("clicked");
+        console.log(computedHeight);
         icon.classList.toggle('open');
-        if (icon.classList.contains('open')) {
-          menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
-          if (navig.classList.contains('collapse')) {
+        console.log(height);
+    if (icon.classList.contains('open')) {
+        menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        if (navig.classList.contains('collapse')) {
             navig.classList.toggle('collapse');
-          }
-          // toggleDropdown();
-        } else {
-
-          menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
-
-          // toggleDropdown();
         }
-        menuIcon.classList.toggle('bx-x');
-        navbar.classList.toggle('open');
-        navig.classList.toggle('open');
+        // Get the computed height of .navig
+       var computedHeight = window.getComputedStyle(navbar).height;
+        const newHeight = `${parseInt(computedHeight)}px`;
+        navig.style.height = newHeight;
+        console.log(newHeight);
+        navbar.style.transform = `translateY(-${parseInt(newHeight)}px)`;
+    } else {
+        menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
+        navig.style.height = `${parseInt(height)}px`; // Revert to the original height
+        navbar.style.transform = `none`;
+    }
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('open');
+    navig.classList.toggle('open');
         // setTimeout(function () {
         //   navig.classList.toggle('open');
         // }, 200); // 300 milliseconds delay (0.3 seconds)
@@ -330,7 +335,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
     });
-  var navbar = document.querySelector(".navbar");
+  // var navbar = document.querySelector(".navbar");
 
 
 });
@@ -1227,9 +1232,9 @@ document.addEventListener("DOMContentLoaded", function () {
     newDiv.innerHTML = `
       <center>
         <div class="many-items" style=" background-color: #2828285a; border-radius: 16px; padding: 10px; backdrop-filter: blur(10px);">
-          <a href="#"><button class="shape-shift" hover-text="Scroll Up" tooltip="Scroll Up" style="height: 50px; border-radius: 50px; width: 50px; border: gray 2px solid;"><i class="fas fa-angle-up"></i></button></a>
+          <a href="#"><button class="shape-shift" hover-text="Scroll Up" tooltip="Scroll Up" ><i class="fas fa-angle-up"></i></button></a>
           
-          <button class="shape-shift share" hover-text="Scroll Up" tooltip="Scroll Up" style="height: 50px; border-radius: 50px; width: 50px; border: gray 2px solid;"><i class="fas fa-share"></i></button>
+          <button class="shape-shift share" hover-text="Scroll Up" tooltip="Scroll Up" ><i class="fas fa-share"></i></button>
         </div>
       </center>
       <br>
@@ -1252,7 +1257,7 @@ const observer = new IntersectionObserver(entries => {
     const size = `${manyItems.style.size * intersectionRatio}px`;
 
 
-    manyItems.style.transition = 'width 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out, background-color 0.7s ease-in-out';
+    manyItems.style.transition = 'width 0.2s ease-in-out, backdrop-filter 0.2s ease-in-out, background-color 0.4s ease-in-out';
     manyItems.style.width = targetWidth;
     manyItems.style.height = Math.max(0, targetWidth, height);
     // manyItems.style.backdropFilter = targetBlur;

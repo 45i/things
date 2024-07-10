@@ -581,7 +581,7 @@ tr.inactive {
 }
 
 footer {
-  border-radius: 36px;
+  border-radius: 6px;
   list-style: none;
   position: relative;
   width: 85vw;
@@ -963,15 +963,14 @@ h2 {
 
 /* Global CSS rules for nav */
 .navig {
-  height: fit-content;
+  /* height: fit-content; */
   width: 90vw;
   /* max-width: 3200px; */
   top: 100px;
   position: fixed;
   background: #20201f92;
   backdrop-filter: blur(10px);
-  box-shadow: inset 0 4px 8px #000000;
-  box-shadow: 0 4px 8px #000000;
+  
   transition: 0.75s;
   z-index: 10001;
   justify-content: space-between;
@@ -983,6 +982,7 @@ h2 {
   /* Adjust horizontally */
   padding: 10px 20px;
   display: flex;
+
   border-radius: 36px;
   border: lightslategray 1px solid;
   transition: transform 0.7s ease-in-out, width 0.5s ease-in-out, border-radius 0.5s ease;
@@ -993,16 +993,32 @@ h2 {
 }
 
 .navig.open {
-  border-radius: 36px 36px 0px 0px;
+  border-radius: 36px;
   transition: all 0.5s ease;
-  box-shadow: inset 0 4px 8px #000000;
+  /* box-shadow: inset 0 4px 8px #000000; */
+  background: #20201f92;
+  
+  backdrop-filter: blur(10px);
+}
+.navig.open > * {
+  opacity: 0;
+  transition: all 0.5s ease;
 
 }
-
+.navig.open .navbar{
+  opacity: 100%;
+  /* transform: translateY(-10px); */
+}
+.navig.open .main {
+  opacity: 100%;
+  transition: all 0.5s ease;
+     z-index: 1000001;
+;
+}
 .navig.clicked {
   width: 90vw;
   width: 80px;
-  height: 80px;
+  /* height: 80px; */
   transform: translateX(50vw) translateY(10px) scale(0.5);
   transform-origin: center center;
 
@@ -1023,7 +1039,7 @@ h2 {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
-  font-size: larger;
+  font-size: 40px;
   transform-origin: center;
   transition: all 0.3s ease, background 10s;
 }
@@ -1063,7 +1079,7 @@ h2 {
   background: #1616154d;
 
   width: fit-content;
-  height: fit-content;
+  /* height: fit-content; */
   border: none;
   box-shadow: none;
   border-radius: 16px;
@@ -1718,10 +1734,9 @@ abbr:hover {
   position: absolute;
   /* z-index: 0; */
   top: 40%;
-  width: 90vw;
+  width:80%;
   /* right: -800vw; */
-  left: 0vw;
-  height: fit-content;
+  height: 51px;
   max-height: 200px;
 
   font-family: graffiti-bold;
@@ -1739,9 +1754,9 @@ abbr:hover {
   flex-direction: row;
   justify-content: center;
   /* border-radius: 0px 0px 0px 10px; */
-  border-radius: 0px 0 36px 36px;
+  border-radius: 36px;
   transition: all 0.5s ease;
-  z-index: 100000001;
+  /* z-index: 100000001; */
 
 
 }
@@ -1772,7 +1787,7 @@ abbr:hover {
   transition: transform 0.8s, background-color 0.8s;
   background: #d4d4cc00;
   backdrop-filter: blur(10px);
-  box-shadow: inset 0 4px 8px #000000;
+  /* box-shadow: inset 0 4px 8px #000000; */
   /* Added both transitions */
 }
 
@@ -1780,26 +1795,34 @@ abbr:hover {
 .navbar.open li a {
   color: white;
 }
-
+.navbar li{
+  display: inline-block;
+    margin-right: 10px;
+}
 .navbar.open {
-  right: 0;
-  display: flex;
-  top: 100%;
-  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  visibility: visible;
+  scrollbar-width: none;
+  background: #20201f00;
+  /* backdrop-filter: blur(10px); */
+  z-index: 1000000;
+  top:100%;
   flex-wrap: wrap;
   overflow-x: auto;
   white-space: nowrap;
   -ms-overflow-style: none;
   visibility: visible;
   scrollbar-width: none;
-  background: #262624;
+  background: #20201f00;
+  list-style: none;
+  /* backdrop-filter: blur(10px); */
+  z-index: 1000000;
+  
 
-  box-shadow: inset 0 -4px 8px #000000;
+  /* box-shadow: inset 0 -4px 8px #000000; */
 }
-.navig.open {
-  background: #262624;
-  border: none;
-}
+
 .navbar.open::-webkit-scrollbar {
   display: none;
   /* Chrome, Safari, Opera */
