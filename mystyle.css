@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: Cera;
-  src: url("Fontspring-DEMO-cerapro-regular.otf");
+    src: url("Fontspring-DEMO-cerapro-regular.otf");
 }
 
 @font-face {
@@ -28,7 +28,7 @@
 
 @font-face {
   font-family: cursve;
-  src: url(Monotype\ Corsiva.ttf);
+  src: url(Creattion\ Demo.otf);
 }
 
 @font-face {
@@ -2627,4 +2627,7 @@ bigassh1 {
 }
 .honeycomb > *{
   padding: 5px;
+}
+.cursive{
+  font-family: cursve;
 }
