@@ -272,11 +272,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const newHeight = `${parseInt(computedHeight)}px`;
         navig.style.height = newHeight;
         console.log(newHeight);
-        navbar.style.transform = `translateY(-${parseInt(newHeight)}px)`;
+        navbar.style.transform = `translateY(-${parseInt(computedHeight)}px)`;
+        navig.style.transition = 'height 0.3s ease';
     } else {
         menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
-        navig.style.height = `${parseInt(height)}px`; // Revert to the original height
+        navig.style.height = `11vh`; // Revert to the original height
         navbar.style.transform = `none`;
+        navig.style.transition = 'height 0.3s ease';
     }
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('open');
@@ -311,6 +313,15 @@ document.addEventListener("DOMContentLoaded", function () {
       closeButton.addEventListener('click', function () {
         if (!navbar.classList.contains('open')) {
           navig.classList.toggle('collapse');
+          
+         }
+         if (navig.classList.contains('collapse')) {
+           
+         
+          closeButton.innerHTML = '<i class="fas fa-expand"></i>';
+        }
+        else {
+          closeButton.innerHTML = '<i class="fas fa-compress"></i>';
         }
       });
       // Attach the click event listener to each .committee element
@@ -1231,7 +1242,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Set the innerHTML of the new div with the provided HTML code
     newDiv.innerHTML = `
       <center>
-        <div class="many-items" style=" background-color: #2828285a; border-radius: 16px; padding: 10px; backdrop-filter: blur(10px);">
+        <div class="many-items" >
           <a href="#"><button class="shape-shift" hover-text="Scroll Up" tooltip="Scroll Up" ><i class="fas fa-angle-up"></i></button></a>
           
           <button class="shape-shift share" hover-text="Scroll Up" tooltip="Scroll Up" ><i class="fas fa-share"></i></button>

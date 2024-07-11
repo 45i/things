@@ -581,7 +581,7 @@ tr.inactive {
 }
 
 footer {
-  border-radius: 6px;
+  border-radius: 16px;
   list-style: none;
   position: relative;
   width: 85vw;
@@ -597,7 +597,7 @@ footer {
   transition: background 0.3s ease-out;
   backdrop-filter: blur(10px);
   background-size: cover;
-  box-shadow: 0 0 10px #000000;
+  /* box-shadow: 0 0 10px #000000; */
   margin-left: auto; /* Add this line */
   margin-right: auto; /* Add this line */
 }
@@ -963,7 +963,7 @@ h2 {
 
 /* Global CSS rules for nav */
 .navig {
-  /* height: fit-content; */
+  height: 11vh;
   width: 90vw;
   /* max-width: 3200px; */
   top: 100px;
@@ -1039,9 +1039,9 @@ h2 {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
-  font-size: 40px;
+  font-size: clamp(9px,calc(14vw),40px);
   transform-origin: center;
-  transition: all 0.3s ease, background 10s;
+  transition: all 0.3s ease, background 100000000000000s;
 }
 
 .navig .icon {
@@ -1060,14 +1060,7 @@ h2 {
 
 }
 
-.navig:hover {
 
-  transform: translateX(5%) translateY(20px);
-
-  transition: all 0.7s ease-in-out;
-
-
-}
 
 .navig.collapse:hover {
   /* opacity: -0.95; */
@@ -2608,6 +2601,7 @@ bigassh1 {
   /* overflow: hidden; */
   min-height: fit-content;
   min-width: fit-content;
+  background-color: #2828285a; border-radius: 16px; padding: 10px; backdrop-filter: blur(10px);
   
 }
 .shape-shift{
@@ -2624,4 +2618,13 @@ bigassh1 {
 }
 .sticky{
   z-index: 10;
+}
+.honeycomb{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+.honeycomb > *{
+  padding: 5px;
 }
