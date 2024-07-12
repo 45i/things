@@ -2602,14 +2602,22 @@ bigassh1 {
   min-height: fit-content;
   min-width: fit-content;
   background-color: #2828285a; border-radius: 16px; padding: 10px; backdrop-filter: blur(10px);
+  transition: box-shadow 0.5s ease-in-out;
   
 }
+.many-items:hover{
+  transition: box-shadow 0.5s ease-in-out;
+}
 .shape-shift{
-  background-color: transparent;
+  background-color: #ffffff00;
+  backdrop-filter: blur(40px);
   height: 50px; border-radius: 50px; width: 50px; border: gray 2px solid;
+  box-shadow: none;
+  transition: box-shadow 0.5s ease-in-out;
 
 }
 .shape-shift:hover{
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.41);
   background-color: rgba(128, 128, 128, 0.259);
   border-radius: 12px;
 }
