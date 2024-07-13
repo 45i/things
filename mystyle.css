@@ -13,7 +13,7 @@
 @font-face {
   font-family: araboto;
 
-  src: url(StretchPro.otf);
+  src: url(Uni\ Sans\ Heavy.otf);
 }
 
 @font-face {
@@ -39,7 +39,7 @@
 @font-face {
   font-family: graffiti-bold;
   font-weight: 900;
-  src: url(StretchPro.otf);
+  src: url(Uni\ Sans\ Heavy.otf);
 
 }
 
@@ -51,7 +51,7 @@
 @font-face {
   font-family: bold;
   font-weight: 900;
-  src: url(StretchPro.otf);
+  src: url(Uni\ Sans\ Heavy.otf);
 }
 
 @font-face {
@@ -68,7 +68,7 @@
 @font-face {
   font-family: erode;
   font-weight: 900;
-  src: url(StretchPro.otf);
+  src: url(Uni\ Sans\ Heavy.otf);
 }
 
 * {
@@ -128,7 +128,8 @@ body {
 
 .graffiti-bold {
   font-family: graffiti-bold;
-
+  font-stretch: ultra-expanded;
+  letter-spacing: 2px;
 }
 
 .gradient-text {
