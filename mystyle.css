@@ -2616,8 +2616,10 @@ bigassh1 {
   /* overflow: hidden; */
   min-height: fit-content;
   min-width: fit-content;
-  background-color: #2828285a; border-radius: 16px; padding: 10px; backdrop-filter: blur(10px);
+  background-color: #28282800; border-radius: 16px; padding: 10px; backdrop-filter: blur(10px);
   transform: none;
+  box-shadow: 0 0 40px #00000044;
+
   transition: transform 0.5s ease-in-out;
   
 }
