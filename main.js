@@ -263,21 +263,25 @@ document.addEventListener("DOMContentLoaded", function () {
         icon.classList.toggle('open');
         console.log(height);
     if (icon.classList.contains('open')) {
-        menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
-        if (navig.classList.contains('collapse')) {
-            navig.classList.toggle('collapse');
-        }
-        // Get the computed height of .navig
        var computedHeight = window.getComputedStyle(navbar).height;
         const newHeight = `${parseInt(computedHeight)}px`;
         navig.style.height = newHeight;
         console.log(newHeight);
+        menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        menuIcon.style.transform = `translateY(${parseInt(computedHeight)-2}px) translateX(calc(20px))`;
+;
+        // menuIcon.style.backgroundColor = 'black';
+        if (navig.classList.contains('collapse')) {
+            navig.classList.toggle('collapse');
+        }
+        // Get the computed height of .navig
         navbar.style.transform = `translateY(-${parseInt(computedHeight)}px)`;
         navig.style.transition = 'height 0.3s ease';
     } else {
         menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
         navig.style.height = `11vh`; // Revert to the original height
         navbar.style.transform = `none`;
+        menuIcon.style.transform = `none`;
         navig.style.transition = 'height 0.3s ease';
     }
     menuIcon.classList.toggle('bx-x');
@@ -305,10 +309,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Rotate the chevron icon based on the display state
         if (dropdownMenu.style.display === "block") {
-          committeeIcon.style.transform = "rotate(180deg)";
+          committeeIcon.style.transform = "rotate(120deg)";
+          // committeeIcon
         } else {
           committeeIcon.style.transform = "rotate(0deg)";
         }
+
       }
       closeButton.addEventListener('click', function () {
         if (!navbar.classList.contains('open')) {
