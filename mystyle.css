@@ -1027,12 +1027,12 @@ h2 {
     transition: transform 0.2s ease;
   }
 }
-.navig.open .icon{
-  background: #20201f61;
-  backdrop-filter: blur(100px);
+.navig.open .icdown{
+  background: #20201f75;
+  backdrop-filter: blur(40px);
   padding: 2px 20px;
-  z-index: 10;
-  border-radius:0 0 26px 26px;
+  /* z-index: 10; */
+  border-radius:0px 0 26px 26px;
   border: #8d8d8d 1px solid;
   /* transform: translateX(); */
 }
@@ -1042,20 +1042,17 @@ h2 {
 }
 
 .navig .icon:hover {
-  background: goldenrod;
+  /* background: goldenrod; */
 
   /* font-size: clamp(9px,calc(14vw),40px); */
-  transform-origin: center;
-  transition: all 0.3s ease, background 100000000000000s;
+  /* transform-origin: center; */
+  transition: all 0.3s ease;
 }
 
 .navig .icon {
   /* Styles for the icon */
   /* transform: translateX(50vw) translateY(10px); */
   
-  transition: all 0.3s ease;
-  animation: infinite 1s;
-
 }
 
 

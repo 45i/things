@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(newHeight);
         menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
         menuIcon.style.transform = `translateY(${parseInt(computedHeight)-2}px) translateX(calc(20px))`;
-;
+menuIcon.style.backdropFilter='blur(10px)';
         // menuIcon.style.backgroundColor = 'black';
         if (navig.classList.contains('collapse')) {
             navig.classList.toggle('collapse');
