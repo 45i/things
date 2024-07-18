@@ -2625,10 +2625,10 @@ bigassh1 {
   min-width: fit-content;
   background-color: #28282800; border-radius: 16px; padding: 10px; backdrop-filter: blur(10px);
   transform: none;
-  box-shadow: 0 0 40px #00000044;
+  box-shadow: 0 0 40px #0000008a;
 
   transition: transform 0.5s ease-in-out;
-  
+  z-index: 1000;
 }
 .many-items > *{
   padding: 5px;

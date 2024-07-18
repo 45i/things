@@ -1278,17 +1278,19 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     const intersectionRatio = entry.intersectionRatio;
     const targetWidth = `${65 * intersectionRatio}vw`;
-    const targetBackgroundColor = `rgba(${Math.floor(17 * intersectionRatio)}, ${Math.floor(17 * intersectionRatio)}, ${Math.floor(17 * intersectionRatio)}, ${0.35 + 0.65 * intersectionRatio})`;
+    const targetBackgroundColor = `rgba(${Math.floor(17 * intersectionRatio)}, ${Math.floor(17 * intersectionRatio)}, ${Math.floor(17 * intersectionRatio)}, ${ 265*intersectionRatio})`;
     const targetOpacity = Math.max(0,intersectionRatio,1);
     const size = `${manyItems.style.size * intersectionRatio}px`;
+    const offsetvertical = `${30* intersectionRatio}px`;
 
 
-    manyItems.style.transition = 'width 0.2s ease-in-out, backdrop-filter 0.2s ease-in-out, background-color 0.4s ease-in-out';
+    manyItems.style.transition = 'width 0.5s ease-in-out, backdrop-filter 0.2s ease-in-out, background-color 0.4s ease-in-out transform 0.2s ease-in-out';
     manyItems.style.width = targetWidth;
     manyItems.style.height = Math.max(0, targetWidth, height);
     // manyItems.style.backdropFilter = targetBlur;
     manyItems.style.backgroundColor = targetBackgroundColor;
     manyItems.style.size = size;
+    manyItems.style.transform = `translateY(${offsetvertical})`;
 
     
   });
