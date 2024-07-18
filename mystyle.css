@@ -1018,6 +1018,9 @@ h2 {
 .navig .icdown{
   /* background: transparent;
   backdrop-filter: blur(0px); */
+  /* backdrop-filter: none; */
+  background: transparent;
+  /* backdrop-filter:none; */
 }
 .navig.clicked {
   width: 90vw;
@@ -1028,16 +1031,14 @@ h2 {
   transform: translateX(50vw) translateY(10px) scale(0.5);
   transform-origin: center center;
 
-  &.icon {
-    transform: rotateX(90deg);
-    transition: transform 0.2s ease;
-  }
+  
 }
 .navig.open .icdown{
-  background: #20201f;
-  backdrop-filter: blur(40px);
+  background: #20201f92;
+  backdrop-filter: blur(10px);
   padding: 2px 20px;
   /* z-index: 10; */
+  /* position: fixed; */
   border-radius:26px;
   height: 52px;
   border: lightslategray 1px solid;

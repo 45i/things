@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Access the menuIcon element and add a click event listener
       var icon = document.querySelector('.main');
-      var menuIcon = document.querySelector('.icon');
+      var menuIcon = document.querySelector('.icdown');
       var navbar = document.querySelector('.navbar');
       var navig = document.querySelector('.navig');
       const height = window.getComputedStyle(navig).height;
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(newHeight);
         // menuIcon.style.transform="";
         // menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
-        menuIcon.style.transform = `translateY(${parseInt(computedHeight)+10}px) translateX(calc(0px)) rotateX(180deg) rotateY(180deg)`;
+        menuIcon.style.transform = `translateY(${parseInt(computedHeight)+10}px) translateX(calc(0px)) rotateZ(180deg)`;
         navig.style.transition = 'height 0.3s ease-in-out,width 0.5s ease-in-out';
         menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.2s ease-in-out';
 // menuIcon.style.backdropFilter='blur(10px)';
