@@ -267,9 +267,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const newHeight = `${parseInt(computedHeight)}px`;
         navig.style.height = newHeight;
         console.log(newHeight);
-        menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
-        menuIcon.style.transform = `translateY(${parseInt(computedHeight)-2}px) translateX(calc(20px))`;
-menuIcon.style.backdropFilter='blur(10px)';
+        // menuIcon.style.transform="";
+        // menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        menuIcon.style.transform = `translateY(${parseInt(computedHeight)+10}px) translateX(calc(0px)) rotateX(180deg) rotateY(180deg)`;
+        navig.style.transition = 'height 0.3s ease-in-out,width 0.5s ease-in-out';
+        menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.2s ease-in-out';
+// menuIcon.style.backdropFilter='blur(10px)';
         // menuIcon.style.backgroundColor = 'black';
         if (navig.classList.contains('collapse')) {
             navig.classList.toggle('collapse');
@@ -278,11 +281,13 @@ menuIcon.style.backdropFilter='blur(10px)';
         navbar.style.transform = `translateY(-${parseInt(computedHeight)}px)`;
         navig.style.transition = 'height 0.3s ease';
     } else {
-        menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
+        // menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
         navig.style.height = `11vh`; // Revert to the original height
         navbar.style.transform = `none`;
         menuIcon.style.transform = `none`;
-        navig.style.transition = 'height 0.3s ease';
+        // menuIcon.style.backgroundColor='transparent';
+        navig.style.transition = 'height 0.3s ease-in-out,width 0.5s ease-in-out';
+        menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.2s ease-in-out';
     }
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('open');
@@ -325,9 +330,13 @@ menuIcon.style.backdropFilter='blur(10px)';
            
          
           closeButton.innerHTML = '<i class="fas fa-expand"></i>';
+          closeButton.style.transform="rotateX(180deg)";
+          // closeButton.style.transition="transform 0.5s ease-in-out"
         }
         else {
           closeButton.innerHTML = '<i class="fas fa-compress"></i>';
+          closeButton.style.transform="rotateX(180deg)";
+          // closeButton.style.transition="transform 0.5s ease-in-out"
         }
       });
       // Attach the click event listener to each .committee element
