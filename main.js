@@ -280,6 +280,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // Get the computed height of .navig
         navbar.style.transform = `translateY(-${parseInt(computedHeight)}px)`;
         navig.style.transition = 'height 0.3s ease';
+        navbar.style.left='1.5vw';
+        
     } else {
         // menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
         navig.style.height = `11vh`; // Revert to the original height
@@ -329,13 +331,14 @@ document.addEventListener("DOMContentLoaded", function () {
          if (navig.classList.contains('collapse')) {
            
          
-          closeButton.innerHTML = '<i class="fas fa-expand"></i>';
-          closeButton.style.transform="rotateX(180deg)";
+          closeButton.innerHTML = '<i class="fas fa-eye"></i>';
+          closeButton.style.transform="rotateZ(0deg)";
           // closeButton.style.transition="transform 0.5s ease-in-out"
         }
         else {
-          closeButton.innerHTML = '<i class="fas fa-compress"></i>';
-          closeButton.style.transform="rotateX(180deg)";
+          navig.style.transition='transform 0s ease-in-out';
+          closeButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
+          closeButton.style.transform="rotateZ(0deg)";
           // closeButton.style.transition="transform 0.5s ease-in-out"
         }
       });
