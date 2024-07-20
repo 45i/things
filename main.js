@@ -346,6 +346,8 @@ document.addEventListener("DOMContentLoaded", function () {
    const modeButton = document.querySelector(".colormode");
  
    modeButton.addEventListener('click', function () {
+    //  document.body.classList.add('dark-mode');
+     document.body.classList.toggle('dark-mode');
      const isDarkMode = document.body.classList.contains('dark-mode');
      if (isDarkMode) {
         modeButton.innerHTML = '<i class="fas fa-sun"></i>';
@@ -356,7 +358,6 @@ document.addEventListener("DOMContentLoaded", function () {
      const txtcol = isDarkMode ? 'var(--txtcol-dark)' : 'var(--txtcol-light)';
      const txtcolinv = isDarkMode ? 'var(--txtcol-light)' : 'var(--txtcol-dark)';
      const uicol = isDarkMode ? 'var(--uielem-col-dark)' : 'var(--uielem-col-light)';
-     document.body.classList.toggle('dark-mode');
      document.documentElement.style.setProperty('--txtcol', txtcol);
      document.documentElement.style.setProperty('--txtcolinv', txtcolinv);
      document.documentElement.style.setProperty('--bg-col', bgCol);
