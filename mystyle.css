@@ -3,7 +3,20 @@
     @content;
   }
 }
+:root{
+  --bg-col: #262624;
+  --bg-col-light: #f8f8f8; /* Off-whitish shade for light mode */
+  --bg-col-dark: #262624; 
 
+  --txtcol: #f8f8f8;
+  --txtcol-light: #262624;
+  --txtcol-dark: #f8f8f8;
+  --txtcolinv:#262624;
+
+  --uielem-col: #111;
+  --uielem-col-light: #d8d8d8;
+  --uielem-col-dark: #111;
+}
 
 @font-face {
   font-family: st;
@@ -114,7 +127,8 @@ html {
 
 body {
   margin: 0;
-  background: linear-gradient(45deg, #262624, #262624);
+  background: var(--bg-col);
+  transition: background 0.5s ease-in-out;
 
 }
 
@@ -175,7 +189,7 @@ body {
   background-color: #64646446;
   border: 3px solid #646464;
   border-radius: 6px;;
-  color: #c5c5c5;
+  color: var(--txtcol);
 
   /* font-family: "Consolas", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
 
@@ -197,7 +211,7 @@ blockquote {
 }
 
 img {
-  -webkit-filter: drop-shadow(5px 5px 5px #1f1f1f);
+  /* -webkit-filter: drop-shadow(5px 5px 5px #1f1f1f); */
 
   /* This can help with antialiasing for images and SVG graphics */
 
@@ -356,9 +370,9 @@ strong {
   /* background: linear-gradient(45deg, #1f1f1e, #2b2b2a, #262624); */
   background-color: #fff;
   line-height: 2.5;
-  text-shadow: 0 0 10px #000;
+  /* text-shadow: 0 0 10px #000; */
   transition: background 0.3s ease-out;
-  background: #111111;
+  background: var(--uielem-col);
   /* box-shadow: 0 2px 10px #000; */
   background-size: cover;
   background-repeat: no-repeat;
@@ -588,10 +602,10 @@ footer {
   width: 85vw;
   bottom: 0;
   display: flex;
-  text-shadow: 0 12px 20px #000000;
+  /* text-shadow: 0 12px 20px #000000; */
   background-color: #ffffff;
-  color: #fff;
-  background: #111111;
+  color: var(--txtcolinv);
+  background: var(--uielem-col);
   background-repeat: no-repeat;
   background-size: cover;
   line-height: 2.5;
@@ -601,7 +615,7 @@ footer {
   /* box-shadow: 0 0 10px #000000; */
   margin-left: auto; /* Add this line */
   margin-right: auto; /* Add this line */
-  box-shadow: 0 0 40px #00000044;
+  box-shadow: 0 0 40px var(--uielem-col-dark-light);
 
 }
 
@@ -739,7 +753,7 @@ button {
   text-align: center;
   /* cursor: pointer; */
   transition: all 01s ease-in-out;
-  color: #fff;
+  color: var(--txtcol);
   outline: none;
   /* font-size: clamp(8px, 2vw, 20px); */
   /* border: none;  */
@@ -775,7 +789,7 @@ button:hover {
   /* width: 200px; */
   padding: 10px;
   /* background-color: #007bff00; */
-  color: #fff;
+  color: var(--txtcolinv);
   border-radius: 5px;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
   /* font-family: thin; */
@@ -868,7 +882,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: #fff;
+  color: var(--txtcol);
   font-size: 28px;
   font-weight: 700;
 }
@@ -900,7 +914,7 @@ h4 span {
 }
 
 h2 {
-  color: #fff;
+  color: var(--txtcol);
   font-size: 42px;
   font-weight: 700;
   margin: 30px 0px;
@@ -985,7 +999,7 @@ h2 {
 
   border-radius: 36px;
   border: lightslategray 1px solid;
-  transition: transform 0.7s ease-in-out, width 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+  transition: transform 0.7s ease-in-out, width 0.5s ease-in-out, border-radius 0.5s ease-in-out all 0.5s ease-in-out;
   /* overflow:hidden; */
   z-index: 1000000;
   transform-origin: center center;
@@ -1006,15 +1020,27 @@ h2 {
   transition: all 0.5s ease;
 
 }
+.navig.open .options{
+  opacity: 0%;
+  transition: 0.5s all ease-in-out;
+}
+.navig .options{
+  opacity: 100%;
+  color: #fff;
+  transition: 0.5s all ease-in-out;
+}
 .navig.open .navbar{
   opacity: 100%;
   /* transform: translateY(-10px); */
 }
-.navig.open .main {
+.navig.open .main, .navig.open .navmenu, .navig.open .icdown{
   opacity: 100%;
   transition: all 0.5s ease;
      z-index: 1000001;
 ;
+}
+.navmenu > *{
+  padding:2px;
 }
 .navig .icdown{
   /* background: transparent;
@@ -1038,6 +1064,7 @@ h2 {
   background: #20201f92;
   backdrop-filter: blur(10px);
   padding: 2px 20px;
+  opacity: 100%;
   /* z-index: 10; */
   /* position: fixed; */
   border-radius:26px;
@@ -1108,7 +1135,7 @@ h2 {
   .close-btn {
     opacity: 1;
     background-color: goldenrod;
-    color: #1f1f1e;
+    color: var(--txtcolinv);
   }
 }
 
@@ -1151,7 +1178,7 @@ h2 {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #ffffff;
+  color: var(--txtcol);
   overflow: hidden;
   transform: scale(1.0);
   transition: transform 0.5s ease-in-out;
@@ -1171,7 +1198,7 @@ h2 {
   }
 
   &.change {
-    color: #ffffff;
+    color: var(--txtcol);
     transition: all 1s ease-in-out;
   }
 }
@@ -1334,7 +1361,7 @@ abbr {
   left: 20px;
   opacity: 0;
   transition: bottom 0.5s, opacity 0.5s;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.973);
+  /* text-shadow: 0 0 10px rgba(0, 0, 0, 0.973); */
   border: 2px solid #ffffff;
   background-color: #00000070;
   padding: 5px;
@@ -1410,7 +1437,7 @@ abbr {
  right: 0; */
   margin: 0;
   text-align: center;
-  color: #8d8d8d;
+  color: var(--uielem-col);
   font-size: 30px;
   animation: bounce 2s infinite;
   -webkit-animation: bounce 2s infinite;
@@ -1420,7 +1447,7 @@ abbr {
 }
 
 .fa-angle-double-down {
-  background: #f7f7f7;
+  background: var(--txtcol);
   -webkit-background-clip: text;
   font-size: large;
   -webkit-text-fill-color: transparent;
@@ -1430,9 +1457,9 @@ abbr {
 }
 
 .fa-angle-double-down:hover {
-  background: #dadada;
+  background:var(--txtcol);;
   font-size: x-large;
-  text-shadow: 0 0px 20px #fff;
+  text-shadow: 0 0px 20px var(--txtcol);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 0.5s ease-in-out;
@@ -1536,7 +1563,7 @@ canvas {
   min-height: 280px;
   height: auto;
   border-radius: 10px;
-  color: #fff;
+    color: var(--txtcol);
   font-size: 1.5rem;
 }
 
@@ -1550,8 +1577,10 @@ canvas {
 }
 
 .info_text {
-  background: #262624;
-  color: #ffffffa4;
+  background: var(--bg-col);
+  transition: background 0.5s ease-in-out;
+
+  color: var(--txtcol);
   font-size: 1.5rem;
   align-content: center;
   position: relative;
@@ -1659,7 +1688,7 @@ canvas {
 }
 
 .main {
-  color: white;
+  color: #fff;
 }
 
 abbr:hover {
@@ -1669,7 +1698,7 @@ abbr:hover {
 }
 
 .front .inner span {
-  color: rgba(255, 255, 255, 0.7);
+  color:var(--txtcol);
   font-family: 'Montserrat';
   font-weight: 300;
 }
@@ -1951,7 +1980,7 @@ article {
 
 #myImg {
   border-radius: 10px;
-  box-shadow: 0 0 10px #000;
+  /* box-shadow: 0 0 10px #000; */
   /* transform:translateX(0) ; */
   z-index: 1;
   width: 75vw;
@@ -2003,7 +2032,7 @@ article {
 
 /* Number text (1/3 etc) */
 .numbertext {
-  color: #000000;
+  color: var(--txtcolinv);
   font-size: 12px;
   padding: 8px 12px;
   position: absolute;
@@ -2113,7 +2142,7 @@ article {
   width: 80%;
   max-width: 700px;
   text-align: center;
-  color: #ccc;
+  color: var(--txtcol);
 
   padding: 10px 0;
   height: 150px;
@@ -2456,9 +2485,9 @@ h1 {
 
 
 .green-text {
-  color: goldenrod;
+  color: rgb(241, 190, 62);
   /* Green color */
-
+  text-shadow: rgb(177, 130, 9) 0 0 65px ;
 
   font-family: araboto;
 
@@ -2624,9 +2653,10 @@ bigassh1 {
   /* overflow: hidden; */
   min-height: fit-content;
   min-width: fit-content;
-  background-color: #28282800; border-radius: 16px; padding: 10px; backdrop-filter: blur(10px);
+  background: var(--uielem-col); 
+  border-radius: 16px; padding: 10px; backdrop-filter: blur(10px);
   transform: none;
-  box-shadow: 0 0 40px #0000008a;
+  /* box-shadow: 0 0 40px var(--uielem-col); */
 
   transition: transform 0.5s ease-in-out;
   z-index: 1000;
@@ -2639,18 +2669,25 @@ bigassh1 {
   transition: transform 0.5s ease-in-out;
 }
 .shape-shift{
+  --shape-color: rgba(128, 128, 128, 0.259);
   background-color: #ffffff00;
   backdrop-filter: blur(100%);
   height: 50px; border-radius: 50px; width: 50px; border: gray 2px solid;
   box-shadow: none;
   transition: all 0.5s ease-in-out;
+  /* color: var(--txtcol); */
 
 }
 .shape-shift:hover{
+  /* --shape-color: rgba(128, 128, 128, 0.259); */
   box-shadow: 0 0 24px rgba(255, 255, 255, 0.41);
-  background-color: rgba(128, 128, 128, 0.259);
+  background-color: var(--shape-color);
   border-radius: 12px;
   transition: all 0.5s ease-in-out;
+}
+.shape-shift[col]{
+  --shape-color: attr(col);
+  background-color: var(--shape-color);
 }
 .hidden{
   display: none;
