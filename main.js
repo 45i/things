@@ -323,13 +323,13 @@ document.addEventListener("DOMContentLoaded", function () {
      if (navig.classList.contains('collapse')) {
  
  
-        closeButton.innerHTML = '<i class="fas fa-eye"></i>';
+        closeButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
         closeButton.style.transform = "rotateZ(0deg)";
         // closeButton.style.transition="transform 0.5s ease-in-out"
      }
      else {
+        closeButton.innerHTML = '<i class="fas fa-eye"></i>';
         navig.style.transition = 'transform 0s ease-in-out';
-        closeButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
         closeButton.style.transform = "rotateZ(0deg)";
         // closeButton.style.transition="transform 0.5s ease-in-out"
      }
@@ -345,8 +345,8 @@ document.addEventListener("DOMContentLoaded", function () {
         modeButton.innerHTML = '<i class="fas fa-sun"></i>';
         document.documentElement.style.setProperty('--button-bg','url(lightmode.png)' );
         modeButton.style.transition='all 0.5s ease-in-out';
-        document.documentElement.style.setProperty('--modebuttoncol','yellow');
-        document.documentElement.style.setProperty('--transitioncol','rgba(0, 132, 220, 1)');
+        document.documentElement.style.setProperty('--modebuttoncol','lemonchiffon');
+        document.documentElement.style.setProperty('--transitioncol','rgba(0, 157, 255, 1)');
         // modeButton.style.color='yellow';
      } else {
         modeButton.innerHTML = '<i class="fas fa-moon"></i>';

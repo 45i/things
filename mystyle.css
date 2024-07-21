@@ -22,6 +22,9 @@
  --button-bg: url(darkmode.png);
  --modebuttoncol: wheat;
  --transitioncol: rgba(0, 46, 101, 1);
+
+ --heavyfont: url("Futura\ Extra\ Black\ Condensed\ BT.ttf");
+
 }
  
 @font-face {
@@ -32,7 +35,8 @@
 @font-face {
  font-family: araboto;
  
- src: url(Uni\ Sans\ Heavy.otf);
+ src: url(Futura\ Extra\ Black\ Condensed\ BT.ttf);
+ text-transform: uppercase;
 }
  
 @font-face {
@@ -58,7 +62,8 @@
 @font-face {
  font-family: graffiti-bold;
  font-weight: 900;
- src: url(Uni\ Sans\ Heavy.otf);
+ src: url(Futura\ Extra\ Black\ Condensed\ BT.ttf);
+ text-transform: uppercase;
  
 }
  
@@ -70,7 +75,8 @@
 @font-face {
  font-family: bold;
  font-weight: 900;
- src: url(Uni\ Sans\ Heavy.otf);
+ src: url(Futura\ Extra\ Black\ Condensed\ BT.ttf);
+ text-transform: uppercase;
 }
  
 @font-face {
@@ -87,7 +93,8 @@
 @font-face {
  font-family: erode;
  font-weight: 900;
- src: url(Uni\ Sans\ Heavy.otf);
+ src: url(Futura\ Extra\ Black\ Condensed\ BT.ttf);
+ text-transform: uppercase;
 }
  
 * {
@@ -144,11 +151,13 @@ body {
  
 .graffiti-light {
  font-family: graffiti-light;
+ text-transform: uppercase;
 }
  
 .graffiti-bold {
  font-family: graffiti-bold;
  font-stretch: ultra-expanded;
+ text-transform: uppercase;
  letter-spacing: 2px;
 }
  
@@ -1013,9 +1022,12 @@ h2 {
  z-index: 1000000;
  transform-origin: center center;
  opacity: 100%;
+ color: white;
  /* box-shadow: 0 10px 24px #636363; */
 }
- 
+ .navig .close-btn, .navig .logo , .navig .icdown{
+  color: white;
+ }
 .navig.open {
  border-radius: 36px;
  transition: all 0.5s ease, border-radius 0.5s ease-in-out;
@@ -1052,15 +1064,18 @@ h2 {
 }
  
 .navig.open .main,
-.navig.open .navmenu,
-.navig.open .icdown {
+.navig.open .navmenu{
  opacity: 100%;
  transition: all 0.5s ease;
  z-index: 1000001;
  color: var(--txtcol);
  ;
 }
- 
+ .options{
+  background-color: #0000;
+  padding: 2px;
+  border-radius: 16px;
+ }
 .navmenu>* {
  padding: 2px;
 }
@@ -2778,15 +2793,20 @@ bigassh1 {
  
 .colormode {
  background-image: none;
- color: var(--txtcol);
+ color: white;
+
  background-color: rgba(0, 132, 220, 0);
  /* Adjust the last value (0.7) for opacity */
  transition: all 0.5s ease-in-out;
+ /* background-color: var(--transitioncol); */
+ /* opacity: 50%; */
  
 }
  
 .colormode:hover {
+ /* opacity: 100%; */
  color: var(--modebuttoncol);
+ text-shadow: 0 0 10px #0000004c;
  background-image: var(--button-bg);
  background-color: var(--transitioncol);
  background-position: center;
