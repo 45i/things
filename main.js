@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
  
      } else {
         // menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
-        navig.style.height = `11vh`; // Revert to the original height
+        navig.style.height = `max-content`; // Revert to the original height
         navbar.style.transform = `none`;
         menuIcon.style.transform = `none`;
         // menuIcon.style.backgroundColor='transparent';

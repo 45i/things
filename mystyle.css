@@ -976,7 +976,7 @@ h2 {
 
 /* Global CSS rules for nav */
 .navig {
-  height: 11vh;
+  height: max-content;
   width: 90vw;
   /* max-width:; */
   /* max-width: 3200px; */
