@@ -5,7 +5,7 @@
 }
 :root{
   --bg-col: #262624;
-  --bg-col-light: #f8f8f8; /* Off-whitish shade for light mode */
+  --bg-col-light: #fff5e8; /* Off-whitish shade for light mode */
   --bg-col-dark: #262624; 
 
   --txtcol: #f8f8f8;
@@ -14,7 +14,7 @@
   --txtcolinv:#262624;
 
   --uielem-col: #111;
-  --uielem-col-light: #d8d8d8;
+  --uielem-col-light:  rgb(224, 212, 199);
   --uielem-col-dark: #111;
 }
 
@@ -1026,7 +1026,11 @@ h2 {
 }
 .navig .options{
   opacity: 100%;
-  color: #fff;
+  /* color: #fff; */
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
   transition: 0.5s all ease-in-out;
 }
 .navig.open .navbar{
@@ -1037,6 +1041,7 @@ h2 {
   opacity: 100%;
   transition: all 0.5s ease;
      z-index: 1000001;
+      color: var(--txtcol);
 ;
 }
 .navmenu > *{
@@ -1095,7 +1100,7 @@ h2 {
 
 .navig.collapse:hover {
   /* opacity: -0.95; */
-  background: #161615;
+  background: var(--uielem-col);
   transition: all 0.7s ease;
 }
 
@@ -1103,6 +1108,7 @@ h2 {
   background: #1616154d;
 
   width: fit-content;
+  height: max-content;
   /* height: fit-content; */
   border: none;
   box-shadow: none;
@@ -1136,6 +1142,10 @@ h2 {
     opacity: 1;
     background-color: goldenrod;
     color: var(--txtcolinv);
+  }
+  .options{
+    flex-direction: column;
+    display: flex;
   }
 }
 
@@ -2346,12 +2356,14 @@ pre code {
   border-radius: 6px;
   border-width: 2px;
   border-color: goldenrod;
+  color: var(--txtcol);
   backdrop-filter: blur(10px);
 }
 
 .ext-btn:hover {
   background-color: goldenrod;
   border: goldenrod;
+  color: var(--txtcol);
   /* box-shadow: #000 0 12px 20px; */
   width: calc(33.333333%+10px);
 
@@ -2385,12 +2397,14 @@ pre code {
   background-color: goldenrod;
   border-radius: 6px;
   padding: 3px;
+  margin: 3px;;
   transition: all 0.5s ease-in-out;
   white-space: nowrap;
 }
 .yellow-a:hover
 {
-  box-shadow: 0 0 14px goldenrod;
+  /* box-shadow: 0 0 4px goldenrod; */
+  z-index: 100;
 }
 .yellow-a:hover::after {
   content: ' \2192';
@@ -2663,6 +2677,7 @@ bigassh1 {
 }
 .many-items > *{
   padding: 5px;
+  color: var(--txtcol);
 }
 .many-items:hover{
   /* transform:translate(0px, 10px); */
@@ -2672,6 +2687,7 @@ bigassh1 {
   --shape-color: rgba(128, 128, 128, 0.259);
   background-color: #ffffff00;
   backdrop-filter: blur(100%);
+  color: var(--txtcol);
   height: 50px; border-radius: 50px; width: 50px; border: gray 2px solid;
   box-shadow: none;
   transition: all 0.5s ease-in-out;
@@ -2682,6 +2698,7 @@ bigassh1 {
   /* --shape-color: rgba(128, 128, 128, 0.259); */
   box-shadow: 0 0 24px rgba(255, 255, 255, 0.41);
   background-color: var(--shape-color);
+  color: var(--txtcol);
   border-radius: 12px;
   transition: all 0.5s ease-in-out;
 }
