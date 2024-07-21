@@ -1,13 +1,4 @@
-// // Include the external Google Translate script
-// $(document).ready(function() {
-//   $('#\\3A 1\\.container').click(function() {
-//     var immediateParent = $(this).parent(); // This selects the immediate parent (1)
-//     var grandParent = immediateParent.parent(); // This selects the grandparent (2)
- 
-//     $(this).add(grandParent).animate({ top: '-200%' }, 'slow');
-//   });
-// });
- 
+
 document.addEventListener("DOMContentLoaded", function () {
  function setPageTitle(title) {
   document.title = `45i - ${title}`;
@@ -349,10 +340,21 @@ document.addEventListener("DOMContentLoaded", function () {
     //  document.body.classList.add('dark-mode');
      document.body.classList.toggle('dark-mode');
      const isDarkMode = document.body.classList.contains('dark-mode');
-     if (isDarkMode) {
+     const buttonBg='';
+     if (!isDarkMode) {
         modeButton.innerHTML = '<i class="fas fa-sun"></i>';
+        document.documentElement.style.setProperty('--button-bg','url(lightmode.png)' );
+        modeButton.style.transition='all 0.5s ease-in-out';
+        document.documentElement.style.setProperty('--modebuttoncol','yellow');
+        document.documentElement.style.setProperty('--transitioncol','rgba(0, 132, 220, 1)');
+        // modeButton.style.color='yellow';
      } else {
         modeButton.innerHTML = '<i class="fas fa-moon"></i>';
+        document.documentElement.style.setProperty('--button-bg','url(darkmode.png)' );
+        modeButton.style.transition='all 0.5s ease-in-out';
+        document.documentElement.style.setProperty('--modebuttoncol','wheat');
+        document.documentElement.style.setProperty('--transitioncol','rgba(0, 46, 101, 1)');
+        // modeButton.style.color='wheat';
      }
      const bgCol = isDarkMode ? 'var(--bg-col-dark)' : 'var(--bg-col-light)';
      const txtcol = isDarkMode ? 'var(--txtcol-dark)' : 'var(--txtcol-light)';
@@ -366,6 +368,10 @@ document.addEventListener("DOMContentLoaded", function () {
      // Update the button icon (you can keep your existing code)
    });
  
+element.addEventListener('mouseleave', () => {
+  element.style.backgroundImage = buttonBg; // Reset background image
+});
+
    // Attach the click event listener to each .committee element
    committees.forEach(function (committee) {
      committee.addEventListener("click", toggleChevronIcon);
