@@ -1405,18 +1405,18 @@ document.addEventListener('DOMContentLoaded', function() {
         function updateCursorPosition(pageX, clientY) {
             cursor.style.left = pageX + 'px';
             cursor.style.top = clientY + window.scrollY + 'px';
-            
+            const clickableElements = document.querySelectorAll('a, button, input[type="button"], input[type="submit"], img, .clickable');
+            clickableElements.forEach(element => {
+            element.addEventListener('mouseover', growCursor);
+            element.addEventListener('mouseout', shrinkCursor);
+        });
+
         }
 
         
 
         // Add event listeners to clickable elements
-        const clickableElements = document.querySelectorAll('a, button, input[type="button"], input[type="submit"], img, .clickable');
-        clickableElements.forEach(element => {
-            element.addEventListener('mouseover', growCursor);
-            element.addEventListener('mouseout', shrinkCursor);
-        });
-
+        
         function growCursor() {
             cursor.style.transform = ' translate(-50%,-50%)';
             // cursor.style.width= '40px';
