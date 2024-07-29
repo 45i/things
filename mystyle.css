@@ -25,9 +25,9 @@
  --transitioncol: rgba(0, 46, 101, 1);  /* Color for transition effects */
  
  --heavyfont: url("Futura\ Extra\ Black\ Condensed\ BT.ttf");  /* Font for heavy text */
- --alphacol:#fff5e80e;
- --alphacol-light:#2626260b;
- --alphacol-dark:#fff5e808;
+ --alphacol:#fff5e829;
+ --alphacol-light:#2626263c;
+ --alphacol-dark:#fff5e829;
 
 }
  
@@ -134,7 +134,7 @@
  
 #circularcursor {
   background-color: var(--alphacol);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(2px);
   border:3px solid var(--txtcol);    
   height:30px;
   width:30px;
@@ -149,6 +149,32 @@
  transform-origin: 0px 0px;
      pointer-events: none;
      transition: transform 0.3s ease-in-out, border 0.5s ease-in-out,border-radius 0.5s ease-in-out,width 0.5s ease-in-out   ;
+     align-items: center;
+     justify-content: center;
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+    box-shadow: var(--alphacol) 0 0 20px ;
+     /* transition: all 0.5s ease-in-out; */
+
+}
+#cursordot {
+  background-color: var(--alphacol);
+  backdrop-filter: blur(2px);
+  border:3px solid var(--txtcolinv);    
+  height:3px;
+  width:3px;
+  border-radius:50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+  
+  z-index: 10000000000000000;
+  /* transform: translate(50%,50%); */
+ transform-origin: 0px 0px;
+     pointer-events: none;
+     transition: transform 0.3s ease-in-out, border 0.5s ease-in-out,border-radius 0.5s ease-in-out,width 0.5s ease-in-out   ;
+     
+     /* transition: all 0.5s ease-in-out; */
 
 }
 

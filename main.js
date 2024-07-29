@@ -1293,6 +1293,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set the class attribute
     newDiv.id = 'circularcursor';
     newDiv.className = 'wider-text';
+    
+    const newerDiv = document.createElement('div');
+    // newerDiv.innerHTML="."
+    newerDiv.id = 'cursordot';
+    newDiv.appendChild(newerDiv)
+    // Set the innerHTML of the new div with the provided HTML code
     // Append the new div to the body
     document.body.appendChild(newDiv);
 });
@@ -1420,7 +1426,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function growCursor() {
             cursor.style.transform = ' translate(-50%,-50%)';
-            // cursor.style.width= '40px';
+            // cursor.style.width= '40px';5
             cursor.style.borderRadius='50% 50% 12% 12%'
         }
 
