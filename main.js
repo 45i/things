@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
         menuIcon.style.transform = `translateY(${parseInt(computedHeight) + 10}px) translateX(calc(0px)) rotateZ(180deg)`;
         navig.style.transition = 'height 0.3s ease-in-out,width 0.5s ease-in-out';
-        menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.2s ease-in-out';
+        menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.2s cubic-bezier(0.0025, 0.82, 0.165, 1)';
         // menuIcon.style.backdropFilter='blur(10px)';
         // menuIcon.style.backgroundColor = 'black';
         if (navig.classList.contains('collapse')) {
@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", function () {
      // }, 200); // 300 milliseconds delay (0.3 seconds)
    });
  
- 
+   
    // Select all dropdown menus with the class "committee-menu"
    // Select all elements with class "committee"
    var committees = document.querySelectorAll(".committee");
@@ -360,10 +360,13 @@ document.addEventListener("DOMContentLoaded", function () {
      const txtcol = isDarkMode ? 'var(--txtcol-dark)' : 'var(--txtcol-light)';
      const txtcolinv = isDarkMode ? 'var(--txtcol-light)' : 'var(--txtcol-dark)';
      const uicol = isDarkMode ? 'var(--uielem-col-dark)' : 'var(--uielem-col-light)';
+     const alphacol = isDarkMode ? 'var(--alphacol-dark)' : 'var(--alphacol-light)';
+
      document.documentElement.style.setProperty('--txtcol', txtcol);
      document.documentElement.style.setProperty('--txtcolinv', txtcolinv);
      document.documentElement.style.setProperty('--bg-col', bgCol);
      document.documentElement.style.setProperty('--uielem-col', uicol);
+     document.documentElement.style.setProperty('--alphacol', alphacol);
  
      // Update the button icon (you can keep your existing code)
    });
@@ -1283,6 +1286,16 @@ window.addEventListener('scroll', () => {
  extend.style.opacity = scaleFactor;
  extend.style.transform = `scale(${0.5 + scaleFactor * 0.5})`; // Scale from 0.5 to 1
 });
+// script.js or within a <script> tag in your HTML
+document.addEventListener('DOMContentLoaded', function() {
+    // Create a new div element
+    const newDiv = document.createElement('div');
+    // Set the class attribute
+    newDiv.id = 'circularcursor';
+    // Append the new div to the body
+    document.body.appendChild(newDiv);
+});
+
 document.addEventListener("DOMContentLoaded", function () {
  // Create the new div element
  const newDiv = document.createElement('div');
@@ -1290,7 +1303,7 @@ document.addEventListener("DOMContentLoaded", function () {
  // Set the innerHTML of the new div with the provided HTML code
  newDiv.innerHTML = `
    <center>
-     <div class="many-items" >
+     <div class="many-items">
         <a href="#"><button class="shape-shift" hover-text="Scroll Up" tooltip="Scroll Up" ><i class="fas fa-angle-up"></i></button></a>
              
         <button class="shape-shift share" hover-text="Scroll Up" tooltip="Scroll Up" ><i class="fas fa-share"></i></button>
@@ -1317,7 +1330,7 @@ document.addEventListener("DOMContentLoaded", function () {
    const offsetvertical = `${35 * intersectionRatio}px`;
  
  
-   manyItems.style.transition = 'width 0.5s ease-in-out, backdrop-filter 0.2s ease-in-out, background-color 0.4s ease-in-out transform 0.2s ease-in-out';
+   manyItems.style.transition = 'width  0.5s ease-in-out, backdrop-filter 0.2s ease-in-out, background-color 0.4s ease-in-out, transform 0.5s ease-in-out';
    manyItems.style.width = targetWidth;
    manyItems.style.height = Math.max(0, Math.min(targetWidth, height));
    // manyItems.style.backdropFilter = targetBlur;
@@ -1365,3 +1378,61 @@ document.addEventListener("DOMContentLoaded", function () {
  
  
  
+document.addEventListener('DOMContentLoaded', function() {
+        const cursor = document.getElementById('circularcursor');
+        let lastMouseX = 0, lastMouseY = 0;
+
+        document.addEventListener('mousemove', function(e) {
+            const dx = e.pageX - lastMouseX;
+            const dy = e.pageY - lastMouseY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            updateCursorPosition(e.pageX, e.clientY);
+            // deformCursor(dx, dy, distance);
+
+            lastMouseX = e.pageX;
+            lastMouseY = e.pageY;
+        });
+
+        document.addEventListener('scroll', function() {
+            // Use the last known mouse position
+            const mouseX = window.lastMouseX || 0;
+            const mouseY = window.lastMouseY || 0;
+            updateCursorPosition(mouseX, mouseY);
+        });
+
+        function updateCursorPosition(pageX, clientY) {
+            cursor.style.left = pageX + 'px';
+            cursor.style.top = clientY + window.scrollY + 'px';
+            const clickableElements = document.querySelectorAll('a, button, input[type="button"], input[type="submit"], img');
+        clickableElements.forEach(element => {
+            element.addEventListener('mouseover', growCursor);
+            element.addEventListener('mouseout', shrinkCursor);
+        });
+        }
+
+        
+
+        // Add event listeners to clickable elements
+        
+
+        function growCursor() {
+            cursor.style.transform = ' translate(-50%,-50%)';
+            cursor.style.width= '40px';
+            cursor.style.borderRadius='20%'
+        }
+
+        function shrinkCursor() {
+            cursor.style.transform = 'translate(-50%,-50%)';
+            cursor.style.width= '30px';
+            cursor.style.borderRadius='50%'
+        }
+
+        // Track the last known mouse position
+        document.addEventListener('mousemove', function(e) {
+            window.lastMouseX = e.pageX;
+            window.lastMouseY = e.clientY;
+        });
+    });
+
+

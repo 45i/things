@@ -5,25 +5,29 @@
 }
  
 :root {
- --bg-col: #262624;
- --bg-col-light: #fff5e8;
+ /* Define CSS custom properties (variables) for colors and fonts */
+ --bg-col: #262624;  /* Background color for dark mode */
+ --bg-col-light: #fff5e8;  /* Background color for light mode */
  /* Off-whitish shade for light mode */
- --bg-col-dark: #262624;
+ --bg-col-dark: #262624;  /* Background color for dark mode */
  
- --txtcol: #f8f8f8;
- --txtcol-light: #262624;
- --txtcol-dark: #f8f8f8;
- --txtcolinv: #262624;
+ --txtcol: #fff5e8;  /* Text color for dark mode */
+ --txtcol-light: #262624;  /* Text color for light mode */
+ --txtcol-dark: #fff5e8;  /* Text color for dark mode */
+ --txtcolinv: #262624;  /* Text color inverse for dark mode */
  
- --uielem-col: #111;
- --uielem-col-light: rgb(224, 212, 199);
- --uielem-col-dark: #111;
+ --uielem-col: #111;  /* UI element color for dark mode */
+ --uielem-col-light: rgb(224, 212, 199);  /* UI element color for light mode */
+ --uielem-col-dark: #111;  /* UI element color for dark mode */
  
- --button-bg: url(darkmode.png);
- --modebuttoncol: wheat;
- --transitioncol: rgba(0, 46, 101, 1);
-
- --heavyfont: url("Futura\ Extra\ Black\ Condensed\ BT.ttf");
+ --button-bg: url(darkmode.png);  /* Button background image for dark mode */
+ --modebuttoncol: wheat;  /* Color for mode button text */
+ --transitioncol: rgba(0, 46, 101, 1);  /* Color for transition effects */
+ 
+ --heavyfont: url("Futura\ Extra\ Black\ Condensed\ BT.ttf");  /* Font for heavy text */
+ --alphacol:#fff5e825;
+ --alphacol-light:#26262650;
+ --alphacol-dark:#fff5e825;
 
 }
  
@@ -62,7 +66,7 @@
 @font-face {
  font-family: graffiti-bold;
  font-weight: 900;
- src: url(Futura\ Extra\ Black\ Condensed\ BT.ttf);
+ src: url(911porschav3bold.ttf);
  text-transform: uppercase;
  
 }
@@ -128,9 +132,29 @@
  /* font-family:st,-apple-system,BlinkMacSystemFont,"Apple Color Emoji","Segoe UI Emoji"; */
 }
  
- 
+#circularcursor {
+  background-color: var(--alphacol);
+  backdrop-filter: blur(2px) invert(10);
+  border:3px solid var(--txtcolinv);    
+  height:30px;
+  width:30px;
+  border-radius:50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000000000000000;
+  transform: translate(-50%,-50%);
+ transform-origin: 0px 0px;
+     pointer-events: none;
+     transition: transform 0.3s ease-in-out, border 0.5s ease-in-out,border-radius 0.5s ease-in-out,width 0.5s ease-in-out   ;
+
+}
+
 html {
  scroll-behavior: smooth;
+ cursor: none;
 }
  
 /* -webkit-backdrop-filter: blur(10px);
@@ -142,10 +166,12 @@ body {
  margin: 0;
  background: var(--bg-col);
  transition: background 0.5s ease-in-out;
+ cursor: none;
  
 }
  
 * {
+ cursor: none;
  scroll-snap-type: mandatory;
 }
  
@@ -1555,7 +1581,7 @@ button {
  
 img {
  border-radius: 36px;
- cursor: pointer;
+ /* cursor: pointer; */
  z-index: 10;
  
 }
@@ -2038,7 +2064,7 @@ article {
 /* Next & previous buttons */
 .prev,
 .next {
- cursor: pointer;
+ /* cursor: pointer; */
  position: absolute;
  top: 50%;
  width: auto;
@@ -2091,7 +2117,7 @@ article {
  
 /* The dots/bullets/indicators */
 .dot {
- cursor: pointer;
+ /* cursor: pointer; */
  height: 15px;
  width: 15px;
  margin: 0 2px;
@@ -2250,7 +2276,7 @@ article {
 .close:focus {
  color: #bbb;
  text-decoration: none;
- cursor: pointer;
+ /* cursor: pointer; */
 }
  
 /* 100% Image Width on Smaller Screens */
@@ -2749,7 +2775,7 @@ bigassh1 {
  width: 50px;
  border: gray 2px solid;
  box-shadow: none;
- transition: all 0.5s ease-in-out;
+ transition: all 0.5s cubic-bezier(1,0,0,1);
  /* color: var(--txtcol); */
  
 }
@@ -2760,7 +2786,7 @@ bigassh1 {
  background-color: var(--shape-color);
  color: var(--txtcol);
  border-radius: 12px;
- transition: all 0.5s ease-in-out;
+ transition: all 0.5s cubic-bezier(1,0,0,1);
 }
  
 .shape-shift[col] {
