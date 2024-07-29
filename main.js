@@ -1292,6 +1292,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const newDiv = document.createElement('div');
     // Set the class attribute
     newDiv.id = 'circularcursor';
+    newDiv.className = 'wider-text';
     // Append the new div to the body
     document.body.appendChild(newDiv);
 });
