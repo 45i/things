@@ -1383,16 +1383,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const cursor = document.getElementById('circularcursor');
         let lastMouseX = 0, lastMouseY = 0;
 
+            // updateCursorPosition(e.pageX, e.clientY);
         document.addEventListener('mousemove', function(e) {
             const dx = e.pageX - lastMouseX;
             const dy = e.pageY - lastMouseY;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            updateCursorPosition(e.pageX, e.clientY);
             // deformCursor(dx, dy, distance);
 
             lastMouseX = e.pageX;
             lastMouseY = e.pageY;
+            updateCursorPosition(e.pageX, e.clientY);
         });
 
         document.addEventListener('scroll', function() {
@@ -1433,6 +1434,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('mousemove', function(e) {
             window.lastMouseX = e.pageX;
             window.lastMouseY = e.clientY;
+            updateCursorPosition(e.pageX, e.clientY);
         });
     });
 

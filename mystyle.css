@@ -25,9 +25,9 @@
  --transitioncol: rgba(0, 46, 101, 1);  /* Color for transition effects */
  
  --heavyfont: url("Futura\ Extra\ Black\ Condensed\ BT.ttf");  /* Font for heavy text */
- --alphacol:#fff5e825;
- --alphacol-light:#26262650;
- --alphacol-dark:#fff5e825;
+ --alphacol:#fff5e80e;
+ --alphacol-light:#2626260b;
+ --alphacol-dark:#fff5e808;
 
 }
  
@@ -134,7 +134,7 @@
  
 #circularcursor {
   background-color: var(--alphacol);
-  backdrop-filter: blur(2px) invert(10);
+  backdrop-filter: blur(12px);
   border:3px solid var(--txtcolinv);    
   height:30px;
   width:30px;
