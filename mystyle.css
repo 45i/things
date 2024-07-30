@@ -6,29 +6,43 @@
  
 :root {
  /* Define CSS custom properties (variables) for colors and fonts */
- --bg-col: #262624;  /* Background color for dark mode */
- --bg-col-light: #fff5e8;  /* Background color for light mode */
+ --bg-col: #262624;
+ /* Background color for dark mode */
+ --bg-col-light: #fff5e8;
+ /* Background color for light mode */
  /* Off-whitish shade for light mode */
- --bg-col-dark: #262624;  /* Background color for dark mode */
+ --bg-col-dark: #262624;
+ /* Background color for dark mode */
  
- --txtcol: #fff5e8;  /* Text color for dark mode */
- --txtcol-light: #262624;  /* Text color for light mode */
- --txtcol-dark: #fff5e8;  /* Text color for dark mode */
- --txtcolinv: #262624;  /* Text color inverse for dark mode */
+ --txtcol: #fff5e8;
+ /* Text color for dark mode */
+ --txtcol-light: #262624;
+ /* Text color for light mode */
+ --txtcol-dark: #fff5e8;
+ /* Text color for dark mode */
+ --txtcolinv: #262624;
+ /* Text color inverse for dark mode */
  
- --uielem-col: #111;  /* UI element color for dark mode */
- --uielem-col-light: rgb(224, 212, 199);  /* UI element color for light mode */
- --uielem-col-dark: #111;  /* UI element color for dark mode */
+ --uielem-col: #111;
+ /* UI element color for dark mode */
+ --uielem-col-light: rgb(224, 212, 199);
+ /* UI element color for light mode */
+ --uielem-col-dark: #111;
+ /* UI element color for dark mode */
  
- --button-bg: url(darkmode.png);  /* Button background image for dark mode */
- --modebuttoncol: wheat;  /* Color for mode button text */
- --transitioncol: rgba(0, 46, 101, 1);  /* Color for transition effects */
+ --button-bg: url(darkmode.png);
+ /* Button background image for dark mode */
+ --modebuttoncol: wheat;
+ /* Color for mode button text */
+ --transitioncol: rgba(0, 46, 101, 1);
+ /* Color for transition effects */
  
- --heavyfont: url("Futura\ Extra\ Black\ Condensed\ BT.ttf");  /* Font for heavy text */
- --alphacol:#fff5e829;
- --alphacol-light:#2626263c;
- --alphacol-dark:#fff5e829;
-
+ --heavyfont: url("Futura\ Extra\ Black\ Condensed\ BT.ttf");
+ /* Font for heavy text */
+ --alphacol: #fff5e829;
+ --alphacol-light: #2626263c;
+ --alphacol-dark: #fff5e829;
+ 
 }
  
 @font-face {
@@ -133,51 +147,52 @@
 }
  
 #circularcursor {
-  background-color: var(--alphacol);
-  backdrop-filter: blur(2px);
-  border:3px solid var(--txtcol);    
-  height:30px;
-  width:30px;
-  border-radius:50%;
-  -moz-border-radius:50%;
-  -webkit-border-radius:50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10000000000000000;
-  transform: translate(-50%,-50%);
- transform-origin: 0px 0px;
-     pointer-events: none;
-     transition: transform 0.3s ease-in-out, border 0.5s ease-in-out,border-radius 0.5s ease-in-out,width 0.5s ease-in-out   ;
-     align-items: center;
-     justify-content: center;
-     display: flex;
-     flex-direction: column;
-     flex-wrap: wrap;
-    box-shadow: var(--alphacol) 0 0 20px ;
-     /* transition: all 0.5s ease-in-out; */
-
+ background-color: var(--alphacol);
+ backdrop-filter: blur(2px);
+ border: 3px solid var(--txtcol);
+ height: 30px;
+ width: 30px;
+ border-radius: 50%;
+ -moz-border-radius: 50%;
+ -webkit-border-radius: 50%;
+ position: absolute;
+ bottom: -1000;
+ left: 0;
+ z-index: 10000000000000000;
+ transform: translate(-50%, -50%), rotateY(-45);
+ transform-origin: 15px 15px;
+ pointer-events: none;
+ transition: transform 0.3s ease-in-out, border 0.5s ease-in-out, border-radius 0.5s ease-in-out, width 0.5s ease-in-out;
+ align-items: center;
+ justify-content: center;
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ box-shadow:inset var(--txtcol) 0 0 2px;
+ /* transition: all 0.5s ease-in-out; */
+ /* opacity: 0; */
 }
+ 
 #cursordot {
-  background-color: var(--alphacol);
-  backdrop-filter: blur(2px);
-  border:3px solid var(--txtcolinv);    
-  height:3px;
-  width:3px;
-  border-radius:50%;
-  -moz-border-radius:50%;
-  -webkit-border-radius:50%;
-  
-  z-index: 10000000000000000;
-  /* transform: translate(50%,50%); */
+ background-color: var(--txtcolinv);
+ backdrop-filter:blur(0) invert(1);
+ /* border:3px solid var(--txtcolinv);     */
+ height: 3px;
+ width: 3px;
+ border-radius: 50%;
+ -moz-border-radius: 50%;
+ -webkit-border-radius: 50%;
+ 
+ z-index: 10000000000000;
+ /* transform: translate(50%,50%); */
  transform-origin: 0px 0px;
-     pointer-events: none;
-     transition: transform 0.3s ease-in-out, border 0.5s ease-in-out,border-radius 0.5s ease-in-out,width 0.5s ease-in-out   ;
-     
-     /* transition: all 0.5s ease-in-out; */
-
+ pointer-events: none;
+ transition: transform 0.3s ease-in-out, border 0.5s ease-in-out, border-radius 0.5s ease-in-out, width 0.5s ease-in-out;
+ 
+ /* transition: all 0.5s ease-in-out; */
+ 
 }
-
+ 
 html {
  scroll-behavior: smooth;
  cursor: none;
@@ -1077,9 +1092,13 @@ h2 {
  color: white;
  /* box-shadow: 0 10px 24px #636363; */
 }
- .navig .close-btn, .navig .logo , .navig .icdown{
-  color: white;
- }
+ 
+.navig .close-btn,
+.navig .logo,
+.navig .icdown {
+ color: white;
+}
+ 
 .navig.open {
  border-radius: 36px;
  transition: all 0.5s ease, border-radius 0.5s ease-in-out;
@@ -1116,18 +1135,20 @@ h2 {
 }
  
 .navig.open .main,
-.navig.open .navmenu{
+.navig.open .navmenu {
  opacity: 100%;
  transition: all 0.5s ease;
  z-index: 1000001;
  color: var(--txtcol);
  ;
 }
- .options{
-  background-color: #0000;
-  padding: 2px;
-  border-radius: 16px;
- }
+ 
+.options {
+ background-color: #0000;
+ padding: 2px;
+ border-radius: 16px;
+}
+ 
 .navmenu>* {
  padding: 2px;
 }
@@ -2801,7 +2822,7 @@ bigassh1 {
  width: 50px;
  border: gray 2px solid;
  box-shadow: none;
- transition: all 0.5s cubic-bezier(1,0,0,1);
+ transition: all 0.5s cubic-bezier(1, 0, 0, 1);
  /* color: var(--txtcol); */
  
 }
@@ -2812,7 +2833,7 @@ bigassh1 {
  background-color: var(--shape-color);
  color: var(--txtcol);
  border-radius: 12px;
- transition: all 0.5s cubic-bezier(1,0,0,1);
+ transition: all 0.5s cubic-bezier(1, 0, 0, 1);
 }
  
 .shape-shift[col] {
@@ -2846,7 +2867,7 @@ bigassh1 {
 .colormode {
  background-image: none;
  color: white;
-
+ 
  background-color: rgba(0, 132, 220, 0);
  /* Adjust the last value (0.7) for opacity */
  transition: all 0.5s ease-in-out;

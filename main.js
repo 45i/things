@@ -1399,24 +1399,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
             lastMouseX = e.pageX;
             lastMouseY = e.pageY;
-            updateCursorPosition(e.pageX, e.clientY);
+            updateCursorPosition(e.pageX, e.clientY,1);
         });
 
         document.addEventListener('scroll', function() {
             // Use the last known mouse position
             const mouseX = window.lastMouseX || 0;
             const mouseY = window.lastMouseY || 0;
-            updateCursorPosition(mouseX, mouseY);
+
+            updateCursorPosition(mouseX, mouseY,2);
+
         });
 
-        function updateCursorPosition(pageX, clientY) {
+        function updateCursorPosition(pageX, clientY,type) {
             cursor.style.left = pageX + 'px';
             cursor.style.top = clientY + window.scrollY + 'px';
-            const clickableElements = document.querySelectorAll('a, button, input[type="button"], input[type="submit"], img, .clickable');
+            const clickableElements = document.querySelectorAll('a, button, input[type="button"], input[type="submit"], .clickable');
             clickableElements.forEach(element => {
             element.addEventListener('mouseover', growCursor);
             element.addEventListener('mouseout', shrinkCursor);
+
         });
+        const clickIMG= document.querySelectorAll('img');
+        clickIMG.forEach(element => {
+            element.addEventListener('mouseover', growCursorIMG);
+            element.addEventListener('mouseout', shrinkCursor);
+
+        });
+        if (type == 2) {
+            cursor.style.transition= 'transform 0.3s ease-in-out, border 0.5s ease-in-out,border-radius 0.5s ease-in-out,width 0.5s ease-in-out,top 0.1s linear, left 0.1s linear ';
+
+        }
+        else if (type == 1) {
+            cursor.style.transition= 'transform 0.3s ease-in-out, border 0.5s ease-in-out,border-radius 0.5s ease-in-out,width 0.5s ease-in-out';
+
+        }
 
         }
 
@@ -1425,13 +1442,19 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add event listeners to clickable elements
         
         function growCursor() {
-            cursor.style.transform = ' translate(-50%,-50%)';
+            cursor.style.transform = ' translate(-50%,-50%) rotateZ(-45deg) scale(1)';
             // cursor.style.width= '40px';5
+
             cursor.style.borderRadius='50% 50% 12% 12%'
         }
 
+        function growCursorIMG() {
+            cursor.style.transform = ' translate(-50%,-50%) scale(1.3)';
+            // cursor.style.width= '40px';
+            cursor.style.borderRadius='50% '
+        }
         function shrinkCursor() {
-            cursor.style.transform = 'translate(-50%,-50%), width 0.1s ease-in-out,border-radius 0.1s ease-in-out';
+            cursor.style.transform = 'translate(-50%,-50%) scale(1)';
             cursor.style.width= '30px';
             cursor.style.borderRadius='50%'
         }
@@ -1440,7 +1463,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('mousemove', function(e) {
             window.lastMouseX = e.pageX;
             window.lastMouseY = e.clientY;
-            updateCursorPosition(e.pageX, e.clientY);
+            updateCursorPosition(e.pageX, e.clientY,1);
         });
     });
 
