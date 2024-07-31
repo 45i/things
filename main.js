@@ -1287,21 +1287,6 @@ window.addEventListener('scroll', () => {
  extend.style.transform = `scale(${0.5 + scaleFactor * 0.5})`; // Scale from 0.5 to 1
 });
 // script.js or within a <script> tag in your HTML
-document.addEventListener('DOMContentLoaded', function() {
-    // Create a new div element
-    const newDiv = document.createElement('div');
-    // Set the class attribute
-    newDiv.id = 'circularcursor';
-    newDiv.className = 'wider-text';
-    
-    const newerDiv = document.createElement('div');
-    // newerDiv.innerHTML="."
-    newerDiv.id = 'cursordot';
-    newDiv.appendChild(newerDiv)
-    // Set the innerHTML of the new div with the provided HTML code
-    // Append the new div to the body
-    document.body.appendChild(newDiv);
-});
 
 document.addEventListener("DOMContentLoaded", function () {
  // Create the new div element
@@ -1384,87 +1369,114 @@ document.addEventListener("DOMContentLoaded", function () {
 // Wait for the page to load
  
  
- 
 document.addEventListener('DOMContentLoaded', function() {
-        const cursor = document.getElementById('circularcursor');
-        let lastMouseX = 0, lastMouseY = 0;
+    const cursor = document.getElementById('circularcursor');
+    let lastMouseX = 0, lastMouseY = 0;
+    let lastMoveTime = Date.now();
+    let lastAngle = 0;
+    let tilt = 0;
+    let isMoving = false;
+    let stopTimer;
 
-            // updateCursorPosition(e.pageX, e.clientY);
-        document.addEventListener('mousemove', function(e) {
-            const dx = e.pageX - lastMouseX;
-            const dy = e.pageY - lastMouseY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
+    document.addEventListener('mousemove', function(e) {
+        clearTimeout(stopTimer);
 
-            // deformCursor(dx, dy, distance);
+        const now = Date.now();
+        const timeDiff = now - lastMoveTime;
+        lastMoveTime = now;
 
-            lastMouseX = e.pageX;
-            lastMouseY = e.pageY;
-            updateCursorPosition(e.pageX, e.clientY,1);
-        });
+        const dx = e.pageX - lastMouseX;
+        const dy = e.pageY - lastMouseY;
 
-        document.addEventListener('scroll', function() {
-            // Use the last known mouse position
-            const mouseX = window.lastMouseX || 0;
-            const mouseY = window.lastMouseY || 0;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const speed = distance / timeDiff; // Speed in pixels per millisecond
 
-            updateCursorPosition(mouseX, mouseY,2);
+        const angle = Math.atan2(dy, dx) * (180 / Math.PI); // Direction in degrees
+        tilt = Math.min(speed * 75,180); // Scale speed to tilt, max 75 degrees
 
-        });
+        lastMouseX = e.pageX;
+        lastMouseY = e.pageY;
+        lastAngle = angle;
 
-        function updateCursorPosition(pageX, clientY,type) {
-            cursor.style.left = pageX + 'px';
-            cursor.style.top = clientY + window.scrollY + 'px';
-            const clickableElements = document.querySelectorAll('a, button, input[type="button"], input[type="submit"], .clickable');
-            clickableElements.forEach(element => {
-            element.addEventListener('mouseover', growCursor);
-            element.addEventListener('mouseout', shrinkCursor);
+        isMoving = true;
+        cursor.style.transition = 'transform 0.1s ease-in-out';
+        cursor.style.transform = `translate(-50%, -50%) rotateZ(${angle > 0 ? -tilt : tilt}deg) scale(1)`;
 
-        });
-        const clickIMG= document.querySelectorAll('img');
-        clickIMG.forEach(element => {
-            element.addEventListener('mouseover', growCursorIMG);
-            element.addEventListener('mouseout', shrinkCursor);
-
-        });
-        if (type == 2) {
-            cursor.style.transition= 'transform 0.3s ease-in-out, border 0.5s ease-in-out,border-radius 0.5s ease-in-out,width 0.5s ease-in-out,top 0.1s linear, left 0.1s linear ';
-
-        }
-        else if (type == 1) {
-            cursor.style.transition= 'transform 0.3s ease-in-out, border 0.5s ease-in-out,border-radius 0.5s ease-in-out,width 0.5s ease-in-out';
-
-        }
-
-        }
-
-        
-
-        // Add event listeners to clickable elements
-        
-        function growCursor() {
-            cursor.style.transform = ' translate(-50%,-50%) rotateZ(-45deg) scale(1)';
-            // cursor.style.width= '40px';5
-
-            cursor.style.borderRadius='50% 50% 12% 12%'
-        }
-
-        function growCursorIMG() {
-            cursor.style.transform = ' translate(-50%,-50%) scale(1.3)';
-            // cursor.style.width= '40px';
-            cursor.style.borderRadius='50% '
-        }
-        function shrinkCursor() {
-            cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-            cursor.style.width= '30px';
-            cursor.style.borderRadius='50%'
-        }
-
-        // Track the last known mouse position
-        document.addEventListener('mousemove', function(e) {
-            window.lastMouseX = e.pageX;
-            window.lastMouseY = e.clientY;
-            updateCursorPosition(e.pageX, e.clientY,1);
-        });
+        stopTimer = setTimeout(() => {
+            isMoving = false;
+            swingCursorToStop();
+        }, 100);
     });
 
+    document.addEventListener('scroll', function() {
+        const mouseX = window.lastMouseX || 0;
+        const mouseY = window.lastMouseY || 0;
+        updateCursorPosition(mouseX, mouseY, 2);
+    });
 
+    function updateCursorPosition(pageX, clientY, type) {
+        cursor.style.left = pageX + 'px';
+        cursor.style.top = clientY + window.scrollY + 'px';
+
+        if (type == 2) {
+            cursor.style.transition = 'transform 0.3s ease-in-out, border 0.5s ease-in-out, border-radius 0.5s ease-in-out, width 0.5s ease-in-out, top 0.1s linear, left 0.1s linear';
+        } else if (type == 1) {
+            cursor.style.transition = 'transform 0.1s ease-in-out, border 0.5s ease-in-out, border-radius 0.5s ease-in-out, width 0.5s ease-in-out';
+        }
+    }
+
+    function shrinkCursor() {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursor.style.width = '30px';
+        cursor.style.borderRadius = '50%';
+    }
+
+    function swingCursorToStop() {
+        const initialAngle = lastAngle > 0 ? -tilt : tilt;
+        const duration = 2000; // total duration of the damping animation in milliseconds
+        const dampingFactor = 0.01; // damping factor to reduce amplitude over time
+
+        const startTime = Date.now();
+
+        function animate() {
+            const elapsed = Date.now() - startTime;
+            const progress = elapsed / duration;
+            const decay = Math.exp(-dampingFactor * progress * duration);
+            const swingAngle = initialAngle * decay * Math.cos(progress * 2 * Math.PI * 2); // Increase frequency for more swings
+
+            if (progress < 1) {
+                cursor.style.transform = `translate(-50%, -50%) rotateZ(${swingAngle}deg) scale(1)`;
+                requestAnimationFrame(animate);
+            } else {
+                cursor.style.transform = 'translate(-50%, -50%) rotateZ(0deg) scale(1)';
+            }
+        }
+
+        animate();
+    }
+
+    document.addEventListener('mousemove', function(e) {
+        window.lastMouseX = e.pageX;
+        window.lastMouseY = e.clientY;
+        updateCursorPosition(e.pageX, e.clientY, 1);
+    });
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Create a new div element
+    const newDiv = document.createElement('div');
+    // Set the class attribute
+    newDiv.id = 'circularcursor';
+    newDiv.classList.add('wider-text'); // Add a class = 'wider-text';
+    
+    const newerDiv = document.createElement('div');
+    // newerDiv.innerHTML="."
+    newerDiv.id = 'cursordot';
+    newDiv.appendChild(newerDiv)
+    // Set the innerHTML of the new div with the provided HTML code
+    // Append the new div to the body
+    document.body.appendChild(newDiv);
+});

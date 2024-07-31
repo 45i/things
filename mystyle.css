@@ -152,9 +152,9 @@
  border: 3px solid var(--txtcol);
  height: 30px;
  width: 30px;
- border-radius: 50%;
- -moz-border-radius: 50%;
- -webkit-border-radius: 50%;
+ border-radius: 50% 50% 32% 32%;
+ -moz-border-radius: 50% 50% 32% 32%;
+ -webkit-border-radius: 50% 50% 32% 32%;
  position: absolute;
  bottom: -1000;
  left: 0;
