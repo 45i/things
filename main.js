@@ -1368,7 +1368,24 @@ document.addEventListener("DOMContentLoaded", function () {
  
 // Wait for the page to load
  
- 
+ document.addEventListener('DOMContentLoaded', function() {
+    // Create a new div element
+    const newDiv = document.createElement('div');
+    // Set the class attribute
+    newDiv.id = 'circularcursor';
+    newDiv.classList.add('circular-cursor'); // Add a class = 'wider-text';
+    newDiv.classList.add('wider-text'); // Add a class = 'wider-text';
+    
+    const newerDiv = document.createElement('div');
+    // newerDiv.innerHTML="."
+    // newerDiv.id = 'cursordot';
+    newerDiv.classList.add('cursor-dot'); // Add a class = 'wider-text';
+    newDiv.appendChild(newerDiv)
+    // Set the innerHTML of the new div with the provided HTML code
+    // Append the new div to the body
+    document.body.appendChild(newDiv);
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const cursor = document.getElementById('circularcursor');
     let lastMouseX = 0, lastMouseY = 0;
@@ -1392,20 +1409,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const speed = distance / timeDiff; // Speed in pixels per millisecond
 
         const angle = Math.atan2(dy, dx) * (180 / Math.PI); // Direction in degrees
-        tilt = Math.min(speed * 75,180); // Scale speed to tilt, max 75 degrees
+        tilt = Math.min(speed * 100,75); // Scale speed to tilt, max 75 degrees
 
         lastMouseX = e.pageX;
         lastMouseY = e.pageY;
         lastAngle = angle;
 
         isMoving = true;
-        cursor.style.transition = 'transform 0.1s ease-in-out';
+        cursor.style.transition = 'transform 0.1s ease-in-out, border 0.5s ease-in-out, border-radius 0.5s ease-in-out, width 0.5s ease-in-out, box-shadow 0.3s ease-in-out';
         cursor.style.transform = `translate(-50%, -50%) rotateZ(${angle > 0 ? -tilt : tilt}deg) scale(1)`;
 
         stopTimer = setTimeout(() => {
             isMoving = false;
             swingCursorToStop();
-        }, 100);
+        }, 0.1);
     });
 
     document.addEventListener('scroll', function() {
@@ -1419,22 +1436,41 @@ document.addEventListener('DOMContentLoaded', function() {
         cursor.style.top = clientY + window.scrollY + 'px';
 
         if (type == 2) {
-            cursor.style.transition = 'transform 0.3s ease-in-out, border 0.5s ease-in-out, border-radius 0.5s ease-in-out, width 0.5s ease-in-out, top 0.1s linear, left 0.1s linear';
+            cursor.style.transition = 'transform 0.3s ease-in-out, border 0.5s ease-in-out, border-radius 0.5s ease-in-out, width 0.5s ease-in-out, top 0.1s linear, left 0.1s linear, box-shadow 0.3s ease-in-out';
         } else if (type == 1) {
-            cursor.style.transition = 'transform 0.1s ease-in-out, border 0.5s ease-in-out, border-radius 0.5s ease-in-out, width 0.5s ease-in-out';
+            cursor.style.transition = 'transform 0.1s ease-in-out, border 0.5s ease-in-out, border-radius 0.5s ease-in-out, width 0.5s ease-in-out, box-shadow 0.3s ease-in-out';
         }
+         const clickableElements = document.querySelectorAll('a, button, input[type="button"], input[type="submit"], .clickable');
+        clickableElements.forEach(element => {
+            element.addEventListener('mouseover', growCursor);
+            element.addEventListener('mouseout', shrinkCursor);
+        });
+        
+        const clickIMG = document.querySelectorAll('img');
+        clickIMG.forEach(element => {
+            element.addEventListener('mouseover', growCursorIMG);
+            element.addEventListener('mouseout', shrinkCursor);
+        });
     }
-
+    
+    function growCursor(){
+        cursor.style.transform = 'translate(-50%, -50%)';
+        // cursor.style.width = '60px';
+        // cursor.style.transition = 'all 0.5s ease-in-out';
+        cursor.style.borderRadius = '20%';
+        cursor.style.boxShadow = 'var(--txtcol) 0 0 40px';
+    }
     function shrinkCursor() {
         cursor.style.transform = 'translate(-50%, -50%) scale(1)';
         cursor.style.width = '30px';
-        cursor.style.borderRadius = '50%';
+        cursor.style.borderRadius = '50% 50% 32% 32%';
+        cursor.style.boxShadow = 'var(--txtcol) 0 0 0px';
     }
 
     function swingCursorToStop() {
         const initialAngle = lastAngle > 0 ? -tilt : tilt;
-        const duration = 2000; // total duration of the damping animation in milliseconds
-        const dampingFactor = 0.01; // damping factor to reduce amplitude over time
+        const duration =3500; // total duration of the damping animation in milliseconds
+        const dampingFactor = 0.001; // damping factor to reduce amplitude over time
 
         const startTime = Date.now();
 
@@ -1442,10 +1478,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const elapsed = Date.now() - startTime;
             const progress = elapsed / duration;
             const decay = Math.exp(-dampingFactor * progress * duration);
-            const swingAngle = initialAngle * decay * Math.cos(progress * 2 * Math.PI * 2); // Increase frequency for more swings
-
+            const swingAngle = initialAngle * decay * Math.cos(progress * 2 * Math.PI * 5); // Increase frequency for more swings
+            
             if (progress < 1) {
                 cursor.style.transform = `translate(-50%, -50%) rotateZ(${swingAngle}deg) scale(1)`;
+                cursor.style.transition = 'border-radius 0.1s ease-in-out';
                 requestAnimationFrame(animate);
             } else {
                 cursor.style.transform = 'translate(-50%, -50%) rotateZ(0deg) scale(1)';
@@ -1465,18 +1502,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Create a new div element
-    const newDiv = document.createElement('div');
-    // Set the class attribute
-    newDiv.id = 'circularcursor';
-    newDiv.classList.add('wider-text'); // Add a class = 'wider-text';
-    
-    const newerDiv = document.createElement('div');
-    // newerDiv.innerHTML="."
-    newerDiv.id = 'cursordot';
-    newDiv.appendChild(newerDiv)
-    // Set the innerHTML of the new div with the provided HTML code
-    // Append the new div to the body
-    document.body.appendChild(newDiv);
-});
