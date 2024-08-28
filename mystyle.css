@@ -2886,3 +2886,15 @@ bigassh1 {
  background-size: cover;
  background-repeat: no-repeat;
 }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-snap-type: y proximity; /* 'proximity' gives a softer snap effect */
+}
+
+a, button, input[type="button"], input[type="submit"], .clickable {
+  scroll-snap-align: start; /* Align the start of the element with the start of the viewport */
+  
+}

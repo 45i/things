@@ -446,51 +446,34 @@ document.addEventListener("DOMContentLoaded", function () {
    }
    let selectedText; // Variable to store the selected text
  
-   // document.body.addEventListener('mouseup', function (e) {
-   //   if (e.target !== contextMenu) {
-   //     selectedText = window.getSelection().toString(); // Store the selected text
-   //     if (selectedText && selectedText.trim() !== '') {
- 
-   //       const contextMenu = document.getElementById('contextMenu');
-   //       contextMenu.style.display = 'block';
-   //       const contextMenuWidth = contextMenu.offsetWidth;
-   //       const contextMenuHeight = contextMenu.offsetHeight;
-   //       const maxX = window.innerWidth - contextMenuWidth;
-   //       const maxY = window.innerHeight - contextMenuHeight;
- 
-   //       const x = Math.min(e.clientX, maxX);
-   //       const y = Math.min(e.clientY, maxY);
- 
-   //       contextMenu.style.top = y + 'px';
-   //       contextMenu.style.left = x + 'px';
- 
-   //       // Check if selected text contains a phone number (you can customize the regex)
-   //       const phoneRegex = /\+?\d{1,3}?(\d{10})\b/;
- 
-   //       if (phoneRegex.test(selectedText)) {
-   //         const callPhone = document.getElementById('callPhone');
-   //         callPhone.style.display = 'block';
- 
-   //         // Add a click event to the 'callPhone' list item
-   //         callPhone.addEventListener('click', function () {
-   //           const match = selectedText.match(phoneRegex);
-   //           if (match && match[1]) {
-   //             const phoneNumber = match[1];
-   //             window.location.href = 'tel:' + phoneNumber;
-   //           }
-   //         });
-   //       } else {
-   //         const callPhone = document.getElementById('callPhone');
-   //         callPhone.style.display = 'none';
-   //       }
- 
-   //     } else {
-   //       window.getSelection().removeAllRanges();
-   //       contextMenu.style.display = 'none';
-   //     }
-   //   }
-   // });
- 
+document.addEventListener('scroll', function() {
+    document.querySelectorAll('a, button, input[type="button"], input[type="submit"], .clickable').forEach(element => {
+        const rect = element.getBoundingClientRect();
+        const elementTop = rect.top;
+        const elementBottom = rect.bottom;
+        const viewportHeight = window.innerHeight;
+
+        // Check if the element is partially visible in the viewport
+        if (elementTop < viewportHeight && elementBottom > 0) {
+            // Check if the element is too close to the bottom of the viewport
+            if (elementBottom > viewportHeight - 50) {
+                window.scrollBy({
+                    top: elementBottom - viewportHeight + 50,
+                    behavior: 'smooth'
+                });
+            }
+            // Check if the element is too close to the top of the viewport
+            else if (elementTop < 50) {
+                window.scrollBy({
+                    top: elementTop - 50,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+});
+
+   
    document.body.addEventListener('scroll', function () {
      const contextMenu = document.getElementById('contextMenu');
      if (contextMenu.style.display === 'block') {
