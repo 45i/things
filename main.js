@@ -1400,11 +1400,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         isMoving = true;
         cursor.style.transition = 'transform 0.1s ease-in-out, border 0.5s ease-in-out, border-radius 0.5s ease-in-out, width 0.5s ease-in-out, box-shadow 0.3s ease-in-out';
-        cursor.style.transform = `translate(-50%, -50%) rotateZ(${angle > 0 ? -tilt : tilt}deg) scale(1)`;
+        cursor.style.transform = `translate(-50%, -50%)  scale(1)`;
 
         stopTimer = setTimeout(() => {
             isMoving = false;
-            swingCursorToStop();
+            // swingCursorToStop();
         }, 0.1);
     });
 
@@ -1441,12 +1441,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // cursor.style.width = '60px';
         // cursor.style.transition = 'all 0.5s ease-in-out';
         cursor.style.borderRadius = '20%';
-        cursor.style.boxShadow = 'var(--txtcol) 0 0 40px';
+        // cursor.style.boxShadow = 'var(--txtcol) 0 0 40px';
     }
     function shrinkCursor() {
         cursor.style.transform = 'translate(-50%, -50%) scale(1)';
         cursor.style.width = '30px';
-        cursor.style.borderRadius = '50% 50% 32% 32%';
+        cursor.style.borderRadius = '50% ';
         cursor.style.boxShadow = 'var(--txtcol) 0 0 0px';
     }
 
