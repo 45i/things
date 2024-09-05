@@ -1293,36 +1293,36 @@ document.addEventListener("DOMContentLoaded", function () {
  footerContainer.parentNode.insertBefore(newDiv, footerContainer);
  
  
- const manyItems = document.querySelector('.many-items');
- const height = manyItems.style.height;
- const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-   const intersectionRatio = entry.intersectionRatio;
-   const targetWidth = `${65 * intersectionRatio}vw`;
-   const targetBackgroundColor = `rgba(${Math.floor(17 * intersectionRatio)}, ${Math.floor(17 * intersectionRatio)}, ${Math.floor(17 * intersectionRatio)}, ${265 * intersectionRatio})`;
-   const targetOpacity = Math.max(0, intersectionRatio, 1);
-   const size = `${manyItems.style.size * intersectionRatio}px`;
-   const offsetvertical = `${35 * intersectionRatio}px`;
- 
- 
-   manyItems.style.transition = 'width  0.5s ease-in-out, backdrop-filter 0.2s ease-in-out, background-color 0.4s ease-in-out, transform 0.5s ease-in-out';
-   manyItems.style.width = targetWidth;
-   manyItems.style.height = Math.max(0, Math.min(targetWidth, height));
-   // manyItems.style.backdropFilter = targetBlur;
-  //  manyItems.style.backgroundColor = targetBackgroundColor;
-   manyItems.style.size = size;
-   manyItems.style.transform = `translateY(${offsetvertical})`;
- 
- 
-  });
- }, { threshold: [0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1] });
- 
- observer.observe(manyItems);
- const showMoreButton = document.querySelector('.share');
- 
- // Get the div element to be shown
- 
- 
+ const manyItems = document.querySelectorAll('.many-items');
+
+manyItems.forEach(item => {
+  const height = item.style.height;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const intersectionRatio = entry.intersectionRatio;
+      const targetWidth = `${65 * intersectionRatio}vw`;
+      const targetBackgroundColor = `rgba(${Math.floor(17 * intersectionRatio)}, ${Math.floor(17 * intersectionRatio)}, ${Math.floor(17 * intersectionRatio)}, ${265 * intersectionRatio})`;
+      const targetOpacity = Math.max(0, intersectionRatio, 1);
+      const size = `${item.style.size * intersectionRatio}px`;
+      const offsetvertical = `${35 * intersectionRatio}px`;
+
+      item.style.transition = 'width 0.5s ease-in-out, backdrop-filter 0.2s ease-in-out, background-color 0.4s ease-in-out, transform 0.5s ease-in-out';
+      item.style.width = targetWidth;
+      item.style.height = Math.max(0, Math.min(targetWidth, height));
+      // item.style.backdropFilter = targetBlur;
+      // item.style.backgroundColor = targetBackgroundColor;
+      item.style.size = size;
+      item.style.transform = `translateY(${offsetvertical})`;
+    });
+  }, { threshold: [0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1] });
+
+  observer.observe(item);
+});
+
+const showMoreButton = document.querySelector('.share');
+
+// Get the div element to be shown
+
  // Function to handle the button click event
  function showLinks() {
   // Get the parent element of the button
@@ -1366,7 +1366,7 @@ document.addEventListener("DOMContentLoaded", function () {
     newDiv.appendChild(newerDiv)
     // Set the innerHTML of the new div with the provided HTML code
     // Append the new div to the body
-    document.body.appendChild(newDiv);
+    // document.body.appendChild(newDiv);
 });
 
 document.addEventListener('DOMContentLoaded', function() {

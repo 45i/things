@@ -195,7 +195,7 @@
  
 html {
  scroll-behavior: smooth;
- cursor: none;
+ /* cursor: none; */
 }
  
 /* -webkit-backdrop-filter: blur(10px);
@@ -207,12 +207,12 @@ body {
  margin: 0;
  background: var(--bg-col);
  transition: background 0.5s ease-in-out;
- cursor: none;
+ /* cursor: none; */
  
 }
  
 * {
- cursor: none;
+ /* cursor: none; */
  scroll-snap-type: mandatory;
 }
  
@@ -2897,4 +2897,27 @@ body {
 a, button, input[type="button"], input[type="submit"], .clickable {
   scroll-snap-align: start; /* Align the start of the element with the start of the viewport */
   
+}
+footer{
+  /* box-shadow: inset 0 -20px 10px #00000090, inset 0 10px 10px rgba(255, 230, 0, 0.081); */
+  border: #8888883c solid 1px;
+  /* background: radial-gradient(ellipse  max(75vh, 75vw) min(50vh, 50vw) at bottom , rgb(104, 84, 34) 0%, var(--uielem-col) 65%); */
+  
+ padding: 10px;
+
+}
+.footer-container{
+ 
+ 
+  background: radial-gradient(ellipse  max(75vh, 75vw) min(55vh, 55vw) at bottom , goldenrod 0%, var(--bg-col) 75%);
+
+
+}
+.ghost-poof{
+  content: '';
+  background-color:goldenrod;;
+}
+.ghost-poof:hover
+{
+  content: '💭';
 }
