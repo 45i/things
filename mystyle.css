@@ -2749,7 +2749,7 @@ bigassh1 {
 }
  
 .cont:hover> :not(:hover) {
- opacity: 0.5;
+ opacity: 0.1;
 }
  
 @keyframes marquee {
@@ -2899,25 +2899,26 @@ a, button, input[type="button"], input[type="submit"], .clickable {
   
 }
 footer{
-  /* box-shadow: inset 0 -20px 10px #00000090, inset 0 10px 10px rgba(255, 230, 0, 0.081); */
-  border: #8888883c solid 1px;
-  /* background: radial-gradient(ellipse  max(75vh, 75vw) min(50vh, 50vw) at bottom , rgb(104, 84, 34) 0%, var(--uielem-col) 65%); */
+  box-shadow:  0 5px 10px 10px #00000029;
+  /* border: #8888883c solid 1px; */
+  background: radial-gradient(ellipse  max(75vh, 75vw) min(50vh, 50vw) at bottom , rgba(176, 144, 65, 0) 0%, var(--uielem-col) 105%);
   
  padding: 10px;
 
 }
-.footer-container{
- 
- 
-  background: radial-gradient(ellipse  max(75vh, 75vw) min(55vh, 55vw) at bottom , goldenrod 0%, var(--bg-col) 75%);
-
-
-}
 .ghost-poof{
-  content: '';
-  background-color:goldenrod;;
+ 
+ 
+  box-shadow: 0 0 1000px 200px rgb(255, 183, 0);
+  background-color: goldenrod;
+  border: none;
+  /* content: hi; */
+
 }
-.ghost-poof:hover
-{
-  content: '💭';
+.many-items{
+  /* background-color: */
+}
+
+.box .ext-btn{
+  background-color: transparent;
 }
