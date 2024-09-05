@@ -42,6 +42,10 @@
  --alphacol: #fff5e829;
  --alphacol-light: #2626263c;
  --alphacol-dark: #fff5e829;
+
+ --glowcol:  rgb(255, 183, 0);
+ --glowcol-dark:  rgb(255, 183, 0);
+ --glowcol-light:  rgb(136, 241, 255);
  
 }
  
@@ -2909,8 +2913,9 @@ footer{
 .ghost-poof{
  
  
-  box-shadow: 0 0 1000px 200px rgb(255, 183, 0);
-  background-color: goldenrod;
+  box-shadow: 0 0 1000px 200px var(--glowcol);
+  transition: box-shadow 0.5s ease-in-out , background-color 0.5s ease-in-out;
+  background-color: var(--glowcol);
   border: none;
   /* content: hi; */
 

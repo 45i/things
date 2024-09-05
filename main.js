@@ -362,11 +362,13 @@ document.addEventListener("DOMContentLoaded", function () {
      const uicol = isDarkMode ? 'var(--uielem-col-dark)' : 'var(--uielem-col-light)';
      const alphacol = isDarkMode ? 'var(--alphacol-dark)' : 'var(--alphacol-light)';
 
+
      document.documentElement.style.setProperty('--txtcol', txtcol);
      document.documentElement.style.setProperty('--txtcolinv', txtcolinv);
      document.documentElement.style.setProperty('--bg-col', bgCol);
      document.documentElement.style.setProperty('--uielem-col', uicol);
      document.documentElement.style.setProperty('--alphacol', alphacol);
+     document.documentElement.style.setProperty('--glowcol', isDarkMode? 'var(--glowcol-dark)' : 'var(--glowcol-light)');
  
      // Update the button icon (you can keep your existing code)
    });
@@ -1233,9 +1235,44 @@ document.addEventListener("DOMContentLoaded", function () {
 });
  
  
+const showerThoughts = [
+  "If you clean a vacuum cleaner, are you a vacuum cleaner?",
+  "Why do we call it a building if it’s already built?",
+  "If you try to fail and succeed, which have you done?",
+  "Do fish in water have a thirst for air?",
+  "If a tomato is a fruit, is ketchup a smoothie?",
+  "If you’re waiting for the waiter, aren’t you the waiter?",
+  "Why is it called a 'drive-through' if you have to stop?",
+  "If you punch yourself and it hurts, are you strong or weak?",
+  "If money doesn’t grow on trees, why do banks have branches?",
+  "If you drop soap on the floor, is the floor clean or is the soap dirty?",
+  "Why is the word 'abbreviation' so long?",
+  "If you describe something as indescribable, haven’t you already described it?",
+  "Why do we say 'slept like a baby' when babies wake up every two hours?",
+  "If you’re invisible and you close your eyes, can you see through your eyelids?",
+  "Why do we press harder on a remote control when we know the batteries are dead?",
+  "If you steal a pen from a bank, is it considered a hold-up?",
+  "Why do we call it 'after dark' when it’s really 'after light'?",
+  "If you throw a cat out of a moving car, is it considered kitty litter?",
+  "Why do we call them 'apartments' when they’re all stuck together?",
+  "If you’re in a competition by yourself, do you come in first or last?",
+  "If you get out of the shower clean, how does your towel get dirty?",
+  "Why do we call it a 'hot water heater' when it’s already hot?",
+  "If you’re born at exactly midnight, which day do you celebrate your birthday?",
+  "If you dig a hole through the Earth and jump in, do you stay in the middle because of gravity?",
+  "Why do we say 'heads up' when we actually duck?",
+  "If you’re on a boat and it sinks, do you become a part of the sea?",
+  "Why do we call it 'taking a dump' when we’re actually leaving it?",
+  "If you eat yourself, do you become twice as big or disappear completely?",
+  "Why do we call it 'rush hour' when nothing moves?",
+  "If you’re in a spaceship traveling at the speed of light and you turn on the headlights, what happens?"
+];
+
 window.addEventListener("blur", () => {
- document.title = "Come Back 🥺";
-})
+  const randomThought = showerThoughts[Math.floor(Math.random() * showerThoughts.length)];
+  document.title = randomThought;
+});
+
  
 window.addEventListener("focus", () => {
  document.title = docTitle;
