@@ -2698,7 +2698,7 @@ footer:after {
 }
 
 ::selection {
-  background-color: goldenrod;
+  background-color: var(--accent-col);
   font-family: thin;
   /* back: #ffffff; */
   position: absolute;

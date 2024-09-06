@@ -368,7 +368,7 @@ document.addEventListener("DOMContentLoaded", function () {
      document.documentElement.style.setProperty('--bg-col', bgCol);
      document.documentElement.style.setProperty('--uielem-col', uicol);
      document.documentElement.style.setProperty('--alphacol', alphacol);
-     document.documentElement.style.setProperty('--glowcol', isDarkMode? 'var(--glowcol-dark)' : 'var(--glowcol-light)');
+     document.documentElement.style.setProperty('--accent-col', isDarkMode? 'var(--accent-col-dark)' : 'var(--accent-col-light)');
  
      // Update the button icon (you can keep your existing code)
    });
