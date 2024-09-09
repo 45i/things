@@ -2397,7 +2397,7 @@ img {
 .yellow-bar {
   background-color: var(--accent-col);
   border-radius: 6px 6px 0 0;
-  color: #1f1f1e;
+  color: var(--txtcolinv);
   font-family: kbd;
   text-transform: uppercase;
   width: 83vw;
@@ -2426,7 +2426,7 @@ img {
   content: '\007c Scrollable Content';
   background-color: var(--accent-col);
   border-radius: 6px 6px 0 0;
-  color: #1f1f1e7a;
+  color: var(--txtcolinv);
   font-family: kbd;
   white-space: nowrap;
   text-transform: uppercase;
@@ -2495,6 +2495,7 @@ pre code {
   padding: 2px;
   border-radius: 0 0 6px 6px;
   animation: dashv2 0.5s ease-in-out infinite alternate;
+  color: var(--txtcolinv);
 }
 
 @keyframes dashv2 {
@@ -2516,7 +2517,7 @@ pre code {
 .yellow-a {
   font-family: kbd;
   text-decoration: none;
-  color: #1f1f1e;
+  color: var(--txtcolinv);
   background-color: var(--accent-col);
   border-radius: 6px;
   padding: 3px;
@@ -2567,7 +2568,7 @@ h1 {
   border-radius: 6px 6px 0 0;
   background-color: var(--accent-col);
   line-height: normal;
-  color: #161615;
+  color: var(--txtcolinv);
 }
 
 /* Add your styles here */
