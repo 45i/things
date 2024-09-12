@@ -1664,11 +1664,11 @@ canvas {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   background-position: center;
-  -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-  transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-  -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-  transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-  transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -webkit-transition: -webkit-transform .7s ease-in-out;
+  transition: -webkit-transform .7s ease-in-out;
+  -o-transition: transform .7s ease-in-out;
+  transition: transform .7s ease-in-out;
+  transition: transform .7s ease-in-out, -webkit-transform .7s ease-in-out;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   text-align: center;
@@ -1722,11 +1722,11 @@ canvas {
 
 .container:hover .front,
 .container:hover .back {
-  -webkit-transition: -webkit-transform 1.7s cubic-bezier(0.4, 0.2, 0.2, 1);
-  transition: -webkit-transform 1.7s cubic-bezier(0.4, 0.2, 0.2, 1);
-  -o-transition: transform 1.7s cubic-bezier(0.4, 0.2, 0.2, 1);
-  transition: transform 1.7s cubic-bezier(0.4, 0.2, 0.2, 1);
-  transition: transform 1.7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform 1.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -webkit-transition: -webkit-transform 1.7s ease-in-out;
+  transition: -webkit-transform 1.7s ease-in-out;
+  -o-transition: transform 1.7s ease-in-out;
+  transition: transform 1.7s ease-in-out;
+  transition: transform 1.7s ease-in-out, -webkit-transform 1.7s ease-in-out;
 }
 
 .back {
@@ -2815,7 +2815,7 @@ bigassh1 {
   width: 50px;
   border: gray 2px solid;
   box-shadow: none;
-  transition: all 0.5s cubic-bezier(1, 0, 0, 1);
+  transition: all 0.5s ease-in-out;
   /* color: var(--txtcol); */
 
 }
@@ -2923,8 +2923,8 @@ footer {
 }
 
 .many-items button:hover {
-  background-color: var(--accent-col)
-  
+  background-color: var(--accent-col);
+  transition: background-color 0.5s ease-in-out;
 }
 
 .box .ext-btn {
