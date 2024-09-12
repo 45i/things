@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
         navbar.style.transform = `translateY(-${parseInt(computedHeight)}px)`;
         navig.style.transition = 'height 0.3s ease';
         navbar.style.left = '1.5vw';
-        navbar.style.width=navig.style.width;
+        // navbar.style.width=navig.style.width;
  
      } else {
         // menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
@@ -1556,12 +1556,12 @@ function updateAccentColors() {
         // Early Afternoon colors
         accentColorLight = '#FFA07A'; // Light Salmon
         accentColorDark = '#FF6347';  // Tomato
-        timeEmoji = '🌥️'; // Sun behind large cloud
+        timeEmoji = 'Good Afternoon!'; // Sun behind large cloud
     } else if (currentTime >= 15 && currentTime < 17) {
         // Mid Afternoon colors
         accentColorLight = '#FFB6C1'; // Light Pink
         accentColorDark = '#DC143C';  // Crimson
-        timeEmoji = '🌦️'; // Sun behind rain cloud
+        timeEmoji = 'Good Afternoon!'; // Sun behind rain cloud
     } else if (currentTime >= 17 && currentTime < 19) {
         // Late Afternoon colors
         accentColorLight = '#FF69B4'; // Hot Pink
@@ -1586,7 +1586,7 @@ function updateAccentColors() {
 
     document.documentElement.style.setProperty('--accent-col-light', accentColorDark);
     document.documentElement.style.setProperty('--accent-col-dark', accentColorLight);
-    document.documentElement.style.setProperty('--time-emoji', `"${timeEmoji}"`);
+    document.documentElement.style.setProperty('--time-emoji', `"${new Date().toString().split(' ')[4]}"`);
     const isDarkMode = document.body.classList.contains('dark-mode');
     document.documentElement.style.setProperty('--accent-col', isDarkMode? 'var(--accent-col-dark)' : 'var(--accent-col-light)');
     
