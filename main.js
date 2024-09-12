@@ -256,14 +256,16 @@ document.addEventListener("DOMContentLoaded", function () {
      console.log(height);
      if (icon.classList.contains('open')) {
         var computedHeight = window.getComputedStyle(navbar).height;
+        var computedWidth = window.getComputedStyle(navbar).width;
         const newHeight = `${parseInt(computedHeight)}px`;
         navig.style.height = newHeight;
+        // navig.style.width = `calc(90vw-50px)`;
         console.log(newHeight);
         // menuIcon.style.transform="";
         // menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
-        menuIcon.style.transform = `translateY(${parseInt(computedHeight) + 10}px) translateX(calc(0px)) rotateZ(180deg)`;
+        menuIcon.style.transform = `translateY(${parseInt(computedHeight)+5}px) translateX(0) rotateZ(180deg)`;
         navig.style.transition = 'height 0.3s ease-in-out,width 0.5s ease-in-out';
-        menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.2s cubic-bezier(0.0025, 0.82, 0.165, 1)';
+        menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.2s ease-in-out';
         // menuIcon.style.backdropFilter='blur(10px)';
         // menuIcon.style.backgroundColor = 'black';
         if (navig.classList.contains('collapse')) {
@@ -273,10 +275,12 @@ document.addEventListener("DOMContentLoaded", function () {
         navbar.style.transform = `translateY(-${parseInt(computedHeight)}px)`;
         navig.style.transition = 'height 0.3s ease';
         navbar.style.left = '1.5vw';
+        navbar.style.width=navig.style.width;
  
      } else {
         // menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
         navig.style.height = `max-content`; // Revert to the original height
+        navig.style.width = `90vw`;
         navbar.style.transform = `none`;
         menuIcon.style.transform = `none`;
         // menuIcon.style.backgroundColor='transparent';
@@ -1522,3 +1526,76 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+function updateAccentColors() {
+    const root = document.documentElement;
+    const currentTime = new Date().getHours();
+
+    let accentColorLight, accentColorDark, timeEmoji;
+
+    if (currentTime >= 5 && currentTime < 7) {
+        // Early Morning colors
+        accentColorLight = '#FFDDC1'; // Light Coral
+        accentColorDark = '#FF8C00';  // Dark Orange
+        timeEmoji = '🌅'; // Sunrise
+    } else if (currentTime >= 7 && currentTime < 9) {
+        // Morning colors
+        accentColorLight = '#FFE4B5'; // Moccasin
+        accentColorDark = '#FFA500';  // Orange
+        timeEmoji = '☀️'; // Sun with rays
+    } else if (currentTime >= 9 && currentTime < 11) {
+        // Late Morning colors
+        accentColorLight = '#FFDAB9'; // Peach Puff
+        accentColorDark = '#FF7F50';  // Coral
+        timeEmoji = '🌤️'; // Sun behind small cloud
+    } else if (currentTime >= 11 && currentTime < 13) {
+        // Midday colors
+        accentColorLight = '#FFD700'; // Gold
+        accentColorDark = '#FF4500';  // Orange Red
+        timeEmoji = '🌞'; // Sun
+    } else if (currentTime >= 13 && currentTime < 15) {
+        // Early Afternoon colors
+        accentColorLight = '#FFA07A'; // Light Salmon
+        accentColorDark = '#FF6347';  // Tomato
+        timeEmoji = '🌥️'; // Sun behind large cloud
+    } else if (currentTime >= 15 && currentTime < 17) {
+        // Mid Afternoon colors
+        accentColorLight = '#FFB6C1'; // Light Pink
+        accentColorDark = '#DC143C';  // Crimson
+        timeEmoji = '🌦️'; // Sun behind rain cloud
+    } else if (currentTime >= 17 && currentTime < 19) {
+        // Late Afternoon colors
+        accentColorLight = '#FF69B4'; // Hot Pink
+        accentColorDark = '#C71585';  // Medium Violet Red
+        timeEmoji = '🌇'; // Sunset
+    } else if (currentTime >= 19 && currentTime < 21) {
+        // Early Evening colors
+        accentColorLight = '#B0C4DE'; // Light Steel Blue
+        accentColorDark = '#4682B4';  // Steel Blue
+        timeEmoji = '🌆'; // Cityscape at dusk
+    } else if (currentTime >= 21 && currentTime < 23) {
+        // Night colors
+        accentColorLight = '#778899'; // Light Slate Gray
+        accentColorDark = '#2F4F4F';  // Dark Slate Gray
+        timeEmoji = '🌙'; // Moon
+    } else {
+        // Late Night colors
+        accentColorLight = '#708090'; // Slate Gray
+        accentColorDark = '#1C1C1C';  // Very Dark Gray
+        timeEmoji = '🌌'; // Milky Way
+    }
+
+    document.documentElement.style.setProperty('--accent-col-light', accentColorDark);
+    document.documentElement.style.setProperty('--accent-col-dark', accentColorLight);
+    document.documentElement.style.setProperty('--time-emoji', `"${timeEmoji}"`);
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    document.documentElement.style.setProperty('--accent-col', isDarkMode? 'var(--accent-col-dark)' : 'var(--accent-col-light)');
+    
+
+}
+
+// Update colors and emoji immediately and then every hour
+
+
+// Update colors immediately and then every hour
+updateAccentColors();
+setInterval(updateAccentColors, 1); // 1 ms = 1 hour

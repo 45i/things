@@ -4,52 +4,39 @@
   }
 }
 
+
 :root {
-  /* Define CSS custom properties (variables) for colors and fonts */
+  /* Existing variables */
   --bg-col: #262624;
-  /* Background color for dark mode */
   --bg-col-light: #fff5e8;
-  /* Background color for light mode */
-  /* Off-whitish shade for light mode */
   --bg-col-dark: #262624;
-  /* Background color for dark mode */
 
   --txtcol: #fff5e8;
-  /* Text color for dark mode */
   --txtcol-light: #262624;
-  /* Text color for light mode */
   --txtcol-dark: #fff5e8;
-  /* Text color for dark mode */
   --txtcolinv: #262624;
-  /* Text color inverse for dark mode */
 
   --uielem-col: #111;
-  /* UI element color for dark mode */
   --uielem-col-light: rgb(224, 212, 199);
-  /* UI element color for light mode */
   --uielem-col-dark: #111;
-  /* UI element color for dark mode */
 
   --button-bg: url(darkmode.png);
-  /* Button background image for dark mode */
   --modebuttoncol: wheat;
-  /* Color for mode button text */
   --transitioncol: rgba(0, 46, 101, 1);
-  /* Color for transition effects */
 
   --heavyfont: url("Futura\ Extra\ Black\ Condensed\ BT.ttf");
-  /* Font for heavy text */
   --alphacol: #fff5e829;
   --alphacol-light: #2626263c;
   --alphacol-dark: #fff5e829;
 
-  --accent-col:#0b6bb8;
-  --accent-col-dark:#0b6bb8;
-  --accent-col-light: #052946;
+  /* Updated accent colors */
+  --accent-col: #008080; /* Teal for dark mode */
+  --accent-col-dark: #008080; /* Amber for dark mode */
+  --accent-col-light: #40E0D0; /* Coral for light mode */
 
-
-
+  --time-emoji: '🕒';
 }
+
 
 @font-face {
   font-family: st;
@@ -1110,7 +1097,7 @@ h2 {
   transition: all 0.5s ease, border-radius 0.5s ease-in-out;
   /* box-shadow: inset 0 4px 8px #000000; */
   background: #20201f92;
-
+  /* width: 2px; */
   backdrop-filter: blur(10px);
 }
 
@@ -1163,13 +1150,12 @@ h2 {
   /* background: transparent;
  backdrop-filter: blur(0px); */
   /* backdrop-filter: none; */
-  background: transparent;
+  /* background: transparent; */
   /* backdrop-filter:none; */
 }
 
 .navig.clicked {
-  width: 90vw;
-  width: 80px;
+  
   /* border-radius: 36px 36px 0px 36px; */
 
   /* height: 80px; */
@@ -1180,13 +1166,13 @@ h2 {
 }
 
 .navig.open .icdown {
-  background: #20201f92;
+  background-color: #20201f85;
   backdrop-filter: blur(10px);
-  padding: 2px 20px;
-  opacity: 100%;
+  padding:  7px 20px 20px 20px;
+  /* opacity: 100%; */
   /* z-index: 10; */
   /* position: fixed; */
-  border-radius: 26px;
+  border-radius: 36px;
   height: 52px;
   border: lightslategray 1px solid;
   /* transform: translateX(); */
@@ -2926,16 +2912,19 @@ footer {
 .ghost-poof {
 
 
-  box-shadow: 0 0 1000px 200px var(--accent-col);
+  box-shadow: 0 0 1000px 100px var(--accent-col);
   transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
   background-color: var(--accent-col);
   border: none;
-  /* content: hi; */
-
+}
+.ghost-poof::before {
+    content: var(--time-emoji);
+    font: 1.2em;
 }
 
-.many-items {
-  /* background-color: */
+.many-items button:hover {
+  background-color: var(--accent-col)
+  
 }
 
 .box .ext-btn {
