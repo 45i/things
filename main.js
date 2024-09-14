@@ -273,14 +273,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         // Get the computed height of .navig
         navbar.style.transform = `translateY(-${parseInt(computedHeight)}px)`;
-        navig.style.transition = 'height 0.3s ease';
+        // navig.style.transition = 'height 0.3s ease';
         navbar.style.left = '1.5vw';
         // navbar.style.width=navig.style.width;
  
      } else {
         // menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
         navig.style.height = `max-content`; // Revert to the original height
-        navig.style.width = `90vw`;
+        // navig.style.width = `90vw`;
         navbar.style.transform = `none`;
         menuIcon.style.transform = `none`;
         // menuIcon.style.backgroundColor='transparent';

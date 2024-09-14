@@ -132,6 +132,7 @@
     text-decoration-color: var(--accent-col);
     text-decoration-thickness: 2px;
     text-underline-offset: 2px;
+    padding: 2px;
   }
 
 
@@ -258,7 +259,8 @@ body {
   display: inline-block;
   font-family: kbd;
   min-width: 21px;
-  padding: 0 4px;
+  margin:  4px;
+  padding:  4px 0px;
   line-height: 1.5;
   text-align: center;
   background-color: #64646446;
@@ -2514,7 +2516,7 @@ pre code {
 }
 
 .yellow-a:hover {
-  /* box-shadow: 0 0 4px var(--accent-col); */
+  box-shadow: 0 0 20px var(--accent-col);
   z-index: 100;
 }
 
@@ -2522,13 +2524,14 @@ pre code {
   content: ' \2192';
   padding: 2px;
   z-index: 10;
+  
   transition: all 0.5s ease;
 }
 
 .yellow-a::after {
   content: ' \2197';
   transition: all 0.5s ease-in-out;
-
+  padding: 2px;
 }
 
 .hljs {
