@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const newHeight = `${parseInt(computedHeight)}px`;
           const newWidth = `${parseInt(window.getComputedStyle(menuIcon).width)}px`;
           navig.style.height = newHeight;
-          navig.style.width = `calc(90vw - ${newWidth} - 3vw)`;
+          navig.style.width = `calc(90vw - 52px + 2.5%)`;
           navig.style.transform = `translateX(5%) translateY(10px)`;
           menuIcon.style.height= newHeight;
           // menuIcon.style.width = `52px`;
@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // navig.style.border = `1px 1px 0px 1px solid lightslategray`
           // menuIcon.style.border = `0px 1px 1px 1px solid lightslategray`
           menuIcon.innerHTML = '<i class="fas fa-caret-up"></i>';
-          menuIcon.style.transform = `translateY(0px) translateX(calc(${newWidth} + 124%))`;
+          menuIcon.style.transform = `translateY(0px) translateX(calc( 52px + 50%))`;
           navig.style.transition = 'height 0.5s ease-in-out,width 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out, border-radius 0.9s ease-in-out';
           menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.5s ease-in-out, border-radius 0.9s ease-in-out';
           // menuIcon.style.backdropFilter='blur(10px)';
@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", function () {
           navbar.style.transform = `translateY(-${parseInt(computedHeight)}px)`;
           // navig.style.transition = 'height 0.3s ease';
           navbar.style.left = '1vw';
-          navbar.style.width = `calc(87vw - 3.5vw)`;
+          navbar.style.width = `calc(90vw - 52px + 2.5% - 3.5vw)`;
           // const navbar = document.getElementById('navbar');
 
 
@@ -312,12 +312,19 @@ document.addEventListener("DOMContentLoaded", function () {
           menuIcon.style.height=`52px`;
           // menuIcon.style.width=`52px`;
           navig.style.transform = `translateX(5%) translateY(10px)`;
+          if (navig.classList.contains('collapse')) {
+          navig.style.transform=`translateX(-85%)translateY(12%)`;
+          }
+          if (navig.classList.contains('collapse')) {
+            navig.classList.toggle('collapse');
+          }
 
           navbar.style.transform = `none`;
           menuIcon.style.transform = `none`;
           // menuIcon.style.backgroundColor='transparent';
           navig.style.transition = 'height 0.5s ease-in-out,width 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out, border-radius 0.9s ease-in-out';
           menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.5s ease-in-out, border-radius 0.9s ease-in-out';
+          // damn();
         }
         menuIcon.classList.toggle('bx-x');
         navbar.classList.toggle('open');
@@ -351,7 +358,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
       }
-      closeButton.addEventListener('click', function () {
+      closeButton.addEventListener('click', function damn() {
         if (!navbar.classList.contains('open')) {
           navig.classList.toggle('collapse');
 
@@ -359,7 +366,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (navig.classList.contains('collapse')) {
 
           navig.style.width = `fit-content`;
-
+          navig.style.transition=`all 0.5s ease-in-out`;
           closeButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
           closeButton.style.transform = "rotateZ(0deg)";
           // closeButton.style.transition="transform 0.5s ease-in-out"

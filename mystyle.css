@@ -43,7 +43,7 @@
  
 @font-face {
  font-family: st;
- src: url(SFPRODISPLAYMEDIUM.OTF);
+ src: url(Groteskly\ Yours\ -\ Okta\ Neue\ UltraLight.otf);
 }
  
 @font-face {
@@ -70,7 +70,7 @@
  
 @font-face {
  font-family: graffiti-light;
- src: url(SFPRODISPLAYMEDIUM.OTF);
+ src: url(Groteskly\ Yours\ -\ Okta\ Neue\ UltraLight.OTF);
 }
  
 @font-face {
@@ -95,7 +95,7 @@
  
 @font-face {
  font-family: medium;
- src: url(medium.OTF);
+ src: url(Groteskly\ Yours\ -\ Okta\ Neue\ UltraLight.OTF);
 }
  
 @font-face {
@@ -1097,7 +1097,7 @@ h2 {
 .navig .close-btn,
 .navig .logo,
 .navig .icdown {
- color: white;
+ color: var(--txtcol);
 }
  
 .navig.open {
@@ -1223,19 +1223,22 @@ h2 {
  /* opacity: -0.95; */
  background: var(--uielem-col);
  transition: all 0.7s ease;
+ box-shadow: 0 0 0px var(--accent-col);
+ transform: translateX(12%) translateY(12%) !important; 
 }
  
 .navig.collapse {
- background: #1616154d;
+ background: #16161586;
  
  width: fit-content;
  
  height: max-content;
+ max-height: 140px;
  /* height: fit-content; */
- border: none;
- box-shadow: none;
+ border: 2px solid var(--accent-col);
+ box-shadow: 0 0 60px 2px var(--accent-col);
  border-radius: 16px;
- transform: translateX(12%)translateY(12%);
+ transform: translateX(-85%)translateY(12%) !important;
  transition: all 0.7s ease;
  
  backdrop-filter: blur(5px);
@@ -2882,7 +2885,7 @@ bigassh1 {
  
 .colormode {
  background-image: none;
- color: white;
+ color: var(--txtcol);
  
  background-color: rgba(0, 132, 220, 0);
  /* Adjust the last value (0.7) for opacity */
