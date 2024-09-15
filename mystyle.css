@@ -2942,12 +2942,14 @@ footer {
  transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
  background-color: var(--accent-col);
  border: none;
+ position: sticky;
+ 
 }
  
 .ghost-poof::before {
  content: var(--time-emoji);
  font: 1.2em;
- color: #00000085;
+ color: var(--txtcolinv);
  font-weight: bolder;
 }
  
