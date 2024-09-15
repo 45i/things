@@ -269,16 +269,17 @@ document.addEventListener("DOMContentLoaded", function () {
           var computedWidth = window.getComputedStyle(navbar).width;
           const newHeight = `${parseInt(computedHeight)}px`;
           const newWidth = `${parseInt(window.getComputedStyle(menuIcon).width)}px`;
-          navig.style.maxHeight = newHeight;
+          navig.style.height = newHeight;
           navig.style.width = `calc(90vw - ${newWidth} - 2vw)`;
-          navig.style.transform = `translateX(1.5vw) translateY(10px)`;
-
+          navig.style.transform = `translateX(5%) translateY(10px)`;
+          menuIcon.style.height= newHeight;
+          // menuIcon.style.width = `52px`;
           //console.log(newHeight);
           // menuIcon.style.transform="";
-          // menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
-          menuIcon.style.transform = `translateY(0px) translateX(calc(${newWidth} + 130%)) rotateZ(180deg)`;
-          navig.style.transition = 'max-height 0.3s ease-in-out,width 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out';
-          menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.5s ease-in-out';
+          menuIcon.innerHTML = '<i class="fas fa-chevron-up"></i>';
+          menuIcon.style.transform = `translateY(0px) translateX(calc(${newWidth} + 120%))`;
+          navig.style.transition = 'height 0.5s ease-in-out,width 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out, border-radius 0.5s ease-in-out';
+          menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.5s ease-in-out, border-radius 0.5s ease-in-out';
           // menuIcon.style.backdropFilter='blur(10px)';
           // menuIcon.style.backgroundColor = 'black';
           if (navig.classList.contains('collapse')) {
@@ -303,17 +304,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         } else {
-          // menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
-          navig.style.maxHeight = `max-content`; // Revert to the original height
+          menuIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
+          navig.style.height = `max-content`; // Revert to the original height
           navig.style.width = `90vw`;
-
+          menuIcon.style.height=`52px`;
+          // menuIcon.style.width=`52px`;
           navig.style.transform = `translateX(5%) translateY(10px)`;
 
           navbar.style.transform = `none`;
           menuIcon.style.transform = `none`;
           // menuIcon.style.backgroundColor='transparent';
-          navig.style.transition = 'max-height 0.3s ease-in-out,width 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out';
-          menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.5s ease-in-out';
+          navig.style.transition = 'height 0.5s ease-in-out,width 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out, border-radius 0.5s ease-in-out';
+          menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.5s ease-in-out, border-radius 0.5s ease-in-out';
         }
         menuIcon.classList.toggle('bx-x');
         navbar.classList.toggle('open');
