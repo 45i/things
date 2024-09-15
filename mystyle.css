@@ -1182,7 +1182,7 @@ h2 {
     border-radius: 36px;
 }
 .navig.open .icdown {
- background-color: #20201f85;
+ background-color: var(--bg-col);
  backdrop-filter: blur(10px);
  display: flex;
  justify-content: center;
