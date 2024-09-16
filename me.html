@@ -91,7 +91,7 @@
                               <br>
                               <center class="">
                                    <div class="discord_card">
-                                   <img src="" class="discord_card_avatar wider-text">
+                                   <img src="" class="discord_card_avatar ">
                                    <div>
                                         <div class="discord_card_header"></div>
                                         <div class="single_line card_holder">
@@ -102,8 +102,8 @@
                                         <div class="discord_card_status"></div>
                                         <div class="single_line activities">
                                              <div class="discord_card_activities"></div>
-
                                              <div class="discord_card_spotify"></div>
+
                                         </div>
                                         <!-- <br> -->
                                         <a href="https://discord.com/users/1123896290024108093" target="_blank" class="small-a discord_button">Say Hi!</a>
@@ -135,7 +135,15 @@
                                                        "idle": "var(--statusCol-idle)",
                                                        "offline": "var(--statusCol-offline)"
                                                   };
+                                                  const statusIcons = {
+                                                       "online": "var(--statusSYM-online)",
+                                                       "dnd": "var(--statusSYM-dnd)",
+                                                       "idle": "var(--statusSYM-idle)",
+                                                       "offline": "var(--statusSYM-offline)"
+                                                  };
                                                   document.documentElement.style.setProperty("--statusCol", statusColors[data.data.discord_status]);
+                                                  document.documentElement.style.setProperty("--statusSYM", statusIcons[data.data.discord_status]);
+                                                  document.documentElement.style.setProperty("--bg-img",`url(https://cdn.discordapp.com/avatars/${data.data.discord_user.id}/${data.data.discord_user.avatar}.png?size=1024)`)
 
                                                   if (data.data.activities.length > 0) {
                                                        data.data.activities.forEach(activity => {
@@ -168,7 +176,7 @@
                                              });
                                    }
                                    updateDiscordInfo();
-                                   setInterval(updateDiscordInfo, 1 * 1000);
+                                   setInterval(updateDiscordInfo, 1 );
                               </script>
                          </div>
                     </div>
