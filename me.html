@@ -102,12 +102,13 @@
                                                   <div class="discord_card_username"></div>
 
                                                   <div class="uid"></div>
-                                                  <div class="symbol"><i class="sym fas gg"></i></div>
+                                                  <div class="symbol"><i class="sym fas fa-cog"></i></div>
                                              </div>
                                              <div class="discord_card_status"></div>
                                              <div class="single_line activities">
                                                   <div class="discord_card_activities"></div>
                                                   <div class="discord_card_spotify"></div>
+                                                  <div class="artistinfo"></div>
 
                                              </div>
                                              <!-- <br> -->
@@ -131,6 +132,7 @@
                                                   const status = document.getElementsByClassName("discord_card_status")[0];
                                                   const activities = document.getElementsByClassName("discord_card_activities")[0];
                                                   const spotify = document.getElementsByClassName("discord_card_spotify")[0];
+                                                  const artist = document.getElementsByClassName("artistinfo")[0];
 
                                                   avatar.src = `https://cdn.discordapp.com/avatars/${data.data.discord_user.id}/${data.data.discord_user.avatar}.png?size=1024`;
                                                   username.innerHTML = `${data.data.discord_user.global_name}`;
@@ -143,16 +145,19 @@
                                                   };
                                                   const statusIcons = {
                                                        "online": "fa-circle",
-                                                       "dnd": "fa-circle-dot",
+                                                       "dnd": "fa-minus-circle",
                                                        "idle": "fa-moon",
                                                        "offline": "fa-circle"
                                                   };
                                                   const sym = document.getElementsByClassName("sym")[0];
-                                                  sym.classList.remove(sym.classList.item(sym.classList.length - 1));
-                                                  sym.classList.add(statusIcons[data.data.discord_status]);
+                                                  const newIcon = statusIcons[data.data.discord_status];
+                                                  if (sym.classList.item(sym.classList.length - 1) !== newIcon) {
+                                                      sym.classList.remove(sym.classList.item(sym.classList.length - 1));
+                                                      sym.classList.add(newIcon);
+                                                  }
                                                   document.documentElement.style.setProperty("--statusCol", statusColors[data.data.discord_status]);
-
-                                                  document.documentElement.style.setProperty("--bg-img", `url(https://cdn.discordapp.com/avatars/${data.data.discord_user.id}/${data.data.discord_user.avatar}.png?size=1024)`)
+                                                  
+                                                  
 
                                                   if (data.data.activities.length > 0) {
                                                        data.data.activities.forEach(activity => {
@@ -170,8 +175,12 @@
 
                                                   if (data.data.spotify !== null) {
                                                        spotify.innerText = `Listening to: ${data.data.spotify.song}`;
+                                                       artist.innerText=`Artist: ${data.data.spotify.artist}`;
+                                                       artist.classList.remove('invis')
                                                   } else {
                                                        spotify.innerText = "Not listening to Spotify";
+                                                       artist.innerText=``;
+                                                       artist.classList.add('invis')
                                                   }
 
                                                   // card.appendChild(avatar);
@@ -182,10 +191,11 @@
                                                   this.parentNode.insertBefore(status, this.nextSibling);
                                                   this.parentNode.insertBefore(activities, this.nextSibling);
                                                   this.parentNode.insertBefore(spotify, this.nextSibling);
+                                                  this.parentNode.insertBefore(artist, this.nextSibling);
                                              });
                                    }
                                    updateDiscordInfo();
-                                   setInterval(updateDiscordInfo, 1);
+                                   setInterval(updateDiscordInfo, 1000);
                               </script>
                          </div>
                     </div>

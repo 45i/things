@@ -33,7 +33,7 @@
     /* Idle */
     --statusSYM-offline: '⚪';
 
-    --bg-img: none;
+    --artist-info: none;
     /* Offline */
 
 }
@@ -70,7 +70,7 @@
     object-fit: cover;
     border-radius: 152px;
     border: 4px solid var(--statusCol);
-    box-shadow: 0 0 60px 10px var(--statusCol);
+    filter: drop-shadow(1px 1px 60px var(--statusCol));
     position: absolute;
     left: 20px;
 }
@@ -175,7 +175,7 @@
     border-radius: 6px;
     max-width: 100%;
     position: absolute;
-    bottom: 70px;
+    bottom: 90px;
     height: 40px !important;
     width: 109px !important;
     right: 20px;
@@ -200,7 +200,7 @@
 .activities {
     height: 40px;
     position: absolute;
-    bottom: 20px;
+    bottom: 40px;
     right: 20px;
     /* border: #F04747 2px solid; */
     width: max-content;
@@ -234,12 +234,18 @@
     }
 
     .sym {
-        
+        background: var(--statusCol);
+        -webkit-background-clip: text;
+        font-size: large;
+        -webkit-text-fill-color: transparent;
         font-size: 30px;
         /* color: var(--statusCol); */
+        position: absolute;
+        left: -50%;
         z-index: 100;
         width: 30px;
         height: 30px;
+        filter: drop-shadow(1px 1px 60px var(--statusCol));
         /* border: var(--statusCol) 2px solid; */
     }
 
@@ -255,17 +261,25 @@
     }
 
 
-    .uid {
+    .uid,.symbol {
         position: absolute;
         /* font-size: 59px; */
         /* transform: translateY(300%) translateX(calc(-12.5 / 100 * 85vw)); */
         left: 10px;
         top: 49px;
     }
+    .symbol{
+        
+        left: 257px;
+        top: 47px;
+        border: none !important;
+        filter: drop-shadow(1px 1px 60px  var(--statusCol));
+
+    }
 
     .activities {
         position: absolute;
-        bottom: 20px;
+        bottom: 40px;
         right: 20px;
         padding: none;
         /* border: #F04747 2px solid; */
@@ -274,12 +288,47 @@
 
     .discord_button {
         transform: scale(1.5) !important;
-        position: inherit;
-        /* bottom: 35px; */
+        position: absolute;
+        right: 50px;
+        bottom: 95px;
 
     }
 
     .discord_card {
         /* background: var(--bg-img) #00000081;  */
     }
+}
+
+.discord_card_spotify::after {
+    content: var(--artist-info);
+}
+
+.artistinfo {
+    /* border: #F04747 2px solid; */
+    width: 70%;
+    position: absolute;
+    bottom: -35px;
+    right: 2.5px;
+    height: 30px;
+    color: var(--txtcolinv);
+    font-family: graffiti-bold;
+    font-size: 7px;
+    font-weight: 600;
+    background-color: var(--alphacol);
+    border-radius: 10px;
+    width: 60%;
+
+    padding: 5px;
+    /* max-width: 50%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: var(--accent-col) 2px solid;
+
+
+}
+
+.invis {
+    display: none;
 }
