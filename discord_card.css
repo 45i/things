@@ -1,0 +1,209 @@
+:root {
+    --accent-coldsc: #5865F2;
+    /* Discord Blurple */
+    --accent-coldsc-dark: #5865F2;
+    /* Darker Blurple */
+    --accent-coldsc-light: #5971c8;
+    /* Lighter Blurple */
+
+    --accent-col: #2C2F33;
+    /* Dark but not Black */
+    --accent-col-dark: #2C2F33;
+    /* Not Quite Black */
+    --accent-col-light: #2b2b2b;
+    /* Greyple */
+
+    --statusCol: #43B581;
+    /* Online */
+    --statusCol-online: #43B581;
+    /* Online */
+    --statusCol-dnd: #F04747;
+    /* Do Not Disturb */
+    --statusCol-idle: #FAA61A;
+    /* Idle */
+    --statusCol-offline: #747F8D;
+    /* Offline */
+
+}
+
+.discord_card {
+    width: 85vw;
+    /* min-width: 439.2px; */
+    max-width: 796px;
+    height: 228px;
+    padding: 20px;
+    background-color: var(--accent-coldsc);
+    transform-origin: left center;
+    /* transform: translateX(9.5%); */
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    /* position: relative; */
+    /* box-shadow: 0 0 60px var(--accent-coldsc); */
+    transition: background 0.3s ease-out;
+    overflow: hidden;
+}
+
+
+.discord_card_avatar {
+    width: 152px;
+    height: 152px;
+    /* max-width: 12vw; */
+    object-fit: cover;
+    border-radius: 152px;
+    border: 4px solid var(--statusCol);
+    box-shadow: 0 0 60px 10px var(--statusCol);
+}
+
+.discord_card_username {
+    color: var(--txt-col);
+    font-family: graffiti-bold;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.discord_card_activities,
+.discord_card_activity {
+    color: var(--txtcol);
+    font-family: graffiti-bold;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #99AAB5;
+}
+
+.discord_card_activities {
+    background-color: var(--accent-col);
+    border-radius: 10px;
+    padding: 5px;
+    /* max-width: 50%; */
+    /* border: 10px solid var(--txtcolinv); */
+    text-align: center;
+    border-radius: 10px 0 0 10px;
+    color: #99AAB5;
+}
+
+.discord_card_spotify, .discord_button {
+    color: var(--txtcolinv);
+    font-family: graffiti-bold;
+    font-size: 10px;
+    font-weight: 600;
+    background-color: var(--alphacol);
+    border-radius: 0 10px 10px 0;
+    padding: 5px;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: var(--accent-col) 2px solid;
+    
+    /* white-space: nowrap; */
+}
+
+.uid {
+    transform: translateY(25%);
+    /* overflow: visible; */
+    font-size: medium;
+    color: #99aab5;
+    font-family: kbd;
+    /* font-size: 30px; */
+    /* font-weight: 600; */
+
+}
+
+.single_line , .card_holder{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.uid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    text-shadow: none;
+    padding: 2px;
+    height: fit-content;
+    border-radius: 4px;
+    background-color: var(--accent-col);
+    opacity: 75%;
+    transform: translateX(25%) translateY(25%);
+    /* border: 4px solid var(--statusCol);
+    box-shadow: 0 0 40px var(--statusCol); */
+}
+
+*{
+    transition: background 0.3s ease-out;
+}
+.discord_button{
+    border-radius: 10px;
+    white-space: nowrap;
+    padding: none;
+    max-width: 100%;
+}
+.discord_button:hover{
+    transform: scale(1) !important;
+
+}
+.small-a{
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    text-shadow: none;
+    text-decoration: none;
+   
+}
+.card_holder{
+    width: calc(25 / 100 * 85vw);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+@media (max-width: 1090px) {
+ 
+ .card_holder{
+
+    transform: translateY(-57px) translateX(calc(-25 / 100 * 85vw));
+
+ }
+ .discord_card_username{
+    font-size: 69px;
+    position: absolute;
+    /* transform-origin: left center ; */
+    /* transform: translateX(calc(12.5 / 100 * 85vw)); */
+    left: calc(-12.5 / 100 * 85vw);
+    top: -40px;
+    
+    /* border: 1px solid red; */
+ }
+ .uid{
+    position: absolute;
+    /* font-size: 59px; */
+        /* transform: translateY(300%) translateX(calc(-12.5 / 100 * 85vw)); */
+    left: calc(-12.5 / 100 * 85vw);
+    top: 29px;
+ }
+ .activities{
+    position: absolute;
+    bottom: 40px;
+    right: 2px;
+    padding: none;
+    width: max-content;
+ }
+}

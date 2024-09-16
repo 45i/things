@@ -1164,6 +1164,7 @@ h2 {
  /* background: transparent; */
  justify-content: center;
  align-content: center;
+ color: var(--accent-col);
  /* backdrop-filter:none; */
 }
  
@@ -2987,4 +2988,34 @@ footer {
 .icdown{
     font-size: medium;
     text-align: center;
+}
+.namedrop{
+
+    background-color: #0000004c;
+    background: #0000004c;
+    backdrop-filter: blur(120px);
+    transform: translateX(0%) translateY(0);
+    transition: transform 0.3s ease-in-out;
+}
+.namedrop:hover{
+    /* background-color: var(--accent-col); */
+    transform: translateX(0%) translateY(0) scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+.namedrop:hover::after{
+    /* background-color: var(--accent-col); */
+    content: attr(name);
+    position: absolute;
+    bottom: -1.2em;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    transition: transform 0.3s ease-in-out;
+    white-space: nowrap;
+    border-radius: 6px;
+    padding: 4px;
+    background-color: #0000004c;
+    background: #0000004c;
+    backdrop-filter: blur(120px);
+    border: 1px solid var(--accent-col);
+
 }

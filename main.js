@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", function () {
           navbar.style.transform = `translateY(-${parseInt(computedHeight)}px)`;
           // navig.style.transition = 'height 0.3s ease';
           navbar.style.left = '1vw';
-          navbar.style.width = `calc(90vw - 52px + 2.5% - 3.5vw)`;
+          navbar.style.width = `calc(90vw - 52px + 5% - 3.5vw)`;
           // const navbar = document.getElementById('navbar');
 
 
