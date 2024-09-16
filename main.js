@@ -1641,3 +1641,5 @@ function updateAccentColors() {
 // Update colors immediately and then every hour
 updateAccentColors();
 setInterval(updateAccentColors, 1); // 1 ms = 1 hour
+
+

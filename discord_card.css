@@ -23,6 +23,16 @@
     /* Idle */
     --statusCol-offline: #747F8D;
 
+    --statusSYM: '🟢';
+    /* Online */
+    --statusSYM-online: '🟢';
+    /* Online */
+    --statusSYM-dnd: '🔴';
+    /* Do Not Disturb */
+    --statusSYM-idle: '🟠';
+    /* Idle */
+    --statusSYM-offline: '⚪';
+
     --bg-img: none;
     /* Offline */
 
@@ -203,17 +213,35 @@
     justify-content: center;
 }
 
+.symbol {
+    display: none;
+}
+
 @media (max-width: 676px) {
 
     .discord_card_avatar {
         display: none;
     }
 
-    /* .card_holder {
+    .symbol {
+        display: block;
+        /* border: yellow 10px solid; */
+        position: absolute;
+        top: 60px;
+        z-index: 100;
+        width: 30px;
+        height: 30px;
+    }
 
-        transform: translateY(-57px) translateX(calc(-25 / 100 * 85vw));
-
-    } */
+    .sym {
+        
+        font-size: 30px;
+        /* color: var(--statusCol); */
+        z-index: 100;
+        width: 30px;
+        height: 30px;
+        /* border: var(--statusCol) 2px solid; */
+    }
 
     .discord_card_username {
         font-size: 69px;
@@ -225,6 +253,7 @@
 
         /* border: 1px solid red; */
     }
+
 
     .uid {
         position: absolute;

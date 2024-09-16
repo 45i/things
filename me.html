@@ -24,7 +24,7 @@
           width: fit-content;
           max-width: 90vw;
           overflow: wrap;
-          width: 90vw;
+          width: 65vw;
           max-width: 90vw;
           justify-items: center;
           justify-content: center;
@@ -45,6 +45,10 @@
           padding: 10px;
           text-align: center;
           align-content: center;
+          max-height: 75vh;
+          overflow-y: scroll;
+          overflow-x: hidden;
+          scrollbar-width: none;
           /* padding: none; */
      }
 
@@ -73,7 +77,7 @@
 
 
                <div class="post-right">
-                    <div class="post-right_body" style="">
+                    <div class="post-right_body" style="width: 85vw;">
                          <div class=""><br>
                               <h1><strong
                                         style="color: var(--txtcol);font-size: clamp(20px,10vw, 90px); line-height: 10vh">About
@@ -85,30 +89,32 @@
                               programmer
                               and
                               music lover.<br>
-                              I also dabble in 3D art and rough sketching, but only when I go through creative
+                              I also dabble in 3D art and rough sketching, but only when I go through creativ
                               outbursts.
                               <br>
                               <br>
                               <center class="">
                                    <div class="discord_card">
-                                   <img src="" class="discord_card_avatar ">
-                                   <div>
-                                        <div class="discord_card_header"></div>
-                                        <div class="single_line card_holder">
-                                             <div class="discord_card_username"></div>
+                                        <img src="" class="discord_card_avatar ">
+                                        <div>
+                                             <div class="discord_card_header"></div>
+                                             <div class="single_line card_holder">
+                                                  <div class="discord_card_username"></div>
 
-                                             <div class="uid"></div>
-                                        </div>
-                                        <div class="discord_card_status"></div>
-                                        <div class="single_line activities">
-                                             <div class="discord_card_activities"></div>
-                                             <div class="discord_card_spotify"></div>
+                                                  <div class="uid"></div>
+                                                  <div class="symbol"><i class="sym fas gg"></i></div>
+                                             </div>
+                                             <div class="discord_card_status"></div>
+                                             <div class="single_line activities">
+                                                  <div class="discord_card_activities"></div>
+                                                  <div class="discord_card_spotify"></div>
 
+                                             </div>
+                                             <!-- <br> -->
+                                             <a href="https://discord.com/users/1123896290024108093" target="_blank"
+                                                  class="small-a discord_button">Say Hi!</a>
                                         </div>
-                                        <!-- <br> -->
-                                        <a href="https://discord.com/users/1123896290024108093" target="_blank" class="small-a discord_button">Say Hi!</a>
                                    </div>
-                              </div>
                               </center>
 
                               <script>
@@ -136,14 +142,17 @@
                                                        "offline": "var(--statusCol-offline)"
                                                   };
                                                   const statusIcons = {
-                                                       "online": "var(--statusSYM-online)",
-                                                       "dnd": "var(--statusSYM-dnd)",
-                                                       "idle": "var(--statusSYM-idle)",
-                                                       "offline": "var(--statusSYM-offline)"
+                                                       "online": "fa-circle",
+                                                       "dnd": "fa-circle-dot",
+                                                       "idle": "fa-moon",
+                                                       "offline": "fa-circle"
                                                   };
+                                                  const sym = document.getElementsByClassName("sym")[0];
+                                                  sym.classList.remove(sym.classList.item(sym.classList.length - 1));
+                                                  sym.classList.add(statusIcons[data.data.discord_status]);
                                                   document.documentElement.style.setProperty("--statusCol", statusColors[data.data.discord_status]);
-                                                  document.documentElement.style.setProperty("--statusSYM", statusIcons[data.data.discord_status]);
-                                                  document.documentElement.style.setProperty("--bg-img",`url(https://cdn.discordapp.com/avatars/${data.data.discord_user.id}/${data.data.discord_user.avatar}.png?size=1024)`)
+
+                                                  document.documentElement.style.setProperty("--bg-img", `url(https://cdn.discordapp.com/avatars/${data.data.discord_user.id}/${data.data.discord_user.avatar}.png?size=1024)`)
 
                                                   if (data.data.activities.length > 0) {
                                                        data.data.activities.forEach(activity => {
@@ -176,7 +185,7 @@
                                              });
                                    }
                                    updateDiscordInfo();
-                                   setInterval(updateDiscordInfo, 1 );
+                                   setInterval(updateDiscordInfo, 1);
                               </script>
                          </div>
                     </div>
