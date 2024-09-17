@@ -44,6 +44,7 @@
     max-width: 677px;
     height: 278px;
     padding: 20px;
+    margin: 20px;
     background-color: var(--accent-coldsc);
     transform-origin: left center;
     /* transform: translateX(9.5%); */
@@ -80,7 +81,9 @@
     font-family: graffiti-bold;
     font-size: 60px;
     font-weight: 600;
+    z-index: 100;
 }
+
 
 .discord_card_activities,
 .discord_card_activity {
@@ -245,7 +248,7 @@
         z-index: 100;
         width: 30px;
         height: 30px;
-        filter: drop-shadow(1px 1px 60px var(--statusCol));
+filter: drop-shadow(0 0 15px var(--statusCol)) drop-shadow(0 0 40px var(--statusCol)) drop-shadow(0 0 65px var(--statusCol));
         /* border: var(--statusCol) 2px solid; */
     }
 
@@ -256,7 +259,7 @@
         /* transform: translateX(calc(12.5 / 100 * 85vw)); */
         left: 20px;
         top: 0;
-
+        z-index: auto;
         /* border: 1px solid red; */
     }
 
@@ -331,4 +334,8 @@
 
 .invis {
     display: none;
+}
+
+.dsc{
+    size: 100px;
 }
