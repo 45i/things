@@ -106,14 +106,21 @@
                                              </div>
                                              <div class="discord_card_status"></div>
                                              <div class="single_line activities">
-                                                  <div class="discord_card_activities"></div>
-                                                  <div class="discord_card_spotify"></div>
-                                                  <div class="artistinfo"></div>
+                                                  <div class="activity_cont">
+                                                       <div class="discord_card_activities"></div>
+                                                  </div>
+                                                  <div class="activity_info">
+                                                       <div class="discord_card_spotify"></div>
+                                                  </div>
+                                                  <div class="song_info">
+                                                       <div class="artistinfo"></div>
+                                                  </div>
 
                                              </div>
                                              <!-- <br> -->
                                              <a href="https://discord.com/users/1123896290024108093" target="_blank"
-                                                  class="small-a discord_button"><i class="dsc fab fa-discord"></i>&nbsp;Say Hi!</a>
+                                                  class="small-a discord_button"><i
+                                                       class="dsc fab fa-discord"></i>&nbsp;Say Hi!</a>
                                         </div>
                                    </div>
                               </center>
@@ -152,12 +159,12 @@
                                                   const sym = document.getElementsByClassName("sym")[0];
                                                   const newIcon = statusIcons[data.data.discord_status];
                                                   if (sym.classList.item(sym.classList.length - 1) !== newIcon) {
-                                                      sym.classList.remove(sym.classList.item(sym.classList.length - 1));
-                                                      sym.classList.add(newIcon);
+                                                       sym.classList.remove(sym.classList.item(sym.classList.length - 1));
+                                                       sym.classList.add(newIcon);
                                                   }
                                                   document.documentElement.style.setProperty("--statusCol", statusColors[data.data.discord_status]);
-                                                  
-                                                  
+
+
 
                                                   if (data.data.activities.length > 0) {
                                                        data.data.activities.forEach(activity => {
@@ -175,12 +182,24 @@
 
                                                   if (data.data.spotify !== null) {
                                                        spotify.innerText = `Listening to: ${data.data.spotify.song}`;
-                                                       artist.innerText=`Artist: ${data.data.spotify.artist}`;
-                                                       artist.classList.remove('invis')
+                                                       artist.innerText = `Artist: ${data.data.spotify.artist}`;
+                                                       document.getElementsByClassName('song_info')[0].classList.remove('invis')
                                                   } else {
-                                                       spotify.innerText = "Not listening to Spotify";
-                                                       artist.innerText=``;
-                                                       artist.classList.add('invis')
+                                                       document.getElementsByClassName('song_info')[0].classList.add('invis')
+                                                       if (data.data.activities.length > 0) {
+                                                            spotify.innerText = `${data.data.activities[0].details}`;
+                                                            if (data.data.activities[0].details != "Idling") {
+                                                                 artist.innerText = `${data.data.activities[0].state}`;
+                                                                 document.getElementsByClassName('song_info')[0].classList.remove('invis');
+                                                            }
+                                                            else {
+                                                                 document.getElementsByClassName('song_info')[0].classList.add('invis');
+                                                            }
+                                                       }
+                                                       else {
+                                                            spotify.innerText = "No activities";
+                                                       }
+                                                       // artist.innerText=``;
                                                   }
 
                                                   // card.appendChild(avatar);
@@ -193,10 +212,40 @@
                                                   this.parentNode.insertBefore(spotify, this.nextSibling);
                                                   this.parentNode.insertBefore(artist, this.nextSibling);
                                              });
+                                        checkAndSetAnimation();
+
                                    }
                                    updateDiscordInfo();
                                    setInterval(updateDiscordInfo, 1000);
+                                   function checkAndSetAnimation() {
+                                        const elementsToCheck = ['song_info', 'activity_info'];
+
+                                        elementsToCheck.forEach(className => {
+                                             const elements = document.getElementsByClassName(className);
+                                             for (const element of elements) {
+                                                  if (element.scrollWidth > element.offsetWidth) {
+                                                       // Element is overflowing, apply animation to its inner div
+                                                       const innerDiv = element.querySelector('div');
+                                                       if (innerDiv.style.animation != 'slideText 10s linear infinite') {
+                                                            innerDiv.style.animation = 'slideText 10s linear infinite';
+                                                            // innerDiv.style.width = '200%';
+                                                       }
+                                                  } else {
+                                                       // Element is not overflowing, remove animation from its inner div
+                                                       const innerDiv = element.querySelector('div');
+                                                       if (innerDiv.style.animation != 'none') {
+                                                            innerDiv.style.animation = 'none';
+                                                            // innerDiv.style.width = '100%';
+                                                       }
+                                                  }
+                                             }
+                                        });
+                                   }
+
+                                   // Run the function initially and on window resize
+                                   window.addEventListener('resize', checkAndSetAnimation);
                               </script>
+
                          </div>
                     </div>
 

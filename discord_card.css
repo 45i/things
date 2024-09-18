@@ -98,18 +98,113 @@
     color: #99AAB5;
 }
 
-.discord_card_activities {
+
+.activity_cont {
     background-color: var(--accent-col);
-    border-radius: 10px;
-    padding: 5px;
-    width: 30%;
-    /* border: 10px solid var(--txtcolinv); */
-    text-align: center;
     border-radius: 10px 0 0 10px;
-    color: #99AAB5;
+    /* Consolidated border-radius */
+    /* padding: 5px; */
+    display: flex;
+
+    width: 30%;
+    white-space: nowrap;
+    text-align: center;
+    overflow: hidden;
 }
 
-.discord_card_spotify,
+/* .discor */
+
+.activity_info {
+    background-color: var(--alphacol);
+    border-radius: 0 10px 10px 0;
+    width: 70%;
+
+    padding: 5px;
+    /* max-width: 50%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: var(--accent-col) 2px solid;
+    /* font-family: ; */
+}
+
+.discord_card_spotify {
+    padding: 5px;
+    font-family: graffiti-bold;
+    color: var(--txtcolinv);
+    font-size: 10px;
+    font-weight: 600;
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+    overflow-x: visible;
+    /* Changed to hidden to control overflow */
+    scrollbar-width: none;
+    text-align: left;
+    /* Changed to left to start text animation from left */
+    font-size: 10px;
+    /* Specified small font size */
+    /* color: #99AAB5; */
+    white-space: nowrap;
+    /* Ensure text does not wrap to next line */
+
+    /* Adding keyframes for continuous text animation */
+
+    /* Applying animation to this block, making sure it loops infinitely and pauses on hover */
+    /* Adjust the duration (10s) as needed to control the speed */
+
+    /* Pause animation on hover */
+    animation: none;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+.discord_card_spotify[data-overflow="true"] {}
+
+.discord_card_activities {
+    padding: 5px;
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+    /* overflow-x: visible;
+     */
+
+    /* Changed to hidden to control overflow */
+    scrollbar-width: none;
+    text-align: left;
+    /* Changed to left to start text animation from left */
+    font-size: 10px;
+    /* Specified small font size */
+    color: #99AAB5;
+    white-space: nowrap;
+    /* Ensure text does not wrap to next line */
+
+    /* Adding keyframes for continuous text animation */
+
+    /* Applying animation to this block, making sure it loops infinitely and pauses on hover */
+    animation: slideText 10s linear infinite;
+    ;
+    /* Adjust the duration (10s) as needed to control the speed */
+
+    /* Pause animation on hover */
+    &:hover {
+        animation-play-state: paused;
+    }
+
+    /* overflow: visible; */
+
+    /* font-size: clamp(0px, 2vw, 2px); */
+}
+
+
+
+
+
+
 .discord_button {
     color: var(--txtcolinv);
     font-family: graffiti-bold;
@@ -168,7 +263,14 @@
 }
 
 * {
-    transition: background 0.3s ease-out;
+    transition: background 0.3s ease-out, width 0.3s ease-out, height 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.discord_button:hover {
+    /* transform: translateY(15%);? */
+    bottom: 100px;
+    box-shadow: 0 4.5px 0 0 #20244b;
+
 }
 
 .discord_button {
@@ -183,7 +285,11 @@
     width: 109px !important;
     right: 20px;
     background-color: #323878;
-    color: #c3ced5
+    color: #c3ced5;
+    transform: scale(1.5) !important;
+    position: absolute;
+    right: 50px;
+    bottom: 95px;
 }
 
 .small-a {
@@ -206,7 +312,7 @@
     bottom: 40px;
     right: 20px;
     /* border: #F04747 2px solid; */
-    width: max-content;
+    width: 333px;
 }
 
 .card_holder {
@@ -220,7 +326,7 @@
     display: none;
 }
 
-@media (max-width: 676px) {
+@media (max-width: 787px) {
 
     .discord_card_avatar {
         display: none;
@@ -248,7 +354,7 @@
         z-index: 100;
         width: 30px;
         height: 30px;
-filter: drop-shadow(0 0 15px var(--statusCol)) drop-shadow(0 0 40px var(--statusCol)) drop-shadow(0 0 65px var(--statusCol));
+        filter: drop-shadow(0 0 15px var(--statusCol)) drop-shadow(0 0 40px var(--statusCol)) drop-shadow(0 0 65px var(--statusCol));
         /* border: var(--statusCol) 2px solid; */
     }
 
@@ -264,19 +370,21 @@ filter: drop-shadow(0 0 15px var(--statusCol)) drop-shadow(0 0 40px var(--status
     }
 
 
-    .uid,.symbol {
+    .uid,
+    .symbol {
         position: absolute;
         /* font-size: 59px; */
         /* transform: translateY(300%) translateX(calc(-12.5 / 100 * 85vw)); */
         left: 10px;
         top: 49px;
     }
-    .symbol{
-        
+
+    .symbol {
+
         left: 257px;
         top: 47px;
         border: none !important;
-        filter: drop-shadow(1px 1px 60px  var(--statusCol));
+        filter: drop-shadow(1px 1px 60px var(--statusCol));
 
     }
 
@@ -286,7 +394,7 @@ filter: drop-shadow(0 0 15px var(--statusCol)) drop-shadow(0 0 40px var(--status
         right: 20px;
         padding: none;
         /* border: #F04747 2px solid; */
-        width: max-content;
+        width: 333px;
     }
 
     .discord_button {
@@ -306,12 +414,12 @@ filter: drop-shadow(0 0 15px var(--statusCol)) drop-shadow(0 0 40px var(--status
     content: var(--artist-info);
 }
 
-.artistinfo {
+.song_info {
     /* border: #F04747 2px solid; */
     width: 70%;
     position: absolute;
     bottom: -35px;
-    right: 2.5px;
+    right: 0px;
     height: 30px;
     color: var(--txtcolinv);
     font-family: graffiti-bold;
@@ -319,23 +427,67 @@ filter: drop-shadow(0 0 15px var(--statusCol)) drop-shadow(0 0 40px var(--status
     font-weight: 600;
     background-color: var(--alphacol);
     border-radius: 10px;
-    width: 60%;
+    width: 70%;
 
-    padding: 5px;
+    /* padding: 5px; */
     /* max-width: 50%; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border: var(--accent-col) 2px solid;
+    overflow: hidden;
 
 
+}
+
+.artistinfo {
+    /* background-color: var(--alphacol); */
+    border-radius: 0 10px 10px 0;
+    width: 100%;
+    color: var(--txtcolinv);
+    font-family: graffiti-bold;
+    font-size: 7px;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 5px;
+    /* max-width: 50%; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    text-align: left;
+    overflow: show;
+    /* border: var(--accent-col) 2px solid; */
+    animation: none;
+    /* Adjust the duration (10s) as needed to control the speed */
+
+    /* Pause animation on hover */
+    &:hover {
+        animation-play-state: paused;
+    }
 }
 
 .invis {
     display: none;
 }
 
-.dsc{
+.dsc {
     size: 100px;
+}
+
+@keyframes slideText {
+    0% {
+        transform: translateX(150%);
+        /* width: 100%; */
+    }
+
+    50% {
+        /* width: 200%; */
+    }
+
+    100% {
+        /* width: calc(100% + 5px); */
+        transform: translateX(-150%);
+    }
 }
