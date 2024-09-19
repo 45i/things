@@ -1083,8 +1083,8 @@ h2 {
  /* max-width: 3200px; */
  top: 100px;
  position: fixed;
- background: #20201f92;
- backdrop-filter: blur(10px);
+ background: #20201f00;
+ backdrop-filter: blur(40px);
  
  transition: 0.75s;
  z-index: 10001;

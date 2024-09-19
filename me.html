@@ -115,6 +115,10 @@
                                                   <div class="song_info">
                                                        <div class="artistinfo"></div>
                                                   </div>
+                                                  <div class="play_song">
+                                                       <a href="https://discord.com/users/1123896290024108093"
+                                                            target="_blank" class="small-a play_song_button">Play Song</a>
+                                                  </div>
 
                                              </div>
                                              <!-- <br> -->
@@ -182,10 +186,14 @@
 
                                                   if (data.data.spotify !== null) {
                                                        spotify.innerText = `Listening to: ${data.data.spotify.song}`;
-                                                       artist.innerText = `Artist: ${data.data.spotify.artist}`;
-                                                       document.getElementsByClassName('song_info')[0].classList.remove('invis')
+                                                       artist.innerText = `${data.data.spotify.artist}`;
+                                                       document.getElementsByClassName('song_info')[0].classList.remove('invis');
+                                                       document.getElementsByClassName('play_song_button')[0].setAttribute('href', `https://open.spotify.com/track/${data.data.spotify.track_id}`);
+                                                       document.getElementsByClassName('play_song')[0].classList.remove('invis');
+
                                                   } else {
                                                        document.getElementsByClassName('song_info')[0].classList.add('invis')
+                                                       document.getElementsByClassName('play_song')[0].classList.add('invis');
                                                        if (data.data.activities.length > 0) {
                                                             spotify.innerText = `${data.data.activities[0].details}`;
                                                             if (data.data.activities[0].details != "Idling") {

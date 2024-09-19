@@ -110,6 +110,8 @@
     white-space: nowrap;
     text-align: center;
     overflow: hidden;
+    /* position: relative; */
+    /* left: 3.181818182px; */
 }
 
 /* .discor */
@@ -118,7 +120,7 @@
     background-color: var(--alphacol);
     border-radius: 0 10px 10px 0;
     width: 70%;
-
+    /* box-shadow: inset 20px 0 15px -1px var(--accent-col); */
     padding: 5px;
     /* max-width: 50%; */
     display: flex;
@@ -163,7 +165,7 @@
     }
 }
 
-.discord_card_spotify[data-overflow="true"] {}
+
 
 .discord_card_activities {
     padding: 5px;
@@ -199,10 +201,6 @@
 
     /* font-size: clamp(0px, 2vw, 2px); */
 }
-
-
-
-
 
 
 .discord_button {
@@ -267,20 +265,23 @@
 }
 
 .discord_button:hover {
+    bottom: 95px;
     /* transform: translateY(15%);? */
-    bottom: 100px;
-    box-shadow: 0 4.5px 0 0 #20244b;
+    box-shadow: none;
 
 }
 
 .discord_button {
     border-radius: 10px;
+    bottom: 105px;
+    box-shadow: 0 5px 0 0 #20244b;
     white-space: nowrap;
+
     padding: none;
     border-radius: 6px;
     max-width: 100%;
     position: absolute;
-    bottom: 90px;
+    /* bottom: 90px; */
     height: 40px !important;
     width: 109px !important;
     right: 20px;
@@ -289,7 +290,6 @@
     transform: scale(1.5) !important;
     position: absolute;
     right: 50px;
-    bottom: 95px;
 }
 
 .small-a {
@@ -320,6 +320,28 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    top: 20px;
+
+}
+
+.discord_card_username {
+    font-size: 69px;
+    position: absolute;
+    /* transform-origin: left center ; */
+    /* transform: translateX(calc(12.5 / 100 * 85vw)); */
+    left: 30%;
+    top: 20px;
+    z-index: auto;
+    /* border: 1px solid red; */
+}
+
+.uid,
+.symbol {
+    position: absolute;
+    /* font-size: 59px; */
+    /* transform: translateY(300%) translateX(calc(-12.5 / 100 * 85vw)); */
+    left: 30%;
+    top: 69px;
 }
 
 .symbol {
@@ -401,7 +423,7 @@
         transform: scale(1.5) !important;
         position: absolute;
         right: 50px;
-        bottom: 95px;
+        /* bottom: 95px; */
 
     }
 
@@ -416,7 +438,7 @@
 
 .song_info {
     /* border: #F04747 2px solid; */
-    width: 70%;
+    /* width: 70%; */
     position: absolute;
     bottom: -35px;
     right: 0px;
@@ -427,7 +449,7 @@
     font-weight: 600;
     background-color: var(--alphacol);
     border-radius: 10px;
-    width: 70%;
+    width: 69.5%;
 
     /* padding: 5px; */
     /* max-width: 50%; */
@@ -439,6 +461,38 @@
     overflow: hidden;
 
 
+}
+
+.play_song {
+    /* width: 35%; */
+    position: absolute;
+    bottom: -35px;
+    left: 0;
+    height: 30px;
+    color: var(--txtcolinv);
+    font-family: graffiti-bold;
+    font-size: 7px;
+    font-weight: 600;
+    background-color: var(--alphacol);
+    border-radius: 10px;
+    width: 29.5%;
+
+    /* padding: 5px; */
+    /* max-width: 50%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: var(--accent-col) 2px solid;
+    overflow: hidden;
+}
+
+.play_song_button {
+    width: 100%;
+    height: 100%;
+    background-color: #323878;
+    color: #c3ced5;
+    font-family: graffiti-bold;
 }
 
 .artistinfo {
