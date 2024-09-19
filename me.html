@@ -117,7 +117,8 @@
                                                   </div>
                                                   <div class="play_song">
                                                        <a href="https://discord.com/users/1123896290024108093"
-                                                            target="_blank" class="small-a play_song_button">Play Song</a>
+                                                            target="_blank" class="small-a play_song_button">Play
+                                                            Song</a>
                                                   </div>
 
                                              </div>
@@ -224,31 +225,36 @@
 
                                    }
                                    updateDiscordInfo();
-                                   setInterval(updateDiscordInfo, 1000);
+                                   setInterval(updateDiscordInfo, 1);
                                    function checkAndSetAnimation() {
                                         const elementsToCheck = ['song_info', 'activity_info'];
 
                                         elementsToCheck.forEach(className => {
                                              const elements = document.getElementsByClassName(className);
                                              for (const element of elements) {
+                                                  let originalText = ""; // Define originalText outside the inner loop
+                                                  const innerDiv = element.querySelector('div');
+
                                                   if (element.scrollWidth > element.offsetWidth) {
                                                        // Element is overflowing, apply animation to its inner div
-                                                       const innerDiv = element.querySelector('div');
-                                                       if (innerDiv.style.animation != 'slideText 10s linear infinite') {
-                                                            innerDiv.style.animation = 'slideText 10s linear infinite';
+                                                       if (innerDiv.style.animation !== 'slideText 10s linear infinite alternate ' && innerDiv.textContent !== originalText) {
+                                                            innerDiv.style.animation = 'slideText 10s linear infinite alternate ';
+                                                            originalText = innerDiv.textContent; // Update originalText after setting animation
                                                             // innerDiv.style.width = '200%';
                                                        }
                                                   } else {
                                                        // Element is not overflowing, remove animation from its inner div
-                                                       const innerDiv = element.querySelector('div');
-                                                       if (innerDiv.style.animation != 'none') {
+                                                       if (innerDiv.style.animation !== 'none' && innerDiv.textContent !== originalText) {
                                                             innerDiv.style.animation = 'none';
+                                                            originalText = innerDiv.textContent; // Update originalText after removing animation
                                                             // innerDiv.style.width = '100%';
                                                        }
                                                   }
                                              }
                                         });
                                    }
+
+
 
                                    // Run the function initially and on window resize
                                    window.addEventListener('resize', checkAndSetAnimation);

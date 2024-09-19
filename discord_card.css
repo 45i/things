@@ -188,7 +188,7 @@
     /* Adding keyframes for continuous text animation */
 
     /* Applying animation to this block, making sure it loops infinitely and pauses on hover */
-    animation: slideText 10s linear infinite;
+    animation: slideText 5s linear infinite ;
     ;
     /* Adjust the duration (10s) as needed to control the speed */
 
@@ -536,9 +536,7 @@
         /* width: 100%; */
     }
 
-    50% {
-        /* width: 200%; */
-    }
+    
 
     100% {
         /* width: calc(100% + 5px); */
