@@ -462,10 +462,10 @@ strong {
     border-radius: 36px;
     z-index: 10;
     color: white;
-    width: 85vw;
-    left: calc((100vw - 85vw)/2);
-    height: 85vh;
-    top: calc(((100vh - 85vh)/2) + 30px);
+    width: 100vw;
+    left: none;
+    height: 100vh;
+    top: none;
     /*   
  border-color: #000;
  border-image: linear-gradient(45deg, #0F0331, #262624) 1; */
@@ -2255,8 +2255,8 @@ article {
     /* Full height */
     overflow: hidden;
     /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.548);
-    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(10px);
     /* Black w/ opacity */
     /* transform: translateY(50%); Center vertically */
     /* transform: translateX(0%); */
@@ -2352,16 +2352,24 @@ article {
     position: fixed;
     top: 15px;
     right: 35px;
-    color: #f1f1f1;
+    color: var(--txtcolinv);
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
     z-index: 999999999999;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    /* border-radius: 50%; */
+    /* background-color: #161615; */
 }
+
 
 .close:hover,
 .close:focus {
-    color: #bbb;
+    /* color: #bbb; */
     text-decoration: none;
     /* cursor: pointer; */
 }
@@ -2563,7 +2571,7 @@ pre code {
 
 .yellow-a:hover {
     box-shadow: 0 0 30px var(--accent-col);
-    
+
 }
 
 .yellow-a:hover::after {

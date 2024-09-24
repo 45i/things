@@ -995,7 +995,7 @@ function addModalToBody() {
  <div id="myModal" class="modal">
  <div class="">
    <center><img class="modal-content" style="max-width:90vh" id="img01"></center>
-   <span class="close"><i class="fas fa-magnifying-glass-minus">&times;</i></span>
+   <button class="close"><i class="fas fa-times"></i></button>
    <div class="magnifyingGlass" style="z-index: 999999999999"></div>
    <div id="caption"></div>
  </div>
