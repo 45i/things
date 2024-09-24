@@ -37,7 +37,7 @@
     --accent-col-light: #FF7F50;
     /* Coral for light mode */
 
-    --time-emoji: '🕒';
+    --time-emoji: '🔥';
 }
 
 
@@ -466,6 +466,8 @@ strong {
     left: none;
     height: 100vh;
     top: none;
+    filter: invert(0);
+    /* border:1px solid var(--accent-col) */
     /*   
  border-color: #000;
  border-image: linear-gradient(45deg, #0F0331, #262624) 1; */
@@ -691,7 +693,7 @@ footer {
     /* text-shadow: 0 12px 20px #000000; */
     background-color: #ffffff;
     color: var(--txtcolinv);
-    background: var(--uielem-col);
+    /* background: var(--uielem-col); */
     background-repeat: no-repeat;
     background-size: cover;
     line-height: 2.5;
@@ -2959,7 +2961,9 @@ input[type="submit"],
 footer {
     box-shadow: 0 5px 10px 10px #00000029;
     /* border: #8888883c solid 1px; */
-    background: radial-gradient(ellipse max(75vh, 75vw) min(50vh, 50vw) at bottom, rgba(176, 144, 65, 0) 0%, var(--uielem-col) 105%);
+    background: radial-gradient(ellipse max(75vh, 75vw) min(50vh, 50vw) at bottom, rgba(176, 144, 65, 0) 0%, var(--uielem-col) 150%);
+    /* background: #ffffff00; */
+    backdrop-filter: blur(100px);
 
     transition: box-shadow 0.5s ease-in-out, background 0.5s ease-in-out;
     padding: 10px;
@@ -2969,7 +2973,7 @@ footer {
 .ghost-poof {
 
 
-    box-shadow: 0 0 1000px 100px var(--accent-col);
+    filter: drop-shadow(0 0 70px  var(--accent-col) );
     transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
     background-color: var(--accent-col);
     border: none;

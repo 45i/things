@@ -1646,7 +1646,7 @@ function updateAccentColors() {
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     const scrollY = window.scrollY;
-    const maxScroll = window.innerHeight/7;
+    const maxScroll = window.innerHeight/2;
 
     const minHeight = 85;
     const minWidth = 85;
@@ -1657,7 +1657,7 @@ window.addEventListener('scroll', () => {
     const height = Math.max(minHeight, maxHeight - (15 * (scrollY / maxScroll)));
     const width = Math.max(minWidth, maxWidth - (15 * (scrollY / maxScroll)));
     const left = (100 - width) / 2;
-    const top = ((100 - height) / 2) + (30 * (scrollY / maxScroll));
+    const top = 30 * (scrollY * 3 / maxScroll);
     const borderRadius = Math.min(maxBorderRadius, 36 * (scrollY / maxScroll));
 
     header.style.height = `${height}vh`;
@@ -1665,6 +1665,11 @@ window.addEventListener('scroll', () => {
     header.style.left = `${left}vw`;
     header.style.top = `${top}px`;
     header.style.borderRadius = `${borderRadius}px`;
+    const hueRotate = (scrollPosition / maxScroll) * 360; // Full hue rotation
+    const brightness = 1 + (scrollPosition / maxScroll); // Increase brightness
+    const contrast = 1 + (scrollPosition / maxScroll) * 0.5; // Increase contrast
+    // header.style.filter = `invert(${invert}) hue-rotate(${hueRotate}deg) brightness(${brightness}) contrast(${contrast}) saturate(150%) sepia(30%) blur(2px)`;
+
 });
 
 
