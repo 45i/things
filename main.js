@@ -1639,7 +1639,32 @@ function updateAccentColors() {
 
 
 // Update colors immediately and then every hour
-updateAccentColors();
-setInterval(updateAccentColors, 1); // 1 ms = 1 hour
+// updateAccentColors();
+// setInterval(updateAccentColors, 1); // 1 ms = 1 hour
+
+
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    const scrollY = window.scrollY;
+    const maxScroll = window.innerHeight/7;
+
+    const minHeight = 85;
+    const minWidth = 85;
+    const maxHeight = 100;
+    const maxWidth = 100;
+    const maxBorderRadius = 36; // Maximum border radius
+
+    const height = Math.max(minHeight, maxHeight - (15 * (scrollY / maxScroll)));
+    const width = Math.max(minWidth, maxWidth - (15 * (scrollY / maxScroll)));
+    const left = (100 - width) / 2;
+    const top = ((100 - height) / 2) + (30 * (scrollY / maxScroll));
+    const borderRadius = Math.min(maxBorderRadius, 36 * (scrollY / maxScroll));
+
+    header.style.height = `${height}vh`;
+    header.style.width = `${width}vw`;
+    header.style.left = `${left}vw`;
+    header.style.top = `${top}px`;
+    header.style.borderRadius = `${borderRadius}px`;
+});
 
 
