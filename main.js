@@ -1646,7 +1646,7 @@ function updateAccentColors() {
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     const scrollY = window.scrollY;
-    const maxScroll = window.innerHeight/2;
+    const maxScroll = window.innerHeight / 2;
 
     const minHeight = 85;
     const minWidth = 85;
@@ -1654,22 +1654,29 @@ window.addEventListener('scroll', () => {
     const maxWidth = 100;
     const maxBorderRadius = 36; // Maximum border radius
 
-    const height = Math.max(minHeight, maxHeight - (15 * (scrollY / maxScroll)));
-    const width = Math.max(minWidth, maxWidth - (15 * (scrollY / maxScroll)));
+    const easeInOutQuad = (t) => {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    };
+
+    const progress = Math.min(scrollY / maxScroll, 1);
+    const easedProgress = easeInOutQuad(progress);
+
+    const height = Math.max(minHeight, maxHeight - (15 * easedProgress));
+    const width = Math.max(minWidth, maxWidth - (15 * easedProgress));
     const left = (100 - width) / 2;
     const top = 30 * (scrollY * 3 / maxScroll);
-    const borderRadius = Math.min(maxBorderRadius, 36 * (scrollY / maxScroll));
+    const borderRadius = Math.min(maxBorderRadius, 36 * easedProgress);
 
     header.style.height = `${height}vh`;
     header.style.width = `${width}vw`;
     header.style.left = `${left}vw`;
     header.style.top = `${top}px`;
     header.style.borderRadius = `${borderRadius}px`;
-    const hueRotate = (scrollPosition / maxScroll) * 360; // Full hue rotation
-    const brightness = 1 + (scrollPosition / maxScroll); // Increase brightness
-    const contrast = 1 + (scrollPosition / maxScroll) * 0.5; // Increase contrast
-    // header.style.filter = `invert(${invert}) hue-rotate(${hueRotate}deg) brightness(${brightness}) contrast(${contrast}) saturate(150%) sepia(30%) blur(2px)`;
 
+    const hueRotate = (scrollY / maxScroll) * 360; // Full hue rotation
+    const brightness = 1 + (scrollY / maxScroll); // Increase brightness
+    const contrast = 1 + (scrollY / maxScroll) * 0.5; // Increase contrast
+    // header.style.filter = `invert(${invert}) hue-rotate(${hueRotate}deg) brightness(${brightness}) contrast(${contrast}) saturate(150%) sepia(30%) blur(2px)`;
 });
 
 
