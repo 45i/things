@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //console.log(computedHeight);
         icon.classList.toggle('open');
         //console.log(height);
-          const scrollLabel = document.querySelector('.scroll-label-main');
+        const scrollLabel = document.querySelector('.scroll-label-main');
         if (icon.classList.contains('open')) {
           console.log(navbar.scrollWidth);
           console.log(navbar.clientWidth);
@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
           navig.style.height = newHeight;
           navig.style.width = `calc(90vw - 52px + 2.5%)`;
           navig.style.transform = `translateX(5%) translateY(10px)`;
-          menuIcon.style.height= newHeight;
+          menuIcon.style.height = newHeight;
           // menuIcon.style.width = `52px`;
           //console.log(newHeight);
           // // menuIcon.style.transform="";
@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // const navbar = document.getElementById('navbar');
 
 
-          
+
 
 
           // Initial check
@@ -309,11 +309,11 @@ document.addEventListener("DOMContentLoaded", function () {
           menuIcon.innerHTML = '<i class="fas fa-caret-down"></i>';
           navig.style.height = `max-content`; // Revert to the original height
           navig.style.width = `90vw`;
-          menuIcon.style.height=`52px`;
+          menuIcon.style.height = `52px`;
           // menuIcon.style.width=`52px`;
           navig.style.transform = `translateX(5%) translateY(10px)`;
           if (navig.classList.contains('collapse')) {
-          navig.style.transform=`translateX(-85%)translateY(12%)`;
+            navig.style.transform = `translateX(-85%)translateY(12%)`;
           }
           if (navig.classList.contains('collapse')) {
             navig.classList.toggle('collapse');
@@ -366,7 +366,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (navig.classList.contains('collapse')) {
 
           navig.style.width = `fit-content`;
-          navig.style.transition=`all 0.5s ease-in-out`;
+          navig.style.transition = `all 0.5s ease-in-out`;
           closeButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
           closeButton.style.transform = "rotateZ(0deg)";
           // closeButton.style.transition="transform 0.5s ease-in-out"
@@ -1644,39 +1644,53 @@ function updateAccentColors() {
 
 
 window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    const scrollY = window.scrollY;
-    const maxScroll = window.innerHeight / 2;
+  const header = document.querySelector('.header');
+  const scrollY = window.scrollY;
+  const maxScroll = window.innerHeight / 2;
 
-    const minHeight = 85;
-    const minWidth = 85;
-    const maxHeight = 100;
-    const maxWidth = 100;
-    const maxBorderRadius = 36; // Maximum border radius
+  const minHeight = 85;
+  const minWidth = 85;
+  const maxHeight = 100;
+  const maxWidth = 100;
+  const maxBorderRadius = 36; // Maximum border radius
 
-    const easeInOutQuad = (t) => {
-        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-    };
+  const easeInOutQuad = (t) => {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  };
 
-    const progress = Math.min(scrollY / maxScroll, 1);
-    const easedProgress = easeInOutQuad(progress);
+  const progress = Math.min(scrollY / maxScroll, 1);
+  const easedProgress = easeInOutQuad(progress);
 
-    const height = Math.max(minHeight, maxHeight - (15 * easedProgress));
-    const width = Math.max(minWidth, maxWidth - (15 * easedProgress));
-    const left = (100 - width) / 2;
-    const top = 30 * (scrollY * 3 / maxScroll);
-    const borderRadius = Math.min(maxBorderRadius, 36 * easedProgress);
+  const height = Math.max(minHeight, maxHeight - (15 * easedProgress));
+  const width = Math.max(minWidth, maxWidth - (15 * easedProgress));
+  const left = (100 - width) / 2;
+  const top = 30 * (scrollY * 3 / maxScroll);
+  const borderRadius = Math.min(maxBorderRadius, 36 * easedProgress);
 
-    header.style.height = `${height}vh`;
-    header.style.width = `${width}vw`;
-    header.style.left = `${left}vw`;
-    header.style.top = `${top}px`;
-    header.style.borderRadius = `${borderRadius}px`;
+  header.style.height = `${height}vh`;
+  header.style.width = `${width}vw`;
+  header.style.left = `${left}vw`;
+  header.style.top = `${top}px`;
+  header.style.borderRadius = `${borderRadius}px`;
 
-    const hueRotate = (scrollY / maxScroll) * 360; // Full hue rotation
-    const brightness = 1 + (scrollY / maxScroll); // Increase brightness
-    const contrast = 1 + (scrollY / maxScroll) * 0.5; // Increase contrast
-    // header.style.filter = `invert(${invert}) hue-rotate(${hueRotate}deg) brightness(${brightness}) contrast(${contrast}) saturate(150%) sepia(30%) blur(2px)`;
+  const hueRotate = (scrollY / maxScroll) * 360; // Full hue rotation
+  const brightness = 1 + (scrollY / maxScroll); // Increase brightness
+  const contrast = 1 + (scrollY / maxScroll) * 0.5; // Increase contrast
+  // header.style.filter = `invert(${invert}) hue-rotate(${hueRotate}deg) brightness(${brightness}) contrast(${contrast}) saturate(150%) sepia(30%) blur(2px)`;
+});
+document.addEventListener("DOMContentLoaded", function () {
+  // Create the new element
+  const scrollDownDiv = document.createElement("div");
+  scrollDownDiv.className = "scroll-down";
+  scrollDownDiv.innerHTML = '<i class="fas fa-caret-down scroll-icon" style="font-size: small;"></i>';
+
+  // Get all header elements
+  const headers = document.querySelectorAll("header");
+
+  // Append the new element to each header
+  headers.forEach(header => {
+    header.appendChild(scrollDownDiv.cloneNode(true));
+  });
 });
 
 

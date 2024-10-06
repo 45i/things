@@ -542,4 +542,11 @@
         /* width: calc(100% + 5px); */
         transform: translateX(-150%);
     }
-}
+    }
+.uid::before{
+    content: " # ";
+    /* position: absolute; */
+    
+    /* background: var(--statusCol); */
+    /* z-index: -1; */
+} 
