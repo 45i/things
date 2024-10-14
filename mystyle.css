@@ -7,32 +7,32 @@
 
 :root {
     /* Existing variables */
-    --bg-col: #262624;
-    --bg-col-light: #fff5e8;
-    --bg-col-dark: #262624;
+    --bg-col: #1e2843;
+    --bg-col-light: #fcefe4;
+    --bg-col-dark: #1e2843;
 
-    --txtcol: #fff5e8;
+    --txtcol: #f2ddcc;
     --txtcol-light: #262624;
-    --txtcol-dark: #fff5e8;
+    --txtcol-dark: #f2ddcc;
     --txtcolinv: #262624;
 
-    --uielem-col: #111;
-    --uielem-col-light: rgb(224, 212, 199);
-    --uielem-col-dark: #111;
+    --uielem-col: #28304b;
+    --uielem-col-light: #fefcfa;
+    --uielem-col-dark: #28304b;
 
     --button-bg: url(darkmode.png);
-    --modebuttoncol: #fff5e8;
+    --modebuttoncol: #fefcfa;
     --transitioncol: rgba(0, 46, 101, 1);
 
     --heavyfont: url("Futura\ Extra\ Black\ Condensed\ BT.ttf");
-    --alphacol: #fff5e829;
-    --alphacol-light: #2626263c;
-    --alphacol-dark: #fff5e829;
+    --alphacol: #28304b29;
+    --alphacol-light: #fcefe44d;
+    --alphacol-dark: #28304b29;
 
     /* Updated accent colors */
     --accent-col: rgb(179, 239, 149); /* Orange for dark mode */
     --accent-col-dark: rgb(179, 239, 149); /* Orange for dark mode */
-    --accent-col-light: rgb(125, 191, 92); /* Blue for light mode */
+    --accent-col-light: #91c279; /* Blue for light mode */
     /* Coral for light mode */
 
     --time-emoji: 'bazinga';
@@ -453,7 +453,7 @@ strong {
     /* text-shadow: 0 0 10px #000; */
     transition: background 0.3s ease-out;
     background: var(--uielem-col);
-    box-shadow: 0 2px 60px #00000067;
+    /* box-shadow: 0 2px 60px #00000067; */
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 50%;
@@ -682,7 +682,7 @@ tr.inactive {
 }
 
 footer {
-    border-radius: 16px;
+    border-radius: 56px;
     list-style: none;
     position: relative;
     width: 85vw;
@@ -703,7 +703,7 @@ footer {
     /* Add this line */
     margin-right: auto;
     /* Add this line */
-    box-shadow: 0 0 40px var(--uielem-col-dark-light);
+    /* box-shadow: 0 0 40px var(--uielem-col-dark-light); */
 
 }
 
@@ -848,7 +848,7 @@ button {
     position: relative;
 
     /* margin-bottom: 0px; */
-    border-radius: 3px;
+    border-radius: 16px ;
     /* backdrop-filter: blur(10px); */
     text-align: center;
     /* cursor: pointer; */
@@ -1102,8 +1102,8 @@ h2 {
     /* max-width: 3200px; */
     top: 100px;
     position: fixed;
-    background: #20201f00;
-    backdrop-filter: blur(40px);
+    background: var(--uielem-col);
+    /* backdrop-filter: blur(40px); */
 
     transition: 0.75s;
     z-index: 10001;
@@ -1184,7 +1184,7 @@ h2 {
 .options {
     background-color: #0000;
     padding: 2px;
-    border-radius: 16px;
+   border-radius: 56px;
 }
 
 .navmenu>* {
@@ -1266,15 +1266,15 @@ h2 {
 }
 
 .navig.collapse {
-    background: #16161586;
+    /* background: #16161586; */
 
     width: fit-content;
 
     height: calc(max-content);
     max-height: 140px;
     /* height: fit-content; */
-    border: 2px solid var(--accent-col);
-    filter: drop-shadow(0 0 40px  var(--accent-col));
+    /* border: 2px solid var(--accent-col); */
+    /* filter: drop-shadow(0 0 40px  var(--accent-col)); */
     border-radius: 16px;
     transform: translateX(-85%)translateY(12%) !important;
     transition: all 0.7s ease;
@@ -2544,7 +2544,7 @@ pre code {
     border-style: solid;
     text-align: center;
     font-size: large;
-    border-radius: 6px;
+    border-radius: 16px;
     border-width: 2px;
     border-color: var(--accent-col);
     color: var(--txtcol);
@@ -2745,7 +2745,7 @@ h1 {
 }
 
 .kbd:hover {
-    box-shadow: inset 0px 2px 4px #000;
+    box-shadow: inset 0px 2px 4px #00000041;
     transition: all 0.2s ease-in-out;
     transform: translateY(2px);
 
@@ -2987,7 +2987,7 @@ input[type="submit"],
 }
 
 footer {
-    box-shadow: 0 5px 10px 10px #00000029;
+    /* box-shadow: 0 5px 10px 10px #00000029; */
     /* border: #8888883c solid 1px; */
     background: radial-gradient(ellipse max(75vh, 75vw) min(50vh, 50vw) at bottom, rgba(176, 144, 65, 0) 0%, var(--uielem-col) 150%);
     /* background: #ffffff00; */
@@ -3083,4 +3083,8 @@ footer {
     backdrop-filter: blur(120px);
     border: 1px solid var(--accent-col);
 
+}
+
+button{
+border-radius: 16px;
 }

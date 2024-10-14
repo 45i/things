@@ -1314,12 +1314,6 @@ const showerThoughts = [
   "If you’re in a spaceship traveling at the speed of light and you turn on the headlights, what happens?"
 ];
 
-window.addEventListener("blur", () => {
-  const randomThought = showerThoughts[Math.floor(Math.random() * showerThoughts.length)];
-  document.title = randomThought;
-});
-
-
 window.addEventListener("focus", () => {
   document.title = docTitle;
 
