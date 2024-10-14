@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create and append the 'twitter:image' meta tag
   const twitterImageMeta = document.createElement('meta');
   twitterImageMeta.name = 'twitter:image';
-  twitterImageMeta.content = '404 img\\to show\\guy_think.webp';
+  twitterImageMeta.content = 'logos\\icon.png';
   document.head.appendChild(twitterImageMeta);
 
   // Create and append the 'twitter:description' meta tag
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create and append the 'og:image' meta tag
   const ogImageMeta = document.createElement('meta');
   ogImageMeta.property = 'og:image';
-  ogImageMeta.content = '404 img\\to show\\guy_think.webp';
+  ogImageMeta.content = 'logos\\icon.png';
   document.head.appendChild(ogImageMeta);
 
   // Create and append the 'og:description' meta tag
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Create and append the Font Awesome CSS link
   const fontAwesomeLink = document.createElement('link');
-  fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css';
+  fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css';
   fontAwesomeLink.rel = 'stylesheet';
   document.head.appendChild(fontAwesomeLink);
 
@@ -126,12 +126,12 @@ document.addEventListener("DOMContentLoaded", function () {
   document.head.appendChild(sweetAlert2Script);
 
   const typedScript = document.createElement('script');
-  typedScript.src = 'https://cdn.jsdelivr.net/npm/typed.js@2.0.12';
+  typedScript.src = 'mica.js';
   document.head.appendChild(typedScript);
 
   // Create and append the Favicon link
   const epicFaviconLink = document.createElement('link');
-  epicFaviconLink.href = '404 img\\to show\\guy_think.webp';
+  epicFaviconLink.href = 'logos\\icon.png';
   epicFaviconLink.rel = 'icon';
   epicFaviconLink.type = 'image/x-icon';
   document.head.appendChild(epicFaviconLink);
@@ -1682,7 +1682,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create the new element
   const scrollDownDiv = document.createElement("div");
   scrollDownDiv.className = "scroll-down";
-  scrollDownDiv.innerHTML = '<i class="fas fa-caret-down scroll-icon" style="font-size: small;"></i>';
+  scrollDownDiv.innerHTML = '<i class="fa-solid fa-arrows-up-down" style="font-size: medium "></i>';
 
   // Get all header elements
   const headers = document.querySelectorAll("header");
