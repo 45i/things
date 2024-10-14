@@ -8,7 +8,8 @@
 :root {
     /* Existing variables */
     --bg-col: #1e2843;
-    --bg-col-light: #fcefe4;
+    --bg-col-light: #f0f0f0; /* Light Grey */
+
     --bg-col-dark: #1e2843;
 
     --txtcol: #f2ddcc;
@@ -17,7 +18,8 @@
     --txtcolinv: #262624;
 
     --uielem-col: #28304b;
-    --uielem-col-light: #fefcfa;
+    --uielem-col-light: #d3d3d3; /* Light Grey */
+
     --uielem-col-dark: #28304b;
 
     --button-bg: url(darkmode.png);
@@ -25,15 +27,16 @@
     --transitioncol: rgba(0, 46, 101, 1);
 
     --heavyfont: url("Futura\ Extra\ Black\ Condensed\ BT.ttf");
-    --alphacol: #28304b29;
-    --alphacol-light: #fcefe44d;
-    --alphacol-dark: #28304b29;
+    --alphacol: #6d80bd;
+    --alphacol-light: #95b4da;
+    --alphacol-dark: #6d80bd;
+--accent-col: #4a90e2; /* Light Blue */
+--accent-col-dark: #4a90e2; /* Light Blue */
 
-    /* Updated accent colors */
-    --accent-col: rgb(179, 239, 149); /* Orange for dark mode */
-    --accent-col-dark: rgb(179, 239, 149); /* Orange for dark mode */
-    --accent-col-light: #91c279; /* Blue for light mode */
-    /* Coral for light mode */
+
+
+--accent-col-light: #007aff; /* iOS Light Blue */
+
 
     --time-emoji: 'bazinga';
 }
@@ -682,7 +685,7 @@ tr.inactive {
 }
 
 footer {
-    border-radius: 56px;
+    border-radius: 16px;
     list-style: none;
     position: relative;
     width: 85vw;
@@ -1141,9 +1144,12 @@ h2 {
     min-height: 50px;
     height: max-content;
     /* box-shadow: inset 0 4px 8px #000000; */
-    background: #20201f92;
+    background: #20201f00;
     /* width: 2px; */
-    backdrop-filter: blur(10px);
+    border:none;
+    /* backdrop-filter: blur(10px); */
+    /* display: none; */
+    /* opacity: 0; */
 }
 
 .navig.open>* {
@@ -1198,7 +1204,7 @@ h2 {
     /* background: transparent; */
     justify-content: center;
     align-content: center;
-    color: var(--accent-col);
+    color: var(--alphacol);
     /* backdrop-filter:none; */
 }
 
@@ -1969,6 +1975,7 @@ abbr:hover {
     justify-content: center;
     /* border-radius: 0px 0px 0px 10px; */
     border-radius: 36px 0 0 36px;
+
     transition: all 0.5s ease;
     /* z-index: 100000001; */
 
@@ -2007,7 +2014,7 @@ abbr:hover {
 
 
 .navbar.open li a {
-    color: white;
+    color: var(--txtcol);
 }
 
 .navbar li {
@@ -2020,7 +2027,7 @@ abbr:hover {
     white-space: nowrap;
     visibility: visible;
     scrollbar-width: none;
-    background: #20201f00;
+    background: var(--bg-col);
     /* backdrop-filter: blur(10px); */
     z-index: 1000000;
     top: 100%;
@@ -2030,9 +2037,10 @@ abbr:hover {
     -ms-overflow-style: none;
     visibility: visible;
     scrollbar-width: none;
-    background: #20201f00;
+    /* background: #20201f00; */
     list-style: none;
     /* backdrop-filter: blur(10px); */
+    border: 1px solid lightslategray;
     z-index: 1000000;
 
 

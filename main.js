@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // navig.style.border = `1px 1px 0px 1px solid lightslategray`
           // menuIcon.style.border = `0px 1px 1px 1px solid lightslategray`
           menuIcon.innerHTML = '<i class="fas fa-caret-up"></i>';
-          menuIcon.style.transform = `translateY(0px) translateX(calc( 52px + 50%))`;
+          menuIcon.style.transform = `translateY(0px) translateX(calc( 70px ))`;
           navig.style.transition = 'height 0.5s ease-in-out,width 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out, border-radius 0.9s ease-in-out';
           menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.5s ease-in-out, border-radius 0.9s ease-in-out';
           // menuIcon.style.backdropFilter='blur(10px)';
@@ -292,6 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // navig.style.transition = 'height 0.3s ease';
           navbar.style.left = '1vw';
           navbar.style.width = `calc(90vw - 52px + 5% - 3.5vw)`;
+              navbar.style.height = `calc(${navbar.style.height} - 2px)`;
           // const navbar = document.getElementById('navbar');
 
 
