@@ -27,9 +27,9 @@
     --transitioncol: rgba(0, 46, 101, 1);
 
     --heavyfont: url("Futura\ Extra\ Black\ Condensed\ BT.ttf");
-    --alphacol: #6d80bd;
-    --alphacol-light: #95b4da;
-    --alphacol-dark: #6d80bd;
+    --alphacol: #6d80bd4e;
+    --alphacol-light: #95b4da62;
+    --alphacol-dark: #6d80bd4e;
 --accent-col: #4a90e2; /* Light Blue */
 --accent-col-dark: #4a90e2; /* Light Blue */
 
@@ -265,7 +265,7 @@ body {
     font-family: kbd;
     min-width: 21px;
     margin: 4px;
-    padding: 4px 0px;
+    padding: 4px ;
     line-height: 1.5;
     text-align: center;
     background-color: #64646446;
@@ -475,7 +475,7 @@ strong {
 }
 
 .header h1 {
-    ont-size: clamp(20px, 10vw, 90px);
+    font-size: clamp(20px, 10vw, 90px);
     line-height: 10vh;
 }
 
@@ -674,6 +674,7 @@ tr.inactive {
     flex-wrap: wrap;
     overflow-x: auto;
     justify-content: center;
+    z-index: 10;
 }
 
 .listing li {
@@ -1204,7 +1205,9 @@ h2 {
     /* background: transparent; */
     justify-content: center;
     align-content: center;
-    color: var(--alphacol);
+    color: var(--accent-col);
+    /* border: 1px solid var(--alphacol); */
+    transition: color 0.5s ease-in-out;
     /* backdrop-filter:none; */
 }
 
@@ -1224,20 +1227,22 @@ h2 {
 }
 
 .navig.open .icdown {
-    background-color: var(--bg-col);
+    background: var(--alphacol);
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
     align-items: center;
 
+    color: var(--accent-col);
+    transition: color 0.5s ease-in-out;
     /* padding: 8px 20px 17px 8.5px; */
     /* padding: 20px;; */
     /* opacity: 100%; */
     /* z-index: 10; */
     /* position: fixed; */
-    border-radius: 0 52px 52px 0;
+    border-radius: 52px ;
     width: 52px;
-    border: var(--alphacol) 1px solid;
+    /* border: var(--uielem-col) 1px solid; */
     /* transform: translateX(); */
 }
 
@@ -1974,7 +1979,7 @@ abbr:hover {
     flex-direction: row;
     justify-content: center;
     /* border-radius: 0px 0px 0px 10px; */
-    border-radius: 36px 0 0 36px;
+    border-radius: 36px  ;
 
     transition: all 0.5s ease;
     /* z-index: 100000001; */
@@ -2027,8 +2032,8 @@ abbr:hover {
     white-space: nowrap;
     visibility: visible;
     scrollbar-width: none;
-    background: var(--bg-col);
-    /* backdrop-filter: blur(10px); */
+    background: var(--alphacol);
+    backdrop-filter: blur(10px);
     z-index: 1000000;
     top: 100%;
     flex-wrap: wrap;
@@ -2582,25 +2587,12 @@ pre code {
     border: 2px solid var(--accent-col);
     padding: 2px;
     border-radius: 0 0 6px 6px;
-    animation: dashv2 0.5s ease-in-out infinite alternate;
+    /* animation: dashv2 0.5s ease-in-out infinite alternate; */
     color: var(--txtcolinv);
+        box-shadow: 0 0 3900px 100px var(--accent-col);
 }
 
-@keyframes dashv2 {
-    to {
-        /* border-color: #ffffff; */
-        /* box-shadow: 0 0 24px #636363; */
 
-        box-shadow: 0 0 1600rem var(--accent-col);
-    }
-
-    from {
-        /* border-color: #161615; */
-        /* box-shadow: none; */
-        box-shadow: 0 0 140rem var(--accent-col);
-    }
-
-}
 
 .yellow-a {
     font-family: kbd;
@@ -2615,10 +2607,7 @@ pre code {
     white-space: nowrap;
 }
 
-.yellow-a:hover {
-    box-shadow: 0 0 30px var(--accent-col);
 
-}
 
 .yellow-a:hover::after {
     content: ' \2192';
@@ -2760,12 +2749,7 @@ h1 {
 
 }
 
-.kbd:hover {
-    box-shadow: inset 0px 2px 4px #00000041;
-    transition: all 0.2s ease-in-out;
-    transform: translateY(2px);
 
-}
 
 .heart {
     transition: all 0.5s ease-in-out;
