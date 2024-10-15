@@ -1962,7 +1962,7 @@ abbr:hover {
     font-family: graffiti-bold;
     /* display: none; */
     font-size: medium;
-    /* background-color: #16161544; */
+    /* background-color: #ffff00; */
 
 
     visibility: hidden;
@@ -3095,4 +3095,8 @@ footer {
 
 button{
 border-radius: 16px;
+}
+
+.cont li{
+padding: 4px;;
 }

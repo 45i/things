@@ -272,14 +272,14 @@ document.addEventListener("DOMContentLoaded", function () {
           navig.style.height = newHeight;
           navig.style.width = `calc(90vw - 52px + 2.5%)`;
           navig.style.transform = `translateX(5%) translateY(10px)`;
-          menuIcon.style.height = newHeight;
+          menuIcon.style.height = `${parseInt(newHeight) + 1}px`;
           // menuIcon.style.width = `52px`;
           //console.log(newHeight);
           // // menuIcon.style.transform="";
           // navig.style.border = `1px 1px 0px 1px solid lightslategray`
           // menuIcon.style.border = `0px 1px 1px 1px solid lightslategray`
           menuIcon.innerHTML = '<i class="fas fa-caret-up"></i>';
-          menuIcon.style.transform = `translateY(0px) translateX(calc( 70px ))`;
+          menuIcon.style.transform = `translateY(0px) translateX(calc( 72.5px ))`;
           navig.style.transition = 'height 0.5s ease-in-out,width 0.5s ease-in-out, left 0.5s ease-in-out, transform 0.5s ease-in-out, border-radius 0.9s ease-in-out';
           menuIcon.style.transition = 'padding 0.5s ease-in-out,height 0.3s ease-in-out,border 0.5s ease-in-out,transform 0.5s ease-in-out, border-radius 0.9s ease-in-out';
           // menuIcon.style.backdropFilter='blur(10px)';
@@ -288,11 +288,11 @@ document.addEventListener("DOMContentLoaded", function () {
             navig.classList.toggle('collapse');
           }
           // Get the computed height of .navig
-          navbar.style.transform = `translateY(-${parseInt(computedHeight)}px)`;
+          navbar.style.transform = `translateY(-${parseInt(computedHeight) + 0.5}px)`;
           // navig.style.transition = 'height 0.3s ease';
           navbar.style.left = '1vw';
           navbar.style.width = `calc(90vw - 52px + 5% - 3.5vw)`;
-              navbar.style.height = `calc(${navbar.style.height} - 2px)`;
+              navbar.style.height = `calc(${navbar.style.height } - ${parseInt(computedHeight) } )`;
           // const navbar = document.getElementById('navbar');
 
 
@@ -416,6 +416,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.documentElement.style.setProperty('--uielem-col', uicol);
         document.documentElement.style.setProperty('--alphacol', alphacol);
         document.documentElement.style.setProperty('--accent-col', isDarkMode ? 'var(--accent-col-dark)' : 'var(--accent-col-light)');
+        document.getElementsByClassName("logo_img")[0].src = isDarkMode ? 'logos/icon.png' : 'logos/icon_light.png';
 
         // Update the button icon (you can keep your existing code)
       });
