@@ -1661,7 +1661,7 @@ window.addEventListener('scroll', () => {
   const width = Math.max(minWidth, maxWidth - (15 * easedProgress));
   const left = (100 - width) / 2;
   const top = 30 * (scrollY * 3 / maxScroll);
-  const borderRadius = Math.min(maxBorderRadius, 36 * easedProgress);
+  const borderRadius = Math.min(maxBorderRadius, 16 * easedProgress);
 
   header.style.height = `${height}vh`;
   header.style.width = `${width}vw`;
@@ -1688,5 +1688,84 @@ document.addEventListener("DOMContentLoaded", function () {
     header.appendChild(scrollDownDiv.cloneNode(true));
   });
 });
-
-
+document.addEventListener('DOMContentLoaded', function() {
+    const customScrollbar = document.createElement('div');
+    customScrollbar.classList.add('custom-scrollbar');
+    
+    const customThumb = document.createElement('div');
+    customThumb.classList.add('custom-thumb');
+    customScrollbar.appendChild(customThumb);
+    
+    document.body.appendChild(customScrollbar);
+    
+    function updateThumbHeight() {
+        const scrollRatio = window.innerHeight / document.body.scrollHeight;
+        customThumb.style.height = `${scrollRatio * 100}%`;
+        customScrollbar.style.height = `calc(100% - ${scrollRatio * 100}%)`;
+    }
+    
+    let isHovering = false;
+    customThumb.addEventListener('mouseover', () => {
+        isHovering = true;
+        customScrollbar.style.opacity = '1';
+    });
+    
+    customThumb.addEventListener('mouseout', () => {
+        isHovering = false;
+        if (!isScrolling) {
+            customScrollbar.style.opacity = '0';
+        }
+    });
+    
+    let isScrolling = false;
+    let scrollTimeout;
+    
+    function onScroll() {
+        isScrolling = true;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollRatio = scrollTop / (document.body.scrollHeight - window.innerHeight);
+        customThumb.style.top = `${scrollRatio * 100}%`;
+        customScrollbar.style.opacity = '1';
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            isScrolling = false;
+            if (!isHovering) {
+                customScrollbar.style.opacity = '0';
+            }
+        }, 1500); // Hide after 1.5 seconds of no scroll
+    }
+    
+    function onThumbDrag(e) {
+        const startY = e.clientY;
+        const startTop = parseInt(window.getComputedStyle(customThumb).top, 10);
+        document.body.classList.add('noselect');
+        
+        function onMouseMove(event) {
+            const deltaY = event.clientY - startY;
+            let newTop = startTop + deltaY;
+            
+            // Restrict movement within bounds
+            newTop = Math.max(0, newTop);
+            newTop = Math.min(customScrollbar.clientHeight - customThumb.clientHeight, newTop);
+            
+            const scrollRatio = newTop / customScrollbar.clientHeight;
+            document.documentElement.scrollTop = scrollRatio * (document.body.scrollHeight - window.innerHeight);
+            
+            customThumb.style.top = `${newTop}px`;
+        }
+        
+        function onMouseUp() {
+            document.body.classList.remove('noselect');
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        }
+        
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    }
+    
+    // customThumb.addEventListener('mousedown', onThumbDrag);
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', updateThumbHeight);
+    updateThumbHeight();
+});

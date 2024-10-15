@@ -3108,3 +3108,77 @@ border-radius: 16px;
 .cont li{
 padding: 4px;;
 }
+/* Hide scrollbars */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Optional: just in case there's a padding/margin */
+}
+
+/* For Firefox */
+html {
+    scrollbar-width: none; /* Hide scrollbar on Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar on IE/Edge */
+}
+
+/* Show scrollbars when hovering */
+body:hover,
+body:active,
+body:focus {
+    overflow: auto;
+}
+
+/* Hide default scrollbar */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+*::-webkit-scrollbar{
+    display: none;
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar {
+    position: fixed;
+    right: 4px;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s, width 0.3s;
+    overflow: visible; /* Allow overflow */
+    z-index: 100;
+}
+.custom-scrollbar:hover {
+    width: 10px;
+    transition: opacity 0.3s, width 0.3s;
+}
+
+.custom-thumb {
+    position: absolute;
+    width: 95%;
+    background-color: var(--accent-col); /* Accent color */
+    border-radius: 16px;
+    /* cursor: pointer; */
+    transition: box-shadow 0.3s ease-in-out;
+}
+.noselect {
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE10+ */
+    user-select: none;         /* Standard */
+}
+
+.custom-thumb:hover, .custom-thumb:active, .custom-thumb:focus {
+    background-color: var(--accent-col); /* Accent color */
+    box-shadow: 0 0 20px var(--accent-col);
+    transition: box-shadow 0.3s ease-in-out;
+    
+}
+.scrollable::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollable {
+    position: relative;}
