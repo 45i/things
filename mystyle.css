@@ -8,7 +8,8 @@
 :root {
     /* Existing variables */
     --bg-col: #1e2843;
-    --bg-col-light: #f0f0f0; /* Light Grey */
+    --bg-col-light: #f0f0f0;
+    /* Light Grey */
 
     --bg-col-dark: #1e2843;
 
@@ -18,7 +19,8 @@
     --txtcolinv: #262624;
 
     --uielem-col: #28304b;
-    --uielem-col-light: #d3d3d3; /* Light Grey */
+    --uielem-col-light: #d3d3d3;
+    /* Light Grey */
 
     --uielem-col-dark: #28304b;
 
@@ -30,12 +32,15 @@
     --alphacol: #6d80bd4e;
     --alphacol-light: #95b4da62;
     --alphacol-dark: #6d80bd4e;
---accent-col: #4a90e2; /* Light Blue */
---accent-col-dark: #4a90e2; /* Light Blue */
+    --accent-col: #4a90e2;
+    /* Light Blue */
+    --accent-col-dark: #4a90e2;
+    /* Light Blue */
 
 
 
---accent-col-light: #007aff; /* iOS Light Blue */
+    --accent-col-light: #007aff;
+    /* iOS Light Blue */
 
 
     --time-emoji: 'bazinga';
@@ -265,7 +270,7 @@ body {
     font-family: kbd;
     min-width: 21px;
     margin: 4px;
-    padding: 4px ;
+    padding: 4px;
     line-height: 1.5;
     text-align: center;
     background-color: #64646446;
@@ -845,6 +850,7 @@ footer:after {
         text-shadow: 0 0 30px rgba(218, 165, 32, 0.8);
     }
 }
+
 button {
     padding: 10px;
     /* min-width: 100px; */
@@ -852,7 +858,7 @@ button {
     position: relative;
 
     /* margin-bottom: 0px; */
-    border-radius: 16px ;
+    border-radius: 16px;
     /* backdrop-filter: blur(10px); */
     text-align: center;
     /* cursor: pointer; */
@@ -879,7 +885,7 @@ button {
     border-style: solid;
     text-align: center;
     font-size: large;
-    box-shadow: 0 0 80px var(--accent-col) ;
+    box-shadow: 0 0 80px var(--accent-col);
 }
 
 .button-container {
@@ -894,7 +900,7 @@ button:hover {
     /* width: 200px; */
     padding: 10px;
     /* background-color: #007bff00; */
-    color: var(--txtcolinv) ;
+    color: var(--txtcolinv);
     border-radius: 5px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
     /* font-family: thin; */
@@ -1147,7 +1153,7 @@ h2 {
     /* box-shadow: inset 0 4px 8px #000000; */
     background: #20201f00;
     /* width: 2px; */
-    border:none;
+    border: none;
     /* backdrop-filter: blur(10px); */
     /* display: none; */
     /* opacity: 0; */
@@ -1191,7 +1197,7 @@ h2 {
 .options {
     background-color: #0000;
     padding: 2px;
-   border-radius: 56px;
+    border-radius: 56px;
 }
 
 .navmenu>* {
@@ -1240,7 +1246,7 @@ h2 {
     /* opacity: 100%; */
     /* z-index: 10; */
     /* position: fixed; */
-    border-radius: 52px ;
+    border-radius: 52px;
     width: 52px;
     /* border: var(--uielem-col) 1px solid; */
     /* transform: translateX(); */
@@ -1272,7 +1278,7 @@ h2 {
     transition: all 0.7s ease;
     /* box-shadow: 0 0 0px var(--accent-col); */
     transform: translateX(12%) translateY(12%) !important;
-    filter: drop-shadow(0 0 20x  var(--accent-col));
+    filter: drop-shadow(0 0 20x var(--accent-col));
     height: max-content;
 }
 
@@ -1601,20 +1607,20 @@ abbr {
 @keyframes bounce {
     0% {
         transform: translateY(0);
-    font-size: larger !important;
+        font-size: larger !important;
 
     }
 
     50% {
         transform: translateY(-20px) scale(0.1);
 
-    font-size: small !important;
+        font-size: small !important;
     }
 
     100% {
         transform: translateY(0);
-    /* font-size: larger !important; */
-    font-size: larger !important;
+        /* font-size: larger !important; */
+        font-size: larger !important;
 
     }
 }
@@ -1635,13 +1641,15 @@ abbr {
     -webkit-animation: bounce 2s infinite;
     height: 50px;
     width: 50px;
-    transition:all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
 }
+
 .scroll-down:hover {
     opacity: 1;
-    transition:all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
+
 .scroll-icon {
     background: var(--accent-col);
     -webkit-background-clip: text;
@@ -1659,7 +1667,7 @@ abbr {
     text-shadow: 0 0px 12px var(--txtcol);
 
     -webkit-background-clip: text;
-    
+
     -webkit-text-fill-color: transparent;
     transition: all 0.5s ease-in-out;
     /* -webkit-background-clip: text;
@@ -1979,7 +1987,7 @@ abbr:hover {
     flex-direction: row;
     justify-content: center;
     /* border-radius: 0px 0px 0px 10px; */
-    border-radius: 36px  ;
+    border-radius: 36px;
 
     transition: all 0.5s ease;
     /* z-index: 100000001; */
@@ -2107,6 +2115,7 @@ body {
     background-size: 10px;
     background-repeat: no-repeat;
 }
+
 ::-webkit-scrollbar-button:single-button:hover {
     /* background-color: rgb(64, 64, 64); */
     background-color: var(--uielem-col);
@@ -2589,7 +2598,7 @@ pre code {
     border-radius: 0 0 6px 6px;
     /* animation: dashv2 0.5s ease-in-out infinite alternate; */
     color: var(--txtcolinv);
-        box-shadow: 0 0 3900px 100px var(--accent-col);
+    box-shadow: 0 0 3900px 100px var(--accent-col);
 }
 
 
@@ -3001,7 +3010,7 @@ footer {
 .ghost-poof {
 
 
-    filter: drop-shadow(0 0 70px  var(--accent-col) );
+    filter: drop-shadow(0 0 70px var(--accent-col));
     transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
     background-color: var(--accent-col);
     border: none;
@@ -3085,23 +3094,28 @@ footer {
 
 }
 
-button{
-border-radius: 16px;
+button {
+    border-radius: 16px;
 }
 
-.cont li{
-padding: 4px;;
+.cont li {
+    padding: 4px;
+    ;
 }
+
 /* Hide scrollbars */
 ::-webkit-scrollbar {
     width: 0px;
-    background: transparent; /* Optional: just in case there's a padding/margin */
+    background: transparent;
+    /* Optional: just in case there's a padding/margin */
 }
 
 /* For Firefox */
 html {
-    scrollbar-width: none; /* Hide scrollbar on Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar on IE/Edge */
+    scrollbar-width: none;
+    /* Hide scrollbar on Firefox */
+    -ms-overflow-style: none;
+    /* Hide scrollbar on IE/Edge */
 }
 
 /* Show scrollbars when hovering */
@@ -3116,7 +3130,7 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-*::-webkit-scrollbar{
+*::-webkit-scrollbar {
     display: none;
 }
 
@@ -3131,9 +3145,11 @@ body::-webkit-scrollbar {
     border-radius: 10px;
     opacity: 0;
     transition: opacity 0.3s, width 0.3s;
-    overflow: visible; /* Allow overflow */
+    overflow: visible;
+    /* Allow overflow */
     z-index: 100;
 }
+
 .custom-scrollbar:hover {
     width: 10px;
     transition: opacity 0.3s, width 0.3s;
@@ -3142,27 +3158,38 @@ body::-webkit-scrollbar {
 .custom-thumb {
     position: absolute;
     width: 95%;
-    background-color: var(--accent-col); /* Accent color */
+    background-color: var(--accent-col);
+    /* Accent color */
     border-radius: 16px;
     /* cursor: pointer; */
     transition: box-shadow 0.3s ease-in-out;
 }
+
 .noselect {
-    -webkit-user-select: none; /* Chrome/Safari */
-    -moz-user-select: none;    /* Firefox */
-    -ms-user-select: none;     /* IE10+ */
-    user-select: none;         /* Standard */
+    -webkit-user-select: none;
+    /* Chrome/Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+ */
+    user-select: none;
+    /* Standard */
 }
 
-.custom-thumb:hover, .custom-thumb:active, .custom-thumb:focus {
-    background-color: var(--accent-col); /* Accent color */
+.custom-thumb:hover,
+.custom-thumb:active,
+.custom-thumb:focus {
+    background-color: var(--accent-col);
+    /* Accent color */
     box-shadow: 0 0 20px var(--accent-col);
     transition: box-shadow 0.3s ease-in-out;
-    
+
 }
+
 .scrollable::-webkit-scrollbar {
     display: none;
 }
 
 .scrollable {
-    position: relative;}
+    position: relative;
+}
