@@ -1769,3 +1769,114 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', updateThumbHeight);
     updateThumbHeight();
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const images = document.querySelectorAll("img"); // Select all images on the page
+
+  function isColorTooDarkOrLight(r, g, b) {
+    // Calculate brightness (YIQ formula is commonly used)
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    // Define thresholds for dark and light colors
+    return brightness < 50 || brightness > 230; // Colors too dark (< 50) or too light (> 230)
+  }
+
+  function getBorderColors(image) {
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+
+    // Set canvas dimensions to match the image
+    canvas.width = image.width;
+    canvas.height = image.height;
+
+    // Draw the image onto the canvas
+    context.drawImage(image, 0, 0, image.width, image.height);
+
+    // Get the pixel data from the canvas
+    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+    const pixels = imageData.data;
+
+    // Initialize arrays to store border colors
+    const topBorderColors = [];
+    const bottomBorderColors = [];
+    const leftBorderColors = [];
+    const rightBorderColors = [];
+
+    // Extract top and bottom border colors
+    for (let x = 0; x < canvas.width; x++) {
+      const topIndex = (x * 4); // top row pixel index
+      const bottomIndex = ((canvas.height - 1) * canvas.width + x) * 4; // bottom row pixel index
+
+      // Get top border RGB values
+      const topR = pixels[topIndex];
+      const topG = pixels[topIndex + 1];
+      const topB = pixels[topIndex + 2];
+
+      // Get bottom border RGB values
+      const bottomR = pixels[bottomIndex];
+      const bottomG = pixels[bottomIndex + 1];
+      const bottomB = pixels[bottomIndex + 2];
+
+      // Filter out extremely dark and extremely light colors
+      if (!isColorTooDarkOrLight(topR, topG, topB)) {
+        topBorderColors.push(`rgb(${topR},${topG},${topB})`);
+      }
+      if (!isColorTooDarkOrLight(bottomR, bottomG, bottomB)) {
+        bottomBorderColors.push(`rgb(${bottomR},${bottomG},${bottomB})`);
+      }
+    }
+
+    // Extract left and right border colors
+    for (let y = 0; y < canvas.height; y++) {
+      const leftIndex = (y * canvas.width * 4); // left column pixel index
+      const rightIndex = (y * canvas.width * 4 + (canvas.width - 1) * 4); // right column pixel index
+
+      // Get left border RGB values
+      const leftR = pixels[leftIndex];
+      const leftG = pixels[leftIndex + 1];
+      const leftB = pixels[leftIndex + 2];
+
+      // Get right border RGB values
+      const rightR = pixels[rightIndex];
+      const rightG = pixels[rightIndex + 1];
+      const rightB = pixels[rightIndex + 2];
+
+      // Filter out extremely dark and extremely light colors
+      if (!isColorTooDarkOrLight(leftR, leftG, leftB)) {
+        leftBorderColors.push(`rgb(${leftR},${leftG},${leftB})`);
+      }
+      if (!isColorTooDarkOrLight(rightR, rightG, rightB)) {
+        rightBorderColors.push(`rgb(${rightR},${rightG},${rightB})`);
+      }
+    }
+
+    // Return the most common or median colors for each side
+    return {
+      top: topBorderColors.length ? topBorderColors[Math.floor(topBorderColors.length / 2)] : 'rgb(128,128,128)', // fallback grey
+      bottom: bottomBorderColors.length ? bottomBorderColors[Math.floor(bottomBorderColors.length / 2)] : 'rgb(128,128,128)', // fallback grey
+      left: leftBorderColors.length ? leftBorderColors[Math.floor(leftBorderColors.length / 2)] : 'rgb(128,128,128)', // fallback grey
+      right: rightBorderColors.length ? rightBorderColors[Math.floor(rightBorderColors.length / 2)] : 'rgb(128,128,128)' // fallback grey
+    };
+  }
+
+  // Loop through each image and attach hover event listeners
+  images.forEach(function(image) {
+    image.addEventListener("mouseenter", function() {
+  const borderColors = getBorderColors(image);
+
+  // Apply glowing edge effect using `box-shadow` with reduced alpha
+  image.style.boxShadow = `
+    0 -10px 66px 0px rgba(${borderColors.top.slice(4, -1)}, 0.5), 
+    0 10px 66px 0px rgba(${borderColors.bottom.slice(4, -1)}, 0.5), 
+    -10px 0 66px 0px rgba(${borderColors.left.slice(4, -1)}, 0.2), 
+    10px 0 66px 0px rgba(${borderColors.right.slice(4, -1)}, 0.5)
+  `;
+});
+
+
+    image.addEventListener("mouseleave", function() {
+      // Remove the box-shadow on mouse leave
+      image.style.boxShadow = "none";
+    });
+  });
+});
+
