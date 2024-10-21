@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // navig.style.transition = 'height 0.3s ease';
           navbar.style.left = '1vw';
           navbar.style.width = `calc(90vw - 52px + 5% - 3.5vw)`;
-              navbar.style.height = `calc(${navbar.style.height } - ${parseInt(computedHeight) } )`;
+          navbar.style.height = `calc(${navbar.style.height} - ${parseInt(computedHeight)} )`;
           // const navbar = document.getElementById('navbar');
 
 
@@ -381,12 +381,46 @@ document.addEventListener("DOMContentLoaded", function () {
           // closeButton.style.transition="transform 0.5s ease-in-out"
         }
       });
-      const modeButton = document.querySelector(".colormode");
+      var modeButton = document.querySelector('.colormode');
+
+      // Function to apply dark or light mode
+      function applyMode(isDarkMode) {
+        document.body.classList.toggle('dark-mode', isDarkMode);
+        document.body.classList.toggle('light-mode', !isDarkMode);
+        modeButton.innerHTML = isDarkMode ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        document.documentElement.style.setProperty('--button-bg', isDarkMode ? 'url(darkmode.png)' : 'url(lightmode.png)');
+        document.documentElement.style.setProperty('--modebuttoncol', isDarkMode ? 'wheat' : 'lemonchiffon');
+        document.documentElement.style.setProperty('--transitioncol', isDarkMode ? 'rgba(0, 46, 101, 1)' : 'rgba(0, 157, 255, 1)');
+        var bgCol = isDarkMode ? 'var(--bg-col-dark)' : 'var(--bg-col-light)';
+        var txtcol = isDarkMode ? 'var(--txtcol-dark)' : 'var(--txtcol-light)';
+        var txtcolinv = isDarkMode ? 'var(--txtcol-light)' : 'var(--txtcol-dark)';
+        var uicol = isDarkMode ? 'var(--uielem-col-dark)' : 'var(--uielem-col-light)';
+        var alphacol = isDarkMode ? 'var(--alphacol-dark)' : 'var(--alphacol-light)';
+        document.documentElement.style.setProperty('--txtcol', txtcol);
+        document.documentElement.style.setProperty('--txtcolinv', txtcolinv);
+        document.documentElement.style.setProperty('--bg-col', bgCol);
+        document.documentElement.style.setProperty('--uielem-col', uicol);
+        document.documentElement.style.setProperty('--alphacol', alphacol);
+        document.documentElement.style.setProperty('--accent-col', isDarkMode ? 'var(--accent-col-dark)' : 'var(--accent-col-light)');
+        document.getElementsByClassName("logo_img")[0].src = isDarkMode ? 'logos/icon.png' : 'logos/icon_light.png';
+      }
+
+      // Load mode from local storage on page load
+      document.addEventListener('DOMContentLoaded', function () {
+        var isDarkMode = localStorage.getItem('darkMode') === 'true';
+        applyMode(isDarkMode);
+      });
+
+
 
       modeButton.addEventListener('click', function () {
         //  document.body.classList.add('dark-mode');
         document.body.classList.toggle('dark-mode');
         const isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode);
+
+        // Apply mode changes
+        // applyMode(isDarkMode);
         const buttonBg = '';
         if (!isDarkMode) {
           modeButton.innerHTML = '<i class="fas fa-sun"></i>';
@@ -421,8 +455,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // Update the button icon (you can keep your existing code)
       });
 
-      element.addEventListener('mouseleave', () => {
-        element.style.backgroundImage = buttonBg; // Reset background image
+      modeButton.addEventListener('mouseleave', () => {
+        modeButton.style.backgroundImage = buttonBg; // Reset background image
       });
 
       // Attach the click event listener to each .committee element
@@ -719,8 +753,18 @@ const back = document.querySelector('.header');
 // });
 var loader = document.getElementById("preloader");
 window.addEventListener("load", function () {
-  loader.style.display = "none";
+  var opacity = 1;
+  var fadeOutInterval = setInterval(function () {
+    if (opacity <= 0) {
+      clearInterval(fadeOutInterval);
+      loader.style.display = "none";
+    }
+    loader.style.opacity = opacity;
+    opacity -= 0.1;
+  }, 100); // Adjust the interval time and decrement value for smoother or faster fading
 });
+
+
 const scrollDown = document.querySelector('.scroll-down');
 const targetElement = document.querySelector('#target-element');
 
@@ -1688,89 +1732,89 @@ document.addEventListener("DOMContentLoaded", function () {
     header.appendChild(scrollDownDiv.cloneNode(true));
   });
 });
-document.addEventListener('DOMContentLoaded', function() {
-    const customScrollbar = document.createElement('div');
-    customScrollbar.classList.add('custom-scrollbar');
-    
-    const customThumb = document.createElement('div');
-    customThumb.classList.add('custom-thumb');
-    customScrollbar.appendChild(customThumb);
-    
-    document.body.appendChild(customScrollbar);
-    
-    function updateThumbHeight() {
-        const scrollRatio = window.innerHeight / document.body.scrollHeight;
-        customThumb.style.height = `${scrollRatio * 100}%`;
-        customScrollbar.style.height = `calc(100% - ${scrollRatio * 100}%)`;
+document.addEventListener('DOMContentLoaded', function () {
+  const customScrollbar = document.createElement('div');
+  customScrollbar.classList.add('custom-scrollbar');
+
+  const customThumb = document.createElement('div');
+  customThumb.classList.add('custom-thumb');
+  customScrollbar.appendChild(customThumb);
+
+  document.body.appendChild(customScrollbar);
+
+  function updateThumbHeight() {
+    const scrollRatio = window.innerHeight / document.body.scrollHeight;
+    customThumb.style.height = `${scrollRatio * 100}%`;
+    customScrollbar.style.height = `calc(100% - ${scrollRatio * 100}%)`;
+  }
+
+  let isHovering = false;
+  customThumb.addEventListener('mouseover', () => {
+    isHovering = true;
+    customScrollbar.style.opacity = '1';
+  });
+
+  customThumb.addEventListener('mouseout', () => {
+    isHovering = false;
+    if (!isScrolling) {
+      customScrollbar.style.opacity = '0';
     }
-    
-    let isHovering = false;
-    customThumb.addEventListener('mouseover', () => {
-        isHovering = true;
-        customScrollbar.style.opacity = '1';
-    });
-    
-    customThumb.addEventListener('mouseout', () => {
-        isHovering = false;
-        if (!isScrolling) {
-            customScrollbar.style.opacity = '0';
-        }
-    });
-    
-    let isScrolling = false;
-    let scrollTimeout;
-    
-    function onScroll() {
-        isScrolling = true;
-        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        const scrollRatio = scrollTop / (document.body.scrollHeight - window.innerHeight);
-        customThumb.style.top = `${scrollRatio * 100}%`;
-        customScrollbar.style.opacity = '1';
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-            isScrolling = false;
-            if (!isHovering) {
-                customScrollbar.style.opacity = '0';
-            }
-        }, 1500); // Hide after 1.5 seconds of no scroll
+  });
+
+  let isScrolling = false;
+  let scrollTimeout;
+
+  function onScroll() {
+    isScrolling = true;
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollRatio = scrollTop / (document.body.scrollHeight - window.innerHeight);
+    customThumb.style.top = `${scrollRatio * 100}%`;
+    customScrollbar.style.opacity = '1';
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      isScrolling = false;
+      if (!isHovering) {
+        customScrollbar.style.opacity = '0';
+      }
+    }, 1500); // Hide after 1.5 seconds of no scroll
+  }
+
+  function onThumbDrag(e) {
+    const startY = e.clientY;
+    const startTop = parseInt(window.getComputedStyle(customThumb).top, 10);
+    document.body.classList.add('noselect');
+
+    function onMouseMove(event) {
+      const deltaY = event.clientY - startY;
+      let newTop = startTop + deltaY;
+
+      // Restrict movement within bounds
+      newTop = Math.max(0, newTop);
+      newTop = Math.min(customScrollbar.clientHeight - customThumb.clientHeight, newTop);
+
+      const scrollRatio = newTop / customScrollbar.clientHeight;
+      document.documentElement.scrollTop = scrollRatio * (document.body.scrollHeight - window.innerHeight);
+
+      customThumb.style.top = `${newTop}px`;
     }
-    
-    function onThumbDrag(e) {
-        const startY = e.clientY;
-        const startTop = parseInt(window.getComputedStyle(customThumb).top, 10);
-        document.body.classList.add('noselect');
-        
-        function onMouseMove(event) {
-            const deltaY = event.clientY - startY;
-            let newTop = startTop + deltaY;
-            
-            // Restrict movement within bounds
-            newTop = Math.max(0, newTop);
-            newTop = Math.min(customScrollbar.clientHeight - customThumb.clientHeight, newTop);
-            
-            const scrollRatio = newTop / customScrollbar.clientHeight;
-            document.documentElement.scrollTop = scrollRatio * (document.body.scrollHeight - window.innerHeight);
-            
-            customThumb.style.top = `${newTop}px`;
-        }
-        
-        function onMouseUp() {
-            document.body.classList.remove('noselect');
-            document.removeEventListener('mousemove', onMouseMove);
-            document.removeEventListener('mouseup', onMouseUp);
-        }
-        
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onMouseUp);
+
+    function onMouseUp() {
+      document.body.classList.remove('noselect');
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
     }
-    
-    // customThumb.addEventListener('mousedown', onThumbDrag);
-    window.addEventListener('scroll', onScroll);
-    window.addEventListener('resize', updateThumbHeight);
-    updateThumbHeight();
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  }
+
+  // customThumb.addEventListener('mousedown', onThumbDrag);
+  window.addEventListener('scroll', onScroll);
+  window.addEventListener('resize', updateThumbHeight);
+  updateThumbHeight();
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const images = document.querySelectorAll("img"); // Select all images on the page
 
   function isColorTooDarkOrLight(r, g, b) {
@@ -1859,21 +1903,21 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // Loop through each image and attach hover event listeners
-  images.forEach(function(image) {
-    image.addEventListener("mouseenter", function() {
-  const borderColors = getBorderColors(image);
+  images.forEach(function (image) {
+    image.addEventListener("mouseenter", function () {
+      const borderColors = getBorderColors(image);
 
-  // Apply glowing edge effect using `box-shadow` with reduced alpha
-  image.style.boxShadow = `
+      // Apply glowing edge effect using `box-shadow` with reduced alpha
+      image.style.boxShadow = `
     0 -10px 66px 0px rgba(${borderColors.top.slice(4, -1)}, 0.5), 
     0 10px 66px 0px rgba(${borderColors.bottom.slice(4, -1)}, 0.5), 
     -10px 0 66px 0px rgba(${borderColors.left.slice(4, -1)}, 0.2), 
     10px 0 66px 0px rgba(${borderColors.right.slice(4, -1)}, 0.5)
   `;
-});
+    });
 
 
-    image.addEventListener("mouseleave", function() {
+    image.addEventListener("mouseleave", function () {
       // Remove the box-shadow on mouse leave
       image.style.boxShadow = "none";
     });
