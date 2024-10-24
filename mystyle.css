@@ -3,7 +3,7 @@
         @content;
     }
 }
-
+@import url(https://capnkitten.github.io/BetterDiscord/Themes/Material-Discord/css/addons/material-you/source.css);
 
 :root {
     /* Existing variables */
