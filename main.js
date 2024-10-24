@@ -1634,7 +1634,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateThumbHeight() {
     const scrollRatio = window.innerHeight / document.body.scrollHeight;
     customThumb.style.height = `${scrollRatio * 100}%`;
-    customScrollbar.style.height = `calc(100% - ${scrollRatio * 100}%)`;
+    customScrollbar.style.height = `calc(100% - ${scrollRatio * 62.5}%)`;
   }
 
   let isHovering = false;
@@ -1797,12 +1797,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const borderColors = getBorderColors(image);
 
       // Apply glowing edge effect using `box-shadow` with reduced alpha
-      image.style.boxShadow = `
-    0 -10px 66px 0px rgba(${borderColors.top.slice(4, -1)}, 0.5), 
-    0 10px 66px 0px rgba(${borderColors.bottom.slice(4, -1)}, 0.5), 
-    -10px 0 66px 0px rgba(${borderColors.left.slice(4, -1)}, 0.2), 
-    10px 0 66px 0px rgba(${borderColors.right.slice(4, -1)}, 0.5)
-  `;
+      
     });
 
 
@@ -1812,4 +1807,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+document.addEventListener("DOMContentLoaded", function() {
+  // Select both the .animated-border-box and .animated-border-box-glow elements
+  const boxes = document.querySelectorAll('.animated-border-box-glow::before');
+  
+  boxes.forEach(box => {
+    // Generate a random delay between 0 and 3 seconds
+    const randomDelay = Math.random() * 3; 
+    
+    // Set the random delay for the ::before pseudo-element via a CSS variable
+    box.style.setProperty('--animation-delay', `${randomDelay}s`);
+  });
+});
 
+
+document.addEventListener("DOMContentLoaded", function() {
+  const animatedBoxes = document.querySelectorAll('.animated-border-box');
+  animatedBoxes.forEach((box, index) => {
+    setTimeout(() => {
+      box.style.animationPlayState = 'running'; // Unpause the animation
+    }, index * 100); // Adjust the delay here (100 ms between each box)
+  });
+});

@@ -14,7 +14,12 @@
 
     <title>Portfolio</title>
 </head>
-
+<style>
+    .animated-border-box:after {
+        
+        background: var(--uielem-col);
+    }
+</style>
 <body>
     <div id="preloader"></div>
     <div class="navbar-container"></div>
@@ -27,8 +32,9 @@
     <br>
     <br>
     <br>
-    <div class="info_text" id="target-element"
-        style=" text-overflow: ellipsis; text-overflow: ellipsis; background: #262624; height: fit-content;">
+    <div class="info_text" style="height: 250vh;" id="target-element"
+        style=" text-overflow: ellipsis; text-overflow: ellipsis; height: fit-content;">
+
 
         <div style="flex-direction: column; align-self: center;">
             <h1
@@ -38,65 +44,148 @@
         </div>
         <br>
         <br>
-        <div class="sticky-text"
-            style="align-items: flex-start; /* Updated property for left alignment */  text-align: left; /* Updated property or left alignment */  padding: 10px;  width: 85vw;padding: 10px;;width: 85vw;">
-            <span class="word">‎ </span>
-            <div class="word">
-                <h1><span>MEGAMUN <span style="color:var(--accent-col)">'23</span></span></h1>
-                <br>
-                MEGAMUN is an annual MUN (<b>M</b>odel <b>U</b>nited <b>N</b>ations) event hosted by Delhi Public
-                School.<br>
-                Last year, ie in <b>2023</b>, I had the wonderful opportunity to design the website for the event. My
-                work involves mostly the front-end aspects( the UI, write-ups, the contents, and some light image
-                editing).
-                <br>
-                As of writing, the website is still functional and can be viewed <a href="https://megamun23.in"
-                    target="_blank" class="yellow-a ">here</a>
-                <br>
-                <div class="wider-text">
-                    <ul class="listing wider-text">
-                        <li>
-                            <img src="portfoliopics/megamun23/Screenshot 2024-04-05 110739.png"
-                                alt="megamun23.in Home Page" />
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="word">
-                <h1>Tic Tac Toad</h1>
-                <br>
-                An experimental tic-tac-toe playing algorithm that does not rely on Machine Learning. Runs on a basic
-                block-first ideology and looks up to 2 moves in the future.<br>Read more about it <a href="tictactoad"
-                    class="yellow-a">here</a>
-                <br>
-                <div class="wider-text">
-                    <ul class="listing wider-text">
-                        <li>
-                            <img src="blogs/TicTacToad/prio_ai.jpg" alt="TicTacToad UI" />
-                        </li>
-                    </ul>
+        <div class="box-container ">
+            <div class="center-box">
+                <!-- START Box -->
+                <div class="animated-border-box-glow"></div>
+
+                <div class="animated-border-box">
+                    <!-- Inside the Box -->
+                    <h1><span>MEGAMUN <span style="color:var(--accent-col)">'23</span></span></h1>
+                    <span style="color: var(--txtcol);">
+                        MEGAMUN is an annual MUN (<b>M</b>odel <b>U</b>nited <b>N</b>ations) event hosted by Delhi
+                        Public
+                        School.<br>
+                        Last year, ie in <b>2023</b>, I had the wonderful opportunity to design the website for the
+                        event. My
+                        work involves mostly the front-end aspects( the UI, write-ups, the contents, and some light
+                        image
+                        editing).
+                        <br>
+                        As of writing, the website is still functional and can be viewed <a href="https://megamun23.in"
+                            target="_blank" class="yellow-a ">here</a>
+                    </span>
+                    <br>
+                    <div class="wider-text">
+                        <ul class="listing wider-text">
+                            <li>
+                                <img src="portfoliopics/megamun23/Screenshot 2024-04-05 110739.png"
+                                    style="width: 50%; height: 50%; border-radius: 16px;"
+                                    alt="megamun23.in Home Page" />
+                                <center>click to enlarge</center>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
 
+                <!-- END -->
             </div>
-            <div class="word">
-                <h1>EXPERIMENTAL GAME</h1>
-                <br>
-                This is a game which involves guns, blood and <span class="kbd">ragdolls✨✨</span>! It doesn't have any
+            <div class="center-box">
+                <!-- START Box -->
+                <div class="animated-border-box-glow"></div>
+
+                <div class="animated-border-box">
+                    <!-- Inside the Box -->
+                    <h1><span>MEGAMUN <span style="color:var(--accent-col)">'24</span></span></h1>
+                    <span style="color: var(--txtcol);">
+                        This year too, I had the privilege of co-designing the website for the event.
+                        This time, I had assumed more of a design-centric role.
+                        <br>
+                        As of writing, the website is still functional and can be viewed <a href="https://megamun23.in"
+                            target="_blank" class="yellow-a ">here</a>
+                    </span>
+                    <br>
+                    <div class="wider-text">
+                        <ul class="listing wider-text">
+                            <li>
+                                <img src="portfoliopics/megamun24/homepage.png"
+                                    style="width: 50%; height: 50%; border-radius: 16px;"
+                                    alt="megamun23.in Home Page" />
+                                <center>click to enlarge</center>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- END -->
+            </div>
+            <div class="center-box">
+                <!-- START Box -->
+                <div class="animated-border-box-glow"></div>
+
+                <div class="animated-border-box">
+                    <!-- Inside the Box -->
+                    <h1>TicTacToad</h1>
+                    <span style="color: var(--txtcol);">
+                        <br>
+                        An experimental tic-tac-toe playing algorithm that does not rely on Machine Learning. Runs on a
+                        basic
+                        block-first ideology and looks up to 2 moves in the future.<br>Read more about it <a
+                            href="tictactoad" class="yellow-a">here</a>
+                        <br>
+                        <div class="wider-text">
+                            <ul class="listing wider-text">
+                                <li>
+                                    <img src="blogs/TicTacToad/prio_ai.jpg"
+                                        style="width: 50%; height: 50%; border-radius: 16px;" alt="TicTacToad UI" />
+                                    <center>click to enlarge</center>
+                                </li>
+                            </ul>
+                        </div>
+
+                </div>
+
+                <!-- END -->
+            </div>
+            <div class="center-box">
+                <!-- START Box -->
+                <div class="animated-border-box-glow"></div>
+
+                <div class="animated-border-box">
+                    <!-- Inside the Box -->
+                    <h1>Experimental Game</h1>
+                    <span style="color: var(--txtcol);">
+                        <br>
+                        <span class="kbd">Project GTX</span>
+                        <br>
+                        This is a game which involves guns, blood and <span class="kbd">ragdolls✨✨</span>! It doesn't have any
                 story or anything behind it and merely serves as a test of how much I can push my coding skills.<br>
                 The player is limited to one gun. The game is currently, and forever will be, in the development stage.
                 <br>Engine Used: Unreal Engine w/ Visual Scripting
+                        <br>
+                        
+
+                </div>
+
+                <!-- END -->
             </div>
-            <div class="word">
-                <h1>EXPERIMENTAL CHESS GAME</h1>
-                <br>
-                Another experimental game. It's still in development. The idea behind it was to use the FEN notation to
+            <div class="center-box">
+                 <!-- START Box -->
+                <div class="animated-border-box-glow"></div>
+
+                <div class="animated-border-box">
+                    <!-- Inside the Box -->
+                    <h1>Experimental Chess Game</h1>
+                    <span style="color: var(--txtcol);">
+                        <br>
+                        <!-- <span class="kbd">Project GTX</span> -->
+                        <br>
+                         Another experimental game. It's still in development. The idea behind it was to use the FEN notation to
                 generate the board at the start of the game. We then update the board, along with the FEN string to show
                 the current state of the board.
                 <br>
                 Most mechanics have been coded in, except for most notably, the movement of the king.
-            </div>
+                        <br>
+                        
 
+                </div>
+
+                <!-- END -->
+            </div>
         </div>
+        
     </div>
     <br>
     <br>

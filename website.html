@@ -13,6 +13,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <!-- <title>45i Does Stuff</title> -->
 </head>
+<style>
+    .animated-border-box:after {
+        background: var(--bg-col) !important;
+        border: none;
+    }
+    </style>
 <body>
     <div id="preloader"></div>
     <div class="navbar-container"></div>
@@ -22,14 +28,15 @@
 
                 <div>
                     <strong class=""
-                        style="      font-size: medium; line-height: 10vh; color: var(--txtcol); font:st; white-space:nowrap;font-family: kbd;"> hello <strong class="gradient-text " style="font-family: kbd;" >world</strong></strong>
+                        style="      font-size: medium; line-height: 10vh; color: var(--txtcol); font:st; white-space:nowrap;font-family: kbd;">
+                        hello <strong class="gradient-text " style="font-family: kbd;">world</strong></strong>
                 </div>
             </div>
         </div>
         <br>
         <br>
 
-        
+
         <div class="scroll-down"><strong><i class="fas " style="      font-size: large; "></i></strong>
         </div>
     </header>
@@ -49,10 +56,10 @@
                 <span class="word bold perma ">‎</span>
                 <span class="word bold fix-top opaque" style="" id="about">
                     <div style="      flex-direction: column; align-self: center;">
-                    
+
                         <a href=" me"><button class="ext-btn hover-gold"
-                            style="      background-color: transparent; border-width: 2px;border-color: var(--accent-col);border-style: solid;text-align: center; color: var(--txtcol);font-size: medium;box-shadow: none; &hover{background-color: var(--accent-col);}">About
-                            Me</button></a>
+                                style="      background-color: transparent; border-width: 2px;border-color: var(--accent-col);border-style: solid;text-align: center; color: var(--txtcol);font-size: medium;box-shadow: none; &hover{background-color: var(--accent-col);}">About
+                                Me</button></a>
                     </div>
                 </span>
                 <span class="word bold" style="font-size: xxx-large;" id=""><b>THE</b></span>
@@ -62,7 +69,8 @@
                 <span class="word bold" style="font-size: xxx-large;" id="code"><b>PROGRAMMER</b></span>
 
                 <span class="word bold" style="font-size: xxx-large;" id="repeat"><b>ALIVE</b></span>
-                <span class="word  bold" style=" font-size: xxx-large;     z-index: 0;" id="repeat"><b style="text-transform: uppercase; color: var(--accent-col);">Source: I made it up</b></span>
+                <span class="word  bold" style=" font-size: xxx-large;     z-index: 0;" id="repeat"><b
+                        style="text-transform: uppercase; color: var(--accent-col);">Source: I made it up</b></span>
 
 
                 <span class="">‎</span>
@@ -73,7 +81,69 @@
         </h1>
 
     </div>
+    <br>
+    <br>
+    <br>
+    <div class="info_text" style="height: 200vh;" />
+    <div class="info_text" style="height: 200vh;">
+        <div class="post-right" style="width: fit-content;">
+            <div class="post-right_body">
+                <div class="">
+                    <h1 style="font-size: xxx-large;"><b>ps. Check these out</b></h1>
+                    <div class="box-container ">
+                        <div class="center-box">
+                            <!-- START Box -->
+                            <div class="animated-border-box-glow"></div>
+                            <a href="software" style="text-decoration: none; ;">
+                                <div class="animated-border-box">
+                                    <!-- Inside the Box -->
+                                    software
+                                </div>
+                            </a>
+                            <!-- END -->
+                        </div>
+                        <div class="center-box">
+                            <!-- START Box -->
+                            <div class="animated-border-box-glow"></div>
+                            <a href="blogs" style="text-decoration: none; ;">
+                                <div class="animated-border-box">
+                                    <!-- Inside the Box -->
+                                    writeups
+                                </div>
+                            </a>
+                            <!-- END -->
+                        </div>
+                        <div class="center-box">
+                            <div class="animated-border-box-glow"></div>
+                            <!-- START Box -->
+                            <a href="portfolio" style="text-decoration: none; ;">
+                                <div class="animated-border-box">
+                                    <!-- Inside the Box -->
+                                    portfolio
+                                </div>
+                            </a>
+                            <!-- END -->
+                        </div>
+                        <div class="center-box">
+                            <!-- START Box -->
+                            <div class="animated-border-box-glow">
+                            </div>
 
+                            <div class="animated-border-box">
+                                <!-- Inside the Box -->
+                                and more
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    </div>
 
 
     <div class="footer-container" style=""></div>
@@ -212,19 +282,19 @@ const text = container.innerText;
 container.innerHTML = text.split(' ')
 .map(word => `<span class="glow-text">${word}</span>`)
 .join(' ');
-
+ 
 const glowWords = document.querySelectorAll('.glow-text');
-
+ 
 glowWords.forEach(word => {
 word.addEventListener('mouseover', () => {
 word.style.color = '#ffcc00'; // Your glow color goes here
 });
-
+ 
 word.addEventListener('mouseout', () => {
 word.style.color = ''; // Reset to default color when not hovering
 });
 });
-        </script> -->
+  </script> -->
     <script>
         const words = document.querySelectorAll('.word');
         const delay = 1500; // Increase the delay for less sensitivity
